@@ -1,35 +1,22 @@
 {
-  "generatedAt": "2026-02-22T05:49:16.287Z",
+  "generatedAt": "2025-04-05T14:20:00.000Z",
   "categories": {
     "sync": {
-      "rdapBootstrap": {
-        "updatedAt": "2026-02-22T05:44:27.161Z"
-      },
       "dns": {
-        "updatedAt": "2026-02-22T05:44:27.161Z",
+        "updatedAt": "2025-04-05T14:20:00.000Z",
         "sourceUrl": "https://data.iana.org/rdap/dns.json",
-        "publication": "2026-02-13T23:00:01Z"
-      },
-      "tldList": {
-        "lastSyncedAt": "2026-02-22T05:44:27.283Z",
-        "tldCount": 1436,
-        "fileSize": 12480,
-        "source": "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
+        "publication": "2025-04-05T00:00:00Z"
       },
       "whois": {
-        "updatedAt": "2026-02-22T05:44:27.161Z",
+        "updatedAt": "2025-04-05T14:20:00.000Z",
         "sources": {
           "dns": "https://data.iana.org/rdap/dns.json",
           "publicSuffixList": "https://publicsuffix.org/list/public_suffix_list.dat",
           "gtldsJson": "https://www.icann.org/resources/registries/gtlds/v2/gtlds.json",
-          "geoTlds": "local-file",
-          "rdapExtra": "local-file"
+          "geoTlds": "manual",
+          "rdapExtra": "local"
         }
       }
-    },
-    "cache": {
-      "lastAccessAt": "2026-02-22T05:49:16.287Z",
-      "lastRefreshAt": "2026-02-22T05:44:27.292Z"
     }
   }
 }
