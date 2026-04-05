@@ -1,0 +1,8077 @@
+{
+  "checkedAt": "2026-02-21T18:17:38.344Z",
+  "sourceFile": "data/tlds.json",
+  "summary": {
+    "totalUniqueSuffixes": 1455,
+    "queryable": 1452,
+    "unqueryable": 3,
+    "queryableRate": 99.79,
+    "cannotQueryRootButQueryable": 205
+  },
+  "queryable": [
+    "aaa",
+    "aarp",
+    "abb",
+    "abbott",
+    "abbvie",
+    "abc",
+    "able",
+    "abogado",
+    "abudhabi",
+    "ac",
+    "academy",
+    "accenture",
+    "accountant",
+    "accountants",
+    "aco",
+    "actor",
+    "ad",
+    "ads",
+    "adult",
+    "ae",
+    "aeg",
+    "aero",
+    "aetna",
+    "af",
+    "afl",
+    "africa",
+    "ag",
+    "agakhan",
+    "agency",
+    "ai",
+    "aig",
+    "airbus",
+    "airforce",
+    "airtel",
+    "akdn",
+    "al",
+    "alibaba",
+    "alipay",
+    "allfinanz",
+    "allstate",
+    "ally",
+    "alsace",
+    "alstom",
+    "am",
+    "amazon",
+    "americanexpress",
+    "americanfamily",
+    "amex",
+    "amfam",
+    "amica",
+    "amsterdam",
+    "analytics",
+    "android",
+    "anquan",
+    "anz",
+    "ao",
+    "aol",
+    "apartments",
+    "app",
+    "apple",
+    "aq",
+    "aquarelle",
+    "ar",
+    "arab",
+    "aramco",
+    "archi",
+    "army",
+    "arpa",
+    "art",
+    "arte",
+    "as",
+    "asda",
+    "asia",
+    "associates",
+    "at",
+    "athleta",
+    "attorney",
+    "au",
+    "auction",
+    "audi",
+    "audible",
+    "audio",
+    "auspost",
+    "author",
+    "auto",
+    "autos",
+    "aw",
+    "aws",
+    "ax",
+    "axa",
+    "az",
+    "azure",
+    "ba",
+    "baby",
+    "baidu",
+    "banamex",
+    "band",
+    "bank",
+    "bar",
+    "barcelona",
+    "barclaycard",
+    "barclays",
+    "barefoot",
+    "bargains",
+    "baseball",
+    "basketball",
+    "bauhaus",
+    "bayern",
+    "bb",
+    "bbc",
+    "bbt",
+    "bbva",
+    "bcg",
+    "bcn",
+    "bd",
+    "be",
+    "beats",
+    "beauty",
+    "beer",
+    "berlin",
+    "best",
+    "bestbuy",
+    "bet",
+    "bf",
+    "bg",
+    "bh",
+    "bharti",
+    "bi",
+    "bible",
+    "bid",
+    "bike",
+    "bing",
+    "bingo",
+    "bio",
+    "biz",
+    "bj",
+    "black",
+    "blackfriday",
+    "blockbuster",
+    "blog",
+    "bloomberg",
+    "blue",
+    "bm",
+    "bms",
+    "bmw",
+    "bn",
+    "bnpparibas",
+    "bo",
+    "boats",
+    "boehringer",
+    "bofa",
+    "bom",
+    "bond",
+    "boo",
+    "book",
+    "booking",
+    "bosch",
+    "bostik",
+    "boston",
+    "bot",
+    "boutique",
+    "box",
+    "br",
+    "br.com",
+    "bradesco",
+    "bridgestone",
+    "broadway",
+    "broker",
+    "brother",
+    "brussels",
+    "bs",
+    "bt",
+    "build",
+    "builders",
+    "business",
+    "buy",
+    "buzz",
+    "bv",
+    "bw",
+    "by",
+    "bz",
+    "bzh",
+    "ca",
+    "cab",
+    "cafe",
+    "cal",
+    "call",
+    "calvinklein",
+    "cam",
+    "camera",
+    "camp",
+    "canon",
+    "capetown",
+    "capital",
+    "capitalone",
+    "car",
+    "caravan",
+    "cards",
+    "care",
+    "career",
+    "careers",
+    "cars",
+    "casa",
+    "case",
+    "cash",
+    "casino",
+    "cat",
+    "catering",
+    "catholic",
+    "cba",
+    "cbn",
+    "cbre",
+    "cc",
+    "cd",
+    "center",
+    "ceo",
+    "cern",
+    "cf",
+    "cfa",
+    "cfd",
+    "cg",
+    "ch",
+    "chanel",
+    "channel",
+    "charity",
+    "chase",
+    "chat",
+    "cheap",
+    "chintai",
+    "christmas",
+    "chrome",
+    "church",
+    "ci",
+    "cipriani",
+    "circle",
+    "cisco",
+    "citadel",
+    "citi",
+    "citic",
+    "city",
+    "ck",
+    "cl",
+    "claims",
+    "cleaning",
+    "click",
+    "clinic",
+    "clinique",
+    "clothing",
+    "cloud",
+    "club",
+    "clubmed",
+    "cm",
+    "cn",
+    "cn.com",
+    "co",
+    "coach",
+    "codes",
+    "coffee",
+    "college",
+    "cologne",
+    "com",
+    "commbank",
+    "community",
+    "company",
+    "compare",
+    "computer",
+    "comsec",
+    "condos",
+    "construction",
+    "consulting",
+    "contact",
+    "contractors",
+    "cooking",
+    "cool",
+    "coop",
+    "corsica",
+    "country",
+    "coupon",
+    "coupons",
+    "courses",
+    "cpa",
+    "cr",
+    "credit",
+    "creditcard",
+    "creditunion",
+    "cricket",
+    "crown",
+    "crs",
+    "cruise",
+    "cruises",
+    "cu",
+    "cuisinella",
+    "cv",
+    "cw",
+    "cx",
+    "cy",
+    "cymru",
+    "cyou",
+    "cz",
+    "dad",
+    "dance",
+    "data",
+    "date",
+    "dating",
+    "datsun",
+    "day",
+    "dclk",
+    "dds",
+    "de",
+    "de.com",
+    "deal",
+    "dealer",
+    "deals",
+    "degree",
+    "delivery",
+    "dell",
+    "deloitte",
+    "delta",
+    "democrat",
+    "dental",
+    "dentist",
+    "desi",
+    "design",
+    "dev",
+    "dhl",
+    "diamonds",
+    "diet",
+    "digital",
+    "direct",
+    "directory",
+    "discount",
+    "discover",
+    "dish",
+    "diy",
+    "dj",
+    "dk",
+    "dm",
+    "dnp",
+    "do",
+    "docs",
+    "doctor",
+    "dog",
+    "domains",
+    "dot",
+    "download",
+    "drive",
+    "dtv",
+    "dubai",
+    "dupont",
+    "durban",
+    "dvag",
+    "dvr",
+    "dz",
+    "earth",
+    "eat",
+    "ec",
+    "eco",
+    "edeka",
+    "edu",
+    "education",
+    "ee",
+    "eg",
+    "email",
+    "emerck",
+    "energy",
+    "engineer",
+    "engineering",
+    "enterprises",
+    "epson",
+    "equipment",
+    "er",
+    "ericsson",
+    "erni",
+    "es",
+    "esq",
+    "estate",
+    "et",
+    "eu",
+    "eu.com",
+    "eurovision",
+    "eus",
+    "events",
+    "exchange",
+    "expert",
+    "exposed",
+    "express",
+    "extraspace",
+    "fage",
+    "fail",
+    "fairwinds",
+    "faith",
+    "family",
+    "fan",
+    "fans",
+    "farm",
+    "farmers",
+    "fashion",
+    "fast",
+    "fedex",
+    "feedback",
+    "ferrari",
+    "ferrero",
+    "fi",
+    "fidelity",
+    "fido",
+    "film",
+    "final",
+    "finance",
+    "financial",
+    "fire",
+    "firestone",
+    "firmdale",
+    "fish",
+    "fishing",
+    "fit",
+    "fitness",
+    "fj",
+    "fk",
+    "flickr",
+    "flights",
+    "flir",
+    "florist",
+    "flowers",
+    "fly",
+    "fm",
+    "fo",
+    "foo",
+    "food",
+    "football",
+    "ford",
+    "forex",
+    "forsale",
+    "forum",
+    "foundation",
+    "fox",
+    "fr",
+    "free",
+    "fresenius",
+    "frl",
+    "frogans",
+    "frontier",
+    "ftr",
+    "fujitsu",
+    "fun",
+    "fund",
+    "furniture",
+    "futbol",
+    "fyi",
+    "ga",
+    "gal",
+    "gallery",
+    "gallo",
+    "gallup",
+    "game",
+    "games",
+    "gap",
+    "garden",
+    "gay",
+    "gb",
+    "gb.net",
+    "gbiz",
+    "gd",
+    "gdn",
+    "ge",
+    "gea",
+    "gent",
+    "genting",
+    "george",
+    "gf",
+    "gg",
+    "ggee",
+    "gh",
+    "gi",
+    "gift",
+    "gifts",
+    "gives",
+    "giving",
+    "gl",
+    "glass",
+    "gle",
+    "global",
+    "globo",
+    "gm",
+    "gmail",
+    "gmbh",
+    "gmo",
+    "gmx",
+    "gn",
+    "godaddy",
+    "gold",
+    "goldpoint",
+    "golf",
+    "goodyear",
+    "goog",
+    "google",
+    "gop",
+    "got",
+    "gov",
+    "gp",
+    "gq",
+    "gr",
+    "gr.com",
+    "grainger",
+    "graphics",
+    "gratis",
+    "green",
+    "gripe",
+    "grocery",
+    "group",
+    "gs",
+    "gt",
+    "gu",
+    "gucci",
+    "guge",
+    "guide",
+    "guitars",
+    "guru",
+    "gw",
+    "gy",
+    "hair",
+    "hamburg",
+    "hangout",
+    "haus",
+    "hbo",
+    "hdfc",
+    "hdfcbank",
+    "health",
+    "healthcare",
+    "help",
+    "helsinki",
+    "here",
+    "hermes",
+    "hiphop",
+    "hisamitsu",
+    "hitachi",
+    "hiv",
+    "hk",
+    "hkt",
+    "hm",
+    "hn",
+    "hockey",
+    "holdings",
+    "holiday",
+    "homedepot",
+    "homegoods",
+    "homes",
+    "homesense",
+    "honda",
+    "horse",
+    "hospital",
+    "host",
+    "hosting",
+    "hot",
+    "hotels",
+    "hotmail",
+    "house",
+    "how",
+    "hr",
+    "hsbc",
+    "ht",
+    "hu",
+    "hughes",
+    "hyatt",
+    "hyundai",
+    "ibm",
+    "icbc",
+    "ice",
+    "icu",
+    "id",
+    "ie",
+    "ieee",
+    "ifm",
+    "ikano",
+    "il",
+    "im",
+    "imamat",
+    "imdb",
+    "immo",
+    "immobilien",
+    "in",
+    "in.net",
+    "inc",
+    "industries",
+    "infiniti",
+    "info",
+    "ing",
+    "ink",
+    "institute",
+    "insurance",
+    "insure",
+    "int",
+    "international",
+    "intuit",
+    "investments",
+    "io",
+    "ipiranga",
+    "iq",
+    "ir",
+    "irish",
+    "is",
+    "ismaili",
+    "ist",
+    "istanbul",
+    "it",
+    "itau",
+    "itv",
+    "jaguar",
+    "java",
+    "jcb",
+    "je",
+    "jeep",
+    "jetzt",
+    "jewelry",
+    "jio",
+    "jll",
+    "jm",
+    "jmp",
+    "jnj",
+    "jo",
+    "jobs",
+    "joburg",
+    "jot",
+    "joy",
+    "jp",
+    "jpmorgan",
+    "jpn.com",
+    "jprs",
+    "juegos",
+    "juniper",
+    "kaufen",
+    "kddi",
+    "ke",
+    "kerryhotels",
+    "kerryproperties",
+    "kfh",
+    "kg",
+    "kh",
+    "ki",
+    "kia",
+    "kids",
+    "kim",
+    "kindle",
+    "kitchen",
+    "kiwi",
+    "km",
+    "kn",
+    "koeln",
+    "komatsu",
+    "kosher",
+    "kp",
+    "kpmg",
+    "kpn",
+    "kr",
+    "krd",
+    "kred",
+    "kuokgroup",
+    "kw",
+    "ky",
+    "kyoto",
+    "kz",
+    "la",
+    "lacaixa",
+    "lamborghini",
+    "lamer",
+    "land",
+    "landrover",
+    "lanxess",
+    "lasalle",
+    "lat",
+    "latino",
+    "latrobe",
+    "law",
+    "lawyer",
+    "lb",
+    "lc",
+    "lds",
+    "lease",
+    "leclerc",
+    "lefrak",
+    "legal",
+    "lego",
+    "lexus",
+    "lgbt",
+    "li",
+    "lidl",
+    "life",
+    "lifeinsurance",
+    "lifestyle",
+    "lighting",
+    "like",
+    "lilly",
+    "limited",
+    "limo",
+    "lincoln",
+    "link",
+    "live",
+    "living",
+    "lk",
+    "llc",
+    "llp",
+    "loan",
+    "loans",
+    "locker",
+    "locus",
+    "lol",
+    "london",
+    "lotte",
+    "lotto",
+    "love",
+    "lpl",
+    "lplfinancial",
+    "lr",
+    "ls",
+    "lt",
+    "ltd",
+    "ltda",
+    "lu",
+    "lundbeck",
+    "luxe",
+    "luxury",
+    "lv",
+    "ly",
+    "ma",
+    "madrid",
+    "maif",
+    "maison",
+    "makeup",
+    "man",
+    "management",
+    "mango",
+    "map",
+    "market",
+    "marketing",
+    "markets",
+    "marriott",
+    "marshalls",
+    "mattel",
+    "mba",
+    "mc",
+    "mckinsey",
+    "md",
+    "me",
+    "med",
+    "media",
+    "meet",
+    "melbourne",
+    "meme",
+    "memorial",
+    "men",
+    "menu",
+    "merckmsd",
+    "mg",
+    "mh",
+    "miami",
+    "microsoft",
+    "mil",
+    "mini",
+    "mint",
+    "mit",
+    "mitsubishi",
+    "mk",
+    "ml",
+    "mlb",
+    "mls",
+    "mm",
+    "mma",
+    "mn",
+    "mo",
+    "mobi",
+    "mobile",
+    "moda",
+    "moe",
+    "moi",
+    "mom",
+    "monash",
+    "money",
+    "monster",
+    "mormon",
+    "mortgage",
+    "moscow",
+    "moto",
+    "motorcycles",
+    "mov",
+    "movie",
+    "mp",
+    "mq",
+    "mr",
+    "ms",
+    "msd",
+    "mt",
+    "mtn",
+    "mtr",
+    "mu",
+    "museum",
+    "music",
+    "mv",
+    "mw",
+    "mx",
+    "my",
+    "mz",
+    "na",
+    "nab",
+    "nagoya",
+    "name",
+    "navy",
+    "nba",
+    "nc",
+    "ne",
+    "nec",
+    "net",
+    "netbank",
+    "netflix",
+    "network",
+    "neustar",
+    "new",
+    "news",
+    "next",
+    "nextdirect",
+    "nexus",
+    "nf",
+    "nfl",
+    "ng",
+    "ngo",
+    "nhk",
+    "ni",
+    "nico",
+    "nike",
+    "nikon",
+    "ninja",
+    "nissan",
+    "nissay",
+    "nl",
+    "no",
+    "nokia",
+    "norton",
+    "now",
+    "nowruz",
+    "nowtv",
+    "np",
+    "nr",
+    "nra",
+    "nrw",
+    "ntt",
+    "nu",
+    "nyc",
+    "nz",
+    "obi",
+    "observer",
+    "office",
+    "okinawa",
+    "olayan",
+    "olayangroup",
+    "ollo",
+    "om",
+    "omega",
+    "one",
+    "ong",
+    "onl",
+    "online",
+    "ooo",
+    "open",
+    "oracle",
+    "orange",
+    "org",
+    "organic",
+    "origins",
+    "osaka",
+    "otsuka",
+    "ott",
+    "ovh",
+    "pa",
+    "page",
+    "panasonic",
+    "paris",
+    "pars",
+    "partners",
+    "parts",
+    "party",
+    "pay",
+    "pccw",
+    "pe",
+    "pet",
+    "pf",
+    "pfizer",
+    "pg",
+    "ph",
+    "pharmacy",
+    "phd",
+    "philips",
+    "phone",
+    "photo",
+    "photography",
+    "photos",
+    "physio",
+    "pics",
+    "pictet",
+    "pictures",
+    "pid",
+    "pin",
+    "ping",
+    "pink",
+    "pioneer",
+    "pizza",
+    "pk",
+    "pl",
+    "place",
+    "play",
+    "playstation",
+    "plumbing",
+    "plus",
+    "pm",
+    "pn",
+    "pnc",
+    "pohl",
+    "poker",
+    "politie",
+    "porn",
+    "post",
+    "pr",
+    "praxi",
+    "press",
+    "prime",
+    "pro",
+    "prod",
+    "productions",
+    "prof",
+    "progressive",
+    "promo",
+    "properties",
+    "property",
+    "protection",
+    "pru",
+    "prudential",
+    "ps",
+    "pt",
+    "pub",
+    "pw",
+    "pwc",
+    "py",
+    "qa",
+    "qpon",
+    "quebec",
+    "quest",
+    "racing",
+    "radio",
+    "re",
+    "read",
+    "realestate",
+    "realtor",
+    "realty",
+    "recipes",
+    "red",
+    "redumbrella",
+    "rehab",
+    "reise",
+    "reisen",
+    "reit",
+    "reliance",
+    "ren",
+    "rent",
+    "rentals",
+    "repair",
+    "report",
+    "republican",
+    "rest",
+    "restaurant",
+    "review",
+    "reviews",
+    "rexroth",
+    "rich",
+    "richardli",
+    "ricoh",
+    "ril",
+    "rio",
+    "rip",
+    "ro",
+    "rocks",
+    "rodeo",
+    "rogers",
+    "room",
+    "rs",
+    "rsvp",
+    "ru",
+    "ru.com",
+    "rugby",
+    "ruhr",
+    "run",
+    "rw",
+    "rwe",
+    "ryukyu",
+    "sa",
+    "sa.com",
+    "saarland",
+    "safe",
+    "safety",
+    "sakura",
+    "sale",
+    "salon",
+    "samsclub",
+    "samsung",
+    "sandvik",
+    "sandvikcoromant",
+    "sanofi",
+    "sap",
+    "sarl",
+    "sas",
+    "save",
+    "saxo",
+    "sb",
+    "sbi",
+    "sbs",
+    "sc",
+    "scb",
+    "schaeffler",
+    "schmidt",
+    "scholarships",
+    "school",
+    "schule",
+    "schwarz",
+    "science",
+    "scot",
+    "sd",
+    "se",
+    "se.net",
+    "search",
+    "seat",
+    "secure",
+    "security",
+    "seek",
+    "select",
+    "sener",
+    "services",
+    "seven",
+    "sew",
+    "sex",
+    "sexy",
+    "sfr",
+    "sg",
+    "sh",
+    "shangrila",
+    "sharp",
+    "shell",
+    "shia",
+    "shiksha",
+    "shoes",
+    "shop",
+    "shopping",
+    "shouji",
+    "show",
+    "si",
+    "silk",
+    "sina",
+    "singles",
+    "site",
+    "sj",
+    "sk",
+    "ski",
+    "skin",
+    "sky",
+    "skype",
+    "sl",
+    "sling",
+    "sm",
+    "smart",
+    "smile",
+    "sn",
+    "sncf",
+    "so",
+    "soccer",
+    "social",
+    "softbank",
+    "software",
+    "sohu",
+    "solar",
+    "solutions",
+    "song",
+    "sony",
+    "soy",
+    "spa",
+    "space",
+    "sport",
+    "spot",
+    "sr",
+    "srl",
+    "ss",
+    "st",
+    "stada",
+    "staples",
+    "star",
+    "statebank",
+    "statefarm",
+    "stc",
+    "stcgroup",
+    "stockholm",
+    "storage",
+    "store",
+    "stream",
+    "studio",
+    "study",
+    "style",
+    "su",
+    "sucks",
+    "supplies",
+    "supply",
+    "support",
+    "surf",
+    "surgery",
+    "suzuki",
+    "sv",
+    "swatch",
+    "swiss",
+    "sx",
+    "sy",
+    "sydney",
+    "systems",
+    "sz",
+    "tab",
+    "taipei",
+    "talk",
+    "taobao",
+    "target",
+    "tatamotors",
+    "tatar",
+    "tattoo",
+    "tax",
+    "taxi",
+    "tc",
+    "tci",
+    "td",
+    "tdk",
+    "team",
+    "tech",
+    "technology",
+    "tel",
+    "temasek",
+    "tennis",
+    "teva",
+    "tf",
+    "tg",
+    "th",
+    "thd",
+    "theater",
+    "theatre",
+    "tiaa",
+    "tickets",
+    "tienda",
+    "tips",
+    "tires",
+    "tirol",
+    "tj",
+    "tjmaxx",
+    "tjx",
+    "tk",
+    "tkmaxx",
+    "tl",
+    "tm",
+    "tmall",
+    "tn",
+    "to",
+    "today",
+    "tokyo",
+    "tools",
+    "top",
+    "toray",
+    "toshiba",
+    "total",
+    "tours",
+    "town",
+    "toyota",
+    "toys",
+    "tr",
+    "trade",
+    "trading",
+    "training",
+    "travel",
+    "travelers",
+    "travelersinsurance",
+    "trust",
+    "trv",
+    "tt",
+    "tube",
+    "tui",
+    "tunes",
+    "tushu",
+    "tv",
+    "tvs",
+    "tw",
+    "tz",
+    "ua",
+    "ubank",
+    "ubs",
+    "ug",
+    "uk",
+    "uk.com",
+    "uk.net",
+    "unicom",
+    "university",
+    "uno",
+    "uol",
+    "ups",
+    "us",
+    "us.com",
+    "uy",
+    "uz",
+    "v.ua",
+    "va",
+    "vacations",
+    "vana",
+    "vanguard",
+    "vc",
+    "ve",
+    "vegas",
+    "ventures",
+    "verisign",
+    "versicherung",
+    "vet",
+    "vg",
+    "vi",
+    "viajes",
+    "video",
+    "vig",
+    "viking",
+    "villas",
+    "vin",
+    "vip",
+    "virgin",
+    "visa",
+    "vision",
+    "viva",
+    "vivo",
+    "vlaanderen",
+    "vn",
+    "vodka",
+    "volvo",
+    "vote",
+    "voting",
+    "voto",
+    "voyage",
+    "vu",
+    "wales",
+    "walmart",
+    "walter",
+    "wang",
+    "wanggou",
+    "watch",
+    "watches",
+    "weather",
+    "weatherchannel",
+    "webcam",
+    "weber",
+    "website",
+    "wed",
+    "wedding",
+    "weibo",
+    "weir",
+    "wf",
+    "whoswho",
+    "wien",
+    "wiki",
+    "williamhill",
+    "win",
+    "windows",
+    "wine",
+    "winners",
+    "wme",
+    "woodside",
+    "work",
+    "works",
+    "world",
+    "wow",
+    "ws",
+    "wtc",
+    "wtf",
+    "xbox",
+    "xerox",
+    "xihuan",
+    "xin",
+    "xn--11b4c3d",
+    "xn--1ck2e1b",
+    "xn--1qqw23a",
+    "xn--2scrj9c",
+    "xn--30rr7y",
+    "xn--3bst00m",
+    "xn--3ds443g",
+    "xn--3e0b707e",
+    "xn--3hcrj9c",
+    "xn--3pxu8k",
+    "xn--42c2d9a",
+    "xn--45br5cyl",
+    "xn--45brj9c",
+    "xn--45q11c",
+    "xn--4dbrk0ce",
+    "xn--4gbrim",
+    "xn--54b7fta0cc",
+    "xn--55qw42g",
+    "xn--55qx5d",
+    "xn--5su34j936bgsg",
+    "xn--5tzm5g",
+    "xn--6frz82g",
+    "xn--6qq986b3xl",
+    "xn--80adxhks",
+    "xn--80ao21a",
+    "xn--80aqecdr1a",
+    "xn--80asehdb",
+    "xn--80aswg",
+    "xn--8y0a063a",
+    "xn--90a3ac",
+    "xn--90ae",
+    "xn--90ais",
+    "xn--9dbq2a",
+    "xn--9et52u",
+    "xn--9krt00a",
+    "xn--b4w605ferd",
+    "xn--bck1b9a5dre4c",
+    "xn--c1avg",
+    "xn--c2br7g",
+    "xn--cck2b3b",
+    "xn--cckwcxetd",
+    "xn--cg4bki",
+    "xn--clchc0ea0b2g2a9gcd",
+    "xn--czr694b",
+    "xn--czrs0t",
+    "xn--czru2d",
+    "xn--d1acj3b",
+    "xn--d1alf",
+    "xn--e1a4c",
+    "xn--eckvdtc9d",
+    "xn--efvy88h",
+    "xn--fct429k",
+    "xn--fhbei",
+    "xn--fiq228c5hs",
+    "xn--fiq64b",
+    "xn--fiqs8s",
+    "xn--fiqz9s",
+    "xn--fjq720a",
+    "xn--flw351e",
+    "xn--fpcrj9c3d",
+    "xn--fzc2c9e2c",
+    "xn--fzys8d69uvgm",
+    "xn--g2xx48c",
+    "xn--gckr3f0f",
+    "xn--gecrj9c",
+    "xn--gk3at1e",
+    "xn--h2breg3eve",
+    "xn--h2brj9c",
+    "xn--h2brj9c8c",
+    "xn--hxt814e",
+    "xn--i1b6b1a6a2e",
+    "xn--imr513n",
+    "xn--io0a7i",
+    "xn--j1aef",
+    "xn--j1amh",
+    "xn--j6w193g",
+    "xn--jlq480n2rg",
+    "xn--jvr189m",
+    "xn--kcrx77d1x4a",
+    "xn--kprw13d",
+    "xn--kpry57d",
+    "xn--kput3i",
+    "xn--l1acc",
+    "xn--lgbbat1ad8j",
+    "xn--mgb9awbf",
+    "xn--mgba3a3ejt",
+    "xn--mgba3a4f16a",
+    "xn--mgba7c0bbn0a",
+    "xn--mgbaam7a8h",
+    "xn--mgbab2bd",
+    "xn--mgbah1a3hjkrd",
+    "xn--mgbai9azgqp6j",
+    "xn--mgbayh7gpa",
+    "xn--mgbbh1a",
+    "xn--mgbbh1a71e",
+    "xn--mgbc0a9azcg",
+    "xn--mgbca7dzdo",
+    "xn--mgbcpq6gpa1a",
+    "xn--mgberp4a5d4ar",
+    "xn--mgbgu82a",
+    "xn--mgbi4ecexp",
+    "xn--mgbpl2fh",
+    "xn--mgbt3dhd",
+    "xn--mgbtx2b",
+    "xn--mgbx4cd0ab",
+    "xn--mix891f",
+    "xn--mk1bu44c",
+    "xn--mxtq1m",
+    "xn--ngbc5azd",
+    "xn--ngbe9e0a",
+    "xn--ngbrx",
+    "xn--node",
+    "xn--nqv7f",
+    "xn--nqv7fs00ema",
+    "xn--nyqy26a",
+    "xn--o3cw4h",
+    "xn--ogbpf8fl",
+    "xn--otu796d",
+    "xn--p1acf",
+    "xn--p1ai",
+    "xn--pgbs0dh",
+    "xn--pssy2u",
+    "xn--q7ce6a",
+    "xn--q9jyb4c",
+    "xn--qcka1pmc",
+    "xn--qxa6a",
+    "xn--qxam",
+    "xn--rhqv96g",
+    "xn--rovu88b",
+    "xn--rvc1e0am3e",
+    "xn--s9brj9c",
+    "xn--ses554g",
+    "xn--t60b56a",
+    "xn--tckwe",
+    "xn--tiq49xqyj",
+    "xn--unup4y",
+    "xn--vermgensberater-ctb",
+    "xn--vermgensberatung-pwb",
+    "xn--vhquv",
+    "xn--vuq861b",
+    "xn--w4r85el8fhu5dnra",
+    "xn--w4rs40l",
+    "xn--wgbh1c",
+    "xn--wgbl6a",
+    "xn--xhq521b",
+    "xn--xkc2al3hye2a",
+    "xn--xkc2dl3a5ee0h",
+    "xn--y9a3aq",
+    "xn--yfro4i67o",
+    "xn--ygbi2ammx",
+    "xn--zfr164b",
+    "xxx",
+    "xyz",
+    "yachts",
+    "yahoo",
+    "yamaxun",
+    "yandex",
+    "ye",
+    "yodobashi",
+    "yoga",
+    "yokohama",
+    "you",
+    "youtube",
+    "yt",
+    "yun",
+    "za",
+    "za.com",
+    "zappos",
+    "zara",
+    "zero",
+    "zip",
+    "zm",
+    "zone",
+    "zuerich",
+    "zw"
+  ],
+  "unqueryable": [
+    "bogota",
+    "mexico",
+    "sicily"
+  ],
+  "cannotQueryRootButQueryable": [
+    "ae",
+    "al",
+    "am",
+    "ao",
+    "aq",
+    "arpa",
+    "at",
+    "aw",
+    "ax",
+    "az",
+    "ba",
+    "bb",
+    "bd",
+    "be",
+    "bf",
+    "bg",
+    "bi",
+    "bj",
+    "bn",
+    "bo",
+    "bs",
+    "bt",
+    "bv",
+    "by",
+    "cd",
+    "cf",
+    "cg",
+    "ck",
+    "cl",
+    "cn",
+    "co",
+    "cu",
+    "cw",
+    "cy",
+    "dj",
+    "dk",
+    "dm",
+    "do",
+    "dz",
+    "edu",
+    "ee",
+    "eg",
+    "er",
+    "es",
+    "eu",
+    "fk",
+    "gb",
+    "ge",
+    "gf",
+    "gg",
+    "gh",
+    "gm",
+    "gp",
+    "gq",
+    "gr",
+    "gt",
+    "gu",
+    "gw",
+    "hk",
+    "hm",
+    "hr",
+    "hu",
+    "ie",
+    "il",
+    "im",
+    "iq",
+    "ir",
+    "it",
+    "je",
+    "jm",
+    "jo",
+    "jp",
+    "kh",
+    "km",
+    "kp",
+    "kr",
+    "kw",
+    "kz",
+    "la",
+    "lk",
+    "lr",
+    "ls",
+    "lt",
+    "lu",
+    "lv",
+    "ma",
+    "mc",
+    "md",
+    "me",
+    "mh",
+    "mil",
+    "mk",
+    "mm",
+    "mo",
+    "mp",
+    "mq",
+    "mt",
+    "mv",
+    "mw",
+    "mx",
+    "mz",
+    "nc",
+    "ne",
+    "ni",
+    "np",
+    "nr",
+    "nu",
+    "nz",
+    "pa",
+    "pe",
+    "pf",
+    "ph",
+    "pk",
+    "ps",
+    "pt",
+    "py",
+    "qa",
+    "ro",
+    "rs",
+    "ru",
+    "sa",
+    "se",
+    "sj",
+    "sk",
+    "sl",
+    "sm",
+    "st",
+    "su",
+    "sv",
+    "sx",
+    "sy",
+    "sz",
+    "tc",
+    "tg",
+    "tj",
+    "tk",
+    "tm",
+    "tn",
+    "tr",
+    "tt",
+    "ug",
+    "us",
+    "uy",
+    "va",
+    "vn",
+    "ws",
+    "xn--2scrj9c",
+    "xn--3e0b707e",
+    "xn--3hcrj9c",
+    "xn--45br5cyl",
+    "xn--45brj9c",
+    "xn--4dbrk0ce",
+    "xn--54b7fta0cc",
+    "xn--80ao21a",
+    "xn--90a3ac",
+    "xn--90ae",
+    "xn--90ais",
+    "xn--d1alf",
+    "xn--e1a4c",
+    "xn--fiqs8s",
+    "xn--fiqz9s",
+    "xn--fpcrj9c3d",
+    "xn--fzc2c9e2c",
+    "xn--gecrj9c",
+    "xn--h2breg3eve",
+    "xn--h2brj9c",
+    "xn--h2brj9c8c",
+    "xn--j1amh",
+    "xn--j6w193g",
+    "xn--kprw13d",
+    "xn--l1acc",
+    "xn--lgbbat1ad8j",
+    "xn--mgb9awbf",
+    "xn--mgba3a4f16a",
+    "xn--mgbaam7a8h",
+    "xn--mgbah1a3hjkrd",
+    "xn--mgbai9azgqp6j",
+    "xn--mgbayh7gpa",
+    "xn--mgbbh1a",
+    "xn--mgbbh1a71e",
+    "xn--mgbc0a9azcg",
+    "xn--mgbcpq6gpa1a",
+    "xn--mgberp4a5d4ar",
+    "xn--mgbgu82a",
+    "xn--mgbpl2fh",
+    "xn--mgbtx2b",
+    "xn--mgbx4cd0ab",
+    "xn--mix891f",
+    "xn--node",
+    "xn--ogbpf8fl",
+    "xn--p1ai",
+    "xn--pgbs0dh",
+    "xn--q7ce6a",
+    "xn--qxa6a",
+    "xn--qxam",
+    "xn--rvc1e0am3e",
+    "xn--s9brj9c",
+    "xn--wgbh1c",
+    "xn--wgbl6a",
+    "xn--xkc2al3hye2a",
+    "xn--xkc2dl3a5ee0h",
+    "xn--y9a3aq",
+    "xn--ygbi2ammx",
+    "za",
+    "zw"
+  ],
+  "sources": {
+    "aaa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aarp": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "abb": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "abbott": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "abbvie": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "abc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "able": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "abogado": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "abudhabi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ac": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "academy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "accenture": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "accountant": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "accountants": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "aco": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "actor": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ad": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ads": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "adult": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ae": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aeg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aero": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "aetna": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "af": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "afl": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "africa": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ag": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "agakhan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "agency": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ai": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "aig": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "airbus": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "airforce": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "airtel": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "akdn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "al": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "alibaba": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "alipay": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "allfinanz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "allstate": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ally": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "alsace": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "alstom": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "am": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "amazon": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "americanexpress": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "americanfamily": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "amex": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "amfam": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "amica": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "amsterdam": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "analytics": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "android": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "anquan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "anz": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ao": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aol": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "apartments": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "app": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "apple": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aq": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aquarelle": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ar": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "arab": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "aramco": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "archi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "army": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "arpa": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "art": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "arte": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "as": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "asda": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "asia": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "associates": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "at": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "athleta": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "attorney": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "au": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "auction": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "audi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "audible": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "audio": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "auspost": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "author": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "auto": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "autos": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "aw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "aws": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ax": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "axa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "az": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "azure": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ba": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "baby": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "baidu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "banamex": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "band": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bank": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bar": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "barcelona": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "barclaycard": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "barclays": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "barefoot": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bargains": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "baseball": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "basketball": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bauhaus": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bayern": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bb": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bbc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bbt": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bbva": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bcg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bcn": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bd": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "be": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "beats": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "beauty": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "beer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "berlin": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "best": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bestbuy": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bet": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bharti": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bi": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bible": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bid": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bike": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bing": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bingo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bio": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "biz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bj": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "black": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "blackfriday": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "blockbuster": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "blog": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bloomberg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "blue": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bms": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bmw": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bn": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bnpparibas": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bo": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "boats": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "boehringer": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bofa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bom": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bond": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "boo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "book": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "booking": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bosch": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bostik": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "boston": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bot": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "boutique": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "box": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "br": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "br.com": [
+      "queryable"
+    ],
+    "bradesco": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bridgestone": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "broadway": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "broker": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "brother": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "brussels": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bs": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "build": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "builders": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "business": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "buy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "buzz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bv": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bw": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "by": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "bzh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ca": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cab": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cafe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cal": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "call": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "calvinklein": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cam": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "camera": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "camp": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "canon": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "capetown": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "capital": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "capitalone": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "car": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "caravan": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cards": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "care": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "career": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "careers": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cars": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "casa": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "case": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cash": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "casino": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cat": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "catering": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "catholic": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cba": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cbn": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cbre": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cd": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "center": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ceo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cern": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cfa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cfd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ch": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "chanel": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "channel": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "charity": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "chase": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "chat": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cheap": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "chintai": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "christmas": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "chrome": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "church": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ci": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cipriani": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "circle": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cisco": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "citadel": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "citi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "citic": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "city": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ck": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cl": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "claims": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cleaning": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "click": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "clinic": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "clinique": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "clothing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cloud": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "club": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "clubmed": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cn": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cn.com": [
+      "queryable"
+    ],
+    "co": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "coach": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "codes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "coffee": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "college": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cologne": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "com": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "commbank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "community": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "company": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "compare": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "computer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "comsec": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "condos": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "construction": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "consulting": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "contact": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "contractors": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cooking": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cool": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "coop": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "corsica": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "country": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "coupon": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "coupons": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "courses": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cpa": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "credit": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "creditcard": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "creditunion": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cricket": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "crown": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "crs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cruise": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cruises": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cuisinella": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cx": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cy": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "cymru": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cyou": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "cz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dad": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dance": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "data": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "date": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dating": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "datsun": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "day": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dclk": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dds": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "de": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "de.com": [
+      "queryable"
+    ],
+    "deal": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dealer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "deals": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "degree": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "delivery": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dell": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "deloitte": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "delta": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "democrat": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dental": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dentist": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "desi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "design": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dev": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dhl": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "diamonds": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "diet": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "digital": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "direct": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "directory": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "discount": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "discover": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dish": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "diy": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dj": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dnp": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "do": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "docs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "doctor": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dog": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "domains": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dot": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "download": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "drive": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dtv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dubai": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dupont": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "durban": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dvag": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "dvr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "dz": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "earth": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "eat": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ec": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "eco": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "edeka": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "edu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "education": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ee": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "eg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "email": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "emerck": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "energy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "engineer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "engineering": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "enterprises": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "epson": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "equipment": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "er": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ericsson": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "erni": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "es": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "esq": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "estate": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "et": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "eu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "eu.com": [
+      "queryable"
+    ],
+    "eurovision": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "eus": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "events": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "exchange": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "expert": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "exposed": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "express": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "extraspace": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fage": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fail": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fairwinds": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "faith": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "family": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fans": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "farm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "farmers": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fashion": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fast": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fedex": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "feedback": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ferrari": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ferrero": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fidelity": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fido": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "film": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "final": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "finance": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "financial": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fire": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "firestone": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "firmdale": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fish": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fishing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fit": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fitness": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fj": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "flickr": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "flights": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "flir": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "florist": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "flowers": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fly": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "foo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "food": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "football": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ford": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "forex": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "forsale": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "forum": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "foundation": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fox": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "free": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fresenius": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "frl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "frogans": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "frontier": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ftr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fujitsu": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "fun": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fund": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "furniture": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "futbol": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "fyi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ga": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gal": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gallery": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gallo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gallup": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "game": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "games": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gap": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "garden": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gay": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gb": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gb.net": [
+      "queryable"
+    ],
+    "gbiz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gdn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ge": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gea": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gent": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "genting": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "george": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ggee": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gift": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gifts": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gives": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "giving": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "glass": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gle": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "global": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "globo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gmail": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gmbh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gmo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gmx": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "godaddy": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gold": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "goldpoint": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "golf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "goodyear": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "goog": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "google": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gop": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "got": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gov": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gp": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gq": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gr.com": [
+      "queryable"
+    ],
+    "grainger": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "graphics": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gratis": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "green": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gripe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "grocery": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "group": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gucci": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "guge": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "guide": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "guitars": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "guru": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "gw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "gy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hair": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hamburg": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hangout": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "haus": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hbo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hdfc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hdfcbank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "health": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "healthcare": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "help": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "helsinki": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "here": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hermes": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hiphop": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hisamitsu": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hitachi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hiv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hkt": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hockey": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "holdings": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "holiday": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "homedepot": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "homegoods": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "homes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "homesense": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "honda": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "horse": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hospital": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "host": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hosting": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hot": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hotels": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hotmail": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "house": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "how": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hsbc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ht": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "hu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hughes": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hyatt": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "hyundai": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ibm": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "icbc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ice": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "icu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "id": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ie": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ieee": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ifm": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ikano": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "il": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "im": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "imamat": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "imdb": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "immo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "immobilien": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "in": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "in.net": [
+      "queryable"
+    ],
+    "inc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "industries": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "infiniti": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "info": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ink": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "institute": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "insurance": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "insure": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "int": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "international": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "intuit": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "investments": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "io": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ipiranga": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "iq": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ir": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "irish": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "is": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ismaili": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ist": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "istanbul": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "it": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "itau": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "itv": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jaguar": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "java": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jcb": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "je": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jeep": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jetzt": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "jewelry": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "jio": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jll": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jmp": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jnj": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jo": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jobs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "joburg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "jot": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "joy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "jp": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jpmorgan": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "jpn.com": [
+      "queryable"
+    ],
+    "jprs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "juegos": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "juniper": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kaufen": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kddi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ke": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kerryhotels": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kerryproperties": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kfh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ki": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kia": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kids": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kim": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kindle": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kitchen": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kiwi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "km": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "koeln": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "komatsu": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kosher": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kp": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kpmg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kpn": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "kr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "krd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kred": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kuokgroup": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ky": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kyoto": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "kz": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "la": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lacaixa": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lamborghini": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lamer": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "land": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "landrover": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lanxess": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lasalle": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lat": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "latino": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "latrobe": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "law": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lawyer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lb": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lds": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lease": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "leclerc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lefrak": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "legal": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lego": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lexus": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lgbt": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "li": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lidl": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "life": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lifeinsurance": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lifestyle": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lighting": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "like": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lilly": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "limited": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "limo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lincoln": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "link": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "live": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "living": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "llc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "llp": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "loan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "loans": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "locker": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "locus": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lol": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "london": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lotte": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lotto": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "love": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lpl": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lplfinancial": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ls": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ltd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ltda": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "lundbeck": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "luxe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "luxury": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "lv": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ly": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ma": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "madrid": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "maif": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "maison": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "makeup": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "man": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "management": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mango": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "map": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "market": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "marketing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "markets": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "marriott": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "marshalls": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mattel": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mba": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mc": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mckinsey": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "md": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "me": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "med": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "media": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "meet": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "melbourne": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "meme": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "memorial": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "men": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "menu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "merckmsd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "miami": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "microsoft": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mil": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mini": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mint": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mit": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mitsubishi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ml": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mlb": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mls": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mma": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mo": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mobi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mobile": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "moda": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "moe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "moi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mom": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "monash": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "money": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "monster": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mormon": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mortgage": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "moscow": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "moto": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "motorcycles": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mov": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "movie": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mp": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mq": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ms": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "msd": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mtn": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mtr": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "museum": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "music": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mv": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "mx": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "my": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "mz": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "na": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nab": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nagoya": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "name": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "navy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nba": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nc": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ne": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nec": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "net": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "netbank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "netflix": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "network": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "neustar": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "new": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "news": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "next": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nextdirect": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nexus": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nfl": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ng": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ngo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nhk": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ni": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nico": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nike": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nikon": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ninja": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nissan": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nissay": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "no": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nokia": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "norton": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "now": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nowruz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "nowtv": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "np": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nra": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nrw": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ntt": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nu": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nyc": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "nz": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "obi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "observer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "office": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "okinawa": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "olayan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "olayangroup": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ollo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "om": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "omega": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "one": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ong": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "onl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "online": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ooo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "open": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "oracle": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "orange": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "org": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "organic": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "origins": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "osaka": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "otsuka": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ott": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ovh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pa": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "page": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "panasonic": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "paris": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pars": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "partners": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "parts": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "party": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pay": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pccw": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pe": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pet": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pfizer": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ph": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pharmacy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "phd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "philips": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "phone": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "photo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "photography": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "photos": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "physio": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pics": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pictet": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pictures": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pid": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pin": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ping": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pink": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pioneer": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pizza": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "place": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "play": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "playstation": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "plumbing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "plus": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pnc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pohl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "poker": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "politie": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "porn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "post": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "praxi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "press": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "prime": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pro": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "prod": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "productions": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "prof": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "progressive": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "promo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "properties": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "property": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "protection": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pru": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "prudential": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ps": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "pub": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pw": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "pwc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "py": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "qa": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "qpon": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "quebec": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "quest": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "racing": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "radio": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "re": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "read": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "realestate": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "realtor": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "realty": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "recipes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "red": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "redumbrella": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rehab": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "reise": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "reisen": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "reit": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "reliance": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ren": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rent": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rentals": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "repair": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "report": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "republican": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rest": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "restaurant": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "review": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "reviews": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rexroth": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "rich": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "richardli": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ricoh": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ril": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "rio": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "rip": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ro": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "rocks": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rodeo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rogers": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "room": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rs": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "rsvp": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ru": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ru.com": [
+      "queryable"
+    ],
+    "rugby": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ruhr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "run": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rw": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "rwe": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ryukyu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sa": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sa.com": [
+      "queryable"
+    ],
+    "saarland": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "safe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "safety": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sakura": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sale": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "salon": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "samsclub": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "samsung": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sandvik": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sandvikcoromant": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sanofi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sap": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sarl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sas": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "save": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "saxo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sb": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sbi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sbs": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "scb": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "schaeffler": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "schmidt": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "scholarships": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "school": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "schule": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "schwarz": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "science": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "scot": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "se": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "se.net": [
+      "queryable"
+    ],
+    "search": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "seat": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "secure": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "security": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "seek": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "select": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sener": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "services": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "seven": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sew": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sex": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sexy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sfr": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sh": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shangrila": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sharp": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "shell": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "shia": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shiksha": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shoes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shop": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shopping": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "shouji": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "show": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "si": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "silk": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sina": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "singles": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "site": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sj": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ski": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "skin": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sky": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "skype": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sl": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sling": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "smart": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "smile": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sn": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sncf": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "so": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "soccer": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "social": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "softbank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "software": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sohu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "solar": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "solutions": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "song": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sony": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "soy": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "spa": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "space": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sport": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "spot": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sr": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "srl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ss": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "st": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "stada": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "staples": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "star": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "statebank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "statefarm": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "stc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "stcgroup": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "stockholm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "storage": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "store": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "stream": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "studio": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "study": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "style": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "su": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sucks": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "supplies": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "supply": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "support": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "surf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "surgery": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "suzuki": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sv": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "swatch": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "swiss": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sx": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sy": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "sydney": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "systems": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "sz": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tab": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "taipei": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "talk": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "taobao": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "target": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tatamotors": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tatar": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tattoo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tax": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "taxi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tc": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tci": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "td": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tdk": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "team": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tech": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "technology": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tel": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "temasek": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tennis": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "teva": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "th": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "thd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "theater": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "theatre": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tiaa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tickets": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tienda": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tips": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tires": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tirol": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tj": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tjmaxx": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tjx": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tk": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tkmaxx": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tm": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tmall": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tn": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "to": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "today": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tokyo": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tools": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "top": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "toray": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "toshiba": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "total": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tours": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "town": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "toyota": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "toys": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tr": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "trade": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "trading": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "training": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "travel": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "travelers": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "travelersinsurance": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "trust": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "trv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tt": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tube": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tui": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "tunes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tushu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tvs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tw": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "tz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ua": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ubank": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ubs": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ug": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "uk": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "uk.com": [
+      "queryable"
+    ],
+    "uk.net": [
+      "queryable"
+    ],
+    "unicom": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "university": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "uno": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "uol": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ups": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "us": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "us.com": [
+      "queryable"
+    ],
+    "uy": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "uz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "v.ua": [
+      "queryable"
+    ],
+    "va": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vacations": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vana": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vanguard": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ve": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vegas": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ventures": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "verisign": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "versicherung": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vet": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vi": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "viajes": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "video": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vig": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "viking": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "villas": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vin": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vip": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "virgin": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "visa": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vision": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "viva": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vivo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vlaanderen": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vn": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vodka": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "volvo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "vote": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "voting": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "voto": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "voyage": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "vu": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wales": [
+      "geo",
+      "ianaRoot",
+      "queryable"
+    ],
+    "walmart": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "walter": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wang": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wanggou": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "watch": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "watches": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "weather": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "weatherchannel": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "webcam": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "weber": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "website": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wed": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wedding": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "weibo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "weir": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "whoswho": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wien": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wiki": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "williamhill": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "win": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "windows": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wine": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "winners": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wme": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "woodside": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "work": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "works": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "world": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "wow": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "ws": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wtc": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "wtf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xbox": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xerox": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xihuan": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xin": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--11b4c3d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--1ck2e1b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--1qqw23a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--2scrj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--30rr7y": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--3bst00m": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--3ds443g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--3e0b707e": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--3hcrj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--3pxu8k": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--42c2d9a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--45br5cyl": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--45brj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--45q11c": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--4dbrk0ce": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--4gbrim": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--54b7fta0cc": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--55qw42g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--55qx5d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--5su34j936bgsg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--5tzm5g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--6frz82g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--6qq986b3xl": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--80adxhks": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--80ao21a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--80aqecdr1a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--80asehdb": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--80aswg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--8y0a063a": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--90a3ac": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--90ae": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--90ais": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--9dbq2a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--9et52u": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--9krt00a": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--b4w605ferd": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--bck1b9a5dre4c": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--c1avg": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--c2br7g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--cck2b3b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--cckwcxetd": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--cg4bki": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--clchc0ea0b2g2a9gcd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--czr694b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--czrs0t": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--czru2d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--d1acj3b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--d1alf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--e1a4c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--eckvdtc9d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--efvy88h": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fct429k": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fhbei": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fiq228c5hs": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fiq64b": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fiqs8s": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fiqz9s": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fjq720a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--flw351e": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fpcrj9c3d": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fzc2c9e2c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--fzys8d69uvgm": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--g2xx48c": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--gckr3f0f": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--gecrj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--gk3at1e": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--h2breg3eve": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--h2brj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--h2brj9c8c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--hxt814e": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--i1b6b1a6a2e": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--imr513n": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--io0a7i": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--j1aef": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--j1amh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--j6w193g": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--jlq480n2rg": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--jvr189m": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--kcrx77d1x4a": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--kprw13d": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--kpry57d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--kput3i": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--l1acc": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--lgbbat1ad8j": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgb9awbf": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgba3a3ejt": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgba3a4f16a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgba7c0bbn0a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbaam7a8h": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbab2bd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbah1a3hjkrd": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbai9azgqp6j": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbayh7gpa": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbbh1a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbbh1a71e": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbc0a9azcg": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbca7dzdo": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbcpq6gpa1a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgberp4a5d4ar": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbgu82a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbi4ecexp": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbpl2fh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbt3dhd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbtx2b": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mgbx4cd0ab": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mix891f": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mk1bu44c": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--mxtq1m": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ngbc5azd": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ngbe9e0a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ngbrx": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--node": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--nqv7f": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--nqv7fs00ema": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--nyqy26a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--o3cw4h": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ogbpf8fl": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--otu796d": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--p1acf": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--p1ai": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--pgbs0dh": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--pssy2u": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--q7ce6a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--q9jyb4c": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--qcka1pmc": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--qxa6a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--qxam": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--rhqv96g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--rovu88b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--rvc1e0am3e": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--s9brj9c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ses554g": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--t60b56a": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--tckwe": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--tiq49xqyj": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--unup4y": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--vermgensberater-ctb": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--vermgensberatung-pwb": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--vhquv": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--vuq861b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--w4r85el8fhu5dnra": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--w4rs40l": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--wgbh1c": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--wgbl6a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--xhq521b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--xkc2al3hye2a": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--xkc2dl3a5ee0h": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--y9a3aq": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--yfro4i67o": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--ygbi2ammx": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "xn--zfr164b": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xxx": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "xyz": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yachts": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yahoo": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "yamaxun": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yandex": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "ye": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yodobashi": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "yoga": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yokohama": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "you": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "youtube": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "yt": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "yun": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "za": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "za.com": [
+      "queryable"
+    ],
+    "zappos": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "zara": [
+      "brand",
+      "ianaRoot",
+      "queryable"
+    ],
+    "zero": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "zip": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "zm": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "zone": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "zuerich": [
+      "ianaRoot",
+      "queryable"
+    ],
+    "zw": [
+      "cannotQueryRoot",
+      "ianaRoot",
+      "queryable"
+    ],
+    "bogota": [
+      "geo"
+    ],
+    "mexico": [
+      "geo"
+    ],
+    "sicily": [
+      "geo"
+    ]
+  }
+}

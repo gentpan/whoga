@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-02-21T00:21:29.305Z",
+  "source": "local",
+  "counts": {
+    "geoTLDs": 28
+  },
+  "tlds": [
+    "africa",
+    "amsterdam",
+    "asia",
+    "bcn",
+    "berlin",
+    "bogota",
+    "boston",
+    "brussels",
+    "durban",
+    "hamburg",
+    "istanbul",
+    "lat",
+    "london",
+    "madrid",
+    "melbourne",
+    "mexico",
+    "miami",
+    "moscow",
+    "nyc",
+    "okinawa",
+    "paris",
+    "quebec",
+    "rio",
+    "scot",
+    "sicily",
+    "sydney",
+    "tokyo",
+    "wales"
+  ]
+}

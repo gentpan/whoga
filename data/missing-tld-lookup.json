@@ -1,0 +1,1240 @@
+{
+  "checkedAt": "2026-02-20T13:21:52.007Z",
+  "total": 205,
+  "withRdap": 0,
+  "withWhois": 137,
+  "none": 68,
+  "failed": 0,
+  "results": [
+    {
+      "tld": "ae",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.aeda.net.ae"
+    },
+    {
+      "tld": "al",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "am",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.amnic.net"
+    },
+    {
+      "tld": "ao",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "aq",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "arpa",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.iana.org"
+    },
+    {
+      "tld": "at",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.at"
+    },
+    {
+      "tld": "aw",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.aw"
+    },
+    {
+      "tld": "ax",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.ax"
+    },
+    {
+      "tld": "az",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ba",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "bb",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "bd",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "be",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dns.be"
+    },
+    {
+      "tld": "bf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registre.bf"
+    },
+    {
+      "tld": "bg",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.register.bg"
+    },
+    {
+      "tld": "bi",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois1.nic.bi"
+    },
+    {
+      "tld": "bj",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.bj"
+    },
+    {
+      "tld": "bn",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.bnnic.bn"
+    },
+    {
+      "tld": "bo",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.bo"
+    },
+    {
+      "tld": "bs",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "bt",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "bv",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "by",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cctld.by"
+    },
+    {
+      "tld": "cd",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "cf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dot.cf"
+    },
+    {
+      "tld": "cg",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ck",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "cl",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.cl"
+    },
+    {
+      "tld": "cn",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cnnic.cn"
+    },
+    {
+      "tld": "co",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.co"
+    },
+    {
+      "tld": "cu",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "cw",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "cy",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "dj",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "dk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.punktum.dk"
+    },
+    {
+      "tld": "dm",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dmdomains.dm"
+    },
+    {
+      "tld": "do",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.do"
+    },
+    {
+      "tld": "dz",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.dz"
+    },
+    {
+      "tld": "edu",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.educause.edu"
+    },
+    {
+      "tld": "ee",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tld.ee"
+    },
+    {
+      "tld": "eg",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "er",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "es",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.es"
+    },
+    {
+      "tld": "eu",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.eu"
+    },
+    {
+      "tld": "fk",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "gb",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ge",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.ge"
+    },
+    {
+      "tld": "gf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.mediaserv.net"
+    },
+    {
+      "tld": "gg",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.gg"
+    },
+    {
+      "tld": "gh",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.gh"
+    },
+    {
+      "tld": "gm",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "gp",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.gp"
+    },
+    {
+      "tld": "gq",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dominio.gq"
+    },
+    {
+      "tld": "gr",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "gt",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "gu",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "gw",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "hk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.hkirc.hk"
+    },
+    {
+      "tld": "hm",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.hm"
+    },
+    {
+      "tld": "hr",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dns.hr"
+    },
+    {
+      "tld": "hu",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.hu"
+    },
+    {
+      "tld": "ie",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.weare.ie"
+    },
+    {
+      "tld": "il",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.isoc.org.il"
+    },
+    {
+      "tld": "im",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.im"
+    },
+    {
+      "tld": "iq",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cmc.iq"
+    },
+    {
+      "tld": "ir",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.ir"
+    },
+    {
+      "tld": "it",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.it"
+    },
+    {
+      "tld": "je",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.je"
+    },
+    {
+      "tld": "jm",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "jo",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "jp",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.jprs.jp"
+    },
+    {
+      "tld": "kh",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "km",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "kp",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "kr",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.kr"
+    },
+    {
+      "tld": "kw",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "kz",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.kz"
+    },
+    {
+      "tld": "la",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.la"
+    },
+    {
+      "tld": "lk",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "lr",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ls",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.ls"
+    },
+    {
+      "tld": "lt",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.domreg.lt"
+    },
+    {
+      "tld": "lu",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dns.lu"
+    },
+    {
+      "tld": "lv",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.lv"
+    },
+    {
+      "tld": "ma",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registre.ma"
+    },
+    {
+      "tld": "mc",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.mc"
+    },
+    {
+      "tld": "md",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.md"
+    },
+    {
+      "tld": "me",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.me"
+    },
+    {
+      "tld": "mh",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "mil",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "mk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.marnet.mk"
+    },
+    {
+      "tld": "mm",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.gov.mm"
+    },
+    {
+      "tld": "mo",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.monic.mo"
+    },
+    {
+      "tld": "mp",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "mq",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.mediaserv.net"
+    },
+    {
+      "tld": "mt",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "mv",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "mw",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.mw"
+    },
+    {
+      "tld": "mx",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.mx"
+    },
+    {
+      "tld": "mz",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.mz"
+    },
+    {
+      "tld": "nc",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nc"
+    },
+    {
+      "tld": "ne",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ni",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "np",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "nr",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "nu",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.iis.nu"
+    },
+    {
+      "tld": "nz",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.irs.net.nz"
+    },
+    {
+      "tld": "pa",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "pe",
+      "ok": true,
+      "rdap": "",
+      "whois": "kero.yachay.pe"
+    },
+    {
+      "tld": "pf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.pf"
+    },
+    {
+      "tld": "ph",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "pk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.pknic.net.pk"
+    },
+    {
+      "tld": "ps",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "pt",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dns.pt"
+    },
+    {
+      "tld": "py",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "qa",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.qa"
+    },
+    {
+      "tld": "ro",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.rotld.ro"
+    },
+    {
+      "tld": "rs",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.rnids.rs"
+    },
+    {
+      "tld": "ru",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tcinet.ru"
+    },
+    {
+      "tld": "sa",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.net.sa"
+    },
+    {
+      "tld": "se",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.iis.se"
+    },
+    {
+      "tld": "sj",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "sk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.sk-nic.sk"
+    },
+    {
+      "tld": "sl",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "sm",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.sm"
+    },
+    {
+      "tld": "st",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.st"
+    },
+    {
+      "tld": "su",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tcinet.ru"
+    },
+    {
+      "tld": "sv",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "sx",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.sx"
+    },
+    {
+      "tld": "sy",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tld.sy"
+    },
+    {
+      "tld": "sz",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "tc",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.tc"
+    },
+    {
+      "tld": "tg",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.tg"
+    },
+    {
+      "tld": "tj",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "tk",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dot.tk"
+    },
+    {
+      "tld": "tm",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.tm"
+    },
+    {
+      "tld": "tn",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.ati.tn"
+    },
+    {
+      "tld": "tr",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.trabis.gov.tr"
+    },
+    {
+      "tld": "tt",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ug",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.co.ug"
+    },
+    {
+      "tld": "us",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.us"
+    },
+    {
+      "tld": "uy",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.org.uy"
+    },
+    {
+      "tld": "va",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "vn",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "ws",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.website.ws"
+    },
+    {
+      "tld": "xn--2scrj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--3e0b707e",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.kr"
+    },
+    {
+      "tld": "xn--3hcrj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--45br5cyl",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--45brj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--4dbrk0ce",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.isoc.org.il"
+    },
+    {
+      "tld": "xn--54b7fta0cc",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--80ao21a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.kz"
+    },
+    {
+      "tld": "xn--90a3ac",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.rnids.rs"
+    },
+    {
+      "tld": "xn--90ae",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.imena.bg"
+    },
+    {
+      "tld": "xn--90ais",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cctld.by"
+    },
+    {
+      "tld": "xn--d1alf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.marnet.mk"
+    },
+    {
+      "tld": "xn--e1a4c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.eu"
+    },
+    {
+      "tld": "xn--fiqs8s",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cnnic.cn"
+    },
+    {
+      "tld": "xn--fiqz9s",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cnnic.cn"
+    },
+    {
+      "tld": "xn--fpcrj9c3d",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--fzc2c9e2c",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--gecrj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--h2breg3eve",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--h2brj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--h2brj9c8c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--j1amh",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.dotukr.com"
+    },
+    {
+      "tld": "xn--j6w193g",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.hkirc.hk"
+    },
+    {
+      "tld": "xn--kprw13d",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.twnic.net.tw"
+    },
+    {
+      "tld": "xn--l1acc",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.mn"
+    },
+    {
+      "tld": "xn--lgbbat1ad8j",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.dz"
+    },
+    {
+      "tld": "xn--mgb9awbf",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.om"
+    },
+    {
+      "tld": "xn--mgba3a4f16a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.ir"
+    },
+    {
+      "tld": "xn--mgbaam7a8h",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.aeda.net.ae"
+    },
+    {
+      "tld": "xn--mgbah1a3hjkrd",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.mr"
+    },
+    {
+      "tld": "xn--mgbai9azgqp6j",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--mgbayh7gpa",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--mgbbh1a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--mgbbh1a71e",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--mgbc0a9azcg",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--mgbcpq6gpa1a",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--mgberp4a5d4ar",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.net.sa"
+    },
+    {
+      "tld": "xn--mgbgu82a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--mgbpl2fh",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--mgbtx2b",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.cmc.iq"
+    },
+    {
+      "tld": "xn--mgbx4cd0ab",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.mynic.my"
+    },
+    {
+      "tld": "xn--mix891f",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.monic.mo"
+    },
+    {
+      "tld": "xn--node",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--ogbpf8fl",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tld.sy"
+    },
+    {
+      "tld": "xn--p1ai",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.tcinet.ru"
+    },
+    {
+      "tld": "xn--pgbs0dh",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.ati.tn"
+    },
+    {
+      "tld": "xn--q7ce6a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nic.la"
+    },
+    {
+      "tld": "xn--qxa6a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.eu"
+    },
+    {
+      "tld": "xn--qxam",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--rvc1e0am3e",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--s9brj9c",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--wgbh1c",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--wgbl6a",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.registry.qa"
+    },
+    {
+      "tld": "xn--xkc2al3hye2a",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "xn--xkc2dl3a5ee0h",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.nixiregistry.in"
+    },
+    {
+      "tld": "xn--y9a3aq",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.amnic.net"
+    },
+    {
+      "tld": "xn--ygbi2ammx",
+      "ok": true,
+      "rdap": "",
+      "whois": "whois.pnina.ps"
+    },
+    {
+      "tld": "za",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    },
+    {
+      "tld": "zw",
+      "ok": true,
+      "rdap": "",
+      "whois": ""
+    }
+  ]
+}
