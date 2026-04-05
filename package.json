@@ -1,0 +1,30 @@
+{
+  "name": "whoga-rdap-whois",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-fixed-port.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "update:tld-categories": "node scripts/update-brand-geo.mjs",
+    "check:tlds-queryability": "node scripts/check-tlds-queryability.mjs",
+    "test:rdap-all": "node scripts/test-rdap-all-suffixes.mjs",
+    "audit:data": "node scripts/audit-data.mjs --report",
+    "audit:data:strict": "node scripts/audit-data.mjs --report --strict"
+  },
+  "dependencies": {
+    "ioredis": "^5.9.3",
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "eslint": "9.16.0",
+    "eslint-config-next": "15.1.0",
+    "typescript": "5.7.2"
+  }
+}

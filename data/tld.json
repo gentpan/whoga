@@ -1,0 +1,4798 @@
+{
+  "generatedAt": "2026-02-22T05:44:27.186Z",
+  "source": {
+    "dns": "https://data.iana.org/rdap/dns.json",
+    "rdapExtra": "local-file"
+  },
+  "count": 1197,
+  "tlds": [
+    {
+      "suffix": "aaa",
+      "rdapUrl": "https://rdap.nic.aaa/"
+    },
+    {
+      "suffix": "aarp",
+      "rdapUrl": "https://rdap.nic.aarp/"
+    },
+    {
+      "suffix": "abb",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "abbott",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "abbvie",
+      "rdapUrl": "https://rdap.nominet.uk/abbvie/"
+    },
+    {
+      "suffix": "abc",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "able",
+      "rdapUrl": "https://rdap.nic.able/"
+    },
+    {
+      "suffix": "abogado",
+      "rdapUrl": "https://rdap.nic.abogado/"
+    },
+    {
+      "suffix": "abudhabi",
+      "rdapUrl": "https://rdap.nic.abudhabi/"
+    },
+    {
+      "suffix": "academy",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "accenture",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "accountant",
+      "rdapUrl": "https://rdap.nic.accountant/"
+    },
+    {
+      "suffix": "accountants",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "aco",
+      "rdapUrl": "https://rdap.nic.aco/"
+    },
+    {
+      "suffix": "actor",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ad",
+      "rdapUrl": "https://rdap.nic.ad/"
+    },
+    {
+      "suffix": "ads",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "adult",
+      "rdapUrl": "https://rdap.nic.adult/"
+    },
+    {
+      "suffix": "aeg",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "aero",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "aetna",
+      "rdapUrl": "https://rdap.nic.aetna/"
+    },
+    {
+      "suffix": "afl",
+      "rdapUrl": "https://rdap.nic.afl/"
+    },
+    {
+      "suffix": "africa",
+      "rdapUrl": "https://rdap.nic.africa/rdap/"
+    },
+    {
+      "suffix": "agakhan",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "agency",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ai",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "aig",
+      "rdapUrl": "https://rdap.nic.aig/"
+    },
+    {
+      "suffix": "airbus",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "airforce",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "airtel",
+      "rdapUrl": "https://rdap.nic.airtel/"
+    },
+    {
+      "suffix": "akdn",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "alibaba",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "alipay",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "allfinanz",
+      "rdapUrl": "https://rdap.centralnic.com/allfinanz/"
+    },
+    {
+      "suffix": "allstate",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ally",
+      "rdapUrl": "https://rdap.nic.ally/"
+    },
+    {
+      "suffix": "alsace",
+      "rdapUrl": "https://rdap.nic.alsace/"
+    },
+    {
+      "suffix": "alstom",
+      "rdapUrl": "https://rdap.nic.alstom/"
+    },
+    {
+      "suffix": "amazon",
+      "rdapUrl": "https://rdap.nominet.uk/amazon/"
+    },
+    {
+      "suffix": "americanexpress",
+      "rdapUrl": "https://rdap.nic.americanexpress/"
+    },
+    {
+      "suffix": "americanfamily",
+      "rdapUrl": "https://rdap.nic.americanfamily/"
+    },
+    {
+      "suffix": "amex",
+      "rdapUrl": "https://rdap.nic.amex/"
+    },
+    {
+      "suffix": "amfam",
+      "rdapUrl": "https://rdap.nic.amfam/"
+    },
+    {
+      "suffix": "amica",
+      "rdapUrl": "https://rdap.nic.amica/"
+    },
+    {
+      "suffix": "amsterdam",
+      "rdapUrl": "https://rdap.nic.amsterdam/"
+    },
+    {
+      "suffix": "analytics",
+      "rdapUrl": "https://rdap.nic.analytics/"
+    },
+    {
+      "suffix": "android",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "anquan",
+      "rdapUrl": "https://rdap.teleinfo.cn/"
+    },
+    {
+      "suffix": "anz",
+      "rdapUrl": "https://rdap.nic.anz/"
+    },
+    {
+      "suffix": "aol",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "apartments",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "app",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "apple",
+      "rdapUrl": "https://rdap.nic.apple/"
+    },
+    {
+      "suffix": "aquarelle",
+      "rdapUrl": "https://rdap.nic.aquarelle/"
+    },
+    {
+      "suffix": "ar",
+      "rdapUrl": "https://rdap.nic.ar/"
+    },
+    {
+      "suffix": "arab",
+      "rdapUrl": "https://rdap.nic.arab/"
+    },
+    {
+      "suffix": "aramco",
+      "rdapUrl": "https://rdap.nic.aramco/"
+    },
+    {
+      "suffix": "archi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "army",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "art",
+      "rdapUrl": "https://rdap.centralnic.com/art/"
+    },
+    {
+      "suffix": "arte",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "as",
+      "rdapUrl": "https://rdap.nic.as/"
+    },
+    {
+      "suffix": "asda",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "asia",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "associates",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "athleta",
+      "rdapUrl": "https://rdap.nic.athleta/"
+    },
+    {
+      "suffix": "attorney",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "au",
+      "rdapUrl": "https://rdap.cctld.au/rdap/"
+    },
+    {
+      "suffix": "auction",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "audi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "audible",
+      "rdapUrl": "https://rdap.nominet.uk/audible/"
+    },
+    {
+      "suffix": "audio",
+      "rdapUrl": "https://rdap.centralnic.com/audio/"
+    },
+    {
+      "suffix": "auspost",
+      "rdapUrl": "https://rdap.nic.auspost/"
+    },
+    {
+      "suffix": "author",
+      "rdapUrl": "https://rdap.nominet.uk/author/"
+    },
+    {
+      "suffix": "auto",
+      "rdapUrl": "https://rdap.centralnic.com/auto/"
+    },
+    {
+      "suffix": "autos",
+      "rdapUrl": "https://rdap.centralnic.com/autos/"
+    },
+    {
+      "suffix": "aws",
+      "rdapUrl": "https://rdap.nominet.uk/aws/"
+    },
+    {
+      "suffix": "axa",
+      "rdapUrl": "https://rdap.nic.axa/"
+    },
+    {
+      "suffix": "azure",
+      "rdapUrl": "https://rdap.nominet.uk/azure/"
+    },
+    {
+      "suffix": "baby",
+      "rdapUrl": "https://rdap.centralnic.com/baby/"
+    },
+    {
+      "suffix": "baidu",
+      "rdapUrl": "https://rdap.zdnsgtld.com/baidu/"
+    },
+    {
+      "suffix": "banamex",
+      "rdapUrl": "https://rdap.nic.banamex/"
+    },
+    {
+      "suffix": "band",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bank",
+      "rdapUrl": "https://rdap.nic.bank/"
+    },
+    {
+      "suffix": "bar",
+      "rdapUrl": "https://rdap.registry.bar/rdap/"
+    },
+    {
+      "suffix": "barcelona",
+      "rdapUrl": "https://rdap.nic.barcelona/"
+    },
+    {
+      "suffix": "barclaycard",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "barclays",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "barefoot",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bargains",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "baseball",
+      "rdapUrl": "https://rdap.nic.baseball/"
+    },
+    {
+      "suffix": "basketball",
+      "rdapUrl": "https://rdap.nic.basketball/"
+    },
+    {
+      "suffix": "bauhaus",
+      "rdapUrl": "https://rdap.nic.bauhaus/"
+    },
+    {
+      "suffix": "bayern",
+      "rdapUrl": "https://rdap.nic.bayern/"
+    },
+    {
+      "suffix": "bbc",
+      "rdapUrl": "https://rdap.nominet.uk/bbc/"
+    },
+    {
+      "suffix": "bbt",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bbva",
+      "rdapUrl": "https://rdap.nominet.uk/bbva/"
+    },
+    {
+      "suffix": "bcg",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bcn",
+      "rdapUrl": "https://rdap.nic.bcn/"
+    },
+    {
+      "suffix": "beats",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "beauty",
+      "rdapUrl": "https://rdap.centralnic.com/beauty/"
+    },
+    {
+      "suffix": "beer",
+      "rdapUrl": "https://rdap.nic.beer/"
+    },
+    {
+      "suffix": "berlin",
+      "rdapUrl": "https://rdap.nic.berlin/v1/"
+    },
+    {
+      "suffix": "best",
+      "rdapUrl": "https://rdap.centralnic.com/best/"
+    },
+    {
+      "suffix": "bestbuy",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bet",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bharti",
+      "rdapUrl": "https://rdap.nic.bharti/"
+    },
+    {
+      "suffix": "bible",
+      "rdapUrl": "https://rdap.nic.bible/"
+    },
+    {
+      "suffix": "bid",
+      "rdapUrl": "https://rdap.nic.bid/"
+    },
+    {
+      "suffix": "bike",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bing",
+      "rdapUrl": "https://rdap.nominet.uk/bing/"
+    },
+    {
+      "suffix": "bingo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bio",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "biz",
+      "rdapUrl": "https://rdap.nic.biz/"
+    },
+    {
+      "suffix": "black",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "blackfriday",
+      "rdapUrl": "https://rdap.nic.blackfriday/"
+    },
+    {
+      "suffix": "blockbuster",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "blog",
+      "rdapUrl": "https://rdap.blog.fury.ca/rdap/"
+    },
+    {
+      "suffix": "bloomberg",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "blue",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bm",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bms",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bmw",
+      "rdapUrl": "https://rdap.centralnic.com/bmw/"
+    },
+    {
+      "suffix": "bnpparibas",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "boats",
+      "rdapUrl": "https://rdap.centralnic.com/boats/"
+    },
+    {
+      "suffix": "boehringer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bofa",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bom",
+      "rdapUrl": "https://rdap.gtlds.nic.br/"
+    },
+    {
+      "suffix": "bond",
+      "rdapUrl": "https://rdap.centralnic.com/bond/"
+    },
+    {
+      "suffix": "boo",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "book",
+      "rdapUrl": "https://rdap.nominet.uk/book/"
+    },
+    {
+      "suffix": "booking",
+      "rdapUrl": "https://rdap.nic.booking/"
+    },
+    {
+      "suffix": "bosch",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bostik",
+      "rdapUrl": "https://rdap.nic.bostik/"
+    },
+    {
+      "suffix": "boston",
+      "rdapUrl": "https://rdap.nic.boston/"
+    },
+    {
+      "suffix": "bot",
+      "rdapUrl": "https://rdap.nominet.uk/bot/"
+    },
+    {
+      "suffix": "boutique",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "box",
+      "rdapUrl": "https://rdap.centralnic.com/box/"
+    },
+    {
+      "suffix": "br",
+      "rdapUrl": "https://rdap.registro.br/"
+    },
+    {
+      "suffix": "bradesco",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "bridgestone",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "broadway",
+      "rdapUrl": "https://rdap.nominet.uk/broadway/"
+    },
+    {
+      "suffix": "broker",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "brother",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "brussels",
+      "rdapUrl": "https://rdap.nic.brussels/"
+    },
+    {
+      "suffix": "build",
+      "rdapUrl": "https://rdap.centralnic.com/build/"
+    },
+    {
+      "suffix": "builders",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "business",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "buy",
+      "rdapUrl": "https://rdap.nominet.uk/buy/"
+    },
+    {
+      "suffix": "buzz",
+      "rdapUrl": "https://rdap.nic.buzz/"
+    },
+    {
+      "suffix": "bzh",
+      "rdapUrl": "https://rdap.nic.bzh/"
+    },
+    {
+      "suffix": "ca",
+      "rdapUrl": "https://rdap.ca.fury.ca/rdap/"
+    },
+    {
+      "suffix": "cab",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cafe",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cal",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "call",
+      "rdapUrl": "https://rdap.nominet.uk/call/"
+    },
+    {
+      "suffix": "calvinklein",
+      "rdapUrl": "https://rdap.nic.calvinklein/"
+    },
+    {
+      "suffix": "cam",
+      "rdapUrl": "https://rdap.centralnic.com/cam/"
+    },
+    {
+      "suffix": "camera",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "camp",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "canon",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "capetown",
+      "rdapUrl": "https://rdap.nic.capetown/rdap/"
+    },
+    {
+      "suffix": "capital",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "capitalone",
+      "rdapUrl": "https://rdap.nic.capitalone/"
+    },
+    {
+      "suffix": "car",
+      "rdapUrl": "https://rdap.centralnic.com/car/"
+    },
+    {
+      "suffix": "caravan",
+      "rdapUrl": "https://rdap.nic.caravan/"
+    },
+    {
+      "suffix": "cards",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "care",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "career",
+      "rdapUrl": "https://rdap.nominet.uk/career/"
+    },
+    {
+      "suffix": "careers",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cars",
+      "rdapUrl": "https://rdap.centralnic.com/cars/"
+    },
+    {
+      "suffix": "casa",
+      "rdapUrl": "https://rdap.nic.casa/"
+    },
+    {
+      "suffix": "case",
+      "rdapUrl": "https://rdap.centralnic.com/case/"
+    },
+    {
+      "suffix": "cash",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "casino",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cat",
+      "rdapUrl": "https://rdap.nic.cat/"
+    },
+    {
+      "suffix": "catering",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "catholic",
+      "rdapUrl": "https://rdap.nic.catholic/"
+    },
+    {
+      "suffix": "cba",
+      "rdapUrl": "https://rdap.nic.cba/"
+    },
+    {
+      "suffix": "cbn",
+      "rdapUrl": "https://rdap.nic.cbn/"
+    },
+    {
+      "suffix": "cbre",
+      "rdapUrl": "https://rdap.nic.cbre/"
+    },
+    {
+      "suffix": "cc",
+      "rdapUrl": "https://tld-rdap.verisign.com/cc/v1/"
+    },
+    {
+      "suffix": "center",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ceo",
+      "rdapUrl": "https://rdap.centralnic.com/ceo/"
+    },
+    {
+      "suffix": "cern",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cfa",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cfd",
+      "rdapUrl": "https://rdap.centralnic.com/cfd/"
+    },
+    {
+      "suffix": "chanel",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "channel",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "charity",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "chase",
+      "rdapUrl": "https://rdap.nic.chase/"
+    },
+    {
+      "suffix": "chat",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cheap",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "chintai",
+      "rdapUrl": "https://rdap.nic.chintai/"
+    },
+    {
+      "suffix": "christmas",
+      "rdapUrl": "https://rdap.centralnic.com/christmas/"
+    },
+    {
+      "suffix": "chrome",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "church",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cipriani",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "circle",
+      "rdapUrl": "https://rdap.nominet.uk/circle/"
+    },
+    {
+      "suffix": "cisco",
+      "rdapUrl": "https://rdap.nic.cisco/"
+    },
+    {
+      "suffix": "citadel",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "citi",
+      "rdapUrl": "https://rdap.nic.citi/"
+    },
+    {
+      "suffix": "citic",
+      "rdapUrl": "https://rdap.zdnsgtld.com/citic/"
+    },
+    {
+      "suffix": "city",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "claims",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cleaning",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "click",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "clinic",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "clinique",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "clothing",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cloud",
+      "rdapUrl": "https://rdap.registry.cloud/rdap/"
+    },
+    {
+      "suffix": "club",
+      "rdapUrl": "https://rdap.nic.club/"
+    },
+    {
+      "suffix": "clubmed",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cm",
+      "rdapUrl": "https://rdap.nic.cm/"
+    },
+    {
+      "suffix": "coach",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "codes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "coffee",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "college",
+      "rdapUrl": "https://rdap.centralnic.com/college/"
+    },
+    {
+      "suffix": "cologne",
+      "rdapUrl": "https://rdap.ryce-rsp.com/rdap/"
+    },
+    {
+      "suffix": "com",
+      "rdapUrl": "https://rdap.verisign.com/com/v1/"
+    },
+    {
+      "suffix": "commbank",
+      "rdapUrl": "https://rdap.nic.commbank/"
+    },
+    {
+      "suffix": "community",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "company",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "compare",
+      "rdapUrl": "https://rdap.nic.compare/"
+    },
+    {
+      "suffix": "computer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "comsec",
+      "rdapUrl": "https://tld-rdap.verisign.com/comsec/v1/"
+    },
+    {
+      "suffix": "condos",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "construction",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "consulting",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "contact",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "contractors",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cooking",
+      "rdapUrl": "https://rdap.nic.cooking/"
+    },
+    {
+      "suffix": "cool",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "coop",
+      "rdapUrl": "https://rdap.registry.coop/rdap/"
+    },
+    {
+      "suffix": "corsica",
+      "rdapUrl": "https://rdap.nic.corsica/"
+    },
+    {
+      "suffix": "country",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "coupon",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "coupons",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "courses",
+      "rdapUrl": "https://rdap.nic.courses/"
+    },
+    {
+      "suffix": "cpa",
+      "rdapUrl": "https://rdap.nic.cpa/"
+    },
+    {
+      "suffix": "cr",
+      "rdapUrl": "https://rdap.nic.cr/"
+    },
+    {
+      "suffix": "credit",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "creditcard",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "creditunion",
+      "rdapUrl": "https://rdap.registry.coop/rdap/"
+    },
+    {
+      "suffix": "cricket",
+      "rdapUrl": "https://rdap.nic.cricket/"
+    },
+    {
+      "suffix": "crown",
+      "rdapUrl": "https://rdap.crown.fury.ca/rdap/"
+    },
+    {
+      "suffix": "crs",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cruise",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cruises",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "cuisinella",
+      "rdapUrl": "https://rdap.nic.cuisinella/"
+    },
+    {
+      "suffix": "cv",
+      "rdapUrl": "https://rdap.nic.cv/"
+    },
+    {
+      "suffix": "cx",
+      "rdapUrl": "https://rdap.nic.cx/"
+    },
+    {
+      "suffix": "cymru",
+      "rdapUrl": "https://rdap.nominet.uk/cymru/"
+    },
+    {
+      "suffix": "cyou",
+      "rdapUrl": "https://rdap.centralnic.com/cyou/"
+    },
+    {
+      "suffix": "cz",
+      "rdapUrl": "https://rdap.nic.cz/"
+    },
+    {
+      "suffix": "dad",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "dance",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "data",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "date",
+      "rdapUrl": "https://rdap.nic.date/"
+    },
+    {
+      "suffix": "dating",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "datsun",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "day",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "dclk",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "dds",
+      "rdapUrl": "https://rdap.nic.dds/"
+    },
+    {
+      "suffix": "deal",
+      "rdapUrl": "https://rdap.nominet.uk/deal/"
+    },
+    {
+      "suffix": "dealer",
+      "rdapUrl": "https://rdap.centralnic.com/dealer/"
+    },
+    {
+      "suffix": "deals",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "degree",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "delivery",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dell",
+      "rdapUrl": "https://rdap.nic.dell/"
+    },
+    {
+      "suffix": "deloitte",
+      "rdapUrl": "https://rdap.centralnic.com/deloitte/"
+    },
+    {
+      "suffix": "delta",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "democrat",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dental",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dentist",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "desi",
+      "rdapUrl": "https://rdap.nominet.uk/desi/"
+    },
+    {
+      "suffix": "design",
+      "rdapUrl": "https://rdap.nic.design/"
+    },
+    {
+      "suffix": "dev",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "dhl",
+      "rdapUrl": "https://rdap.centralnic.com/dhl/"
+    },
+    {
+      "suffix": "diamonds",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "diet",
+      "rdapUrl": "https://rdap.centralnic.com/diet/"
+    },
+    {
+      "suffix": "digital",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "direct",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "directory",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "discount",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "discover",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dish",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "diy",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "dnp",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "docs",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "doctor",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dog",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "domains",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "dot",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "download",
+      "rdapUrl": "https://rdap.nic.download/"
+    },
+    {
+      "suffix": "drive",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "dtv",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "dubai",
+      "rdapUrl": "https://rdap.nic.dubai/"
+    },
+    {
+      "suffix": "dupont",
+      "rdapUrl": "https://rdap.nic.dupont/"
+    },
+    {
+      "suffix": "durban",
+      "rdapUrl": "https://rdap.nic.durban/rdap/"
+    },
+    {
+      "suffix": "dvag",
+      "rdapUrl": "https://rdap.centralnic.com/dvag/"
+    },
+    {
+      "suffix": "dvr",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "earth",
+      "rdapUrl": "https://rdap.nic.earth/"
+    },
+    {
+      "suffix": "eat",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "ec",
+      "rdapUrl": "https://rdap.registry.ec/"
+    },
+    {
+      "suffix": "eco",
+      "rdapUrl": "https://rdap.eco.fury.ca/rdap/"
+    },
+    {
+      "suffix": "edeka",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "education",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "email",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "emerck",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "energy",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "engineer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "engineering",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "enterprises",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "epson",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "equipment",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ericsson",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "erni",
+      "rdapUrl": "https://rdap.nic.erni/"
+    },
+    {
+      "suffix": "esq",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "estate",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "eurovision",
+      "rdapUrl": "https://rdap.nic.eurovision/"
+    },
+    {
+      "suffix": "eus",
+      "rdapUrl": "https://rdap.nic.eus/"
+    },
+    {
+      "suffix": "events",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "exchange",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "expert",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "exposed",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "express",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "extraspace",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fage",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fail",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fairwinds",
+      "rdapUrl": "https://rdap.nominet.uk/fairwinds/"
+    },
+    {
+      "suffix": "faith",
+      "rdapUrl": "https://rdap.nic.faith/"
+    },
+    {
+      "suffix": "family",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fan",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fans",
+      "rdapUrl": "https://rdap.centralnic.com/fans/"
+    },
+    {
+      "suffix": "farm",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "farmers",
+      "rdapUrl": "https://rdap.nic.farmers/"
+    },
+    {
+      "suffix": "fashion",
+      "rdapUrl": "https://rdap.nic.fashion/"
+    },
+    {
+      "suffix": "fast",
+      "rdapUrl": "https://rdap.nominet.uk/fast/"
+    },
+    {
+      "suffix": "fedex",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "feedback",
+      "rdapUrl": "https://rdap.registry.click/rdap/"
+    },
+    {
+      "suffix": "ferrari",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ferrero",
+      "rdapUrl": "https://rdap.nic.ferrero/"
+    },
+    {
+      "suffix": "fi",
+      "rdapUrl": "https://rdap.fi/rdap/rdap/"
+    },
+    {
+      "suffix": "fidelity",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fido",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "film",
+      "rdapUrl": "https://rdap.nic.film/"
+    },
+    {
+      "suffix": "final",
+      "rdapUrl": "https://rdap.gtlds.nic.br/"
+    },
+    {
+      "suffix": "finance",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "financial",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fire",
+      "rdapUrl": "https://rdap.nominet.uk/fire/"
+    },
+    {
+      "suffix": "firestone",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "firmdale",
+      "rdapUrl": "https://rdap.nic.firmdale/"
+    },
+    {
+      "suffix": "fish",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fishing",
+      "rdapUrl": "https://rdap.nic.fishing/"
+    },
+    {
+      "suffix": "fit",
+      "rdapUrl": "https://rdap.nic.fit/"
+    },
+    {
+      "suffix": "fitness",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fj",
+      "rdapUrl": "https://www.rdap.fj/"
+    },
+    {
+      "suffix": "flickr",
+      "rdapUrl": "https://rdap.nic.flickr/"
+    },
+    {
+      "suffix": "flights",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "flir",
+      "rdapUrl": "https://rdap.nic.flir/"
+    },
+    {
+      "suffix": "florist",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "flowers",
+      "rdapUrl": "https://rdap.centralnic.com/flowers/"
+    },
+    {
+      "suffix": "fly",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "fm",
+      "rdapUrl": "https://rdap.centralnic.com/fm/"
+    },
+    {
+      "suffix": "fo",
+      "rdapUrl": "https://rdap.centralnic.com/fo/"
+    },
+    {
+      "suffix": "foo",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "food",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "football",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ford",
+      "rdapUrl": "https://rdap.nic.ford/"
+    },
+    {
+      "suffix": "forex",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "forsale",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "forum",
+      "rdapUrl": "https://rdap.registry.click/rdap/"
+    },
+    {
+      "suffix": "foundation",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "fox",
+      "rdapUrl": "https://rdap.nic.fox/"
+    },
+    {
+      "suffix": "fr",
+      "rdapUrl": "https://rdap.nic.fr/"
+    },
+    {
+      "suffix": "free",
+      "rdapUrl": "https://rdap.nominet.uk/free/"
+    },
+    {
+      "suffix": "fresenius",
+      "rdapUrl": "https://rdap.centralnic.com/fresenius/"
+    },
+    {
+      "suffix": "frl",
+      "rdapUrl": "https://rdap.centralnic.com/frl/"
+    },
+    {
+      "suffix": "frogans",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "frontier",
+      "rdapUrl": "https://rdap.nic.frontier/"
+    },
+    {
+      "suffix": "ftr",
+      "rdapUrl": "https://rdap.nic.ftr/"
+    },
+    {
+      "suffix": "fujitsu",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "fun",
+      "rdapUrl": "https://rdap.centralnic.com/fun/"
+    },
+    {
+      "suffix": "fund",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "furniture",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "futbol",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "fyi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gal",
+      "rdapUrl": "https://rdap.nic.gal/"
+    },
+    {
+      "suffix": "gallery",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gallo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gallup",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "game",
+      "rdapUrl": "https://rdap.centralnic.com/game/"
+    },
+    {
+      "suffix": "games",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gap",
+      "rdapUrl": "https://rdap.nic.gap/"
+    },
+    {
+      "suffix": "garden",
+      "rdapUrl": "https://rdap.nic.garden/"
+    },
+    {
+      "suffix": "gay",
+      "rdapUrl": "https://rdap.nic.gay/"
+    },
+    {
+      "suffix": "gbiz",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "gd",
+      "rdapUrl": "https://rdap.centralnic.com/gd/"
+    },
+    {
+      "suffix": "gdn",
+      "rdapUrl": "https://rdap.nic.gdn/"
+    },
+    {
+      "suffix": "gea",
+      "rdapUrl": "https://rdap.nic.gea/"
+    },
+    {
+      "suffix": "gent",
+      "rdapUrl": "https://rdap.centralnic.com/gent/"
+    },
+    {
+      "suffix": "genting",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "george",
+      "rdapUrl": "https://rdap.nic.george/"
+    },
+    {
+      "suffix": "ggee",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "gift",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "gifts",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gives",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "giving",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "glass",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gle",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "global",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "globo",
+      "rdapUrl": "https://rdap.gtlds.nic.br/"
+    },
+    {
+      "suffix": "gmail",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "gmbh",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gmo",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "gmx",
+      "rdapUrl": "https://rdap.nic.gmx/"
+    },
+    {
+      "suffix": "godaddy",
+      "rdapUrl": "https://rdap.nic.godaddy/"
+    },
+    {
+      "suffix": "gold",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "goldpoint",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "golf",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "goodyear",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "goog",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "google",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "gop",
+      "rdapUrl": "https://rdap.nominet.uk/gop/"
+    },
+    {
+      "suffix": "got",
+      "rdapUrl": "https://rdap.nominet.uk/got/"
+    },
+    {
+      "suffix": "gov",
+      "rdapUrl": "https://rdap.nic.gov/rdap/"
+    },
+    {
+      "suffix": "grainger",
+      "rdapUrl": "https://rdap.nic.grainger/"
+    },
+    {
+      "suffix": "graphics",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gratis",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "green",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gripe",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "grocery",
+      "rdapUrl": "https://rdap.nic.grocery/"
+    },
+    {
+      "suffix": "group",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gs",
+      "rdapUrl": "https://rdap.nic.gs/"
+    },
+    {
+      "suffix": "gucci",
+      "rdapUrl": "https://rdap.nominet.uk/gucci/"
+    },
+    {
+      "suffix": "guge",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "guide",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "guitars",
+      "rdapUrl": "https://rdap.centralnic.com/guitars/"
+    },
+    {
+      "suffix": "guru",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "gy",
+      "rdapUrl": "https://rdap.registry.gy/"
+    },
+    {
+      "suffix": "hair",
+      "rdapUrl": "https://rdap.centralnic.com/hair/"
+    },
+    {
+      "suffix": "hamburg",
+      "rdapUrl": "https://rdap.nic.hamburg/v1/"
+    },
+    {
+      "suffix": "hangout",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "haus",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "hbo",
+      "rdapUrl": "https://rdap.nic.hbo/"
+    },
+    {
+      "suffix": "hdfc",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "hdfcbank",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "health",
+      "rdapUrl": "https://rdap.nic.health/"
+    },
+    {
+      "suffix": "healthcare",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "help",
+      "rdapUrl": "https://rdap.centralnic.com/help/"
+    },
+    {
+      "suffix": "helsinki",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "here",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "hermes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "hiphop",
+      "rdapUrl": "https://rdap.registry.hiphop/rdap/"
+    },
+    {
+      "suffix": "hisamitsu",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "hitachi",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "hiv",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "hkt",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "hn",
+      "rdapUrl": "https://rdap.nic.hn/"
+    },
+    {
+      "suffix": "hockey",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "holdings",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "holiday",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "homedepot",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "homegoods",
+      "rdapUrl": "https://rdap.nic.homegoods/"
+    },
+    {
+      "suffix": "homes",
+      "rdapUrl": "https://rdap.centralnic.com/homes/"
+    },
+    {
+      "suffix": "homesense",
+      "rdapUrl": "https://rdap.nic.homesense/"
+    },
+    {
+      "suffix": "honda",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "horse",
+      "rdapUrl": "https://rdap.nic.horse/"
+    },
+    {
+      "suffix": "hospital",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "host",
+      "rdapUrl": "https://rdap.centralnic.com/host/"
+    },
+    {
+      "suffix": "hosting",
+      "rdapUrl": "https://rdap.centralnic.com/hosting/"
+    },
+    {
+      "suffix": "hot",
+      "rdapUrl": "https://rdap.nominet.uk/hot/"
+    },
+    {
+      "suffix": "hotels",
+      "rdapUrl": "https://rdap.nic.hotels/"
+    },
+    {
+      "suffix": "hotmail",
+      "rdapUrl": "https://rdap.nominet.uk/hotmail/"
+    },
+    {
+      "suffix": "house",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "how",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "hsbc",
+      "rdapUrl": "https://rdap.nic.hsbc/"
+    },
+    {
+      "suffix": "ht",
+      "rdapUrl": "https://rdap.nic.ht/"
+    },
+    {
+      "suffix": "hughes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "hyatt",
+      "rdapUrl": "https://rdap.nic.hyatt/"
+    },
+    {
+      "suffix": "hyundai",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "ibm",
+      "rdapUrl": "https://rdap.nic.ibm/"
+    },
+    {
+      "suffix": "icbc",
+      "rdapUrl": "https://rdap.zdnsgtld.com/icbc/"
+    },
+    {
+      "suffix": "ice",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "icu",
+      "rdapUrl": "https://rdap.centralnic.com/icu/"
+    },
+    {
+      "suffix": "id",
+      "rdapUrl": "https://rdap.pandi.id/rdap/"
+    },
+    {
+      "suffix": "ieee",
+      "rdapUrl": "https://rdap.nominet.uk/ieee/"
+    },
+    {
+      "suffix": "ifm",
+      "rdapUrl": "https://rdap.nic.ifm/"
+    },
+    {
+      "suffix": "ikano",
+      "rdapUrl": "https://rdap.nic.ikano/v1/"
+    },
+    {
+      "suffix": "imamat",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "imdb",
+      "rdapUrl": "https://rdap.nominet.uk/imdb/"
+    },
+    {
+      "suffix": "immo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "immobilien",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "in",
+      "rdapUrl": "https://rdap.nixiregistry.in/rdap/"
+    },
+    {
+      "suffix": "inc",
+      "rdapUrl": "https://rdap.centralnic.com/inc/"
+    },
+    {
+      "suffix": "industries",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "infiniti",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "info",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ing",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "ink",
+      "rdapUrl": "https://rdap.nic.ink/"
+    },
+    {
+      "suffix": "institute",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "insurance",
+      "rdapUrl": "https://rdap.nic.insurance/"
+    },
+    {
+      "suffix": "insure",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "int",
+      "rdapUrl": "https://rdap.iana.org/"
+    },
+    {
+      "suffix": "international",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "intuit",
+      "rdapUrl": "https://rdap.nic.intuit/"
+    },
+    {
+      "suffix": "investments",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ipiranga",
+      "rdapUrl": "https://rdap.nic.ipiranga/"
+    },
+    {
+      "suffix": "irish",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "is",
+      "rdapUrl": "https://rdap.isnic.is/rdap/"
+    },
+    {
+      "suffix": "ismaili",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ist",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "istanbul",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "itau",
+      "rdapUrl": "https://rdap.nic.itau/"
+    },
+    {
+      "suffix": "itv",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jaguar",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "java",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jcb",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "jeep",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jetzt",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jewelry",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jio",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jll",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "jmp",
+      "rdapUrl": "https://rdap.nic.jmp/"
+    },
+    {
+      "suffix": "jnj",
+      "rdapUrl": "https://rdap.centralnicregistry.com/jnj/"
+    },
+    {
+      "suffix": "jobs",
+      "rdapUrl": "https://rdap.nominet.uk/jobs/"
+    },
+    {
+      "suffix": "joburg",
+      "rdapUrl": "https://rdap.nic.joburg/rdap/"
+    },
+    {
+      "suffix": "jot",
+      "rdapUrl": "https://rdap.nominet.uk/jot/"
+    },
+    {
+      "suffix": "joy",
+      "rdapUrl": "https://rdap.nominet.uk/joy/"
+    },
+    {
+      "suffix": "jpmorgan",
+      "rdapUrl": "https://rdap.nic.jpmorgan/"
+    },
+    {
+      "suffix": "jprs",
+      "rdapUrl": "https://rdap.nic.jprs/rdap/"
+    },
+    {
+      "suffix": "juegos",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "juniper",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kaufen",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kddi",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "ke",
+      "rdapUrl": "https://rdap.kenic.or.ke/"
+    },
+    {
+      "suffix": "kerryhotels",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kerryproperties",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kfh",
+      "rdapUrl": "https://rdap.centralnic.com/kfh/"
+    },
+    {
+      "suffix": "kg",
+      "rdapUrl": "http://rdap.cctld.kg/"
+    },
+    {
+      "suffix": "kia",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "kids",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kim",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kindle",
+      "rdapUrl": "https://rdap.nominet.uk/kindle/"
+    },
+    {
+      "suffix": "kitchen",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kiwi",
+      "rdapUrl": "https://rdap.kiwi.fury.ca/rdap/"
+    },
+    {
+      "suffix": "koeln",
+      "rdapUrl": "https://rdap.ryce-rsp.com/rdap/"
+    },
+    {
+      "suffix": "komatsu",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "kosher",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "kpmg",
+      "rdapUrl": "https://rdap.nic.kpmg/"
+    },
+    {
+      "suffix": "kpn",
+      "rdapUrl": "https://rdap.centralnic.com/kpn/"
+    },
+    {
+      "suffix": "krd",
+      "rdapUrl": "https://rdap.nic.krd/"
+    },
+    {
+      "suffix": "kred",
+      "rdapUrl": "https://rdap.centralnic.com/kred/"
+    },
+    {
+      "suffix": "kuokgroup",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ky",
+      "rdapUrl": "https://whois.kyregistry.ky/rdap/"
+    },
+    {
+      "suffix": "kyoto",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "lacaixa",
+      "rdapUrl": "https://rdap.nic.lacaixa/"
+    },
+    {
+      "suffix": "lamborghini",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lamer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "land",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "landrover",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lanxess",
+      "rdapUrl": "https://rdap.nic.lanxess/"
+    },
+    {
+      "suffix": "lasalle",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lat",
+      "rdapUrl": "https://rdap.centralnic.com/lat/"
+    },
+    {
+      "suffix": "latino",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "latrobe",
+      "rdapUrl": "https://rdap.nic.latrobe/"
+    },
+    {
+      "suffix": "law",
+      "rdapUrl": "https://rdap.nic.law/"
+    },
+    {
+      "suffix": "lawyer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lb",
+      "rdapUrl": "https://rdap.lbdr.org.lb/"
+    },
+    {
+      "suffix": "lds",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lease",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "leclerc",
+      "rdapUrl": "https://rdap.nic.leclerc/"
+    },
+    {
+      "suffix": "lefrak",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "legal",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lego",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lexus",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "lgbt",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lidl",
+      "rdapUrl": "https://rdap.centralnic.com/lidl/"
+    },
+    {
+      "suffix": "life",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lifeinsurance",
+      "rdapUrl": "https://rdap.nic.lifeinsurance/"
+    },
+    {
+      "suffix": "lifestyle",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "lighting",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "like",
+      "rdapUrl": "https://rdap.nominet.uk/like/"
+    },
+    {
+      "suffix": "lilly",
+      "rdapUrl": "https://rdap.nic.lilly/"
+    },
+    {
+      "suffix": "limited",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "limo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lincoln",
+      "rdapUrl": "https://rdap.nic.lincoln/"
+    },
+    {
+      "suffix": "link",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "live",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "living",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "llc",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "llp",
+      "rdapUrl": "https://rdap.centralnic.com/llp/"
+    },
+    {
+      "suffix": "loan",
+      "rdapUrl": "https://rdap.nic.loan/"
+    },
+    {
+      "suffix": "loans",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "locker",
+      "rdapUrl": "https://rdap.nic.locker/rdap/"
+    },
+    {
+      "suffix": "locus",
+      "rdapUrl": "https://rdap.nominet.uk/locus/"
+    },
+    {
+      "suffix": "lol",
+      "rdapUrl": "https://rdap.centralnic.com/lol/"
+    },
+    {
+      "suffix": "london",
+      "rdapUrl": "https://rdap.centralnic.com/london/"
+    },
+    {
+      "suffix": "lotte",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "lotto",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "love",
+      "rdapUrl": "https://rdap.registry.love/rdap/"
+    },
+    {
+      "suffix": "lpl",
+      "rdapUrl": "https://rdap.centralnic.com/lpl/"
+    },
+    {
+      "suffix": "lplfinancial",
+      "rdapUrl": "https://rdap.centralnic.com/lplfinancial/"
+    },
+    {
+      "suffix": "ltd",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ltda",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "lundbeck",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "luxe",
+      "rdapUrl": "https://rdap.nic.luxe/"
+    },
+    {
+      "suffix": "luxury",
+      "rdapUrl": "https://rdap.centralnic.com/luxury/"
+    },
+    {
+      "suffix": "ly",
+      "rdapUrl": "https://rdap.nic.ly/"
+    },
+    {
+      "suffix": "madrid",
+      "rdapUrl": "https://rdap.nic.madrid/"
+    },
+    {
+      "suffix": "maif",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "maison",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "makeup",
+      "rdapUrl": "https://rdap.centralnic.com/makeup/"
+    },
+    {
+      "suffix": "man",
+      "rdapUrl": "https://rdap.nic.man/"
+    },
+    {
+      "suffix": "management",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "mango",
+      "rdapUrl": "https://rdap.nic.mango/"
+    },
+    {
+      "suffix": "map",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "market",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "marketing",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "markets",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "marriott",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "marshalls",
+      "rdapUrl": "https://rdap.nic.marshalls/"
+    },
+    {
+      "suffix": "mattel",
+      "rdapUrl": "https://rdap.nic.mattel/"
+    },
+    {
+      "suffix": "mba",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "mckinsey",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "med",
+      "rdapUrl": "https://rdap.nominet.uk/med/"
+    },
+    {
+      "suffix": "media",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "meet",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "melbourne",
+      "rdapUrl": "https://rdap.nic.melbourne/"
+    },
+    {
+      "suffix": "meme",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "memorial",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "men",
+      "rdapUrl": "https://rdap.nic.men/"
+    },
+    {
+      "suffix": "menu",
+      "rdapUrl": "https://rdap.nic.menu/"
+    },
+    {
+      "suffix": "merckmsd",
+      "rdapUrl": "https://rdap.nic.merckmsd/"
+    },
+    {
+      "suffix": "mg",
+      "rdapUrl": "http://rdap.nic.mg/"
+    },
+    {
+      "suffix": "miami",
+      "rdapUrl": "https://rdap.nic.miami/"
+    },
+    {
+      "suffix": "microsoft",
+      "rdapUrl": "https://rdap.nominet.uk/microsoft/"
+    },
+    {
+      "suffix": "mini",
+      "rdapUrl": "https://rdap.centralnic.com/mini/"
+    },
+    {
+      "suffix": "mint",
+      "rdapUrl": "https://rdap.nic.mint/"
+    },
+    {
+      "suffix": "mit",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "mitsubishi",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "ml",
+      "rdapUrl": "https://rdap.nic.ml/"
+    },
+    {
+      "suffix": "mlb",
+      "rdapUrl": "https://rdap.nic.mlb/"
+    },
+    {
+      "suffix": "mls",
+      "rdapUrl": "https://rdap.mls.fury.ca/rdap/"
+    },
+    {
+      "suffix": "mma",
+      "rdapUrl": "https://rdap.nic.mma/"
+    },
+    {
+      "suffix": "mobi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "mobile",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "moda",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "moe",
+      "rdapUrl": "https://rdap.nic.moe/"
+    },
+    {
+      "suffix": "moi",
+      "rdapUrl": "https://rdap.nominet.uk/moi/"
+    },
+    {
+      "suffix": "mom",
+      "rdapUrl": "https://rdap.centralnic.com/mom/"
+    },
+    {
+      "suffix": "monash",
+      "rdapUrl": "https://rdap.nic.monash/"
+    },
+    {
+      "suffix": "money",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "monster",
+      "rdapUrl": "https://rdap.centralnic.com/monster/"
+    },
+    {
+      "suffix": "mormon",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "mortgage",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "moscow",
+      "rdapUrl": "https://rdap.flexireg.net/"
+    },
+    {
+      "suffix": "moto",
+      "rdapUrl": "https://rdap.nic.moto/"
+    },
+    {
+      "suffix": "motorcycles",
+      "rdapUrl": "https://rdap.centralnic.com/motorcycles/"
+    },
+    {
+      "suffix": "mov",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "movie",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ms",
+      "rdapUrl": "https://rdap.nic.ms/"
+    },
+    {
+      "suffix": "msd",
+      "rdapUrl": "https://rdap.nic.msd/"
+    },
+    {
+      "suffix": "mtn",
+      "rdapUrl": "https://rdap.nominet.uk/mtn/"
+    },
+    {
+      "suffix": "mtr",
+      "rdapUrl": "https://whois.nic.mtr/rdap/"
+    },
+    {
+      "suffix": "mu",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "museum",
+      "rdapUrl": "https://rdap.nic.museum/"
+    },
+    {
+      "suffix": "music",
+      "rdapUrl": "https://rdap.registryservices.music/rdap/"
+    },
+    {
+      "suffix": "na",
+      "rdapUrl": "https://keetmans.omadhina.co.na/"
+    },
+    {
+      "suffix": "nab",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nagoya",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "name",
+      "rdapUrl": "https://tld-rdap.verisign.com/name/v1/"
+    },
+    {
+      "suffix": "navy",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nba",
+      "rdapUrl": "https://rdap.nic.nba/"
+    },
+    {
+      "suffix": "nec",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "net",
+      "rdapUrl": "https://rdap.verisign.com/net/v1/"
+    },
+    {
+      "suffix": "netbank",
+      "rdapUrl": "https://rdap.nic.netbank/"
+    },
+    {
+      "suffix": "netflix",
+      "rdapUrl": "https://rdap.nic.netflix/"
+    },
+    {
+      "suffix": "network",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "neustar",
+      "rdapUrl": "https://rdap.nic.neustar/"
+    },
+    {
+      "suffix": "new",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "news",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "next",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nextdirect",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nexus",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "nf",
+      "rdapUrl": "https://rdap.nic.nf/"
+    },
+    {
+      "suffix": "nfl",
+      "rdapUrl": "https://rdap.nic.nfl/"
+    },
+    {
+      "suffix": "ng",
+      "rdapUrl": "http://rdap.nic.net.ng/"
+    },
+    {
+      "suffix": "ngo",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "nhk",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "nico",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "nike",
+      "rdapUrl": "https://rdap.nic.nike/"
+    },
+    {
+      "suffix": "nikon",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ninja",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nissan",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "nissay",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nl",
+      "rdapUrl": "https://rdap.sidn.nl/"
+    },
+    {
+      "suffix": "no",
+      "rdapUrl": "https://rdap.norid.no/"
+    },
+    {
+      "suffix": "nokia",
+      "rdapUrl": "https://rdap.centralnic.com/nokia/"
+    },
+    {
+      "suffix": "norton",
+      "rdapUrl": "https://rdap.nic.norton/"
+    },
+    {
+      "suffix": "now",
+      "rdapUrl": "https://rdap.nominet.uk/now/"
+    },
+    {
+      "suffix": "nowruz",
+      "rdapUrl": "https://rdap.nominet.uk/nowruz/"
+    },
+    {
+      "suffix": "nowtv",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nra",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "nrw",
+      "rdapUrl": "https://rdap.nic.nrw/"
+    },
+    {
+      "suffix": "ntt",
+      "rdapUrl": "https://rdap.nic.ntt/rdap/"
+    },
+    {
+      "suffix": "nyc",
+      "rdapUrl": "https://rdap.nic.nyc/"
+    },
+    {
+      "suffix": "obi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "observer",
+      "rdapUrl": "https://rdap.registry.click/rdap/"
+    },
+    {
+      "suffix": "office",
+      "rdapUrl": "https://rdap.nominet.uk/office/"
+    },
+    {
+      "suffix": "okinawa",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "olayan",
+      "rdapUrl": "https://rdap.nic.olayan/"
+    },
+    {
+      "suffix": "olayangroup",
+      "rdapUrl": "https://rdap.nic.olayangroup/"
+    },
+    {
+      "suffix": "ollo",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "omega",
+      "rdapUrl": "https://rdap.nominet.uk/omega/"
+    },
+    {
+      "suffix": "one",
+      "rdapUrl": "https://rdap.nic.one/"
+    },
+    {
+      "suffix": "ong",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "onl",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "online",
+      "rdapUrl": "https://rdap.centralnic.com/online/"
+    },
+    {
+      "suffix": "ooo",
+      "rdapUrl": "https://rdap.centralnic.com/ooo/"
+    },
+    {
+      "suffix": "open",
+      "rdapUrl": "https://rdap.nic.open/"
+    },
+    {
+      "suffix": "oracle",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "orange",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "org",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "organic",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "origins",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "osaka",
+      "rdapUrl": "https://rdap.nic.osaka/"
+    },
+    {
+      "suffix": "otsuka",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "ott",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "ovh",
+      "rdapUrl": "https://rdap.nic.ovh/"
+    },
+    {
+      "suffix": "page",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "panasonic",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "paris",
+      "rdapUrl": "https://rdap.nic.paris/"
+    },
+    {
+      "suffix": "pars",
+      "rdapUrl": "https://rdap.nominet.uk/pars/"
+    },
+    {
+      "suffix": "partners",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "parts",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "party",
+      "rdapUrl": "https://rdap.nic.party/"
+    },
+    {
+      "suffix": "pay",
+      "rdapUrl": "https://rdap.nominet.uk/pay/"
+    },
+    {
+      "suffix": "pccw",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pet",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pfizer",
+      "rdapUrl": "https://rdap.nic.pfizer/"
+    },
+    {
+      "suffix": "pg",
+      "rdapUrl": "https://rdap.nic.pg/"
+    },
+    {
+      "suffix": "pharmacy",
+      "rdapUrl": "https://rdap.nominet.uk/pharmacy/"
+    },
+    {
+      "suffix": "phd",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "philips",
+      "rdapUrl": "https://rdap.nic.philips/"
+    },
+    {
+      "suffix": "phone",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "photo",
+      "rdapUrl": "https://rdap.nic.photo/"
+    },
+    {
+      "suffix": "photography",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "photos",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "physio",
+      "rdapUrl": "https://rdap.nic.physio/"
+    },
+    {
+      "suffix": "pics",
+      "rdapUrl": "https://rdap.centralnic.com/pics/"
+    },
+    {
+      "suffix": "pictet",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pictures",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pid",
+      "rdapUrl": "https://rdap.registry.click/rdap/"
+    },
+    {
+      "suffix": "pin",
+      "rdapUrl": "https://rdap.nominet.uk/pin/"
+    },
+    {
+      "suffix": "ping",
+      "rdapUrl": "https://rdap.nic.ping/"
+    },
+    {
+      "suffix": "pink",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pioneer",
+      "rdapUrl": "https://rdap.nominet.uk/pioneer/"
+    },
+    {
+      "suffix": "pizza",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pl",
+      "rdapUrl": "https://rdap.dns.pl/"
+    },
+    {
+      "suffix": "place",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "play",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "playstation",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "plumbing",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "plus",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pm",
+      "rdapUrl": "https://rdap.nic.pm/"
+    },
+    {
+      "suffix": "pn",
+      "rdapUrl": "https://rdap.nominet.uk/pn/"
+    },
+    {
+      "suffix": "pnc",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pohl",
+      "rdapUrl": "https://rdap.centralnic.com/pohl/"
+    },
+    {
+      "suffix": "poker",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "politie",
+      "rdapUrl": "https://rdap.nic.politie/"
+    },
+    {
+      "suffix": "porn",
+      "rdapUrl": "https://rdap.nic.porn/"
+    },
+    {
+      "suffix": "post",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "praxi",
+      "rdapUrl": "https://rdap.nic.praxi/"
+    },
+    {
+      "suffix": "press",
+      "rdapUrl": "https://rdap.centralnic.com/press/"
+    },
+    {
+      "suffix": "prime",
+      "rdapUrl": "https://rdap.nominet.uk/prime/"
+    },
+    {
+      "suffix": "pro",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "prod",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "productions",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "prof",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "progressive",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "promo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "properties",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "property",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "protection",
+      "rdapUrl": "https://rdap.centralnic.com/protection/"
+    },
+    {
+      "suffix": "pru",
+      "rdapUrl": "https://rdap.nic.pru/"
+    },
+    {
+      "suffix": "prudential",
+      "rdapUrl": "https://rdap.nic.prudential/"
+    },
+    {
+      "suffix": "pub",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "pw",
+      "rdapUrl": "https://rdap.centralnic.com/pw/"
+    },
+    {
+      "suffix": "pwc",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "qpon",
+      "rdapUrl": "https://rdap.centralnic.com/qpon/"
+    },
+    {
+      "suffix": "quebec",
+      "rdapUrl": "https://rdap.nic.quebec/"
+    },
+    {
+      "suffix": "quest",
+      "rdapUrl": "https://rdap.centralnic.com/quest/"
+    },
+    {
+      "suffix": "racing",
+      "rdapUrl": "https://rdap.nic.racing/"
+    },
+    {
+      "suffix": "radio",
+      "rdapUrl": "https://rdap.nic.radio/"
+    },
+    {
+      "suffix": "re",
+      "rdapUrl": "https://rdap.nic.re/"
+    },
+    {
+      "suffix": "read",
+      "rdapUrl": "https://rdap.nominet.uk/read/"
+    },
+    {
+      "suffix": "realestate",
+      "rdapUrl": "https://rdap.nominet.uk/realestate/"
+    },
+    {
+      "suffix": "realtor",
+      "rdapUrl": "https://rdap.nominet.uk/realtor/"
+    },
+    {
+      "suffix": "realty",
+      "rdapUrl": "https://rdap.registry.click/rdap/"
+    },
+    {
+      "suffix": "recipes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "red",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "redumbrella",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rehab",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "reise",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "reisen",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "reit",
+      "rdapUrl": "https://rdap.centralnic.com/reit/"
+    },
+    {
+      "suffix": "reliance",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ren",
+      "rdapUrl": "https://rdap.zdnsgtld.com/ren/"
+    },
+    {
+      "suffix": "rent",
+      "rdapUrl": "https://rdap.centralnic.com/rent/"
+    },
+    {
+      "suffix": "rentals",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "repair",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "report",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "republican",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rest",
+      "rdapUrl": "https://rdap.registry.bar/rdap/"
+    },
+    {
+      "suffix": "restaurant",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "review",
+      "rdapUrl": "https://rdap.nic.review/"
+    },
+    {
+      "suffix": "reviews",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rexroth",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rich",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "richardli",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ricoh",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "ril",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rio",
+      "rdapUrl": "https://rdap.gtlds.nic.br/"
+    },
+    {
+      "suffix": "rip",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rocks",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rodeo",
+      "rdapUrl": "https://rdap.nic.rodeo/"
+    },
+    {
+      "suffix": "rogers",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "room",
+      "rdapUrl": "https://rdap.nominet.uk/room/"
+    },
+    {
+      "suffix": "rsvp",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "rugby",
+      "rdapUrl": "https://rdap.nic.rugby/"
+    },
+    {
+      "suffix": "ruhr",
+      "rdapUrl": "https://rdap.centralnic.com/ruhr/"
+    },
+    {
+      "suffix": "run",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "rw",
+      "rdapUrl": "https://rdap.ricta.org.rw/"
+    },
+    {
+      "suffix": "rwe",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ryukyu",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "saarland",
+      "rdapUrl": "https://rdap.centralnic.com/saarland/"
+    },
+    {
+      "suffix": "safe",
+      "rdapUrl": "https://rdap.nominet.uk/safe/"
+    },
+    {
+      "suffix": "safety",
+      "rdapUrl": "https://rdap.nic.safety/"
+    },
+    {
+      "suffix": "sakura",
+      "rdapUrl": "https://rdap.nic.sakura/rdap/"
+    },
+    {
+      "suffix": "sale",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "salon",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "samsclub",
+      "rdapUrl": "https://rdap.nic.samsclub/"
+    },
+    {
+      "suffix": "samsung",
+      "rdapUrl": "https://nic.samsung/rdap/"
+    },
+    {
+      "suffix": "sandvik",
+      "rdapUrl": "https://rdap.nic.sandvik/"
+    },
+    {
+      "suffix": "sandvikcoromant",
+      "rdapUrl": "https://rdap.nic.sandvikcoromant/"
+    },
+    {
+      "suffix": "sanofi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sap",
+      "rdapUrl": "https://rdap.nic.sap/"
+    },
+    {
+      "suffix": "sarl",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sas",
+      "rdapUrl": "https://rdap.nic.sas/"
+    },
+    {
+      "suffix": "save",
+      "rdapUrl": "https://rdap.nominet.uk/save/"
+    },
+    {
+      "suffix": "saxo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sbi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sbs",
+      "rdapUrl": "https://rdap.centralnic.com/sbs/"
+    },
+    {
+      "suffix": "scb",
+      "rdapUrl": "https://rdap.nic.scb/"
+    },
+    {
+      "suffix": "schaeffler",
+      "rdapUrl": "https://rdap.nic.schaeffler/"
+    },
+    {
+      "suffix": "schmidt",
+      "rdapUrl": "https://rdap.nic.schmidt/"
+    },
+    {
+      "suffix": "scholarships",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "school",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "schule",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "schwarz",
+      "rdapUrl": "https://rdap.centralnic.com/schwarz/"
+    },
+    {
+      "suffix": "science",
+      "rdapUrl": "https://rdap.nic.science/"
+    },
+    {
+      "suffix": "scot",
+      "rdapUrl": "https://rdap.nic.scot/"
+    },
+    {
+      "suffix": "sd",
+      "rdapUrl": "https://rdap.nic.sd/"
+    },
+    {
+      "suffix": "search",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "seat",
+      "rdapUrl": "https://rdap.nic.seat/"
+    },
+    {
+      "suffix": "secure",
+      "rdapUrl": "https://rdap.nominet.uk/secure/"
+    },
+    {
+      "suffix": "security",
+      "rdapUrl": "https://rdap.centralnic.com/security/"
+    },
+    {
+      "suffix": "seek",
+      "rdapUrl": "https://rdap.nic.seek/"
+    },
+    {
+      "suffix": "select",
+      "rdapUrl": "https://rdap.nic.select/"
+    },
+    {
+      "suffix": "sener",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "services",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "seven",
+      "rdapUrl": "https://rdap.nic.seven/"
+    },
+    {
+      "suffix": "sew",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sex",
+      "rdapUrl": "https://rdap.nic.sex/"
+    },
+    {
+      "suffix": "sexy",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "sfr",
+      "rdapUrl": "https://rdap.centralnic.com/sfr/"
+    },
+    {
+      "suffix": "sg",
+      "rdapUrl": "https://rdap.sgnic.sg/rdap/"
+    },
+    {
+      "suffix": "shangrila",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sharp",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "shell",
+      "rdapUrl": "https://rdap.nominet.uk/shell/"
+    },
+    {
+      "suffix": "shia",
+      "rdapUrl": "https://rdap.nominet.uk/shia/"
+    },
+    {
+      "suffix": "shiksha",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "shoes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "shop",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "shopping",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "shouji",
+      "rdapUrl": "https://rdap.teleinfo.cn/"
+    },
+    {
+      "suffix": "show",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "si",
+      "rdapUrl": "https://rdap.register.si/"
+    },
+    {
+      "suffix": "silk",
+      "rdapUrl": "https://rdap.nominet.uk/silk/"
+    },
+    {
+      "suffix": "sina",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "singles",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "site",
+      "rdapUrl": "https://rdap.centralnic.com/site/"
+    },
+    {
+      "suffix": "ski",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "skin",
+      "rdapUrl": "https://rdap.centralnic.com/skin/"
+    },
+    {
+      "suffix": "sky",
+      "rdapUrl": "https://rdap.nominet.uk/sky/"
+    },
+    {
+      "suffix": "skype",
+      "rdapUrl": "https://rdap.nominet.uk/skype/"
+    },
+    {
+      "suffix": "sling",
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/"
+    },
+    {
+      "suffix": "smart",
+      "rdapUrl": "https://rdap.centralnic.com/smart/"
+    },
+    {
+      "suffix": "smile",
+      "rdapUrl": "https://rdap.nominet.uk/smile/"
+    },
+    {
+      "suffix": "sncf",
+      "rdapUrl": "https://rdap.nic.sncf/"
+    },
+    {
+      "suffix": "soccer",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "social",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "softbank",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "software",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sohu",
+      "rdapUrl": "https://rdap.zdnsgtld.com/sohu/"
+    },
+    {
+      "suffix": "solar",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "solutions",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "song",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sony",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "soy",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "spa",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "space",
+      "rdapUrl": "https://rdap.centralnic.com/space/"
+    },
+    {
+      "suffix": "sport",
+      "rdapUrl": "https://rdap.nic.sport/"
+    },
+    {
+      "suffix": "spot",
+      "rdapUrl": "https://rdap.nominet.uk/spot/"
+    },
+    {
+      "suffix": "sr",
+      "rdapUrl": "https://whois.sr/rdap/"
+    },
+    {
+      "suffix": "srl",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ss",
+      "rdapUrl": "https://rdap.nic.ss/"
+    },
+    {
+      "suffix": "stada",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "staples",
+      "rdapUrl": "https://rdap.nic.staples/"
+    },
+    {
+      "suffix": "star",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "statebank",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "statefarm",
+      "rdapUrl": "https://rdap.nic.statefarm/"
+    },
+    {
+      "suffix": "stc",
+      "rdapUrl": "https://rdap.centralnic.com/stc/"
+    },
+    {
+      "suffix": "stcgroup",
+      "rdapUrl": "https://rdap.centralnic.com/stcgroup/"
+    },
+    {
+      "suffix": "stockholm",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "storage",
+      "rdapUrl": "https://rdap.centralnic.com/storage/"
+    },
+    {
+      "suffix": "store",
+      "rdapUrl": "https://rdap.centralnic.com/store/"
+    },
+    {
+      "suffix": "stream",
+      "rdapUrl": "https://rdap.nic.stream/"
+    },
+    {
+      "suffix": "studio",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "study",
+      "rdapUrl": "https://rdap.nic.study/"
+    },
+    {
+      "suffix": "style",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "sucks",
+      "rdapUrl": "https://rdap.nic.sucks/"
+    },
+    {
+      "suffix": "supplies",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "supply",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "support",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "surf",
+      "rdapUrl": "https://rdap.nic.surf/"
+    },
+    {
+      "suffix": "surgery",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "suzuki",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "swatch",
+      "rdapUrl": "https://rdap.nominet.uk/swatch/"
+    },
+    {
+      "suffix": "swiss",
+      "rdapUrl": "https://rdap.nic.swiss/"
+    },
+    {
+      "suffix": "sydney",
+      "rdapUrl": "https://rdap.nic.sydney/"
+    },
+    {
+      "suffix": "systems",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tab",
+      "rdapUrl": "https://rdap.nic.tab/"
+    },
+    {
+      "suffix": "taipei",
+      "rdapUrl": "https://rdap.nic.taipei/"
+    },
+    {
+      "suffix": "talk",
+      "rdapUrl": "https://rdap.nominet.uk/talk/"
+    },
+    {
+      "suffix": "taobao",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "target",
+      "rdapUrl": "https://rdap.nic.target/"
+    },
+    {
+      "suffix": "tatamotors",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tatar",
+      "rdapUrl": "https://whois.nic.tatar/rdap/"
+    },
+    {
+      "suffix": "tattoo",
+      "rdapUrl": "https://rdap.nic.tattoo/"
+    },
+    {
+      "suffix": "tax",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "taxi",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tci",
+      "rdapUrl": "https://rdap.nominet.uk/tci/"
+    },
+    {
+      "suffix": "tdk",
+      "rdapUrl": "https://rdap.nic.tdk/"
+    },
+    {
+      "suffix": "team",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tech",
+      "rdapUrl": "https://rdap.centralnic.com/tech/"
+    },
+    {
+      "suffix": "technology",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tel",
+      "rdapUrl": "https://rdap.nic.tel/"
+    },
+    {
+      "suffix": "temasek",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tennis",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "teva",
+      "rdapUrl": "https://rdap.nic.teva/"
+    },
+    {
+      "suffix": "tf",
+      "rdapUrl": "https://rdap.nic.tf/"
+    },
+    {
+      "suffix": "th",
+      "rdapUrl": "https://rdap.thains.co.th/"
+    },
+    {
+      "suffix": "thd",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "theater",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "theatre",
+      "rdapUrl": "https://rdap.centralnic.com/theatre/"
+    },
+    {
+      "suffix": "tiaa",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tickets",
+      "rdapUrl": "https://rdap.centralnic.com/tickets/"
+    },
+    {
+      "suffix": "tienda",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tips",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tires",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tirol",
+      "rdapUrl": "https://rdap.ryce-rsp.com/rdap/"
+    },
+    {
+      "suffix": "tjmaxx",
+      "rdapUrl": "https://rdap.nic.tjmaxx/"
+    },
+    {
+      "suffix": "tjx",
+      "rdapUrl": "https://rdap.nic.tjx/"
+    },
+    {
+      "suffix": "tkmaxx",
+      "rdapUrl": "https://rdap.nic.tkmaxx/"
+    },
+    {
+      "suffix": "tmall",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "to",
+      "rdapUrl": "https://rdap.tonicregistry.to/rdap/"
+    },
+    {
+      "suffix": "today",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tokyo",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "tools",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "top",
+      "rdapUrl": "https://rdap.zdnsgtld.com/top/"
+    },
+    {
+      "suffix": "toray",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "toshiba",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "total",
+      "rdapUrl": "https://rdap.nic.total/"
+    },
+    {
+      "suffix": "tours",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "town",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "toyota",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "toys",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "trade",
+      "rdapUrl": "https://rdap.nic.trade/"
+    },
+    {
+      "suffix": "trading",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "training",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "travel",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "travelers",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "travelersinsurance",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "trust",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "trv",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tube",
+      "rdapUrl": "https://rdap.nic.tube/"
+    },
+    {
+      "suffix": "tui",
+      "rdapUrl": "https://rdap.centralnic.com/tui/"
+    },
+    {
+      "suffix": "tunes",
+      "rdapUrl": "https://rdap.nominet.uk/tunes/"
+    },
+    {
+      "suffix": "tushu",
+      "rdapUrl": "https://rdap.nominet.uk/tushu/"
+    },
+    {
+      "suffix": "tv",
+      "rdapUrl": "https://rdap.nic.tv/"
+    },
+    {
+      "suffix": "tvs",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "tw",
+      "rdapUrl": "https://ccrdap.twnic.tw/tw/"
+    },
+    {
+      "suffix": "tz",
+      "rdapUrl": "https://whois.tznic.or.tz/rdap/"
+    },
+    {
+      "suffix": "ua",
+      "rdapUrl": "https://rdap.hostmaster.ua/"
+    },
+    {
+      "suffix": "ubank",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ubs",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "uk",
+      "rdapUrl": "https://rdap.nominet.uk/uk/"
+    },
+    {
+      "suffix": "unicom",
+      "rdapUrl": "https://rdap.zdnsgtld.com/unicom/"
+    },
+    {
+      "suffix": "university",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "uno",
+      "rdapUrl": "https://rdap.centralnic.com/uno/"
+    },
+    {
+      "suffix": "uol",
+      "rdapUrl": "https://rdap.gtlds.nic.br/"
+    },
+    {
+      "suffix": "ups",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "uz",
+      "rdapUrl": "https://rdap.cctld.uz/"
+    },
+    {
+      "suffix": "vacations",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vana",
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/"
+    },
+    {
+      "suffix": "vanguard",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vegas",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "ventures",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "verisign",
+      "rdapUrl": "https://tld-rdap.verisign.com/verisign/v1/"
+    },
+    {
+      "suffix": "versicherung",
+      "rdapUrl": "https://rdap.nic.versicherung/v1/"
+    },
+    {
+      "suffix": "vet",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vg",
+      "rdapUrl": "https://rdap.centralnic.com/vg/"
+    },
+    {
+      "suffix": "vi",
+      "rdapUrl": "https://rdap.nic.vi/"
+    },
+    {
+      "suffix": "viajes",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "video",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vig",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "viking",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "villas",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vin",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vip",
+      "rdapUrl": "https://rdap.nic.vip/"
+    },
+    {
+      "suffix": "virgin",
+      "rdapUrl": "https://rdap.nominet.uk/virgin/"
+    },
+    {
+      "suffix": "visa",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vision",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "viva",
+      "rdapUrl": "https://rdap.centralnic.com/viva/"
+    },
+    {
+      "suffix": "vivo",
+      "rdapUrl": "https://rdap.nic.vivo/"
+    },
+    {
+      "suffix": "vlaanderen",
+      "rdapUrl": "https://rdap.nic.vlaanderen/"
+    },
+    {
+      "suffix": "vodka",
+      "rdapUrl": "https://rdap.nic.vodka/"
+    },
+    {
+      "suffix": "volvo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "vote",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "voting",
+      "rdapUrl": "https://rdap.nic.voting/"
+    },
+    {
+      "suffix": "voto",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "voyage",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "wales",
+      "rdapUrl": "https://rdap.nominet.uk/wales/"
+    },
+    {
+      "suffix": "walmart",
+      "rdapUrl": "https://rdap.nic.walmart/"
+    },
+    {
+      "suffix": "walter",
+      "rdapUrl": "https://rdap.nic.walter/"
+    },
+    {
+      "suffix": "wang",
+      "rdapUrl": "https://rdap.zdnsgtld.com/wang/"
+    },
+    {
+      "suffix": "wanggou",
+      "rdapUrl": "https://rdap.nominet.uk/wanggou/"
+    },
+    {
+      "suffix": "watch",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "watches",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "weather",
+      "rdapUrl": "https://rdap.nic.weather/"
+    },
+    {
+      "suffix": "weatherchannel",
+      "rdapUrl": "https://rdap.nic.weatherchannel/"
+    },
+    {
+      "suffix": "webcam",
+      "rdapUrl": "https://rdap.nic.webcam/"
+    },
+    {
+      "suffix": "weber",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "website",
+      "rdapUrl": "https://rdap.centralnic.com/website/"
+    },
+    {
+      "suffix": "wed",
+      "rdapUrl": "https://rdap.nominet.uk/wed/"
+    },
+    {
+      "suffix": "wedding",
+      "rdapUrl": "https://rdap.nic.wedding/"
+    },
+    {
+      "suffix": "weibo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "weir",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "wf",
+      "rdapUrl": "https://rdap.nic.wf/"
+    },
+    {
+      "suffix": "whoswho",
+      "rdapUrl": "https://rdap.nic.whoswho/"
+    },
+    {
+      "suffix": "wien",
+      "rdapUrl": "https://rdap.ryce-rsp.com/rdap/"
+    },
+    {
+      "suffix": "wiki",
+      "rdapUrl": "https://rdap.nic.wiki/"
+    },
+    {
+      "suffix": "williamhill",
+      "rdapUrl": "https://rdap.nic.williamhill/"
+    },
+    {
+      "suffix": "win",
+      "rdapUrl": "https://rdap.nic.win/"
+    },
+    {
+      "suffix": "windows",
+      "rdapUrl": "https://rdap.nominet.uk/windows/"
+    },
+    {
+      "suffix": "wine",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "winners",
+      "rdapUrl": "https://rdap.nic.winners/"
+    },
+    {
+      "suffix": "wme",
+      "rdapUrl": "https://rdap.centralnic.com/wme/"
+    },
+    {
+      "suffix": "woodside",
+      "rdapUrl": "https://rdap.nic.woodside/"
+    },
+    {
+      "suffix": "work",
+      "rdapUrl": "https://rdap.nic.work/"
+    },
+    {
+      "suffix": "works",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "world",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "wow",
+      "rdapUrl": "https://rdap.nominet.uk/wow/"
+    },
+    {
+      "suffix": "wtc",
+      "rdapUrl": "https://rdap.nic.wtc/"
+    },
+    {
+      "suffix": "wtf",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xbox",
+      "rdapUrl": "https://rdap.nominet.uk/xbox/"
+    },
+    {
+      "suffix": "xerox",
+      "rdapUrl": "https://rdap.nic.xerox/"
+    },
+    {
+      "suffix": "xihuan",
+      "rdapUrl": "https://rdap.teleinfo.cn/"
+    },
+    {
+      "suffix": "xin",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--11b4c3d",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--11b4c3d/v1/"
+    },
+    {
+      "suffix": "xn--1ck2e1b",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--1qqw23a",
+      "rdapUrl": "https://restwhois.ngtld.cn/"
+    },
+    {
+      "suffix": "xn--30rr7y",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--30rr7y/"
+    },
+    {
+      "suffix": "xn--3bst00m",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--3bst00m/"
+    },
+    {
+      "suffix": "xn--3ds443g",
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--3ds443g/"
+    },
+    {
+      "suffix": "xn--3pxu8k",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--3pxu8k/v1/"
+    },
+    {
+      "suffix": "xn--42c2d9a",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--42c2d9a/v1/"
+    },
+    {
+      "suffix": "xn--45q11c",
+      "rdapUrl": "https://rdap.zdnsgtld.com/XN--45Q11C/"
+    },
+    {
+      "suffix": "xn--4gbrim",
+      "rdapUrl": "https://rdap.centralnic.com/xn--4gbrim/"
+    },
+    {
+      "suffix": "xn--55qw42g",
+      "rdapUrl": "https://rdap.conac.cn/"
+    },
+    {
+      "suffix": "xn--55qx5d",
+      "rdapUrl": "https://restwhois.ngtld.cn/"
+    },
+    {
+      "suffix": "xn--5su34j936bgsg",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--5tzm5g",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--6frz82g",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--6qq986b3xl",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--6qq986b3xl/"
+    },
+    {
+      "suffix": "xn--80adxhks",
+      "rdapUrl": "https://rdap.flexireg.net/"
+    },
+    {
+      "suffix": "xn--80aqecdr1a",
+      "rdapUrl": "https://rdap.nic.xn--80aqecdr1a/"
+    },
+    {
+      "suffix": "xn--80asehdb",
+      "rdapUrl": "https://rdap.nic.xn--80asehdb/"
+    },
+    {
+      "suffix": "xn--80aswg",
+      "rdapUrl": "https://rdap.nic.xn--80aswg/"
+    },
+    {
+      "suffix": "xn--8y0a063a",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--8y0a063a/"
+    },
+    {
+      "suffix": "xn--9dbq2a",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--9dbq2a/v1/"
+    },
+    {
+      "suffix": "xn--9et52u",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--9et52u/"
+    },
+    {
+      "suffix": "xn--9krt00a",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--b4w605ferd",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--bck1b9a5dre4c",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--c1avg",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "xn--c2br7g",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--c2br7g/v1/"
+    },
+    {
+      "suffix": "xn--cck2b3b",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--cckwcxetd",
+      "rdapUrl": "https://rdap.nominet.uk/xn--cckwcxetd/"
+    },
+    {
+      "suffix": "xn--cg4bki",
+      "rdapUrl": "https://nic.samsung/rdap/"
+    },
+    {
+      "suffix": "xn--clchc0ea0b2g2a9gcd",
+      "rdapUrl": "https://rdap.ta.sgnic.sg/rdap/"
+    },
+    {
+      "suffix": "xn--czr694b",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--czr694b/"
+    },
+    {
+      "suffix": "xn--czrs0t",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--czru2d",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--czru2d/"
+    },
+    {
+      "suffix": "xn--d1acj3b",
+      "rdapUrl": "https://whois.nic.xn--d1acj3b/rdap/"
+    },
+    {
+      "suffix": "xn--eckvdtc9d",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--efvy88h",
+      "rdapUrl": "https://rdap.zdnsgtld.com/XN--EFVY88H/"
+    },
+    {
+      "suffix": "xn--fct429k",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--fhbei",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--fhbei/v1/"
+    },
+    {
+      "suffix": "xn--fiq228c5hs",
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--fiq228c5hs/"
+    },
+    {
+      "suffix": "xn--fiq64b",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--fiq64b/"
+    },
+    {
+      "suffix": "xn--fjq720a",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--flw351e",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "xn--fzys8d69uvgm",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--g2xx48c",
+      "rdapUrl": "https://rdap.nic.xn--g2xx48c/"
+    },
+    {
+      "suffix": "xn--gckr3f0f",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--gk3at1e",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--hxt814e",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--hxt814e/"
+    },
+    {
+      "suffix": "xn--i1b6b1a6a2e",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "xn--imr513n",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--imr513n/"
+    },
+    {
+      "suffix": "xn--io0a7i",
+      "rdapUrl": "https://restwhois.ngtld.cn/"
+    },
+    {
+      "suffix": "xn--j1aef",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--j1aef/v1/"
+    },
+    {
+      "suffix": "xn--jlq480n2rg",
+      "rdapUrl": "https://rdap.nominet.uk/xn--jlq480n2rg/"
+    },
+    {
+      "suffix": "xn--jvr189m",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--kcrx77d1x4a",
+      "rdapUrl": "https://rdap.nic.xn--kcrx77d1x4a/"
+    },
+    {
+      "suffix": "xn--kpry57d",
+      "rdapUrl": "https://ccrdap.twnic.tw/taiwan/"
+    },
+    {
+      "suffix": "xn--kput3i",
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--kput3i/"
+    },
+    {
+      "suffix": "xn--mgba3a3ejt",
+      "rdapUrl": "https://rdap.nic.xn--mgba3a3ejt/"
+    },
+    {
+      "suffix": "xn--mgba7c0bbn0a",
+      "rdapUrl": "https://rdap.nic.xn--mgba7c0bbn0a/"
+    },
+    {
+      "suffix": "xn--mgbab2bd",
+      "rdapUrl": "https://rdap.nic.xn--mgbab2bd/"
+    },
+    {
+      "suffix": "xn--mgbca7dzdo",
+      "rdapUrl": "https://rdap.nic.xn--mgbca7dzdo/"
+    },
+    {
+      "suffix": "xn--mgbi4ecexp",
+      "rdapUrl": "https://rdap.nic.xn--mgbi4ecexp/"
+    },
+    {
+      "suffix": "xn--mgbt3dhd",
+      "rdapUrl": "https://rdap.nominet.uk/xn--mgbt3dhd/"
+    },
+    {
+      "suffix": "xn--mk1bu44c",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--mk1bu44c/v1/"
+    },
+    {
+      "suffix": "xn--mxtq1m",
+      "rdapUrl": "https://rdap.twnic.tw/rdap/"
+    },
+    {
+      "suffix": "xn--ngbc5azd",
+      "rdapUrl": "https://rdap.nic.xn--ngbc5azd/"
+    },
+    {
+      "suffix": "xn--ngbe9e0a",
+      "rdapUrl": "https://rdap.centralnic.com/xn--ngbe9e0a/"
+    },
+    {
+      "suffix": "xn--ngbrx",
+      "rdapUrl": "https://rdap.nic.xn--ngbrx/"
+    },
+    {
+      "suffix": "xn--nqv7f",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "xn--nqv7fs00ema",
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/"
+    },
+    {
+      "suffix": "xn--nyqy26a",
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--nyqy26a/"
+    },
+    {
+      "suffix": "xn--o3cw4h",
+      "rdapUrl": "https://rdap.thains.co.th/"
+    },
+    {
+      "suffix": "xn--otu796d",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--otu796d/"
+    },
+    {
+      "suffix": "xn--p1acf",
+      "rdapUrl": "https://rdap.nic.xn--p1acf/"
+    },
+    {
+      "suffix": "xn--pssy2u",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--pssy2u/v1/"
+    },
+    {
+      "suffix": "xn--q9jyb4c",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "xn--qcka1pmc",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "xn--rhqv96g",
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--rhqv96g/"
+    },
+    {
+      "suffix": "xn--rovu88b",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--ses554g",
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--ses554g/"
+    },
+    {
+      "suffix": "xn--t60b56a",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--t60b56a/v1/"
+    },
+    {
+      "suffix": "xn--tckwe",
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--tckwe/v1/"
+    },
+    {
+      "suffix": "xn--tiq49xqyj",
+      "rdapUrl": "https://rdap.nic.xn--tiq49xqyj/"
+    },
+    {
+      "suffix": "xn--unup4y",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--vermgensberater-ctb",
+      "rdapUrl": "https://rdap.centralnic.com/xn--vermgensberater-ctb/"
+    },
+    {
+      "suffix": "xn--vermgensberatung-pwb",
+      "rdapUrl": "https://rdap.centralnic.com/xn--vermgensberatung-pwb/"
+    },
+    {
+      "suffix": "xn--vhquv",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--vuq861b",
+      "rdapUrl": "https://rdap.teleinfo.cn/"
+    },
+    {
+      "suffix": "xn--w4r85el8fhu5dnra",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--w4rs40l",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "xn--xhq521b",
+      "rdapUrl": "https://restwhois.ngtld.cn/"
+    },
+    {
+      "suffix": "xn--yfro4i67o",
+      "rdapUrl": "https://rdap.zh.sgnic.sg/rdap/"
+    },
+    {
+      "suffix": "xn--zfr164b",
+      "rdapUrl": "https://rdap.conac.cn/"
+    },
+    {
+      "suffix": "xxx",
+      "rdapUrl": "https://rdap.nic.xxx/"
+    },
+    {
+      "suffix": "xyz",
+      "rdapUrl": "https://rdap.centralnic.com/xyz/"
+    },
+    {
+      "suffix": "yachts",
+      "rdapUrl": "https://rdap.centralnic.com/yachts/"
+    },
+    {
+      "suffix": "yahoo",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "yamaxun",
+      "rdapUrl": "https://rdap.nominet.uk/yamaxun/"
+    },
+    {
+      "suffix": "yandex",
+      "rdapUrl": "https://rdap.nic.yandex/rdap/"
+    },
+    {
+      "suffix": "ye",
+      "rdapUrl": "https://rdap.y.net.ye/"
+    },
+    {
+      "suffix": "yodobashi",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "yoga",
+      "rdapUrl": "https://rdap.nic.yoga/"
+    },
+    {
+      "suffix": "yokohama",
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/"
+    },
+    {
+      "suffix": "you",
+      "rdapUrl": "https://rdap.nominet.uk/you/"
+    },
+    {
+      "suffix": "youtube",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "yt",
+      "rdapUrl": "https://rdap.nic.yt/"
+    },
+    {
+      "suffix": "yun",
+      "rdapUrl": "https://rdap.teleinfo.cn/"
+    },
+    {
+      "suffix": "zappos",
+      "rdapUrl": "https://rdap.nominet.uk/zappos/"
+    },
+    {
+      "suffix": "zara",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "zero",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "zip",
+      "rdapUrl": "https://pubapi.registry.google/rdap/"
+    },
+    {
+      "suffix": "zm",
+      "rdapUrl": "https://rdap.nic.zm/"
+    },
+    {
+      "suffix": "zone",
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/"
+    },
+    {
+      "suffix": "zuerich",
+      "rdapUrl": "https://rdap.centralnic.com/zuerich/"
+    }
+  ]
+}

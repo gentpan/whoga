@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "description": "Data inventory for layer classification and maintenance policy.",
+  "allowedExactDuplicateGroups": [],
+  "entries": [
+    {
+      "file": "data-manifest.json",
+      "layer": "meta",
+      "runtimeUsed": false,
+      "owner": "manual",
+      "rebuildCommand": "manual",
+      "notes": "Classification manifest for JSON governance"
+    },
+    {
+      "file": "asn.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA ASN bootstrap"
+    },
+    {
+      "file": "brand-tlds.json",
+      "layer": "derived",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Brand TLD classification"
+    },
+    {
+      "file": "dns.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA RDAP bootstrap"
+    },
+    {
+      "file": "geo-tlds.json",
+      "layer": "derived",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Geo TLD classification"
+    },
+    {
+      "file": "ipv4.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA IPv4 bootstrap"
+    },
+    {
+      "file": "ipv6.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA IPv6 bootstrap"
+    },
+    {
+      "file": "missing-tld-lookup.json",
+      "layer": "derived",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Coverage diagnostics"
+    },
+    {
+      "file": "object-tags.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA object tags"
+    },
+    {
+      "file": "rdap-servers-extra.json",
+      "layer": "raw",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Manual/remote extra RDAP mappings"
+    },
+    {
+      "file": "update-meta.json",
+      "layer": "meta",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Unified update metadata for sync/cache/tld categories"
+    },
+    {
+      "file": "registries.json",
+      "layer": "derived",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Enriched registry details"
+    },
+    {
+      "file": "tld-categories.json",
+      "layer": "derived",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Category lists for UI/statistics"
+    },
+    {
+      "file": "tlds-iana-list.json",
+      "layer": "raw",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "IANA TLD alpha list converted to JSON"
+    },
+    {
+      "file": "tlds.json",
+      "layer": "derived",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Unified TLD statistics and categorized lists for frontend"
+    },
+    {
+      "file": "tld.json",
+      "layer": "derived",
+      "runtimeUsed": false,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Flattened suffix to RDAP map"
+    },
+    {
+      "file": "whois-merged.json",
+      "layer": "normalized",
+      "runtimeUsed": true,
+      "owner": "whois-data-sync",
+      "rebuildCommand": "GET /api/admin/refresh",
+      "notes": "Primary runtime index for domain/suffix lookup"
+    }
+  ]
+}
