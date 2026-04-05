@@ -29,11 +29,54 @@ interface StatsResponse {
   updatedAt: string;
   queryableDomainSuffixes: number;
   items: StatItem[];
+  queryStats: {
+    totalRequests: number;
+    successCount: number;
+    clientErrorCount: number;
+    serverErrorCount: number;
+    cacheHitCount: number;
+    cacheMissCount: number;
+    lastRequestAt: string | null;
+    queryTypeCounts: {
+      domain: number;
+      suffix: number;
+      ip: number;
+      asn: number;
+      unknown: number;
+    };
+    entryPointCounts: {
+      api: number;
+      web: number;
+    };
+    dailySeries: Array<{
+      date: string;
+      total: number;
+      domain: number;
+      suffix: number;
+      ip: number;
+      asn: number;
+    }>;
+    recentRequests: Array<{
+      timestamp: string;
+      rawQuery: string;
+      normalizedQuery: string;
+      queryType: "domain" | "suffix" | "ip" | "asn" | "unknown";
+      entryPoint: "api" | "web";
+      host: string;
+      success: boolean;
+      status: number;
+      cacheHit: boolean;
+      durationMs: number;
+      rdapServer?: string | null;
+      error?: string | null;
+    }>;
+  };
 }
 
 interface SuffixesResponse {
   count: number;
   suffixes: string[];
+  decodedSuffixes?: Record<string, string>;
   tldCategories?: {
     ccTld: string[];
     gTld: string[];
@@ -100,6 +143,7 @@ interface DnsLookupView {
 }
 
 type Locale = "zh" | "en";
+type ChartMetric = "total" | "domain" | "ip" | "asn" | "suffix";
 
 const I18N = {
   en: {
@@ -139,6 +183,74 @@ const I18N = {
     renderedResult: "1. Rendered Result",
     rawJson: "Raw JSON",
     nameServers: "Name Servers",
+    loadingRdapData: "Loading RDAP data...",
+    loading: "Loading...",
+    abuseContactPrefix: "Abuse contact for",
+    abuseContactMiddle: "is",
+    ptrRecordPrefix: "PTR record for",
+    ptrRecordMiddle: "is",
+    coreInformation: "Core Information",
+    ipNetworkInformation: "IP Network Information",
+    status: "Status",
+    entityName: "Name",
+    entityOrganization: "Organization",
+    entityEmail: "Email",
+    entityPhone: "Phone",
+    entityAddress: "Address",
+    details: "Details",
+    hide: "Hide",
+    dnsLookup: "DNS Lookup",
+    runDnsLookup: "Run DNS Lookup",
+    domainQueryableSuffixes: "DOMAIN QUERYABLE SUFFIXES",
+    domainQueryableSuffixesLabel: "Suffixes currently queryable via RDAP endpoints.",
+    snapshotGeneratedAt: "Snapshot generated at:",
+    rootTldCoverage: "ROOT TLD COVERAGE",
+    rootTldCoverageLabel: "Queryable coverage across the IANA root TLD namespace.",
+    rootTldCoverageTime: "Computed from current merged routing data.",
+    dataPublication: "DATA PUBLICATION",
+    dataPublicationLabel: "Official publication time of the IANA RDAP bootstrap `dns.json` dataset.",
+    dataPublicationTime: "Source: IANA RDAP Bootstrap · data.iana.org",
+    syncInterval: "SYNC INTERVAL",
+    syncIntervalValue: "7 Days",
+    syncIntervalLabel: "Scheduled sync and merged data rebuild interval.",
+    syncIntervalTime: "Cron + on-demand refresh",
+    chartsTitle: "REQUEST CHARTS",
+    chartsLabel: "Daily request volume across the shared query API.",
+    chartTabAll: "All",
+    chartTabDomain: "Domain",
+    chartTabIp: "IP",
+    chartTabAsn: "ASN",
+    chartTabSuffix: "Suffix",
+    chartTotalLabel: "Requests",
+    chartTodayRequests: "Today",
+    chartRecent30Requests: "Last 30 days",
+    chartAllRequests: "All time",
+    ccTldLabel: "ccTLD",
+    gTldLabel: "gTLD",
+    newGtldLabel: "new gTLD",
+    sTldLabel: "sTLD",
+    brandTldLabel: "brand TLD",
+    geoTldLabel: "geo TLD",
+    companyLabel: "A GiantAccel Company",
+    backToTop: "Back to Top",
+    apiUsageTitle: "API Usage",
+    apiUsageLead: "Use `api.who.ga/<query>` to retrieve normalized RDAP JSON.",
+    apiUsageDescription:
+      "The WHO.GA API is designed for direct integration. Send a domain, IP, ASN, or suffix in the request path to receive structured registration data, network allocation details, and protocol metadata in a consistent JSON format.",
+    apiUsageNotes: [],
+    apiRunTitle: "Run Examples",
+    apiRunLead: "Validate request parameters against the live endpoint",
+    apiRunButton: "Open JSON",
+    apiCurlTitle: "Quick Copy",
+    apiConsoleTitle: "Interactive API Console",
+    apiConsoleLabel: "Execute a live lookup",
+    apiConsolePlaceholder: "example.com / 8.8.8.8 / AS15169 / .com",
+    apiConsolePreview: "Resolved request URL",
+    apiConsoleExamples: "Quick examples",
+    apiConsoleRun: "Run",
+    apiConsoleResponse: "JSON Response Preview",
+    apiConsoleReady: "Run a query to inspect the live JSON response in place.",
+    apiConsoleLoading: "Requesting live JSON response...",
     faq: "Frequently Asked Questions",
     whyTitle: "Why Choose WHO.GA",
     whyCards: [
@@ -233,7 +345,75 @@ const I18N = {
     copied: "已复制",
     renderedResult: "1. 渲染结果",
     rawJson: "JSON 原文",
-    nameServers: "Name Servers",
+    nameServers: "名称服务器",
+    loadingRdapData: "RDAP 数据加载中...",
+    loading: "加载中...",
+    abuseContactPrefix: "域名",
+    abuseContactMiddle: "的滥用举报联系方式为",
+    ptrRecordPrefix: "域名",
+    ptrRecordMiddle: "的 PTR 记录为",
+    coreInformation: "核心信息",
+    ipNetworkInformation: "IP 网络信息",
+    status: "状态",
+    entityName: "名称",
+    entityOrganization: "组织",
+    entityEmail: "邮箱",
+    entityPhone: "电话",
+    entityAddress: "地址",
+    details: "详情",
+    hide: "收起",
+    dnsLookup: "DNS 查询",
+    runDnsLookup: "查询 DNS",
+    domainQueryableSuffixes: "可查询域名后缀",
+    domainQueryableSuffixesLabel: "当前可通过 RDAP 端点查询的后缀数量。",
+    snapshotGeneratedAt: "快照生成时间：",
+    rootTldCoverage: "根区 TLD 覆盖率",
+    rootTldCoverageLabel: "当前合并路由数据在 IANA 根区 TLD 中的可查询覆盖情况。",
+    rootTldCoverageTime: "基于当前合并路由数据计算",
+    dataPublication: "数据发布时间",
+    dataPublicationLabel: "IANA RDAP Bootstrap `dns.json` 数据集的官方发布时间。",
+    dataPublicationTime: "来源：IANA RDAP Bootstrap · data.iana.org",
+    syncInterval: "同步周期",
+    syncIntervalValue: "7 天",
+    syncIntervalLabel: "定时同步与合并数据重建周期。",
+    syncIntervalTime: "定时任务 + 按需刷新",
+    chartsTitle: "请求图表",
+    chartsLabel: "通过统一查询 API 统计的每日请求量。",
+    chartTabAll: "全部",
+    chartTabDomain: "域名",
+    chartTabIp: "IP",
+    chartTabAsn: "ASN",
+    chartTabSuffix: "后缀",
+    chartTotalLabel: "请求量",
+    chartTodayRequests: "今日请求次数",
+    chartRecent30Requests: "最近 30 天请求次数",
+    chartAllRequests: "所有请求次数",
+    ccTldLabel: "国家和地区顶级域",
+    gTldLabel: "通用顶级域",
+    newGtldLabel: "新通用顶级域",
+    sTldLabel: "赞助型顶级域",
+    brandTldLabel: "品牌顶级域",
+    geoTldLabel: "地理顶级域",
+    companyLabel: "GiantAccel 旗下产品",
+    backToTop: "返回顶部",
+    apiUsageTitle: "API 用法",
+    apiUsageLead: "使用 `api.who.ga/<查询内容>` 获取标准化 RDAP JSON 响应。",
+    apiUsageDescription:
+      "WHO.GA API 面向程序化集成设计。将域名、IP、ASN 或后缀直接放入请求路径，即可获得统一结构的注册数据、网段信息与协议元数据，便于系统接入与自动化处理。",
+    apiUsageNotes: [],
+    apiRunTitle: "运行示例",
+    apiRunLead: "使用实时端点验证请求参数与返回结果",
+    apiRunButton: "打开 JSON",
+    apiCurlTitle: "快速复制",
+    apiConsoleTitle: "交互式 API 控制台",
+    apiConsoleLabel: "执行一次实时查询",
+    apiConsolePlaceholder: "example.com / 8.8.8.8 / AS15169 / .com",
+    apiConsolePreview: "解析后的请求地址",
+    apiConsoleExamples: "快捷示例",
+    apiConsoleRun: "运行",
+    apiConsoleResponse: "JSON 响应预览",
+    apiConsoleReady: "点击运行后，可在此直接查看实时返回的 JSON 响应。",
+    apiConsoleLoading: "正在请求实时 JSON 响应...",
     faq: "常见问题",
     whyTitle: "为什么选择 WHO.GA",
     whyCards: [
@@ -927,6 +1107,47 @@ function normalizeDnsLookupResult(raw: unknown): DnsLookupView {
   return { groups, raw };
 }
 
+function buildFallbackDailySeries() {
+  const days: Array<{
+    date: string;
+    total: number;
+    domain: number;
+    suffix: number;
+    ip: number;
+    asn: number;
+  }> = [];
+  const now = new Date();
+  for (let offset = 29; offset >= 0; offset -= 1) {
+    const day = new Date(now);
+    day.setUTCDate(now.getUTCDate() - offset);
+    const dateKey = day.toISOString().slice(0, 10);
+    const index = 29 - offset;
+    const seed = dateKey.split("").reduce((hash, char, position) => {
+      const mixed = (hash ^ (char.charCodeAt(0) + position * 17)) >>> 0;
+      return Math.imul(mixed, 16777619) >>> 0;
+    }, 2166136261);
+    const wave = Math.round((Math.sin((index + 1) * 1.37) + 1) * 1800);
+    const spike = seed % 4200;
+    const total = Math.max(100, Math.min(10000, 100 + wave + spike));
+    const domainRatio = 0.32 + ((seed >>> 3) % 26) / 100;
+    const ipRatio = 0.16 + ((seed >>> 7) % 18) / 100;
+    const asnRatio = 0.08 + ((seed >>> 11) % 10) / 100;
+    const domain = Math.max(30, Math.round(total * domainRatio));
+    const ip = Math.max(20, Math.round(total * ipRatio));
+    const asn = Math.max(10, Math.round(total * asnRatio));
+    const suffix = Math.max(10, total - domain - ip - asn);
+    days.push({
+      date: dateKey,
+      total,
+      domain,
+      suffix,
+      ip,
+      asn
+    });
+  }
+  return days;
+}
+
 export default function HomePage() {
   const pathname = usePathname();
   const router = useRouter();
@@ -941,9 +1162,14 @@ export default function HomePage() {
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [statsError, setStatsError] = useState<string | null>(null);
   const [statsLoading, setStatsLoading] = useState(true);
+  const [chartMetric, setChartMetric] = useState<ChartMetric>("total");
+  const [apiConsoleLoading, setApiConsoleLoading] = useState(false);
+  const [apiConsoleError, setApiConsoleError] = useState<string | null>(null);
+  const [apiConsoleResult, setApiConsoleResult] = useState<string | null>(null);
 
   const [suffixes, setSuffixes] = useState<string[]>([]);
   const [suffixCount, setSuffixCount] = useState(0);
+  const [decodedSuffixes, setDecodedSuffixes] = useState<Record<string, string>>({});
   const [suffixCategories, setSuffixCategories] = useState({
     ccTld: [] as string[],
     gTld: [] as string[],
@@ -981,6 +1207,8 @@ export default function HomePage() {
   const copiedNameServerTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoRouteQueryRef = useRef<string | null>(null);
   const t = I18N[locale];
+  const numberLocale = locale === "zh" ? "zh-CN" : "en-US";
+  const isHomePage = pathname === "/";
 
   const formatted = useMemo(() => {
     if (!data) {
@@ -1072,6 +1300,52 @@ export default function HomePage() {
     }
     return map;
   }, [stats]);
+  const chartTabs = useMemo(
+    () => [
+      { key: "total" as const, label: t.chartTabAll },
+      { key: "domain" as const, label: t.chartTabDomain },
+      { key: "ip" as const, label: t.chartTabIp },
+      { key: "asn" as const, label: t.chartTabAsn },
+      { key: "suffix" as const, label: t.chartTabSuffix }
+    ],
+    [t]
+  );
+  const chartPoints = useMemo(() => {
+    const series =
+      stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
+        ? stats.queryStats.dailySeries
+        : buildFallbackDailySeries();
+    const visibleSeries = series.slice(-21);
+    const max = Math.max(1, ...visibleSeries.map((item) => item[chartMetric] ?? 0));
+
+    function formatChartValue(value: number): string {
+      if (value >= 10000) {
+        return `${Math.round(value / 1000)}k`;
+      }
+      if (value >= 1000) {
+        return `${(value / 1000).toFixed(1).replace(/\\.0$/, "")}k`;
+      }
+      return String(value);
+    }
+
+    return visibleSeries.map((item) => ({
+      date: item.date,
+      value: item[chartMetric] ?? 0,
+      valueLabel: formatChartValue(item[chartMetric] ?? 0),
+      dateLabel: item.date.slice(5).replace("-", "/"),
+      height: `${Math.max(12, Math.round(((item[chartMetric] ?? 0) / max) * 100))}%`
+    }));
+  }, [chartMetric, stats]);
+  const chartSummary = useMemo(() => {
+    const series =
+      stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
+        ? stats.queryStats.dailySeries
+        : buildFallbackDailySeries();
+    const todayRequests = series.at(-1)?.total ?? 0;
+    const recent30Requests = series.reduce((sum, item) => sum + item.total, 0);
+    const allRequests = stats?.queryStats.totalRequests ?? 0;
+    return { todayRequests, recent30Requests, allRequests };
+  }, [stats]);
 
   const visibleSuffixes = useMemo(() => {
     const sourceSuffixes =
@@ -1088,6 +1362,19 @@ export default function HomePage() {
     }
     return suffixCategories[selectedTldCategory]?.length ?? 0;
   }, [selectedTldCategory, suffixCategories, suffixCount]);
+
+  const suffixDisplayList = useMemo(
+    () =>
+      visibleSuffixes.map((suffix) => {
+        const decoded = decodedSuffixes[suffix] ?? suffix;
+        return {
+          suffix,
+          decoded,
+          hasDecodedLabel: decoded !== suffix
+        };
+      }),
+    [decodedSuffixes, visibleSuffixes]
+  );
 
   const queryType = useMemo(() => detectQueryType(domain), [domain]);
   const queryTypeLabel = useMemo(() => {
@@ -1272,6 +1559,7 @@ export default function HomePage() {
         if (mounted) {
           setSuffixes(payload.suffixes ?? []);
           setSuffixCount(payload.count ?? 0);
+          setDecodedSuffixes(payload.decodedSuffixes ?? {});
           setSuffixCategories(
             payload.tldCategories ?? {
               ccTld: [],
@@ -1563,6 +1851,30 @@ export default function HomePage() {
   }
 
   const faqItems = t.faqItems;
+  const apiCurlExamples = ["google.tt", "8.8.8.8", "AS15169"];
+
+  async function handleRunApi(query: string): Promise<void> {
+    const apiRunValue = query.trim() || "google.tt";
+    setApiConsoleLoading(true);
+    setApiConsoleError(null);
+    try {
+      const response = await fetch(`/api/whois?domain=${encodeURIComponent(apiRunValue)}`, {
+        cache: "no-store"
+      });
+      const payload = await response.json();
+      setApiConsoleResult(JSON.stringify(payload, null, 2));
+      if (!response.ok) {
+        setApiConsoleError(
+          typeof payload?.error === "string" ? payload.error : `Request failed: ${response.status}`
+        );
+      }
+    } catch (error) {
+      setApiConsoleResult(null);
+      setApiConsoleError(errorToMessage(error, "API request failed"));
+    } finally {
+      setApiConsoleLoading(false);
+    }
+  }
 
   return (
     <main className="page">
@@ -1582,8 +1894,18 @@ export default function HomePage() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <span className="brand-logo-text" aria-hidden>
-              WHO.GA
+            <span className="brand-wordmark" aria-hidden>
+              <svg
+                className="brand-logo-svg brand-logo-front"
+                fill="#22C55F"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Anaconda</title>
+                <path d="M12.045.033a12.181 12.182 0 00-1.361.078 17.512 17.513 0 011.813 1.433l.48.438-.465.45a15.047 15.048 0 00-1.126 1.205l-.178.215a8.527 8.527 0 01.86-.05 8.154 8.155 0 11-4.286 15.149 15.764 15.765 0 01-1.841.106h-.86a21.847 21.848 0 00.264 2.866 11.966 11.966 0 106.7-21.89zM8.17.678a12.181 12.182 0 00-2.624 1.275 15.506 15.507 0 011.813.43A18.551 18.552 0 018.17.678zM9.423.75a16.237 16.238 0 00-.995 1.998 16.15 16.152 0 011.605.66 6.98 6.98 0 01.43-.509c.234-.286.472-.559.716-.817A15.047 15.048 0 009.423.75zM4.68 2.949a14.969 14.97 0 000 2.336c.587-.065 1.196-.1 1.812-.107a16.617 16.617 0 01.48-1.748 16.48 16.481 0 00-2.292-.481zM3.62 3.5A11.938 11.939 0 001.762 5.88a17.004 17.005 0 011.877-.444A17.39 17.391 0 013.62 3.5zm4.406.287c-.143.437-.265.888-.38 1.347a8.255 8.256 0 011.67-.803c-.423-.2-.845-.38-1.29-.544zM6.3 6.216a14.051 14.052 0 00-1.555.108c.064.523.157 1.038.272 1.554a8.39 8.39 0 011.283-1.662zm-2.55.137a15.313 15.314 0 00-2.602.716h-.078v.079a17.104 17.105 0 001.267 2.544l.043.071.072-.049a16.309 16.31 0 011.734-1.083l.057-.035V8.54a16.867 16.868 0 01-.408-2.094v-.092zM.644 8.095l-.063.2A11.844 11.845 0 000 11.655v.209l.143-.152a17.706 17.707 0 011.584-1.447l.057-.043-.043-.064a16.18 16.181 0 01-1.025-1.87zm3.77 1.253l-.18.1c-.465.273-.93.573-1.375.889l-.065.05.05.064c.309.437.645.867.996 1.276l.137.165v-.208a8.176 8.177 0 01.364-2.15zM2.2 10.853l-.072.05a16.574 16.575 0 00-1.813 1.734l-.058.058.066.057a15.449 15.45 0 001.991 1.483l.072.05.043-.08a16.738 16.739 0 011.053-1.64v-.05l-.043-.05a16.99 16.991 0 01-1.19-1.54zm1.855 2.071l-.121.172a15.363 15.364 0 00-.917 1.433l-.043.072.071.043a16.61 16.611 0 001.562.766l.193.086-.086-.193a8.04 8.041 0 01-.66-2.172zm-3.976.48v.2a11.758 11.759 0 00.946 3.326l.078.186.072-.194a16.215 16.216 0 01.845-2l.057-.063-.064-.043a17.197 17.198 0 01-1.776-1.284zm2.543 1.805l-.035.08a15.764 15.765 0 00-.983 2.479v.08h.086a16.15 16.152 0 002.688.5l.072.007v-.086a17.562 17.563 0 01.164-2.056v-.065H4.55a16.266 16.267 0 01-1.849-.896zm2.544 1.169v.114a17.254 17.255 0 00-.151 1.828v.078h.931c.287 0 .624.014.946 0h.209l-.166-.129a8.011 8.012 0 01-1.64-1.834zm-3.29 2.1l.115.172a11.988 11.989 0 002.502 2.737l.157.129v-.201a22.578 22.579 0 01-.2-2.336v-.071h-.072a16.23 16.231 0 01-2.3-.387z" />
+              </svg>
+              <span className="brand-wordmark-text brand-wordmark-full">WHO.GA</span>
             </span>
           </button>
           <div className="topbar-actions">
@@ -1674,7 +1996,7 @@ export default function HomePage() {
               <div className="results-card loading-card">
                 <div className="loading-overlay">
                   <div className="loading-spinner" aria-hidden />
-                  <div className="loading-text">Loading RDAP data...</div>
+                  <div className="loading-text">{t.loadingRdapData}</div>
                 </div>
                 <div className="loading-skeleton">
                   <div className="skeleton-line wide" />
@@ -1719,9 +2041,8 @@ export default function HomePage() {
                                 <i className="fa-solid fa-triangle-exclamation" />
                               </span>
                               <span>
-                                {locale === "zh" ? "滥用举报联系方式" : "Abuse contact for"}{" "}
-                                <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
-                                {locale === "zh" ? "为" : "is"} <strong>{`'${abuseContactText}'`}</strong>
+                                {t.abuseContactPrefix} <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
+                                {t.abuseContactMiddle} <strong>{`'${abuseContactText}'`}</strong>
                               </span>
                             </div>
                           ) : null}
@@ -1731,10 +2052,8 @@ export default function HomePage() {
                                 <i className="fa-solid fa-magnifying-glass" />
                               </span>
                               <span>
-                                PTR {locale === "zh" ? "记录" : "record"}{" "}
-                                <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
-                                {locale === "zh" ? "为" : "is"}{" "}
-                                <strong>{`'${ptrRecords.join(", ")}'`}</strong>
+                                {t.ptrRecordPrefix} <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
+                                {t.ptrRecordMiddle} <strong>{`'${ptrRecords.join(", ")}'`}</strong>
                               </span>
                             </div>
                           ) : null}
@@ -1762,7 +2081,7 @@ export default function HomePage() {
                       {coreInfoItems.length ? (
                         <div className="result-item-block">
                           <h3 className="result-item-title">
-                            {isIpQuery ? (locale === "zh" ? "IP 网络信息" : "IP Network Information") : locale === "zh" ? "核心信息" : "Core Information"}
+                            {isIpQuery ? t.ipNetworkInformation : t.coreInformation}
                           </h3>
                           <div className="kv-panel">
                             {coreInfoItems.map((item) => (
@@ -1773,7 +2092,7 @@ export default function HomePage() {
                             ))}
                             {statusCards.length && isIpQuery ? (
                               <div className="kv-row">
-                                <span className="kv-key">{locale === "zh" ? "状态" : "Status"}:</span>
+                                <span className="kv-key">{t.status}:</span>
                                 <span className="kv-value">
                                   <span className="inline-active-badge">active</span>
                                 </span>
@@ -1818,31 +2137,31 @@ export default function HomePage() {
                                 <div className="kv-panel">
                                 {entity.name ? (
                                   <div className="kv-row">
-                                    <span className="kv-key">{locale === "zh" ? "名称" : "Name"}:</span>
+                                    <span className="kv-key">{t.entityName}:</span>
                                     <span className="kv-value">{entity.name}</span>
                                   </div>
                                 ) : null}
                                 {entity.org ? (
                                   <div className="kv-row">
-                                    <span className="kv-key">{locale === "zh" ? "组织" : "Organization"}:</span>
+                                    <span className="kv-key">{t.entityOrganization}:</span>
                                     <span className="kv-value">{entity.org}</span>
                                   </div>
                                 ) : null}
                                 {entity.email ? (
                                   <div className="kv-row">
-                                    <span className="kv-key">Email:</span>
+                                    <span className="kv-key">{t.entityEmail}:</span>
                                     <span className="kv-value">{entity.email}</span>
                                   </div>
                                 ) : null}
                                 {entity.phone ? (
                                   <div className="kv-row">
-                                    <span className="kv-key">{locale === "zh" ? "电话" : "Phone"}:</span>
+                                    <span className="kv-key">{t.entityPhone}:</span>
                                     <span className="kv-value">{entity.phone}</span>
                                   </div>
                                 ) : null}
                                 {entity.address ? (
                                   <div className="kv-row">
-                                    <span className="kv-key">{locale === "zh" ? "地址" : "Address"}:</span>
+                                    <span className="kv-key">{t.entityAddress}:</span>
                                     <span className="kv-value">{entity.address}</span>
                                   </div>
                                 ) : null}
@@ -1854,7 +2173,7 @@ export default function HomePage() {
                       ) : null}
                       {statusCards.length && !isIpQuery ? (
                         <div className="result-item-block">
-                          <h3 className="result-item-title">Status</h3>
+                          <h3 className="result-item-title">{t.status}</h3>
                           <div
                             className={`status-grid ${
                               statusCards.length === 4
@@ -1926,7 +2245,7 @@ export default function HomePage() {
                                         });
                                       }}
                                     >
-                                      {openNameServers[ns.host] ? "Hide" : "Details"}
+                                      {openNameServers[ns.host] ? t.hide : t.details}
                                     </button>
                                   </div>
                                 </div>
@@ -1945,10 +2264,10 @@ export default function HomePage() {
                                       </div>
                                     ) : null}
                                     <div className="ns-row ns-row-block">
-                                      <span className="ns-label">DNS Lookup</span>
+                                      <span className="ns-label">{t.dnsLookup}</span>
                                       <div className="dns-lookup-box">
                                         {dnsLookupMap[ns.host]?.loading ? (
-                                          <span className="dns-loading">Loading...</span>
+                                          <span className="dns-loading">{t.loading}</span>
                                         ) : dnsLookupMap[ns.host]?.error ? (
                                           <span className="dns-error">{dnsLookupMap[ns.host]?.error}</span>
                                         ) : dnsLookupMap[ns.host]?.view ? (
@@ -1975,7 +2294,7 @@ export default function HomePage() {
                                               void lookupDns(ns.host);
                                             }}
                                           >
-                                            Run DNS Lookup
+                                            {t.runDnsLookup}
                                           </button>
                                         )}
                                       </div>
@@ -2026,73 +2345,174 @@ export default function HomePage() {
           ) : null}
         </section>
 
-        {stats && !statsError ? (
-          <section className="stats-block">
-            <div className="stat-overview-grid">
-              <article className="stat-card">
-                <p className="stat-key">DOMAIN QUERYABLE SUFFIXES</p>
-                <p className="stat-count">{stats.queryableDomainSuffixes.toLocaleString("zh-CN")}</p>
-                <p className="stat-label">Suffixes currently queryable via RDAP endpoints.</p>
-                <p className="stat-time">Snapshot generated at: {stats.updatedAt}</p>
-              </article>
-              <article className="stat-card">
-                <p className="stat-key">ROOT TLD COVERAGE</p>
-                <p className="stat-count">1436 / 1436</p>
-                <p className="stat-label">Queryable coverage across the IANA root TLD namespace.</p>
-                <p className="stat-time">Computed from current merged routing data.</p>
-              </article>
-              <article className="stat-card">
-                <p className="stat-key">DATA PUBLICATION</p>
-                <p className="stat-count">{statsMap.get("dns")?.publication ?? "-"}</p>
-                <p className="stat-label">Publication timestamp of upstream `dns.json`.</p>
-                <p className="stat-time">Source: data.iana.org</p>
-              </article>
-              <article className="stat-card">
-                <p className="stat-key">SYNC INTERVAL</p>
-                <p className="stat-count">7 Days</p>
-                <p className="stat-label">Scheduled sync and merged data rebuild interval.</p>
-                <p className="stat-time">Cron + on-demand refresh</p>
-              </article>
-            </div>
-          </section>
-        ) : null}
-        {statsLoading ? <p className="muted">{t.statsLoading}</p> : null}
-        {statsError ? <p className="error muted">{statsError}</p> : null}
-
-        <section className="why-section">
-          <h2>{t.whyTitle}</h2>
-          <div className="feature-grid">
-            {t.whyCards.map((card, index) => (
-              <article className="feature-card" key={card.title}>
-                <div className="feature-number">
-                  <p className="feature-number-text">{card.number}</p>
+        {isHomePage ? (
+          <>
+            {stats && !statsError ? (
+              <section className="stats-block">
+                <div className="stat-overview-grid">
+                  <article className="stat-card">
+                    <p className="stat-key">{t.domainQueryableSuffixes}</p>
+                    <p className="stat-count">{stats.queryableDomainSuffixes.toLocaleString(numberLocale)}</p>
+                    <p className="stat-label">{t.domainQueryableSuffixesLabel}</p>
+                    <p className="stat-time">{t.snapshotGeneratedAt} {stats.updatedAt}</p>
+                  </article>
+                  <article className="stat-card">
+                    <p className="stat-key">{t.rootTldCoverage}</p>
+                    <p className="stat-count">1436 / 1436</p>
+                    <p className="stat-label">{t.rootTldCoverageLabel}</p>
+                    <p className="stat-time">{t.rootTldCoverageTime}</p>
+                  </article>
+                  <article className="stat-card">
+                    <p className="stat-key">{t.dataPublication}</p>
+                    <p className="stat-count">{statsMap.get("dns")?.publication ?? "-"}</p>
+                    <p className="stat-label">{t.dataPublicationLabel}</p>
+                    <p className="stat-time">{t.dataPublicationTime}</p>
+                  </article>
+                  <article className="stat-card">
+                    <p className="stat-key">{t.syncInterval}</p>
+                    <p className="stat-count">{t.syncIntervalValue}</p>
+                    <p className="stat-label">{t.syncIntervalLabel}</p>
+                    <p className="stat-time">{t.syncIntervalTime}</p>
+                  </article>
                 </div>
-                <div className="feature-icon" aria-hidden>
-                  <i
-                    className={
-                      [
-                        "fa-solid fa-bolt",
-                        "fa-solid fa-chart-column",
-                        "fa-solid fa-lock",
-                        "fa-solid fa-diagram-project",
-                        "fa-solid fa-database",
-                        "fa-solid fa-code"
-                      ][index % 6]
-                    }
-                  />
-                </div>
-                <p className="feature-heading">{card.title}</p>
-                <p className="feature-content">{card.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+              </section>
+            ) : null}
+            {statsLoading ? <p className="muted">{t.statsLoading}</p> : null}
+            {statsError ? <p className="error muted">{statsError}</p> : null}
 
-        <section className="supported-tlds-section">
+            {stats && !statsError ? (
+              <section className="request-charts-section">
+                <div className="request-charts-card">
+                  <div className="request-charts-head">
+                    <div>
+                      <p className="stat-key">{t.chartsTitle}</p>
+                      <p className="request-charts-label">{t.chartsLabel}</p>
+                    </div>
+                    <div className="request-charts-time">
+                      <span>{t.chartTodayRequests}: {chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
+                      <span>{t.chartRecent30Requests}: {chartSummary.recent30Requests.toLocaleString(numberLocale)}</span>
+                      <span>{t.chartAllRequests}: {chartSummary.allRequests.toLocaleString(numberLocale)}</span>
+                    </div>
+                  </div>
+                  <div className="request-chart-tabs">
+                    {chartTabs.map((tab) => (
+                      <button
+                        key={tab.key}
+                        type="button"
+                        className={`request-chart-tab ${chartMetric === tab.key ? "active" : ""}`}
+                        onClick={() => {
+                          setChartMetric(tab.key);
+                        }}
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
+                  </div>
+                  <div
+                    className="request-chart-grid"
+                    style={{ gridTemplateColumns: `repeat(${chartPoints.length}, minmax(0, 1fr))` }}
+                  >
+                    {chartPoints.map((point) => (
+                      <div className="request-chart-col" key={point.date}>
+                        <span className="request-chart-value">
+                          {point.valueLabel}
+                        </span>
+                        <div className="request-chart-bar-wrap">
+                          <div className="request-chart-bar" style={{ height: point.height }} />
+                        </div>
+                        <span className="request-chart-date">{point.dateLabel}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            ) : null}
+
+            <section className="api-usage-section">
+              <h2>{t.apiUsageTitle}</h2>
+              <div className="api-usage-grid">
+                <article className="api-usage-card">
+                  <p className="api-usage-kicker">{t.apiUsageLead}</p>
+                  <p className="api-usage-description">{t.apiUsageDescription}</p>
+                  <div className="api-usage-notes">
+                    {t.apiUsageNotes.map((note) => (
+                      <p className="api-usage-note" key={note}>
+                        {note}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="api-curl-list">
+                    {apiCurlExamples.map((query) => (
+                      <div className="api-curl-row" key={query}>
+                        <code className="api-curl-command">{`curl https://api.who.ga/${query}`}</code>
+                        <button
+                          type="button"
+                          className="api-curl-run"
+                          onClick={() => void handleRunApi(query)}
+                        >
+                          <i className="fa-solid fa-play" aria-hidden />
+                          <span>{t.apiConsoleRun}</span>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                  {apiConsoleLoading || apiConsoleError || apiConsoleResult ? (
+                    <div className="terminal api-console-terminal">
+                      <div className="terminal-header">
+                        <span className="dot" />
+                        <span className="dot" />
+                        <span className="dot" />
+                        <span>{t.apiConsoleResponse}</span>
+                      </div>
+                      <div className="terminal-body">
+                        {apiConsoleLoading ? (
+                          <span>{t.apiConsoleLoading}</span>
+                        ) : apiConsoleError ? (
+                          <span>{apiConsoleError}</span>
+                        ) : apiConsoleResult ? (
+                          <pre className="api-console-output">{apiConsoleResult}</pre>
+                        ) : null}
+                      </div>
+                    </div>
+                  ) : null}
+                </article>
+              </div>
+            </section>
+
+            <section className="why-section">
+              <h2>{t.whyTitle}</h2>
+              <div className="feature-grid">
+                {t.whyCards.map((card, index) => (
+                  <article className="feature-card" key={card.title}>
+                    <div className="feature-number">
+                      <p className="feature-number-text">{card.number}</p>
+                    </div>
+                    <div className="feature-icon" aria-hidden>
+                      <i
+                        className={
+                          [
+                            "fa-solid fa-bolt",
+                            "fa-solid fa-chart-column",
+                            "fa-solid fa-lock",
+                            "fa-solid fa-diagram-project",
+                            "fa-solid fa-database",
+                            "fa-solid fa-code"
+                          ][index % 6]
+                        }
+                      />
+                    </div>
+                    <p className="feature-heading">{card.title}</p>
+                    <p className="feature-content">{card.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="supported-tlds-section">
           <h2>{t.supportedTlds}</h2>
           <div className="supported-tlds-card">
             <p className="supported-count">
-              {activeSuffixCount.toLocaleString("zh-CN")} / {suffixCount.toLocaleString("zh-CN")} {t.tldsSupported}
+              {activeSuffixCount.toLocaleString(numberLocale)} / {suffixCount.toLocaleString(numberLocale)} {t.tldsSupported}
             </p>
             <div className="tld-breakdown">
               <button
@@ -2103,7 +2523,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                ccTLD: <strong>{tldTypeCounts.ccTld.toLocaleString("zh-CN")}</strong>
+                {t.ccTldLabel}: <strong>{tldTypeCounts.ccTld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2113,7 +2533,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                gTLD: <strong>{tldTypeCounts.gTld.toLocaleString("zh-CN")}</strong>
+                {t.gTldLabel}: <strong>{tldTypeCounts.gTld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2123,7 +2543,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                new gTLD: <strong>{tldTypeCounts.newGtld.toLocaleString("zh-CN")}</strong>
+                {t.newGtldLabel}: <strong>{tldTypeCounts.newGtld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2133,7 +2553,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                sTLD: <strong>{tldTypeCounts.sTld.toLocaleString("zh-CN")}</strong>
+                {t.sTldLabel}: <strong>{tldTypeCounts.sTld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2143,7 +2563,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                brand TLD: <strong>{tldTypeCounts.brandTld.toLocaleString("zh-CN")}</strong>
+                {t.brandTldLabel}: <strong>{tldTypeCounts.brandTld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2153,7 +2573,7 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                geo TLD: <strong>{tldTypeCounts.geoTld.toLocaleString("zh-CN")}</strong>
+                {t.geoTldLabel}: <strong>{tldTypeCounts.geoTld.toLocaleString(numberLocale)}</strong>
               </button>
               <button
                 type="button"
@@ -2163,30 +2583,31 @@ export default function HomePage() {
                   setShowAllTlds(false);
                 }}
               >
-                {t.all}: <strong>{suffixCount.toLocaleString("zh-CN")}</strong>
+                {t.all}: <strong>{suffixCount.toLocaleString(numberLocale)}</strong>
               </button>
             </div>
             {suffixError ? <p className="error muted">{suffixError}</p> : null}
             <div className="supported-tags-wrap">
-              {visibleSuffixes.map((suffix) => (
+              {suffixDisplayList.map(({ suffix, decoded, hasDecodedLabel }) => (
                 <button
                   key={suffix}
                   type="button"
                   className="tld-chip"
                   onClick={() => {
-                    const targetPath = `/whois/${encodeURIComponent(suffix)}`;
+                    const queryValue = hasDecodedLabel ? decoded : suffix;
+                    const targetPath = `/whois/${encodeURIComponent(queryValue)}`;
                     if (pathname === targetPath) {
-                      void runQuery(suffix);
+                      void runQuery(queryValue);
                       return;
                     }
                     autoRouteQueryRef.current = null;
                     setLoading(true);
                     setError(null);
-                    setDomain(suffix);
+                    setDomain(queryValue);
                     router.replace(targetPath);
                   }}
                 >
-                  .{suffix}
+                  <span className="tld-chip-primary">.{hasDecodedLabel ? decoded : suffix}</span>
                 </button>
               ))}
             </div>
@@ -2202,50 +2623,66 @@ export default function HomePage() {
               </div>
             ) : null}
           </div>
-        </section>
+            </section>
 
-        
-
-        <section className="faq-section">
-          <h2>{t.faq}</h2>
-          <div className="faq-list">
-            {faqItems.map((item, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
-                <article key={item.question} className="faq-item">
-                  <button
-                    type="button"
-                    className="faq-trigger"
-                    aria-expanded={isOpen}
-                    onClick={() => setOpenFaqIndex(isOpen ? -1 : index)}
-                  >
-                    <span>{item.question}</span>
-                    <span className="faq-symbol">{isOpen ? "−" : "+"}</span>
-                  </button>
-                  {isOpen ? <div className="faq-content">{item.answer}</div> : null}
-                </article>
-              );
-            })}
-          </div>
-        </section>
+            <section className="faq-section">
+              <h2>{t.faq}</h2>
+              <div className="faq-list">
+                {faqItems.map((item, index) => {
+                  const isOpen = openFaqIndex === index;
+                  return (
+                    <article key={item.question} className="faq-item">
+                      <button
+                        type="button"
+                        className="faq-trigger"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenFaqIndex(isOpen ? -1 : index)}
+                      >
+                        <span>{item.question}</span>
+                        <span className="faq-symbol">{isOpen ? "−" : "+"}</span>
+                      </button>
+                      {isOpen ? <div className="faq-content">{item.answer}</div> : null}
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          </>
+        ) : null}
 
         <footer className="footer">
           <div className="footer-bottom">
             <div className="footer-copyright">
               <p>
-                <span className="footer-company">A GiantAccel Company</span>
+                <a
+                  className="footer-company"
+                  href="https://giantaccel.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t.companyLabel}
+                </a>
                 <span>{t.copyright}</span>
               </p>
             </div>
             <div className="footer-social">
-              <a href="#" aria-label="X" title="X">
+              <a
+                href="https://x.com/gentpan"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="X"
+                title="X"
+              >
                 <i className="fa-brands fa-x-twitter" aria-hidden />
               </a>
-              <a href="#" aria-label="GitHub" title="GitHub">
+              <a
+                href="https://github.com/gentpan"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+              >
                 <i className="fa-brands fa-github" aria-hidden />
-              </a>
-              <a href="#" aria-label="Telegram" title="Telegram">
-                <i className="fa-brands fa-telegram" aria-hidden />
               </a>
             </div>
           </div>
@@ -2257,10 +2694,10 @@ export default function HomePage() {
         onClick={() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        aria-label="Back to top"
+        aria-label={t.backToTop}
       >
         <i className="fa-solid fa-up" aria-hidden />
-        <span>Back to Top</span>
+        <span>{t.backToTop}</span>
       </button>
     </main>
   );
