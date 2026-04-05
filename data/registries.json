@@ -1,95 +1,4159 @@
 {
-  "generatedAt": "2025-04-05T14:25:00.000Z",
-  "registries": [
+  "generatedAt": "2026-04-05T15:18:19.111Z",
+  "source": {
+    "rootDb": "https://www.iana.org/domains/root/db",
+    "dns": "https://data.iana.org/rdap/dns.json",
+    "rdapExtra": "local-file"
+  },
+  "tlds": [],
+  "rdapRegistries": [
     {
-      "name": "Verisign",
-      "rdapBaseUrl": "https://rdap.verisign.com/",
-      "tlds": ["com", "net", "cc", "tv", "name"]
+      "rdapUrl": "http://rdap.cctld.kg/",
+      "zones": [
+        "kg"
+      ]
     },
     {
-      "name": "Public Interest Registry",
-      "rdapBaseUrl": "https://rdap.publicinterestregistry.org/",
-      "tlds": ["org"]
+      "rdapUrl": "http://rdap.nic.mg/",
+      "zones": [
+        "mg"
+      ]
     },
     {
-      "name": "Afilias",
-      "rdapBaseUrl": "https://rdap.afilias.info/",
-      "tlds": ["info", "aero", "asia", "mobi", "post", "pro"]
+      "rdapUrl": "http://rdap.nic.net.ng/",
+      "zones": [
+        "ng"
+      ]
     },
     {
-      "name": "Google Registry",
-      "rdapBaseUrl": "https://pubapi.registry.google/",
-      "tlds": ["app", "dev", "page", "how", "soy", "new", "day", "mov", "phd", "esq", "fly", "rsvp", "boo", "dad", "zip"]
+      "rdapUrl": "https://ccrdap.twnic.tw/taiwan/",
+      "zones": [
+        "xn--kpry57d"
+      ]
     },
     {
-      "name": "Identity Digital",
-      "rdapBaseUrl": "https://rdap.identitydigital.services/",
-      "tlds": ["ac", "ag", "bz", "gi", "io", "lc", "mn", "pr", "sc", "sh", "vc", "nu", "au"]
+      "rdapUrl": "https://ccrdap.twnic.tw/tw/",
+      "zones": [
+        "tw"
+      ]
     },
     {
-      "name": "CentralNic",
-      "rdapBaseUrl": "https://rdap.centralnic.com/",
-      "tlds": ["bh", "fm", "fo", "gd", "gl", "gy", "ht", "ms", "pw", "vg", "za"]
+      "rdapUrl": "https://keetmans.omadhina.co.na/",
+      "zones": [
+        "na"
+      ]
     },
     {
-      "name": "DENIC",
-      "rdapBaseUrl": "https://rdap.denic.de/",
-      "tlds": ["de"]
+      "rdapUrl": "https://nic.samsung/rdap/",
+      "zones": [
+        "samsung",
+        "xn--cg4bki"
+      ]
     },
     {
-      "name": "Nominet",
-      "rdapBaseUrl": "https://rdap.nominet.uk/",
-      "tlds": ["uk", "cymru", "wales"]
+      "rdapUrl": "https://pubapi.registry.google/rdap/",
+      "zones": [
+        "ads",
+        "android",
+        "app",
+        "boo",
+        "cal",
+        "channel",
+        "chrome",
+        "dad",
+        "day",
+        "dclk",
+        "dev",
+        "docs",
+        "drive",
+        "eat",
+        "esq",
+        "fly",
+        "foo",
+        "gbiz",
+        "gle",
+        "gmail",
+        "goog",
+        "google",
+        "guge",
+        "hangout",
+        "here",
+        "how",
+        "ing",
+        "map",
+        "meet",
+        "meme",
+        "mov",
+        "new",
+        "nexus",
+        "page",
+        "phd",
+        "play",
+        "prod",
+        "prof",
+        "rsvp",
+        "search",
+        "soy",
+        "xn--flw351e",
+        "xn--q9jyb4c",
+        "xn--qcka1pmc",
+        "youtube",
+        "zip"
+      ]
     },
     {
-      "name": "AFNIC",
-      "rdapBaseUrl": "https://rdap.nic.fr/",
-      "tlds": ["fr", "pm", "re", "tf", "wf", "yt"]
+      "rdapUrl": "https://rdap.blog.fury.ca/rdap/",
+      "zones": [
+        "blog"
+      ]
     },
     {
-      "name": "SIDN",
-      "rdapBaseUrl": "https://rdap.sidn.nl/",
-      "tlds": ["nl"]
+      "rdapUrl": "https://rdap.ca.fury.ca/rdap/",
+      "zones": [
+        "ca"
+      ]
     },
     {
-      "name": "NIC.br",
-      "rdapBaseUrl": "https://rdap.registro.br/",
-      "tlds": ["br"]
+      "rdapUrl": "https://rdap.cctld.au/rdap/",
+      "zones": [
+        "au"
+      ]
     },
     {
-      "name": "CIRA",
-      "rdapBaseUrl": "https://rdap.ca.fury.ca/",
-      "tlds": ["ca"]
+      "rdapUrl": "https://rdap.cctld.uz/",
+      "zones": [
+        "uz"
+      ]
     },
     {
-      "name": "CNNIC",
-      "rdapBaseUrl": "https://rdap.cnnic.cn/",
-      "tlds": ["cn", "xn--fiqs8s", "xn--fiqz9s"]
+      "rdapUrl": "https://rdap.centralnic.com/allfinanz/",
+      "zones": [
+        "allfinanz"
+      ]
     },
     {
-      "name": "JPRS",
-      "rdapBaseUrl": "https://rdap.jprs.jp/",
-      "tlds": ["jp"]
+      "rdapUrl": "https://rdap.centralnic.com/art/",
+      "zones": [
+        "art"
+      ]
     },
     {
-      "name": "KISA",
-      "rdapBaseUrl": "https://rdap.kr/",
-      "tlds": ["kr"]
+      "rdapUrl": "https://rdap.centralnic.com/audio/",
+      "zones": [
+        "audio"
+      ]
     },
     {
-      "name": "TWNIC",
-      "rdapBaseUrl": "https://rdap.twnic.tw/",
-      "tlds": ["tw", "xn--kprw13d", "xn--kpry57d"]
+      "rdapUrl": "https://rdap.centralnic.com/auto/",
+      "zones": [
+        "auto"
+      ]
     },
     {
-      "name": "HKIRC",
-      "rdapBaseUrl": "https://rdap.hkirc.hk/",
-      "tlds": ["hk", "xn--j6w193g"]
+      "rdapUrl": "https://rdap.centralnic.com/autos/",
+      "zones": [
+        "autos"
+      ]
     },
     {
-      "name": "CoCCA",
-      "rdapBaseUrl": "https://rdap.coccaregistry.org/",
-      "tlds": ["ki", "sb", "tl", "nf", "ms", "gy", "ht", "af", "za"]
+      "rdapUrl": "https://rdap.centralnic.com/baby/",
+      "zones": [
+        "baby"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/beauty/",
+      "zones": [
+        "beauty"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/best/",
+      "zones": [
+        "best"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/bmw/",
+      "zones": [
+        "bmw"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/boats/",
+      "zones": [
+        "boats"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/bond/",
+      "zones": [
+        "bond"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/box/",
+      "zones": [
+        "box"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/build/",
+      "zones": [
+        "build"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/cam/",
+      "zones": [
+        "cam"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/car/",
+      "zones": [
+        "car"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/cars/",
+      "zones": [
+        "cars"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/case/",
+      "zones": [
+        "case"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/ceo/",
+      "zones": [
+        "ceo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/cfd/",
+      "zones": [
+        "cfd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/christmas/",
+      "zones": [
+        "christmas"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/college/",
+      "zones": [
+        "college"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/cyou/",
+      "zones": [
+        "cyou"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/dealer/",
+      "zones": [
+        "dealer"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/deloitte/",
+      "zones": [
+        "deloitte"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/dhl/",
+      "zones": [
+        "dhl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/diet/",
+      "zones": [
+        "diet"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/dvag/",
+      "zones": [
+        "dvag"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/fans/",
+      "zones": [
+        "fans"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/flowers/",
+      "zones": [
+        "flowers"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/fm/",
+      "zones": [
+        "fm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/fo/",
+      "zones": [
+        "fo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/fresenius/",
+      "zones": [
+        "fresenius"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/frl/",
+      "zones": [
+        "frl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/game/",
+      "zones": [
+        "game"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/gd/",
+      "zones": [
+        "gd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/gent/",
+      "zones": [
+        "gent"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/guitars/",
+      "zones": [
+        "guitars"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/hair/",
+      "zones": [
+        "hair"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/help/",
+      "zones": [
+        "help"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/homes/",
+      "zones": [
+        "homes"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/hosting/",
+      "zones": [
+        "hosting"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/icu/",
+      "zones": [
+        "icu"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/inc/",
+      "zones": [
+        "inc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/kpn/",
+      "zones": [
+        "kpn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/kred/",
+      "zones": [
+        "kred"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/lat/",
+      "zones": [
+        "lat"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/lidl/",
+      "zones": [
+        "lidl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/llp/",
+      "zones": [
+        "llp"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/lol/",
+      "zones": [
+        "lol"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/london/",
+      "zones": [
+        "london"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/lpl/",
+      "zones": [
+        "lpl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/lplfinancial/",
+      "zones": [
+        "lplfinancial"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/luxury/",
+      "zones": [
+        "luxury"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/makeup/",
+      "zones": [
+        "makeup"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/mini/",
+      "zones": [
+        "mini"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/mom/",
+      "zones": [
+        "mom"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/monster/",
+      "zones": [
+        "monster"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/motorcycles/",
+      "zones": [
+        "motorcycles"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/nokia/",
+      "zones": [
+        "nokia"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/ooo/",
+      "zones": [
+        "ooo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/pics/",
+      "zones": [
+        "pics"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/pohl/",
+      "zones": [
+        "pohl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/protection/",
+      "zones": [
+        "protection"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/qpon/",
+      "zones": [
+        "qpon"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/quest/",
+      "zones": [
+        "quest"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/reit/",
+      "zones": [
+        "reit"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/rent/",
+      "zones": [
+        "rent"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/ruhr/",
+      "zones": [
+        "ruhr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/saarland/",
+      "zones": [
+        "saarland"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/sbs/",
+      "zones": [
+        "sbs"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/schwarz/",
+      "zones": [
+        "schwarz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/security/",
+      "zones": [
+        "security"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/sfr/",
+      "zones": [
+        "sfr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/skin/",
+      "zones": [
+        "skin"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/smart/",
+      "zones": [
+        "smart"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/stc/",
+      "zones": [
+        "stc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/stcgroup/",
+      "zones": [
+        "stcgroup"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/storage/",
+      "zones": [
+        "storage"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/theatre/",
+      "zones": [
+        "theatre"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/tickets/",
+      "zones": [
+        "tickets"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/tui/",
+      "zones": [
+        "tui"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/vg/",
+      "zones": [
+        "vg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/viva/",
+      "zones": [
+        "viva"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/wme/",
+      "zones": [
+        "wme"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/xn--4gbrim/",
+      "zones": [
+        "xn--4gbrim"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/xn--vermgensberater-ctb/",
+      "zones": [
+        "xn--vermgensberater-ctb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/xn--vermgensberatung-pwb/",
+      "zones": [
+        "xn--vermgensberatung-pwb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/xyz/",
+      "zones": [
+        "xyz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/yachts/",
+      "zones": [
+        "yachts"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnic.com/zuerich/",
+      "zones": [
+        "zuerich"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.centralnicregistry.com/jnj/",
+      "zones": [
+        "jnj"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.conac.cn/",
+      "zones": [
+        "xn--55qw42g",
+        "xn--zfr164b"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.crown.fury.ca/rdap/",
+      "zones": [
+        "crown"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.dns.pl/",
+      "zones": [
+        "pl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.eco.fury.ca/rdap/",
+      "zones": [
+        "eco"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.fi/rdap/rdap/",
+      "zones": [
+        "fi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.flexireg.net/",
+      "zones": [
+        "moscow",
+        "xn--80adxhks"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.gmoregistry.net/rdap/",
+      "zones": [
+        "bridgestone",
+        "brother",
+        "canon",
+        "datsun",
+        "dnp",
+        "epson",
+        "firestone",
+        "fujitsu",
+        "ggee",
+        "gmo",
+        "goldpoint",
+        "hisamitsu",
+        "hitachi",
+        "honda",
+        "hyundai",
+        "infiniti",
+        "jcb",
+        "kddi",
+        "kia",
+        "komatsu",
+        "kyoto",
+        "lexus",
+        "lotte",
+        "mitsubishi",
+        "nagoya",
+        "nec",
+        "nhk",
+        "nico",
+        "nissan",
+        "okinawa",
+        "otsuka",
+        "panasonic",
+        "playstation",
+        "ricoh",
+        "ryukyu",
+        "sharp",
+        "shop",
+        "softbank",
+        "sony",
+        "suzuki",
+        "tokyo",
+        "toray",
+        "toshiba",
+        "toyota",
+        "yodobashi",
+        "yokohama"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.gtlds.nic.br/",
+      "zones": [
+        "bom",
+        "final",
+        "globo",
+        "rio",
+        "uol"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.hostmaster.ua/",
+      "zones": [
+        "ua"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.iana.org/",
+      "zones": [
+        "int"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.identitydigital.services/rdap/",
+      "zones": [
+        "abb",
+        "abbott",
+        "abc",
+        "academy",
+        "accenture",
+        "accountants",
+        "actor",
+        "aeg",
+        "aero",
+        "agakhan",
+        "agency",
+        "ai",
+        "airbus",
+        "airforce",
+        "akdn",
+        "alibaba",
+        "alipay",
+        "allstate",
+        "aol",
+        "apartments",
+        "archi",
+        "army",
+        "arte",
+        "asda",
+        "asia",
+        "associates",
+        "attorney",
+        "auction",
+        "audi",
+        "band",
+        "barclaycard",
+        "barclays",
+        "barefoot",
+        "bargains",
+        "bbt",
+        "bcg",
+        "beats",
+        "bestbuy",
+        "bet",
+        "bike",
+        "bingo",
+        "bio",
+        "black",
+        "bloomberg",
+        "blue",
+        "bm",
+        "bms",
+        "bnpparibas",
+        "boehringer",
+        "bofa",
+        "bosch",
+        "boutique",
+        "bradesco",
+        "broker",
+        "builders",
+        "business",
+        "cab",
+        "cafe",
+        "camera",
+        "camp",
+        "capital",
+        "cards",
+        "care",
+        "careers",
+        "cash",
+        "casino",
+        "catering",
+        "center",
+        "cern",
+        "cfa",
+        "chanel",
+        "chat",
+        "cheap",
+        "church",
+        "cipriani",
+        "citadel",
+        "city",
+        "claims",
+        "cleaning",
+        "clinic",
+        "clinique",
+        "clothing",
+        "clubmed",
+        "coach",
+        "codes",
+        "coffee",
+        "community",
+        "company",
+        "computer",
+        "condos",
+        "construction",
+        "consulting",
+        "contact",
+        "contractors",
+        "cool",
+        "coupon",
+        "coupons",
+        "credit",
+        "creditcard",
+        "crs",
+        "cruise",
+        "cruises",
+        "dance",
+        "dating",
+        "deals",
+        "degree",
+        "delivery",
+        "delta",
+        "democrat",
+        "dental",
+        "dentist",
+        "diamonds",
+        "digital",
+        "direct",
+        "directory",
+        "discount",
+        "discover",
+        "doctor",
+        "dog",
+        "domains",
+        "edeka",
+        "education",
+        "email",
+        "emerck",
+        "energy",
+        "engineer",
+        "engineering",
+        "enterprises",
+        "equipment",
+        "ericsson",
+        "estate",
+        "events",
+        "exchange",
+        "expert",
+        "exposed",
+        "express",
+        "extraspace",
+        "fage",
+        "fail",
+        "family",
+        "fan",
+        "farm",
+        "fedex",
+        "ferrari",
+        "fidelity",
+        "fido",
+        "finance",
+        "financial",
+        "fish",
+        "fitness",
+        "flights",
+        "florist",
+        "football",
+        "forex",
+        "forsale",
+        "frogans",
+        "fund",
+        "furniture",
+        "futbol",
+        "fyi",
+        "gallery",
+        "gallo",
+        "gallup",
+        "games",
+        "genting",
+        "gifts",
+        "glass",
+        "global",
+        "gmbh",
+        "gold",
+        "golf",
+        "goodyear",
+        "graphics",
+        "gratis",
+        "green",
+        "gripe",
+        "group",
+        "guide",
+        "guru",
+        "haus",
+        "hdfc",
+        "hdfcbank",
+        "healthcare",
+        "helsinki",
+        "hermes",
+        "hkt",
+        "hockey",
+        "holdings",
+        "holiday",
+        "homedepot",
+        "hospital",
+        "house",
+        "hughes",
+        "ice",
+        "imamat",
+        "immo",
+        "immobilien",
+        "industries",
+        "info",
+        "institute",
+        "insure",
+        "international",
+        "investments",
+        "irish",
+        "ismaili",
+        "ist",
+        "istanbul",
+        "itv",
+        "jaguar",
+        "java",
+        "jeep",
+        "jetzt",
+        "jewelry",
+        "jio",
+        "jll",
+        "juegos",
+        "juniper",
+        "kaufen",
+        "kerryhotels",
+        "kerryproperties",
+        "kids",
+        "kim",
+        "kitchen",
+        "kosher",
+        "kuokgroup",
+        "lamborghini",
+        "lamer",
+        "land",
+        "landrover",
+        "lasalle",
+        "lawyer",
+        "lds",
+        "lease",
+        "lefrak",
+        "legal",
+        "lego",
+        "lgbt",
+        "life",
+        "lighting",
+        "limited",
+        "limo",
+        "live",
+        "llc",
+        "loans",
+        "lotto",
+        "ltd",
+        "ltda",
+        "lundbeck",
+        "maif",
+        "maison",
+        "management",
+        "market",
+        "marketing",
+        "markets",
+        "marriott",
+        "mba",
+        "mckinsey",
+        "media",
+        "memorial",
+        "mit",
+        "mobi",
+        "moda",
+        "money",
+        "mormon",
+        "mortgage",
+        "movie",
+        "mu",
+        "nab",
+        "navy",
+        "network",
+        "news",
+        "next",
+        "nextdirect",
+        "nikon",
+        "ninja",
+        "nissay",
+        "nowtv",
+        "nra",
+        "obi",
+        "onl",
+        "oracle",
+        "orange",
+        "organic",
+        "origins",
+        "partners",
+        "parts",
+        "pccw",
+        "pet",
+        "photography",
+        "photos",
+        "pictet",
+        "pictures",
+        "pink",
+        "pizza",
+        "place",
+        "plumbing",
+        "plus",
+        "pnc",
+        "poker",
+        "post",
+        "pro",
+        "productions",
+        "progressive",
+        "promo",
+        "properties",
+        "pub",
+        "pwc",
+        "recipes",
+        "red",
+        "redumbrella",
+        "rehab",
+        "reise",
+        "reisen",
+        "reliance",
+        "rentals",
+        "repair",
+        "report",
+        "republican",
+        "restaurant",
+        "reviews",
+        "rexroth",
+        "rich",
+        "richardli",
+        "ril",
+        "rip",
+        "rocks",
+        "rogers",
+        "run",
+        "rwe",
+        "sale",
+        "salon",
+        "sanofi",
+        "sarl",
+        "saxo",
+        "sbi",
+        "scholarships",
+        "school",
+        "schule",
+        "sener",
+        "services",
+        "sew",
+        "shangrila",
+        "shiksha",
+        "shoes",
+        "shopping",
+        "show",
+        "sina",
+        "singles",
+        "ski",
+        "soccer",
+        "social",
+        "software",
+        "solar",
+        "solutions",
+        "song",
+        "spa",
+        "srl",
+        "stada",
+        "star",
+        "statebank",
+        "stockholm",
+        "studio",
+        "style",
+        "supplies",
+        "supply",
+        "support",
+        "surgery",
+        "systems",
+        "taobao",
+        "tatamotors",
+        "tax",
+        "taxi",
+        "team",
+        "technology",
+        "temasek",
+        "tennis",
+        "thd",
+        "theater",
+        "tiaa",
+        "tienda",
+        "tips",
+        "tires",
+        "tmall",
+        "today",
+        "tools",
+        "tours",
+        "town",
+        "toys",
+        "trading",
+        "training",
+        "travel",
+        "travelers",
+        "travelersinsurance",
+        "trv",
+        "tvs",
+        "ubank",
+        "ubs",
+        "university",
+        "ups",
+        "vacations",
+        "vanguard",
+        "vegas",
+        "ventures",
+        "vet",
+        "viajes",
+        "video",
+        "vig",
+        "viking",
+        "villas",
+        "vin",
+        "visa",
+        "vision",
+        "volvo",
+        "vote",
+        "voto",
+        "voyage",
+        "watch",
+        "watches",
+        "weber",
+        "weibo",
+        "weir",
+        "wine",
+        "works",
+        "world",
+        "wtf",
+        "xin",
+        "xn--1ck2e1b",
+        "xn--5su34j936bgsg",
+        "xn--5tzm5g",
+        "xn--6frz82g",
+        "xn--9krt00a",
+        "xn--b4w605ferd",
+        "xn--bck1b9a5dre4c",
+        "xn--cck2b3b",
+        "xn--czrs0t",
+        "xn--eckvdtc9d",
+        "xn--fct429k",
+        "xn--fjq720a",
+        "xn--fzys8d69uvgm",
+        "xn--gckr3f0f",
+        "xn--gk3at1e",
+        "xn--jvr189m",
+        "xn--rovu88b",
+        "xn--unup4y",
+        "xn--vhquv",
+        "xn--w4r85el8fhu5dnra",
+        "xn--w4rs40l",
+        "yahoo",
+        "zara",
+        "zero",
+        "zone"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.isnic.is/rdap/",
+      "zones": [
+        "is"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.kenic.or.ke/",
+      "zones": [
+        "ke"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.kiwi.fury.ca/rdap/",
+      "zones": [
+        "kiwi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.lbdr.org.lb/",
+      "zones": [
+        "lb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.mls.fury.ca/rdap/",
+      "zones": [
+        "mls"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.mobile-registry.com/rdap/",
+      "zones": [
+        "blockbuster",
+        "data",
+        "dish",
+        "dot",
+        "dtv",
+        "dvr",
+        "latino",
+        "mobile",
+        "ollo",
+        "ott",
+        "phone",
+        "sling"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aaa/",
+      "zones": [
+        "aaa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aarp/",
+      "zones": [
+        "aarp"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.able/",
+      "zones": [
+        "able"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.abogado/",
+      "zones": [
+        "abogado"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.abudhabi/",
+      "zones": [
+        "abudhabi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.accountant/",
+      "zones": [
+        "accountant"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aco/",
+      "zones": [
+        "aco"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ad/",
+      "zones": [
+        "ad"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.adult/",
+      "zones": [
+        "adult"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aetna/",
+      "zones": [
+        "aetna"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.afl/",
+      "zones": [
+        "afl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.africa/rdap/",
+      "zones": [
+        "africa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aig/",
+      "zones": [
+        "aig"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.airtel/",
+      "zones": [
+        "airtel"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ally/",
+      "zones": [
+        "ally"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.alsace/",
+      "zones": [
+        "alsace"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.alstom/",
+      "zones": [
+        "alstom"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.americanexpress/",
+      "zones": [
+        "americanexpress"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.americanfamily/",
+      "zones": [
+        "americanfamily"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.amex/",
+      "zones": [
+        "amex"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.amfam/",
+      "zones": [
+        "amfam"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.amica/",
+      "zones": [
+        "amica"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.amsterdam/",
+      "zones": [
+        "amsterdam"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.analytics/",
+      "zones": [
+        "analytics"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.anz/",
+      "zones": [
+        "anz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.apple/",
+      "zones": [
+        "apple"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aquarelle/",
+      "zones": [
+        "aquarelle"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ar/",
+      "zones": [
+        "ar"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.arab/",
+      "zones": [
+        "arab"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.aramco/",
+      "zones": [
+        "aramco"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.as/",
+      "zones": [
+        "as"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.athleta/",
+      "zones": [
+        "athleta"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.auspost/",
+      "zones": [
+        "auspost"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.axa/",
+      "zones": [
+        "axa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.banamex/",
+      "zones": [
+        "banamex"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bank/",
+      "zones": [
+        "bank"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.barcelona/",
+      "zones": [
+        "barcelona"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.baseball/",
+      "zones": [
+        "baseball"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.basketball/",
+      "zones": [
+        "basketball"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bauhaus/",
+      "zones": [
+        "bauhaus"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bayern/",
+      "zones": [
+        "bayern"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bcn/",
+      "zones": [
+        "bcn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.beer/",
+      "zones": [
+        "beer"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.berlin/v1/",
+      "zones": [
+        "berlin"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bharti/",
+      "zones": [
+        "bharti"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bible/",
+      "zones": [
+        "bible"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bid/",
+      "zones": [
+        "bid"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.biz/",
+      "zones": [
+        "biz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.blackfriday/",
+      "zones": [
+        "blackfriday"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.booking/",
+      "zones": [
+        "booking"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bostik/",
+      "zones": [
+        "bostik"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.boston/",
+      "zones": [
+        "boston"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.brussels/",
+      "zones": [
+        "brussels"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.buzz/",
+      "zones": [
+        "buzz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.bzh/",
+      "zones": [
+        "bzh"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.calvinklein/",
+      "zones": [
+        "calvinklein"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.capetown/rdap/",
+      "zones": [
+        "capetown"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.capitalone/",
+      "zones": [
+        "capitalone"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.caravan/",
+      "zones": [
+        "caravan"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.casa/",
+      "zones": [
+        "casa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cat/",
+      "zones": [
+        "cat"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.catholic/",
+      "zones": [
+        "catholic"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cba/",
+      "zones": [
+        "cba"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cbn/",
+      "zones": [
+        "cbn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cbre/",
+      "zones": [
+        "cbre"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.chase/",
+      "zones": [
+        "chase"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.chintai/",
+      "zones": [
+        "chintai"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cisco/",
+      "zones": [
+        "cisco"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.citi/",
+      "zones": [
+        "citi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.club/",
+      "zones": [
+        "club"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cm/",
+      "zones": [
+        "cm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.commbank/",
+      "zones": [
+        "commbank"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.compare/",
+      "zones": [
+        "compare"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cooking/",
+      "zones": [
+        "cooking"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.corsica/",
+      "zones": [
+        "corsica"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.courses/",
+      "zones": [
+        "courses"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cpa/",
+      "zones": [
+        "cpa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cr/",
+      "zones": [
+        "cr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cricket/",
+      "zones": [
+        "cricket"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cuisinella/",
+      "zones": [
+        "cuisinella"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cv/",
+      "zones": [
+        "cv"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cx/",
+      "zones": [
+        "cx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.cz/",
+      "zones": [
+        "cz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.date/",
+      "zones": [
+        "date"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.dds/",
+      "zones": [
+        "dds"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.dell/",
+      "zones": [
+        "dell"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.design/",
+      "zones": [
+        "design"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.download/",
+      "zones": [
+        "download"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.dubai/",
+      "zones": [
+        "dubai"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.dupont/",
+      "zones": [
+        "dupont"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.durban/rdap/",
+      "zones": [
+        "durban"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.earth/",
+      "zones": [
+        "earth"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.erni/",
+      "zones": [
+        "erni"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.eurovision/",
+      "zones": [
+        "eurovision"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.eus/",
+      "zones": [
+        "eus"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.faith/",
+      "zones": [
+        "faith"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.farmers/",
+      "zones": [
+        "farmers"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.fashion/",
+      "zones": [
+        "fashion"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ferrero/",
+      "zones": [
+        "ferrero"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.film/",
+      "zones": [
+        "film"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.firmdale/",
+      "zones": [
+        "firmdale"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.fishing/",
+      "zones": [
+        "fishing"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.fit/",
+      "zones": [
+        "fit"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.flickr/",
+      "zones": [
+        "flickr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.flir/",
+      "zones": [
+        "flir"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ford/",
+      "zones": [
+        "ford"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.fox/",
+      "zones": [
+        "fox"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.fr/",
+      "zones": [
+        "fr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.frontier/",
+      "zones": [
+        "frontier"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ftr/",
+      "zones": [
+        "ftr"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gal/",
+      "zones": [
+        "gal"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gap/",
+      "zones": [
+        "gap"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.garden/",
+      "zones": [
+        "garden"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gay/",
+      "zones": [
+        "gay"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gdn/",
+      "zones": [
+        "gdn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gea/",
+      "zones": [
+        "gea"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.george/",
+      "zones": [
+        "george"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gmx/",
+      "zones": [
+        "gmx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.godaddy/",
+      "zones": [
+        "godaddy"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gov/rdap/",
+      "zones": [
+        "gov"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.grainger/",
+      "zones": [
+        "grainger"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.grocery/",
+      "zones": [
+        "grocery"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.gs/",
+      "zones": [
+        "gs"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hamburg/v1/",
+      "zones": [
+        "hamburg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hbo/",
+      "zones": [
+        "hbo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.health/",
+      "zones": [
+        "health"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hn/",
+      "zones": [
+        "hn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.homegoods/",
+      "zones": [
+        "homegoods"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.homesense/",
+      "zones": [
+        "homesense"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.horse/",
+      "zones": [
+        "horse"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hotels/",
+      "zones": [
+        "hotels"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hsbc/",
+      "zones": [
+        "hsbc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ht/",
+      "zones": [
+        "ht"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.hyatt/",
+      "zones": [
+        "hyatt"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ibm/",
+      "zones": [
+        "ibm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ifm/",
+      "zones": [
+        "ifm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ikano/v1/",
+      "zones": [
+        "ikano"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ink/",
+      "zones": [
+        "ink"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.insurance/",
+      "zones": [
+        "insurance"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.intuit/",
+      "zones": [
+        "intuit"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ipiranga/",
+      "zones": [
+        "ipiranga"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.itau/",
+      "zones": [
+        "itau"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.jmp/",
+      "zones": [
+        "jmp"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.joburg/rdap/",
+      "zones": [
+        "joburg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.jpmorgan/",
+      "zones": [
+        "jpmorgan"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.jprs/rdap/",
+      "zones": [
+        "jprs"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.kpmg/",
+      "zones": [
+        "kpmg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.krd/",
+      "zones": [
+        "krd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.lacaixa/",
+      "zones": [
+        "lacaixa"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.lanxess/",
+      "zones": [
+        "lanxess"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.latrobe/",
+      "zones": [
+        "latrobe"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.law/",
+      "zones": [
+        "law"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.leclerc/",
+      "zones": [
+        "leclerc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.lifeinsurance/",
+      "zones": [
+        "lifeinsurance"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.lilly/",
+      "zones": [
+        "lilly"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.lincoln/",
+      "zones": [
+        "lincoln"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.loan/",
+      "zones": [
+        "loan"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.locker/rdap/",
+      "zones": [
+        "locker"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.luxe/",
+      "zones": [
+        "luxe"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ly/",
+      "zones": [
+        "ly"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.madrid/",
+      "zones": [
+        "madrid"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.man/",
+      "zones": [
+        "man"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.mango/",
+      "zones": [
+        "mango"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.marshalls/",
+      "zones": [
+        "marshalls"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.mattel/",
+      "zones": [
+        "mattel"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.melbourne/",
+      "zones": [
+        "melbourne"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.men/",
+      "zones": [
+        "men"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.menu/",
+      "zones": [
+        "menu"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.merckmsd/",
+      "zones": [
+        "merckmsd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.miami/",
+      "zones": [
+        "miami"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.mint/",
+      "zones": [
+        "mint"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ml/",
+      "zones": [
+        "ml"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.mlb/",
+      "zones": [
+        "mlb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.mma/",
+      "zones": [
+        "mma"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.moe/",
+      "zones": [
+        "moe"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.monash/",
+      "zones": [
+        "monash"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.moto/",
+      "zones": [
+        "moto"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ms/",
+      "zones": [
+        "ms"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.msd/",
+      "zones": [
+        "msd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.museum/",
+      "zones": [
+        "museum"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nba/",
+      "zones": [
+        "nba"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.netbank/",
+      "zones": [
+        "netbank"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.netflix/",
+      "zones": [
+        "netflix"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.neustar/",
+      "zones": [
+        "neustar"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nf/",
+      "zones": [
+        "nf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nfl/",
+      "zones": [
+        "nfl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nike/",
+      "zones": [
+        "nike"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.norton/",
+      "zones": [
+        "norton"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nrw/",
+      "zones": [
+        "nrw"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ntt/rdap/",
+      "zones": [
+        "ntt"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.nyc/",
+      "zones": [
+        "nyc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.olayan/",
+      "zones": [
+        "olayan"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.olayangroup/",
+      "zones": [
+        "olayangroup"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.one/",
+      "zones": [
+        "one"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.open/",
+      "zones": [
+        "open"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.osaka/",
+      "zones": [
+        "osaka"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ovh/",
+      "zones": [
+        "ovh"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.paris/",
+      "zones": [
+        "paris"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.party/",
+      "zones": [
+        "party"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.pfizer/",
+      "zones": [
+        "pfizer"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.pg/",
+      "zones": [
+        "pg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.philips/",
+      "zones": [
+        "philips"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.photo/",
+      "zones": [
+        "photo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.physio/",
+      "zones": [
+        "physio"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ping/",
+      "zones": [
+        "ping"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.pm/",
+      "zones": [
+        "pm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.politie/",
+      "zones": [
+        "politie"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.porn/",
+      "zones": [
+        "porn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.praxi/",
+      "zones": [
+        "praxi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.pru/",
+      "zones": [
+        "pru"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.prudential/",
+      "zones": [
+        "prudential"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.quebec/",
+      "zones": [
+        "quebec"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.racing/",
+      "zones": [
+        "racing"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.radio/",
+      "zones": [
+        "radio"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.re/",
+      "zones": [
+        "re"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.review/",
+      "zones": [
+        "review"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.rodeo/",
+      "zones": [
+        "rodeo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.rugby/",
+      "zones": [
+        "rugby"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.safety/",
+      "zones": [
+        "safety"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sakura/rdap/",
+      "zones": [
+        "sakura"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.samsclub/",
+      "zones": [
+        "samsclub"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sandvik/",
+      "zones": [
+        "sandvik"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sandvikcoromant/",
+      "zones": [
+        "sandvikcoromant"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sap/",
+      "zones": [
+        "sap"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sas/",
+      "zones": [
+        "sas"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.scb/",
+      "zones": [
+        "scb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.schaeffler/",
+      "zones": [
+        "schaeffler"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.schmidt/",
+      "zones": [
+        "schmidt"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.science/",
+      "zones": [
+        "science"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.scot/",
+      "zones": [
+        "scot"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sd/",
+      "zones": [
+        "sd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.seat/",
+      "zones": [
+        "seat"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.seek/",
+      "zones": [
+        "seek"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.select/",
+      "zones": [
+        "select"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.seven/",
+      "zones": [
+        "seven"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sex/",
+      "zones": [
+        "sex"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sn/whois43/",
+      "zones": [
+        "sn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sncf/",
+      "zones": [
+        "sncf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sport/",
+      "zones": [
+        "sport"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.ss/",
+      "zones": [
+        "ss"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.staples/",
+      "zones": [
+        "staples"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.statefarm/",
+      "zones": [
+        "statefarm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.stream/",
+      "zones": [
+        "stream"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.study/",
+      "zones": [
+        "study"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sucks/",
+      "zones": [
+        "sucks"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.surf/",
+      "zones": [
+        "surf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.swiss/",
+      "zones": [
+        "swiss"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.sydney/",
+      "zones": [
+        "sydney"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tab/",
+      "zones": [
+        "tab"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.taipei/",
+      "zones": [
+        "taipei"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.target/",
+      "zones": [
+        "target"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tattoo/",
+      "zones": [
+        "tattoo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tdk/",
+      "zones": [
+        "tdk"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tel/",
+      "zones": [
+        "tel"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.teva/",
+      "zones": [
+        "teva"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tf/",
+      "zones": [
+        "tf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tjmaxx/",
+      "zones": [
+        "tjmaxx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tjx/",
+      "zones": [
+        "tjx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tkmaxx/",
+      "zones": [
+        "tkmaxx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.total/",
+      "zones": [
+        "total"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.trade/",
+      "zones": [
+        "trade"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tube/",
+      "zones": [
+        "tube"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.tv/",
+      "zones": [
+        "tv"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.versicherung/v1/",
+      "zones": [
+        "versicherung"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.vi/",
+      "zones": [
+        "vi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.vip/",
+      "zones": [
+        "vip"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.vivo/",
+      "zones": [
+        "vivo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.vlaanderen/",
+      "zones": [
+        "vlaanderen"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.vodka/",
+      "zones": [
+        "vodka"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.voting/",
+      "zones": [
+        "voting"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.walmart/",
+      "zones": [
+        "walmart"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.walter/",
+      "zones": [
+        "walter"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.weather/",
+      "zones": [
+        "weather"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.weatherchannel/",
+      "zones": [
+        "weatherchannel"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.webcam/",
+      "zones": [
+        "webcam"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.wedding/",
+      "zones": [
+        "wedding"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.wf/",
+      "zones": [
+        "wf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.whoswho/",
+      "zones": [
+        "whoswho"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.wiki/",
+      "zones": [
+        "wiki"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.williamhill/",
+      "zones": [
+        "williamhill"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.win/",
+      "zones": [
+        "win"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.winners/",
+      "zones": [
+        "winners"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.woodside/",
+      "zones": [
+        "woodside"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.work/",
+      "zones": [
+        "work"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.wtc/",
+      "zones": [
+        "wtc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xerox/",
+      "zones": [
+        "xerox"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--80aqecdr1a/",
+      "zones": [
+        "xn--80aqecdr1a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--80asehdb/",
+      "zones": [
+        "xn--80asehdb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--80aswg/",
+      "zones": [
+        "xn--80aswg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--g2xx48c/",
+      "zones": [
+        "xn--g2xx48c"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--kcrx77d1x4a/",
+      "zones": [
+        "xn--kcrx77d1x4a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--mgba3a3ejt/",
+      "zones": [
+        "xn--mgba3a3ejt"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--mgba7c0bbn0a/",
+      "zones": [
+        "xn--mgba7c0bbn0a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--mgbab2bd/",
+      "zones": [
+        "xn--mgbab2bd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--mgbca7dzdo/",
+      "zones": [
+        "xn--mgbca7dzdo"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--mgbi4ecexp/",
+      "zones": [
+        "xn--mgbi4ecexp"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--ngbc5azd/",
+      "zones": [
+        "xn--ngbc5azd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--ngbrx/",
+      "zones": [
+        "xn--ngbrx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--p1acf/",
+      "zones": [
+        "xn--p1acf"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xn--tiq49xqyj/",
+      "zones": [
+        "xn--tiq49xqyj"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.xxx/",
+      "zones": [
+        "xxx"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.yandex/rdap/",
+      "zones": [
+        "yandex"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.yoga/",
+      "zones": [
+        "yoga"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.yt/",
+      "zones": [
+        "yt"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nic.zm/",
+      "zones": [
+        "zm"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nixiregistry.in/rdap/",
+      "zones": [
+        "in"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/abbvie/",
+      "zones": [
+        "abbvie"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/amazon/",
+      "zones": [
+        "amazon"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/audible/",
+      "zones": [
+        "audible"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/author/",
+      "zones": [
+        "author"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/aws/",
+      "zones": [
+        "aws"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/azure/",
+      "zones": [
+        "azure"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/bbc/",
+      "zones": [
+        "bbc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/bbva/",
+      "zones": [
+        "bbva"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/bing/",
+      "zones": [
+        "bing"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/book/",
+      "zones": [
+        "book"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/bot/",
+      "zones": [
+        "bot"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/broadway/",
+      "zones": [
+        "broadway"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/buy/",
+      "zones": [
+        "buy"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/call/",
+      "zones": [
+        "call"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/career/",
+      "zones": [
+        "career"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/circle/",
+      "zones": [
+        "circle"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/cymru/",
+      "zones": [
+        "cymru"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/deal/",
+      "zones": [
+        "deal"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/desi/",
+      "zones": [
+        "desi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/fairwinds/",
+      "zones": [
+        "fairwinds"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/fast/",
+      "zones": [
+        "fast"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/fire/",
+      "zones": [
+        "fire"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/free/",
+      "zones": [
+        "free"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/gop/",
+      "zones": [
+        "gop"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/got/",
+      "zones": [
+        "got"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/gucci/",
+      "zones": [
+        "gucci"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/hot/",
+      "zones": [
+        "hot"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/hotmail/",
+      "zones": [
+        "hotmail"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/ieee/",
+      "zones": [
+        "ieee"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/imdb/",
+      "zones": [
+        "imdb"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/jobs/",
+      "zones": [
+        "jobs"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/jot/",
+      "zones": [
+        "jot"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/joy/",
+      "zones": [
+        "joy"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/kindle/",
+      "zones": [
+        "kindle"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/like/",
+      "zones": [
+        "like"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/locus/",
+      "zones": [
+        "locus"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/med/",
+      "zones": [
+        "med"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/microsoft/",
+      "zones": [
+        "microsoft"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/moi/",
+      "zones": [
+        "moi"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/mtn/",
+      "zones": [
+        "mtn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/now/",
+      "zones": [
+        "now"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/nowruz/",
+      "zones": [
+        "nowruz"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/office/",
+      "zones": [
+        "office"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/omega/",
+      "zones": [
+        "omega"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pars/",
+      "zones": [
+        "pars"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pay/",
+      "zones": [
+        "pay"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pharmacy/",
+      "zones": [
+        "pharmacy"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pin/",
+      "zones": [
+        "pin"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pioneer/",
+      "zones": [
+        "pioneer"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/pn/",
+      "zones": [
+        "pn"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/prime/",
+      "zones": [
+        "prime"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/read/",
+      "zones": [
+        "read"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/realestate/",
+      "zones": [
+        "realestate"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/realtor/",
+      "zones": [
+        "realtor"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/room/",
+      "zones": [
+        "room"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/safe/",
+      "zones": [
+        "safe"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/save/",
+      "zones": [
+        "save"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/secure/",
+      "zones": [
+        "secure"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/shell/",
+      "zones": [
+        "shell"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/shia/",
+      "zones": [
+        "shia"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/silk/",
+      "zones": [
+        "silk"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/sky/",
+      "zones": [
+        "sky"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/skype/",
+      "zones": [
+        "skype"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/smile/",
+      "zones": [
+        "smile"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/spot/",
+      "zones": [
+        "spot"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/swatch/",
+      "zones": [
+        "swatch"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/talk/",
+      "zones": [
+        "talk"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/tci/",
+      "zones": [
+        "tci"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/tunes/",
+      "zones": [
+        "tunes"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/tushu/",
+      "zones": [
+        "tushu"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/uk/",
+      "zones": [
+        "uk"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/virgin/",
+      "zones": [
+        "virgin"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/wales/",
+      "zones": [
+        "wales"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/wanggou/",
+      "zones": [
+        "wanggou"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/wed/",
+      "zones": [
+        "wed"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/windows/",
+      "zones": [
+        "windows"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/wow/",
+      "zones": [
+        "wow"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/xbox/",
+      "zones": [
+        "xbox"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/xn--cckwcxetd/",
+      "zones": [
+        "xn--cckwcxetd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/xn--jlq480n2rg/",
+      "zones": [
+        "xn--jlq480n2rg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/xn--mgbt3dhd/",
+      "zones": [
+        "xn--mgbt3dhd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/yamaxun/",
+      "zones": [
+        "yamaxun"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/you/",
+      "zones": [
+        "you"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.nominet.uk/zappos/",
+      "zones": [
+        "zappos"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.norid.no/",
+      "zones": [
+        "no"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.pandi.id/rdap/",
+      "zones": [
+        "id"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.publicinterestregistry.org/rdap/",
+      "zones": [
+        "charity",
+        "foundation",
+        "gives",
+        "giving",
+        "ngo",
+        "ong",
+        "org",
+        "xn--c1avg",
+        "xn--i1b6b1a6a2e",
+        "xn--nqv7f",
+        "xn--nqv7fs00ema"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.radix.host/rdap/",
+      "zones": [
+        "fun",
+        "host",
+        "online",
+        "press",
+        "pw",
+        "site",
+        "space",
+        "store",
+        "tech",
+        "uno",
+        "website"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.register.si/",
+      "zones": [
+        "si"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registro.br/",
+      "zones": [
+        "br"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.bar/rdap/",
+      "zones": [
+        "bar",
+        "rest"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.click/rdap/",
+      "zones": [
+        "feedback",
+        "forum",
+        "observer",
+        "pid",
+        "realty"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.cloud/rdap/",
+      "zones": [
+        "cloud"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.coop/rdap/",
+      "zones": [
+        "coop",
+        "creditunion"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.ec/",
+      "zones": [
+        "ec"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.gy/",
+      "zones": [
+        "gy"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.hiphop/rdap/",
+      "zones": [
+        "hiphop"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.kfh/rdap/",
+      "zones": [
+        "kfh",
+        "xn--ngbe9e0a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registry.love/rdap/",
+      "zones": [
+        "love"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.registryservices.music/rdap/",
+      "zones": [
+        "music"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.ricta.org.rw/",
+      "zones": [
+        "rw"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.ryce-rsp.com/rdap/",
+      "zones": [
+        "cologne",
+        "koeln",
+        "tirol",
+        "wien"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.sgnic.sg/rdap/",
+      "zones": [
+        "sg"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.sidn.nl/",
+      "zones": [
+        "nl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.ta.sgnic.sg/rdap/",
+      "zones": [
+        "xn--clchc0ea0b2g2a9gcd"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/",
+      "zones": [
+        "anquan",
+        "shouji",
+        "xihuan",
+        "xn--vuq861b",
+        "yun"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--3ds443g/",
+      "zones": [
+        "xn--3ds443g"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--fiq228c5hs/",
+      "zones": [
+        "xn--fiq228c5hs"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--kput3i/",
+      "zones": [
+        "xn--kput3i"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--nyqy26a/",
+      "zones": [
+        "xn--nyqy26a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.teleinfo.cn/xn--rhqv96g/",
+      "zones": [
+        "xn--rhqv96g"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.thains.co.th/",
+      "zones": [
+        "th",
+        "xn--o3cw4h"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.tonicregistry.to/rdap/",
+      "zones": [
+        "to"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.tucowsregistry.net/rdap/",
+      "zones": [
+        "click",
+        "country",
+        "diy",
+        "food",
+        "gift",
+        "hiv",
+        "lifestyle",
+        "link",
+        "living",
+        "property",
+        "sexy",
+        "trust",
+        "vana"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.twnic.tw/rdap/",
+      "zones": [
+        "xn--mxtq1m"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.verisign.com/com/v1/",
+      "zones": [
+        "com"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.verisign.com/net/v1/",
+      "zones": [
+        "net"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.y.net.ye/",
+      "zones": [
+        "ye"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/baidu/",
+      "zones": [
+        "baidu"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/citic/",
+      "zones": [
+        "citic"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/icbc/",
+      "zones": [
+        "icbc"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/ren/",
+      "zones": [
+        "ren"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/sohu/",
+      "zones": [
+        "sohu"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/top/",
+      "zones": [
+        "top"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/unicom/",
+      "zones": [
+        "unicom"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/wang/",
+      "zones": [
+        "wang"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--30rr7y/",
+      "zones": [
+        "xn--30rr7y"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--3bst00m/",
+      "zones": [
+        "xn--3bst00m"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/XN--45Q11C/",
+      "zones": [
+        "xn--45q11c"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--6qq986b3xl/",
+      "zones": [
+        "xn--6qq986b3xl"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--8y0a063a/",
+      "zones": [
+        "xn--8y0a063a"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--9et52u/",
+      "zones": [
+        "xn--9et52u"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--czr694b/",
+      "zones": [
+        "xn--czr694b"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--czru2d/",
+      "zones": [
+        "xn--czru2d"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/XN--EFVY88H/",
+      "zones": [
+        "xn--efvy88h"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--fiq64b/",
+      "zones": [
+        "xn--fiq64b"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--hxt814e/",
+      "zones": [
+        "xn--hxt814e"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--imr513n/",
+      "zones": [
+        "xn--imr513n"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--otu796d/",
+      "zones": [
+        "xn--otu796d"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zdnsgtld.com/xn--ses554g/",
+      "zones": [
+        "xn--ses554g"
+      ]
+    },
+    {
+      "rdapUrl": "https://rdap.zh.sgnic.sg/rdap/",
+      "zones": [
+        "xn--yfro4i67o"
+      ]
+    },
+    {
+      "rdapUrl": "https://restwhois.ngtld.cn/",
+      "zones": [
+        "xn--1qqw23a",
+        "xn--55qx5d",
+        "xn--io0a7i",
+        "xn--xhq521b"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/cc/v1/",
+      "zones": [
+        "cc"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/comsec/v1/",
+      "zones": [
+        "comsec"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/name/v1/",
+      "zones": [
+        "name"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/verisign/v1/",
+      "zones": [
+        "verisign"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--11b4c3d/v1/",
+      "zones": [
+        "xn--11b4c3d"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--3pxu8k/v1/",
+      "zones": [
+        "xn--3pxu8k"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--42c2d9a/v1/",
+      "zones": [
+        "xn--42c2d9a"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--9dbq2a/v1/",
+      "zones": [
+        "xn--9dbq2a"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--c2br7g/v1/",
+      "zones": [
+        "xn--c2br7g"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--fhbei/v1/",
+      "zones": [
+        "xn--fhbei"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--j1aef/v1/",
+      "zones": [
+        "xn--j1aef"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--mk1bu44c/v1/",
+      "zones": [
+        "xn--mk1bu44c"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--pssy2u/v1/",
+      "zones": [
+        "xn--pssy2u"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--t60b56a/v1/",
+      "zones": [
+        "xn--t60b56a"
+      ]
+    },
+    {
+      "rdapUrl": "https://tld-rdap.verisign.com/xn--tckwe/v1/",
+      "zones": [
+        "xn--tckwe"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.kyregistry.ky/rdap/",
+      "zones": [
+        "ky"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.nic.mtr/rdap/",
+      "zones": [
+        "mtr"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.nic.tatar/rdap/",
+      "zones": [
+        "tatar"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.nic.xn--d1acj3b/rdap/",
+      "zones": [
+        "xn--d1acj3b"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.sr/rdap/",
+      "zones": [
+        "sr"
+      ]
+    },
+    {
+      "rdapUrl": "https://whois.tznic.or.tz/rdap/",
+      "zones": [
+        "tz"
+      ]
+    },
+    {
+      "rdapUrl": "https://www.rdap.fj/",
+      "zones": [
+        "fj"
+      ]
     }
   ]
 }

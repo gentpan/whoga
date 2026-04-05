@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
+import { getWhoisQueryStats, type QueryStatsSnapshot } from "@/lib/query-stats";
 
 type BootstrapKey = "asn" | "dns" | "ipv4" | "ipv6" | "object-tags";
 
@@ -16,6 +17,7 @@ export interface BootstrapStatsPayload {
   updatedAt: string;
   queryableDomainSuffixes: number;
   items: BootstrapStat[];
+  queryStats: QueryStatsSnapshot;
 }
 
 interface BootstrapFileMeta {
@@ -117,7 +119,10 @@ async function refreshBootstrapCache(): Promise<void> {
   await writeJson(UPDATE_META_FILE, next);
 }
 
-let cache: { updatedAtMs: number; payload: BootstrapStatsPayload } | null = null;
+let cache: {
+  updatedAtMs: number;
+  payload: Omit<BootstrapStatsPayload, "queryStats" | "updatedAt">;
+} | null = null;
 
 const MERGED_FILE = path.join(process.cwd(), "data", "whois-merged.json");
 
@@ -177,7 +182,11 @@ function toStat(meta: BootstrapFileMeta, data: Record<string, unknown>): Bootstr
 
 export async function getBootstrapStats(force = false): Promise<BootstrapStatsPayload> {
   if (!force && cache && Date.now() - cache.updatedAtMs < CACHE_TTL_MS) {
-    return cache.payload;
+    return {
+      ...cache.payload,
+      updatedAt: new Date().toISOString(),
+      queryStats: await getWhoisQueryStats()
+    };
   }
 
   await ensureWhoisDataFresh(force);
@@ -211,12 +220,15 @@ export async function getBootstrapStats(force = false): Promise<BootstrapStatsPa
     queryableDomainSuffixes = 0;
   }
 
-  const payload: BootstrapStatsPayload = {
-    updatedAt: new Date().toISOString(),
+  const payload = {
     queryableDomainSuffixes,
     items: results
   };
 
   cache = { updatedAtMs: Date.now(), payload };
-  return payload;
+  return {
+    ...payload,
+    updatedAt: new Date().toISOString(),
+    queryStats: await getWhoisQueryStats()
+  };
 }

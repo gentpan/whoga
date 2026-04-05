@@ -9,6 +9,7 @@ import {
   resolveRdapBaseUrlFromExtraWithTrace
 } from "@/lib/rdap-registry";
 import { getCacheJson, setCacheJson } from "@/lib/cache";
+import { recordWhoisQueryStat, type QueryStatsEntryPoint } from "@/lib/query-stats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,6 +18,7 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const IPV4_FILE = path.join(DATA_DIR, "ipv4.json");
 const IPV6_FILE = path.join(DATA_DIR, "ipv6.json");
 const ASN_FILE = path.join(DATA_DIR, "asn.json");
+const TTNIC_SEARCH_URL = "https://www.nic.tt/cgi-bin/search.pl";
 
 type BootstrapRegistry = {
   services?: Array<[string[], string[]]>;
@@ -60,6 +62,13 @@ function cacheTtlSeconds(): number {
     return 900;
   }
   return Math.floor(CACHE_TTL_SECONDS);
+}
+
+function toHttpStatus(status: number | undefined, fallback = 502): number {
+  if (typeof status === "number" && status >= 200 && status <= 599) {
+    return status;
+  }
+  return fallback;
 }
 
 async function readJson<T>(filePath: string): Promise<T | null> {
@@ -259,6 +268,130 @@ function buildSuffixFallbackChain(domain: string): string[] {
   return chain;
 }
 
+function stripHtml(input: string): string {
+  return input
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(p|div|tr|table|h1|h2|h3|li)>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function parseTtnicHtml(html: string, domain: string): Record<string, unknown> | null {
+  const availableMatch = html.match(/This Domain Name is available\./i);
+  if (availableMatch) {
+    return {
+      objectClassName: "domain",
+      handle: domain,
+      ldhName: domain,
+      unicodeName: domain,
+      status: ["available"],
+      notices: [
+        {
+          title: "TTNIC Search",
+          description: [`${domain} is reported as available by TTNIC.`],
+          links: [{ href: TTNIC_SEARCH_URL, value: TTNIC_SEARCH_URL, rel: "alternate", type: "text/html" }]
+        }
+      ]
+    };
+  }
+
+  const rowRegex = /<tr><td>(.*?)<\/td>\s*<td>(.*?)<\/td><\/tr>/gis;
+  const rows = new Map<string, string>();
+  for (const match of html.matchAll(rowRegex)) {
+    const key = stripHtml(match[1] ?? "");
+    const value = stripHtml(match[2] ?? "");
+    if (key && value) {
+      rows.set(key, value);
+    }
+  }
+
+  if (!rows.size) {
+    return null;
+  }
+
+  const nameservers = (rows.get("DNS Hostnames") ?? "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((host) => ({ ldhName: host }));
+  const statusText = rows.get("Expiration Date") ?? "";
+  const registrationDate = rows.get("Registration Date") ?? "";
+  const expirationDate = statusText.replace(/\s+ACTIVE\s*$/i, "").trim();
+  const status = /ACTIVE/i.test(statusText) ? ["active"] : [];
+  const registrantName = rows.get("Registrant Name") ?? "";
+  const registrantAddress = rows.get("Registrant Address") ?? "";
+
+  const result: Record<string, unknown> = {
+    objectClassName: "domain",
+    handle: domain,
+    ldhName: rows.get("Domain Name") ?? domain,
+    unicodeName: rows.get("Domain Name") ?? domain,
+    name: registrantName || domain,
+    status,
+    nameservers,
+    port43: "www.nic.tt/cgi-bin/search.pl",
+    entities: registrantName
+      ? [
+          {
+            objectClassName: "entity",
+            roles: ["registrant"],
+            vcardArray: [
+              "vcard",
+              [
+                ["version", {}, "text", "4.0"],
+                ["fn", {}, "text", registrantName],
+                ...(registrantAddress ? [["adr", { label: registrantAddress }, "text", ["", "", "", "", "", "", ""]]] : [])
+              ]
+            ]
+          }
+        ]
+      : [],
+    remarks: [
+      {
+        title: "TTNIC HTML fallback",
+        description: ["This result was parsed from the public TTNIC search page because no working RDAP endpoint is available."]
+      }
+    ],
+    links: [{ href: TTNIC_SEARCH_URL, value: TTNIC_SEARCH_URL, rel: "alternate", type: "text/html" }]
+  };
+
+  if (registrationDate || expirationDate) {
+    result.events = [
+      ...(registrationDate ? [{ eventAction: "registration", eventDate: registrationDate }] : []),
+      ...(expirationDate ? [{ eventAction: "expiration", eventDate: expirationDate }] : [])
+    ];
+  }
+
+  return result;
+}
+
+async function fetchTtnicDomain(domain: string): Promise<Record<string, unknown> | null> {
+  const body = new URLSearchParams({
+    name: domain,
+    Search: "Search"
+  });
+  const response = await fetch(TTNIC_SEARCH_URL, {
+    method: "POST",
+    headers: {
+      "content-type": "application/x-www-form-urlencoded",
+      "user-agent": "Mozilla/5.0"
+    },
+    body: body.toString(),
+    cache: "no-store"
+  });
+  if (!response.ok) {
+    return null;
+  }
+  const html = await response.text();
+  return parseTtnicHtml(html, domain);
+}
+
 function resolveRdapFromDnsRegistryWithTrace(
   domain: string,
   registry: BootstrapRegistry
@@ -292,12 +425,24 @@ async function fetchRdapJson(targetUrl: string): Promise<{
   status: number;
   body: Record<string, unknown> | null;
 }> {
-  const response = await fetch(targetUrl, {
-    headers: { Accept: "application/rdap+json, application/json" },
-    cache: "no-store"
-  });
-  const body = (await response.json().catch(() => null)) as Record<string, unknown> | null;
-  return { ok: response.ok, status: response.status, body };
+  try {
+    const response = await fetch(targetUrl, {
+      headers: { Accept: "application/rdap+json, application/json" },
+      cache: "no-store"
+    });
+    const body = (await response.json().catch(() => null)) as Record<string, unknown> | null;
+    return { ok: response.ok, status: response.status, body };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "fetch failed";
+    return {
+      ok: false,
+      status: 0,
+      body: {
+        title: "RDAP network error",
+        error: message
+      }
+    };
+  }
 }
 
 function resolveRegistrarLookupUrl(
@@ -375,17 +520,54 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         ? String(asnValue ?? rawInput)
         : rawInput.toLowerCase();
   const cacheKey = toCacheKey(queryType, cacheQuery);
+  const requestHost = (request.headers.get("host") ?? "").toLowerCase().split(":")[0] ?? "";
+  const entryPoint: QueryStatsEntryPoint = requestHost === "api.who.ga" ? "api" : "web";
+  const requestStartedAt = Date.now();
+
+  const sendJson = async (
+    body: Record<string, unknown>,
+    status = 200,
+    options?: {
+      normalizedQuery?: string;
+      cacheHit?: boolean;
+      rdapServer?: string | null;
+      error?: string | null;
+    }
+  ): Promise<NextResponse> => {
+    await recordWhoisQueryStat({
+      rawQuery: rawInput,
+      normalizedQuery: options?.normalizedQuery ?? rawInput,
+      queryType,
+      entryPoint,
+      host: requestHost,
+      success: status < 400,
+      status,
+      cacheHit: options?.cacheHit ?? false,
+      durationMs: Date.now() - requestStartedAt,
+      rdapServer: options?.rdapServer ?? null,
+      error: options?.error ?? (typeof body.error === "string" ? body.error : null)
+    });
+    return NextResponse.json(body, { status });
+  };
 
   try {
     const cached = await getCacheJson<WhoisApiCachePayload>(cacheKey);
     if (cached.hit && cached.value) {
-      return NextResponse.json({
-        ...cached.value,
-        cache: {
-          hit: true,
-          backend: cached.backend
+      return sendJson(
+        {
+          ...cached.value,
+          cache: {
+            hit: true,
+            backend: cached.backend
+          }
+        },
+        200,
+        {
+          normalizedQuery: cacheQuery,
+          cacheHit: true,
+          rdapServer: cached.value.rdapServer ?? null
         }
-      });
+      );
     }
 
     const meta = await ensureLocalDnsRegistryFresh();
@@ -413,7 +595,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       }
 
       if (!rdapBase) {
-        return NextResponse.json(
+        return sendJson(
           {
             error: `No RDAP server found for ${normalizedDomain}`,
             match: {
@@ -423,8 +605,74 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
               resolver: "none"
             }
           },
-          { status: 404 }
+          404,
+          {
+            normalizedQuery: normalizedDomain,
+            error: `No RDAP server found for ${normalizedDomain}`
+          }
         );
+      }
+
+      if (matchedSuffix === "tt") {
+        if (queryType === "suffix") {
+          return sendJson(
+            {
+              error: "TTNIC does not provide a public RDAP suffix endpoint; query a full .tt domain instead.",
+              rdapServer: TTNIC_SEARCH_URL,
+              match: {
+                matchedSuffix,
+                fallbackChain,
+                matchedSources,
+                resolver: "ttnic-html"
+              }
+            },
+            400,
+            {
+              normalizedQuery: normalizedDomain,
+              rdapServer: TTNIC_SEARCH_URL,
+              error: "TTNIC does not provide a public RDAP suffix endpoint; query a full .tt domain instead."
+            }
+          );
+        }
+
+        const ttnicResult = await fetchTtnicDomain(normalizedDomain);
+        if (ttnicResult) {
+          const payload: WhoisApiCachePayload = {
+            domain: queryLabel,
+            queryType,
+            rdapServer: TTNIC_SEARCH_URL,
+            source: {
+              dnsJsonUrl: "https://data.iana.org/rdap/dns.json",
+              localUpdatedAt: meta.updatedAt,
+              publication: meta.publication,
+              fallbackUsed: true
+            },
+            match: {
+              matchedSuffix,
+              fallbackChain,
+              matchedSources,
+              resolver: "ttnic-html"
+            },
+            resultSource: "registry",
+            result: ttnicResult
+          };
+          const cacheBackend = await setCacheJson(cacheKey, payload, cacheTtlSeconds());
+          return sendJson(
+            {
+              ...payload,
+              cache: {
+                hit: false,
+                backend: cacheBackend
+              }
+            },
+            200,
+            {
+              normalizedQuery: queryLabel,
+              cacheHit: false,
+              rdapServer: TTNIC_SEARCH_URL
+            }
+          );
+        }
       }
 
       targetUrl = buildDomainLookupUrl(rdapBase, normalizedDomain);
@@ -478,35 +726,56 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
             result: registrarResult ?? fallbackTry.body
           };
           const cacheBackend = await setCacheJson(cacheKey, payload, cacheTtlSeconds());
-          return NextResponse.json({
-            ...payload,
-            cache: {
-              hit: false,
-              backend: cacheBackend
+          return sendJson(
+            {
+              ...payload,
+              cache: {
+                hit: false,
+                backend: cacheBackend
+              }
+            },
+            200,
+            {
+              normalizedQuery: queryLabel,
+              cacheHit: false,
+              rdapServer: ianaFallbackBase
             }
-          });
+          );
         }
 
         const reason =
-          typeof firstTry.body?.error === "string"
-            ? firstTry.body.error
-            : typeof firstTry.body?.title === "string"
-              ? firstTry.body.title
-              : "RDAP query failed";
-        return NextResponse.json(
+          typeof fallbackTry.body?.error === "string"
+            ? fallbackTry.body.error
+            : typeof fallbackTry.body?.title === "string"
+              ? fallbackTry.body.title
+              : typeof firstTry.body?.error === "string"
+                ? firstTry.body.error
+                : typeof firstTry.body?.title === "string"
+                  ? firstTry.body.title
+                  : "RDAP query failed";
+        const responseStatus =
+          fallbackTry.status > 0 ? toHttpStatus(fallbackTry.status) : toHttpStatus(firstTry.status);
+        const responseBody = fallbackTry.body ?? firstTry.body;
+        const responseServer = fallbackTry.status > 0 ? ianaFallbackBase : rdapBase;
+        return sendJson(
           {
             error: reason,
-            status: firstTry.status,
-            rdapServer: rdapBase,
+            status: responseStatus,
+            rdapServer: responseServer,
             match: {
               matchedSuffix,
               fallbackChain,
               matchedSources,
               resolver
             },
-            result: firstTry.body
+            result: responseBody
           },
-          { status: firstTry.status }
+          responseStatus,
+          {
+            normalizedQuery: normalizedDomain,
+            rdapServer: responseServer,
+            error: reason
+          }
         );
       }
 
@@ -548,37 +817,59 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         result: registrarResult ?? firstTry.body
       };
       const cacheBackend = await setCacheJson(cacheKey, payload, cacheTtlSeconds());
-      return NextResponse.json({
-        ...payload,
-        cache: {
-          hit: false,
-          backend: cacheBackend
+      return sendJson(
+        {
+          ...payload,
+          cache: {
+            hit: false,
+            backend: cacheBackend
+          }
+        },
+        200,
+        {
+          normalizedQuery: queryLabel,
+          cacheHit: false,
+          rdapServer: rdapBase
         }
-      });
+      );
     } else if (queryType === "ip") {
       const registry = await readJson<BootstrapRegistry>(ipv4Value ? IPV4_FILE : IPV6_FILE);
       if (!registry) {
-        return NextResponse.json({ error: "IP RDAP registry is missing" }, { status: 500 });
+        return sendJson({ error: "IP RDAP registry is missing" }, 500, {
+          normalizedQuery: rawInput,
+          error: "IP RDAP registry is missing"
+        });
       }
       rdapBase = resolveRdapBaseFromIp(rawInput, registry, ipv4Value ? "ipv4" : "ipv6");
       if (!rdapBase) {
-        return NextResponse.json(
+        return sendJson(
           { error: `No RDAP server found for ${rawInput}` },
-          { status: 404 }
+          404,
+          {
+            normalizedQuery: rawInput,
+            error: `No RDAP server found for ${rawInput}`
+          }
         );
       }
       targetUrl = buildIpLookupUrl(rdapBase, rawInput);
     } else if (queryType === "asn") {
       const registry = await readJson<BootstrapRegistry>(ASN_FILE);
       if (!registry) {
-        return NextResponse.json({ error: "ASN RDAP registry is missing" }, { status: 500 });
+        return sendJson({ error: "ASN RDAP registry is missing" }, 500, {
+          normalizedQuery: rawInput,
+          error: "ASN RDAP registry is missing"
+        });
       }
       const asn = asnValue ?? 0;
       rdapBase = resolveRdapBaseFromAsn(asn, registry);
       if (!rdapBase) {
-        return NextResponse.json(
+        return sendJson(
           { error: `No RDAP server found for AS${asn}` },
-          { status: 404 }
+          404,
+          {
+            normalizedQuery: `AS${asn}`,
+            error: `No RDAP server found for AS${asn}`
+          }
         );
       }
       targetUrl = buildAsnLookupUrl(rdapBase, asn);
@@ -593,14 +884,19 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
           : typeof firstTry.body?.title === "string"
             ? firstTry.body.title
             : "RDAP query failed";
-      return NextResponse.json(
+      return sendJson(
         {
           error: reason,
-          status: firstTry.status,
+          status: toHttpStatus(firstTry.status),
           rdapServer: rdapBase,
           result: firstTry.body
         },
-        { status: firstTry.status }
+        toHttpStatus(firstTry.status),
+        {
+          normalizedQuery: queryLabel,
+          rdapServer: rdapBase,
+          error: reason
+        }
       );
     }
 
@@ -617,15 +913,26 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       result: firstTry.body
     };
     const cacheBackend = await setCacheJson(cacheKey, payload, cacheTtlSeconds());
-    return NextResponse.json({
-      ...payload,
-      cache: {
-        hit: false,
-        backend: cacheBackend
+    return sendJson(
+      {
+        ...payload,
+        cache: {
+          hit: false,
+          backend: cacheBackend
+        }
+      },
+      200,
+      {
+        normalizedQuery: queryLabel,
+        cacheHit: false,
+        rdapServer: rdapBase
       }
-    });
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown server error";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return sendJson({ error: message }, 500, {
+      normalizedQuery: cacheQuery,
+      error: message
+    });
   }
 }

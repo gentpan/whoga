@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { domainToUnicode } from "node:url";
 import { NextResponse } from "next/server";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
 
@@ -66,9 +67,17 @@ export async function GET(): Promise<NextResponse> {
         total: suffixes.length
       } as TldTypeCounts);
 
+    const decodedSuffixes = Object.fromEntries(
+      suffixes.map((suffix) => {
+        const decoded = domainToUnicode(suffix);
+        return [suffix, decoded && decoded !== suffix ? decoded : suffix];
+      })
+    );
+
     return NextResponse.json({
       count: payload?.counts?.queryable ?? suffixes.length,
       suffixes,
+      decodedSuffixes,
       tldTypeCounts,
       tldCategories
     });

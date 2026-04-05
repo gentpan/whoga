@@ -10,6 +10,7 @@
     "update:tld-categories": "node scripts/update-brand-geo.mjs",
     "check:tlds-queryability": "node scripts/check-tlds-queryability.mjs",
     "test:rdap-all": "node scripts/test-rdap-all-suffixes.mjs",
+    "test:data-availability": "node scripts/test-data-availability.mjs",
     "audit:data": "node scripts/audit-data.mjs --report",
     "audit:data:strict": "node scripts/audit-data.mjs --report --strict",
     "sync:rdap-extra": "node scripts/sync-rdap-extra.mjs"
