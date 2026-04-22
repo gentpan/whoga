@@ -7,3 +7,8 @@ pnpm-debug.log*
 .DS_Store
 .env.local
 .env
+*.tgz
+.vscode/settings.json
+data/data-availability-report.json
+data/rdap-domain-test-report.json
+data/tlds-queryability-report.json
