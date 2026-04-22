@@ -2511,6 +2511,8 @@ body {
   height: 1.12rem;
   display: block;
   fill: currentColor;
+  transform: scale(1.18);
+  transform-origin: center center;
 }
 
 .footer-giantaccel::after {
