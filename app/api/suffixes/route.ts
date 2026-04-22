@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { domainToUnicode } from "node:url";
 import { NextResponse } from "next/server";
+import { resolveReadableDataPath } from "@/lib/runtime-data";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
 
 export const runtime = "nodejs";
@@ -40,7 +40,7 @@ interface UnifiedTldsPayload {
 export async function GET(): Promise<NextResponse> {
   try {
     await ensureWhoisDataFresh(false);
-    const tldsPath = path.join(process.cwd(), "data", "tlds.json");
+    const tldsPath = await resolveReadableDataPath("tlds.json");
     const raw = await readFile(tldsPath, "utf-8");
     const payload = JSON.parse(raw) as UnifiedTldsPayload;
 
