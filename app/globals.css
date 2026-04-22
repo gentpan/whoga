@@ -2502,6 +2502,40 @@ body {
   opacity: 0.9;
 }
 
+.footer-giantaccel {
+  position: relative;
+}
+
+.footer-giantaccel svg {
+  width: 1.12rem;
+  height: 1.12rem;
+  display: block;
+  fill: currentColor;
+}
+
+.footer-giantaccel::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--text), transparent 8%);
+  color: var(--bg);
+  font-size: 0.72rem;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.footer-giantaccel:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .back-top {
   position: fixed;
   bottom: 16px;
