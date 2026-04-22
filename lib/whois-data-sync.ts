@@ -1,27 +1,29 @@
-import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
-import path from "node:path";
+import { readFile, unlink, writeFile } from "node:fs/promises";
 import type { DnsRegistryMeta } from "@/lib/types";
+import {
+  ensureWritableDataPath,
+  getRuntimeDataPath,
+  resolveReadableDataPath
+} from "@/lib/runtime-data";
 
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-const DATA_DIR = path.join(process.cwd(), "data");
-
-const DNS_FILE = path.join(DATA_DIR, "dns.json");
-const EXTRA_FILE = path.join(DATA_DIR, "rdap-servers-extra.json");
-const PSL_FILE = path.join(DATA_DIR, "public_suffix_list.dat");
-const MERGED_FILE = path.join(DATA_DIR, "whois-merged.json");
-const BRAND_TLDS_FILE = path.join(DATA_DIR, "brand-tlds.json");
-const GEO_TLDS_FILE = path.join(DATA_DIR, "geo-tlds.json");
-const ASN_FILE = path.join(DATA_DIR, "asn.json");
-const IPV4_FILE = path.join(DATA_DIR, "ipv4.json");
-const IPV6_FILE = path.join(DATA_DIR, "ipv6.json");
-const OBJECT_TAGS_FILE = path.join(DATA_DIR, "object-tags.json");
-const REGISTRIES_FILE = path.join(DATA_DIR, "registries.json");
-const TLD_CATEGORIES_FILE = path.join(DATA_DIR, "tld-categories.json");
-const TLD_FILE = path.join(DATA_DIR, "tld.json");
-const TLD_LIST_FILE = path.join(DATA_DIR, "tlds-iana-list.json");
-const TLDS_FILE = path.join(DATA_DIR, "tlds.json");
-const CANNOT_QUERY_ROOT_TLDS_FILE = path.join(DATA_DIR, "cannot-query-root-tlds.txt");
-const UPDATE_META_FILE = path.join(DATA_DIR, "update-meta.json");
+const DNS_FILE = "dns.json";
+const EXTRA_FILE = "rdap-servers-extra.json";
+const PSL_FILE = "public_suffix_list.dat";
+const MERGED_FILE = "whois-merged.json";
+const BRAND_TLDS_FILE = "brand-tlds.json";
+const GEO_TLDS_FILE = "geo-tlds.json";
+const ASN_FILE = "asn.json";
+const IPV4_FILE = "ipv4.json";
+const IPV6_FILE = "ipv6.json";
+const OBJECT_TAGS_FILE = "object-tags.json";
+const REGISTRIES_FILE = "registries.json";
+const TLD_CATEGORIES_FILE = "tld-categories.json";
+const TLD_FILE = "tld.json";
+const TLD_LIST_FILE = "tlds-iana-list.json";
+const TLDS_FILE = "tlds.json";
+const CANNOT_QUERY_ROOT_TLDS_FILE = "cannot-query-root-tlds.txt";
+const UPDATE_META_FILE = "update-meta.json";
 
 const DNS_SOURCE_URL = "https://data.iana.org/rdap/dns.json";
 const PSL_SOURCE_URL = "https://publicsuffix.org/list/public_suffix_list.dat";
@@ -105,6 +107,22 @@ interface GtldsPayload {
   gTLDs?: GtldEntry[];
 }
 
+async function readDataJson<T>(fileName: string): Promise<T | null> {
+  return readJson<T>(await resolveReadableDataPath(fileName));
+}
+
+async function readDataText(fileName: string): Promise<string | null> {
+  return readText(await resolveReadableDataPath(fileName));
+}
+
+async function writeDataJson(fileName: string, payload: unknown): Promise<void> {
+  await writeFile(await ensureWritableDataPath(fileName), JSON.stringify(payload, null, 2), "utf-8");
+}
+
+async function writeDataText(fileName: string, payload: string): Promise<void> {
+  await writeFile(await ensureWritableDataPath(fileName), payload, "utf-8");
+}
+
 async function readJson<T>(filePath: string): Promise<T | null> {
   try {
     const raw = await readFile(filePath, "utf-8");
@@ -138,11 +156,11 @@ async function downloadText(url: string): Promise<string> {
   return await response.text();
 }
 
-async function downloadJsonOrLocal(url: string, filePath: string): Promise<Record<string, unknown>> {
+async function downloadJsonOrLocal(url: string, fileName: string): Promise<Record<string, unknown>> {
   try {
     return await downloadJson(url);
   } catch {
-    const local = await readJson<Record<string, unknown>>(filePath);
+    const local = await readDataJson<Record<string, unknown>>(fileName);
     if (local) {
       return local;
     }
@@ -150,11 +168,11 @@ async function downloadJsonOrLocal(url: string, filePath: string): Promise<Recor
   }
 }
 
-async function downloadTextOrLocal(url: string, filePath: string): Promise<string> {
+async function downloadTextOrLocal(url: string, fileName: string): Promise<string> {
   try {
     return await downloadText(url);
   } catch {
-    const local = await readText(filePath);
+    const local = await readDataText(fileName);
     if (local) {
       return local;
     }
@@ -519,7 +537,7 @@ function normalizeList(input: unknown): string[] {
 }
 
 async function readCannotQueryRootTlds(): Promise<string[]> {
-  const raw = await readText(CANNOT_QUERY_ROOT_TLDS_FILE);
+  const raw = await readDataText(CANNOT_QUERY_ROOT_TLDS_FILE);
   if (!raw) {
     return [];
   }
@@ -623,10 +641,10 @@ function upsertRecord(
 }
 
 async function rebuildMergedFile(): Promise<SyncResult["mergedSummary"]> {
-  const dns = await readJson<Record<string, unknown>>(DNS_FILE);
-  const extra = await readJson<Record<string, unknown>>(EXTRA_FILE);
-  const pslRaw = await readText(PSL_FILE);
-  const updateMeta = await readJson<UpdateMeta>(UPDATE_META_FILE);
+  const dns = await readDataJson<Record<string, unknown>>(DNS_FILE);
+  const extra = await readDataJson<Record<string, unknown>>(EXTRA_FILE);
+  const pslRaw = await readDataText(PSL_FILE);
+  const updateMeta = await readDataJson<UpdateMeta>(UPDATE_META_FILE);
   const dnsMeta = updateMeta?.categories?.sync?.dns ?? null;
 
   const dnsMap = mapFromServices(dns?.services);
@@ -669,12 +687,12 @@ async function rebuildMergedFile(): Promise<SyncResult["mergedSummary"]> {
     summary,
     items
   };
-  await writeFile(MERGED_FILE, JSON.stringify(mergedPayload, null, 2), "utf-8");
+  await writeDataJson(MERGED_FILE, mergedPayload);
   return summary;
 }
 
 async function readCacheMeta(): Promise<CacheMeta | null> {
-  const meta = await readJson<UpdateMeta>(UPDATE_META_FILE);
+  const meta = await readDataJson<UpdateMeta>(UPDATE_META_FILE);
   const cache = meta?.categories?.cache;
   if (!cache?.lastAccessAt || !cache?.lastRefreshAt) {
     return null;
@@ -686,14 +704,14 @@ async function updateMetaFile(
   updater: (current: UpdateMeta) => UpdateMeta
 ): Promise<UpdateMeta> {
   const current =
-    (await readJson<UpdateMeta>(UPDATE_META_FILE)) ??
+    (await readDataJson<UpdateMeta>(UPDATE_META_FILE)) ??
     ({
       generatedAt: new Date().toISOString(),
       categories: { sync: {} }
     } as UpdateMeta);
   const next = updater(current);
   next.generatedAt = new Date().toISOString();
-  await writeFile(UPDATE_META_FILE, JSON.stringify(next, null, 2), "utf-8");
+  await writeDataJson(UPDATE_META_FILE, next);
   return next;
 }
 
@@ -754,7 +772,7 @@ async function syncTldList(): Promise<
     };
 
     // Write main TLD list
-    await writeFile(TLD_LIST_FILE, JSON.stringify(payload, null, 2), "utf-8");
+    await writeDataJson(TLD_LIST_FILE, payload);
 
     return payload;
   } catch (error) {
@@ -783,7 +801,7 @@ async function deleteCacheFiles(): Promise<void> {
   await Promise.all(
     files.map(async (file) => {
       try {
-        await unlink(file);
+        await unlink(getRuntimeDataPath(file));
       } catch {
         // ignore
       }
@@ -793,15 +811,15 @@ async function deleteCacheFiles(): Promise<void> {
 
 async function hasAllRequiredFiles(): Promise<boolean> {
   const checks = await Promise.all([
-    readText(DNS_FILE),
-    readText(EXTRA_FILE),
-    readText(PSL_FILE),
-    readText(MERGED_FILE),
-    readText(TLD_FILE),
-    readText(TLDS_FILE),
-    readText(REGISTRIES_FILE),
-    readText(TLD_CATEGORIES_FILE),
-    readText(UPDATE_META_FILE)
+    readDataText(DNS_FILE),
+    readDataText(EXTRA_FILE),
+    readDataText(PSL_FILE),
+    readDataText(MERGED_FILE),
+    readDataText(TLD_FILE),
+    readDataText(TLDS_FILE),
+    readDataText(REGISTRIES_FILE),
+    readDataText(TLD_CATEGORIES_FILE),
+    readDataText(UPDATE_META_FILE)
   ]);
   return checks.every((value) => value !== null);
 }
@@ -818,7 +836,7 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
     await deleteCacheFiles();
   }
 
-  const updateMeta = await readJson<UpdateMeta>(UPDATE_META_FILE);
+  const updateMeta = await readDataJson<UpdateMeta>(UPDATE_META_FILE);
   const syncMeta = updateMeta?.categories?.sync?.whois;
   const recentEnough =
     syncMeta && Date.now() - new Date(syncMeta.updatedAt).getTime() < ONE_DAY_MS;
@@ -828,7 +846,7 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
     now - new Date(cacheMeta.lastRefreshAt).getTime() > THIRTY_DAYS_MS;
 
   if (!force && recentEnough && hasFiles && !staleByRefresh && !staleByAccess) {
-    const merged = await readJson<{
+    const merged = await readDataJson<{
       summary?: SyncResult["mergedSummary"];
       sourceMeta?: { dnsPublication?: string | null };
     }>(MERGED_FILE);
@@ -871,22 +889,21 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
     }
   }
 
-  await mkdir(DATA_DIR, { recursive: true });
   await Promise.all([
-    writeFile(DNS_FILE, JSON.stringify(dnsJson, null, 2), "utf-8"),
-    writeFile(PSL_FILE, pslRaw, "utf-8"),
-    writeFile(ASN_FILE, JSON.stringify(asnJson, null, 2), "utf-8"),
-    writeFile(IPV4_FILE, JSON.stringify(ipv4Json, null, 2), "utf-8"),
-    writeFile(IPV6_FILE, JSON.stringify(ipv6Json, null, 2), "utf-8"),
-    writeFile(OBJECT_TAGS_FILE, JSON.stringify(objectTagsJson, null, 2), "utf-8")
+    writeDataJson(DNS_FILE, dnsJson),
+    writeDataText(PSL_FILE, pslRaw),
+    writeDataJson(ASN_FILE, asnJson),
+    writeDataJson(IPV4_FILE, ipv4Json),
+    writeDataJson(IPV6_FILE, ipv6Json),
+    writeDataJson(OBJECT_TAGS_FILE, objectTagsJson)
   ]);
 
   if (extraJson) {
-    await writeFile(EXTRA_FILE, JSON.stringify(extraJson, null, 2), "utf-8");
+    await writeDataJson(EXTRA_FILE, extraJson);
   } else {
-    const existingExtra = await readText(EXTRA_FILE);
+    const existingExtra = await readDataText(EXTRA_FILE);
     if (!existingExtra) {
-      await writeFile(EXTRA_FILE, "{}\n", "utf-8");
+      await writeDataText(EXTRA_FILE, "{}\n");
     }
   }
 
@@ -933,30 +950,22 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
     }
   }
 
-  await writeFile(
-    REGISTRIES_FILE,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        source: {
-          rootDb: ROOT_DB_URL,
-          dns: DNS_SOURCE_URL,
-          rdapExtra: EXTRA_SOURCE_URL ?? "local-file"
-        },
-        tlds: rootDbEntries.map((entry) => ({
-          tld: entry.tld.toLowerCase(),
-          type: entry.type,
-          manager: entry.manager,
-          href: entry.href,
-          details: rootDbDetails[entry.tld.toLowerCase()] ?? null
-        })),
-        rdapRegistries: registries
-      },
-      null,
-      2
-    ),
-    "utf-8"
-  );
+  await writeDataJson(REGISTRIES_FILE, {
+    generatedAt: new Date().toISOString(),
+    source: {
+      rootDb: ROOT_DB_URL,
+      dns: DNS_SOURCE_URL,
+      rdapExtra: EXTRA_SOURCE_URL ?? "local-file"
+    },
+    tlds: rootDbEntries.map((entry) => ({
+      tld: entry.tld.toLowerCase(),
+      type: entry.type,
+      manager: entry.manager,
+      href: entry.href,
+      details: rootDbDetails[entry.tld.toLowerCase()] ?? null
+    })),
+    rdapRegistries: registries
+  });
 
   const tldMap = new Map<string, string>();
   for (const [suffix, url] of mapFromServices(dnsJson?.services)) {
@@ -972,23 +981,15 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
   const tldEntries = [...tldMap.entries()]
     .map(([suffix, rdapUrl]) => ({ suffix, rdapUrl }))
     .sort((a, b) => a.suffix.localeCompare(b.suffix));
-  await writeFile(
-    TLD_FILE,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        source: {
-          dns: DNS_SOURCE_URL,
-          rdapExtra: EXTRA_SOURCE_URL ?? "local-file"
-        },
-        count: tldEntries.length,
-        tlds: tldEntries
-      },
-      null,
-      2
-    ),
-    "utf-8"
-  );
+  await writeDataJson(TLD_FILE, {
+    generatedAt: new Date().toISOString(),
+    source: {
+      dns: DNS_SOURCE_URL,
+      rdapExtra: EXTRA_SOURCE_URL ?? "local-file"
+    },
+    count: tldEntries.length,
+    tlds: tldEntries
+  });
 
   const tldListPayload = await syncTldList();
   if (tldListPayload?.meta) {
@@ -1013,7 +1014,7 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
       counts: { brandTlds: brandTlds.length },
       tlds: brandTlds
     };
-    await writeFile(BRAND_TLDS_FILE, JSON.stringify(brandPayload, null, 2), "utf-8");
+    await writeDataJson(BRAND_TLDS_FILE, brandPayload);
 
     if (geoHtml) {
       const geoTlds = extractGeoTlds(geoHtml, activeGtlds);
@@ -1024,17 +1025,17 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
         counts: { geoTlds: geoTlds.length },
         tlds: geoTlds
       };
-      await writeFile(GEO_TLDS_FILE, JSON.stringify(geoPayload, null, 2), "utf-8");
+      await writeDataJson(GEO_TLDS_FILE, geoPayload);
     }
   }
 
-  const localBrand = await readJson<{ tlds?: string[]; brandTLDs?: string[] }>(BRAND_TLDS_FILE);
-  const localGeo = await readJson<{ tlds?: string[]; geoTLDs?: string[] }>(GEO_TLDS_FILE);
+  const localBrand = await readDataJson<{ tlds?: string[]; brandTLDs?: string[] }>(BRAND_TLDS_FILE);
+  const localGeo = await readDataJson<{ tlds?: string[]; geoTLDs?: string[] }>(GEO_TLDS_FILE);
   const brandList = normalizeList(localBrand?.tlds ?? localBrand?.brandTLDs ?? []);
   const geoList = normalizeList(localGeo?.tlds ?? localGeo?.geoTLDs ?? []);
 
   const queryableSuffixes = (() => {
-    const raw = readFile(MERGED_FILE, "utf-8");
+    const raw = resolveReadableDataPath(MERGED_FILE).then((filePath) => readFile(filePath, "utf-8"));
     return raw
       .then((content) => JSON.parse(content) as { items?: { suffix: string; rdapUrl: string | null }[] })
       .then((payload) =>
@@ -1046,62 +1047,46 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
   const suffixList = await queryableSuffixes;
   const categories = buildTldCategories(suffixList, new Set(brandList), new Set(geoList));
   const cannotQueryRootTlds = await readCannotQueryRootTlds();
-  const tldList = await readJson<{ tlds?: string[]; count?: number }>(TLD_LIST_FILE);
+  const tldList = await readDataJson<{ tlds?: string[]; count?: number }>(TLD_LIST_FILE);
   const ianaRootTlds = normalizeList(tldList?.tlds ?? []);
 
-  await writeFile(
-    TLDS_FILE,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        source: {
-          merged: MERGED_FILE,
-          brand: BRAND_TLDS_FILE,
-          geo: GEO_TLDS_FILE,
-          ianaList: TLD_LIST_FILE,
-          cannotQueryRoot: CANNOT_QUERY_ROOT_TLDS_FILE
-        },
-        counts: {
-          queryable: suffixList.length,
-          categories: categories.counts,
-          brandTlds: brandList.length,
-          geoTlds: geoList.length,
-          ianaRootTlds: ianaRootTlds.length,
-          cannotQueryRootTlds: cannotQueryRootTlds.length
-        },
-        tlds: {
-          queryable: suffixList,
-          categories: categories.lists,
-          brand: brandList,
-          geo: geoList,
-          ianaRoot: ianaRootTlds,
-          cannotQueryRoot: cannotQueryRootTlds
-        }
-      },
-      null,
-      2
-    ),
-    "utf-8"
-  );
+  await writeDataJson(TLDS_FILE, {
+    generatedAt: new Date().toISOString(),
+    source: {
+      merged: MERGED_FILE,
+      brand: BRAND_TLDS_FILE,
+      geo: GEO_TLDS_FILE,
+      ianaList: TLD_LIST_FILE,
+      cannotQueryRoot: CANNOT_QUERY_ROOT_TLDS_FILE
+    },
+    counts: {
+      queryable: suffixList.length,
+      categories: categories.counts,
+      brandTlds: brandList.length,
+      geoTlds: geoList.length,
+      ianaRootTlds: ianaRootTlds.length,
+      cannotQueryRootTlds: cannotQueryRootTlds.length
+    },
+    tlds: {
+      queryable: suffixList,
+      categories: categories.lists,
+      brand: brandList,
+      geo: geoList,
+      ianaRoot: ianaRootTlds,
+      cannotQueryRoot: cannotQueryRootTlds
+    }
+  });
 
-  await writeFile(
-    TLD_CATEGORIES_FILE,
-    JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        source: {
-          merged: MERGED_FILE,
-          brand: BRAND_TLDS_FILE,
-          geo: GEO_TLDS_FILE
-        },
-        counts: categories.counts,
-        tlds: categories.lists
-      },
-      null,
-      2
-    ),
-    "utf-8"
-  );
+  await writeDataJson(TLD_CATEGORIES_FILE, {
+    generatedAt: new Date().toISOString(),
+    source: {
+      merged: MERGED_FILE,
+      brand: BRAND_TLDS_FILE,
+      geo: GEO_TLDS_FILE
+    },
+    counts: categories.counts,
+    tlds: categories.lists
+  });
   await updateMetaFile((current) => ({
     ...current,
     categories: {

@@ -1,17 +1,15 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
+import { resolveReadableDataPath } from "@/lib/runtime-data";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const UPDATE_META_FILE = path.join(process.cwd(), "data", "update-meta.json");
-
 export async function GET(): Promise<NextResponse> {
   try {
     await ensureWhoisDataFresh(false);
-    const raw = await readFile(UPDATE_META_FILE, "utf-8");
+    const raw = await readFile(await resolveReadableDataPath("update-meta.json"), "utf-8");
     const meta = JSON.parse(raw);
     return NextResponse.json(meta);
   } catch (error) {

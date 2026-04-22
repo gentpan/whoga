@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidDomain, isValidSuffix, normalizeDomain } from "@/lib/domain";
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import {
   buildDomainLookupUrl,
   ensureLocalDnsRegistryFresh,
@@ -10,14 +9,11 @@ import {
 } from "@/lib/rdap-registry";
 import { getCacheJson, setCacheJson } from "@/lib/cache";
 import { recordWhoisQueryStat, type QueryStatsEntryPoint } from "@/lib/query-stats";
+import { resolveReadableDataPath } from "@/lib/runtime-data";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const IPV4_FILE = path.join(DATA_DIR, "ipv4.json");
-const IPV6_FILE = path.join(DATA_DIR, "ipv6.json");
-const ASN_FILE = path.join(DATA_DIR, "asn.json");
 const TTNIC_SEARCH_URL = "https://www.nic.tt/cgi-bin/search.pl";
 
 type BootstrapRegistry = {
@@ -833,7 +829,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         }
       );
     } else if (queryType === "ip") {
-      const registry = await readJson<BootstrapRegistry>(ipv4Value ? IPV4_FILE : IPV6_FILE);
+      const registry = await readJson<BootstrapRegistry>(
+        await resolveReadableDataPath(ipv4Value ? "ipv4.json" : "ipv6.json")
+      );
       if (!registry) {
         return sendJson({ error: "IP RDAP registry is missing" }, 500, {
           normalizedQuery: rawInput,
@@ -853,7 +851,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       }
       targetUrl = buildIpLookupUrl(rdapBase, rawInput);
     } else if (queryType === "asn") {
-      const registry = await readJson<BootstrapRegistry>(ASN_FILE);
+      const registry = await readJson<BootstrapRegistry>(await resolveReadableDataPath("asn.json"));
       if (!registry) {
         return sendJson({ error: "ASN RDAP registry is missing" }, 500, {
           normalizedQuery: rawInput,

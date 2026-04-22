@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
 import { getWhoisQueryStats, type QueryStatsSnapshot } from "@/lib/query-stats";
+import { resolveReadableDataPath, ensureWritableDataPath } from "@/lib/runtime-data";
 
 type BootstrapKey = "asn" | "dns" | "ipv4" | "ipv6" | "object-tags";
 
@@ -34,16 +34,6 @@ const FILES: BootstrapFileMeta[] = [
 ];
 
 const CACHE_TTL_MS = 72 * 60 * 60 * 1000;
-
-const DATA_DIR = path.join(process.cwd(), "data");
-const UPDATE_META_FILE = path.join(DATA_DIR, "update-meta.json");
-const LOCAL_FILES: Record<BootstrapKey, string> = {
-  asn: path.join(DATA_DIR, "asn.json"),
-  dns: path.join(DATA_DIR, "dns.json"),
-  ipv4: path.join(DATA_DIR, "ipv4.json"),
-  ipv6: path.join(DATA_DIR, "ipv6.json"),
-  "object-tags": path.join(DATA_DIR, "object-tags.json")
-};
 
 async function readJson<T>(filePath: string): Promise<T | null> {
   try {
@@ -81,7 +71,8 @@ interface UpdateMetaPayload {
 }
 
 async function refreshBootstrapCache(): Promise<void> {
-  const updateMeta = await readJson<UpdateMetaPayload>(UPDATE_META_FILE);
+  const updateMetaFile = await ensureWritableDataPath("update-meta.json");
+  const updateMeta = await readJson<UpdateMetaPayload>(updateMetaFile);
   const meta = updateMeta?.categories?.sync?.rdapBootstrap;
   const recentEnough =
     meta?.updatedAt && Date.now() - new Date(meta.updatedAt).getTime() < CACHE_TTL_MS;
@@ -97,7 +88,7 @@ async function refreshBootstrapCache(): Promise<void> {
           return;
         }
         const payload = (await response.json()) as Record<string, unknown>;
-        await writeJson(LOCAL_FILES[file.key], payload);
+        await writeJson(await ensureWritableDataPath(`${file.key}.json`), payload);
       } catch {
         // keep existing cache if fetch fails
       }
@@ -116,15 +107,13 @@ async function refreshBootstrapCache(): Promise<void> {
       }
     }
   };
-  await writeJson(UPDATE_META_FILE, next);
+  await writeJson(updateMetaFile, next);
 }
 
 let cache: {
   updatedAtMs: number;
   payload: Omit<BootstrapStatsPayload, "queryStats" | "updatedAt">;
 } | null = null;
-
-const MERGED_FILE = path.join(process.cwd(), "data", "whois-merged.json");
 
 function countIdentifiers(services: unknown): number {
   if (!Array.isArray(services)) {
@@ -194,7 +183,7 @@ export async function getBootstrapStats(force = false): Promise<BootstrapStatsPa
 
   const results = await Promise.all(
     FILES.map(async (file) => {
-      const localPath = LOCAL_FILES[file.key];
+      const localPath = await resolveReadableDataPath(`${file.key}.json`);
       try {
         const raw = await readFile(localPath, "utf-8");
         const payload = JSON.parse(raw) as Record<string, unknown>;
@@ -213,7 +202,7 @@ export async function getBootstrapStats(force = false): Promise<BootstrapStatsPa
 
   let queryableDomainSuffixes = 0;
   try {
-    const raw = await readFile(MERGED_FILE, "utf-8");
+    const raw = await readFile(await resolveReadableDataPath("whois-merged.json"), "utf-8");
     const merged = JSON.parse(raw) as { summary?: { with_rdap_url?: number } };
     queryableDomainSuffixes = merged.summary?.with_rdap_url ?? 0;
   } catch {

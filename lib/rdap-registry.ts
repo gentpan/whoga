@@ -1,13 +1,7 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import type { DnsRegistry, DnsRegistryMeta } from "@/lib/types";
+import { resolveReadableDataPath } from "@/lib/runtime-data";
 import { ensureWhoisDataFresh } from "@/lib/whois-data-sync";
-
-const DATA_DIR = path.join(process.cwd(), "data");
-const DNS_FILE = path.join(DATA_DIR, "dns.json");
-const UPDATE_META_FILE = path.join(DATA_DIR, "update-meta.json");
-const MERGED_FILE = path.join(DATA_DIR, "whois-merged.json");
-const EXTRA_FILE = path.join(DATA_DIR, "rdap-servers-extra.json");
 
 interface UpdateMetaPayload {
   generatedAt?: string;
@@ -40,14 +34,16 @@ function isDnsRegistry(value: unknown): value is DnsRegistry {
 
 export async function ensureLocalDnsRegistryFresh(force = false): Promise<DnsRegistryMeta> {
   await ensureWhoisDataFresh(force);
-  const updateMeta = await readJson<UpdateMetaPayload>(UPDATE_META_FILE);
+  const updateMetaFile = await resolveReadableDataPath("update-meta.json");
+  const updateMeta = await readJson<UpdateMetaPayload>(updateMetaFile);
   const meta = updateMeta?.categories?.sync?.dns;
   if (meta) {
     return meta;
   }
 
   // Backward compatibility for older update-meta schema.
-  const dnsData = await readJson<{ publication?: string }>(DNS_FILE);
+  const dnsFile = await resolveReadableDataPath("dns.json");
+  const dnsData = await readJson<{ publication?: string }>(dnsFile);
   const fallbackUpdatedAt =
     updateMeta?.categories?.sync?.whois?.updatedAt ??
     updateMeta?.generatedAt ??
@@ -66,7 +62,8 @@ export async function ensureLocalDnsRegistryFresh(force = false): Promise<DnsReg
 
 export async function loadLocalDnsRegistry(): Promise<DnsRegistry> {
   await ensureLocalDnsRegistryFresh();
-  const data = await readJson<DnsRegistry>(DNS_FILE);
+  const dnsFile = await resolveReadableDataPath("dns.json");
+  const data = await readJson<DnsRegistry>(dnsFile);
 
   if (!data || !isDnsRegistry(data)) {
     throw new Error("Local RDAP registry is missing or corrupted");
@@ -115,7 +112,8 @@ export async function resolveRdapBaseUrlFromMergedWithTrace(
   domain: string
 ): Promise<RdapMergedResolution> {
   await ensureLocalDnsRegistryFresh();
-  const merged = await readJson<MergedWhoisData>(MERGED_FILE);
+  const mergedFile = await resolveReadableDataPath("whois-merged.json");
+  const merged = await readJson<MergedWhoisData>(mergedFile);
   const fallbackChain = buildSuffixFallbackChain(domain);
 
   if (!merged || !Array.isArray(merged.items)) {
@@ -162,7 +160,8 @@ export async function resolveRdapBaseUrlFromExtraWithTrace(
   domain: string
 ): Promise<RdapResolutionTrace> {
   await ensureLocalDnsRegistryFresh();
-  const extra = await readJson<Record<string, unknown>>(EXTRA_FILE);
+  const extraFile = await resolveReadableDataPath("rdap-servers-extra.json");
+  const extra = await readJson<Record<string, unknown>>(extraFile);
   const fallbackChain = buildSuffixFallbackChain(domain);
 
   if (!extra || typeof extra !== "object") {
