@@ -43,6 +43,7 @@ export interface QueryStatsSnapshot {
 
 type PersistedDailyPoint = QueryStatsSnapshot["dailySeries"][number] & {
   generatedHours: number;
+  syntheticVersion: number;
 };
 
 interface QueryStatsState {
@@ -78,8 +79,9 @@ const RECENT_KEY = "whoga:stats:whois:recent";
 const DAILY_KEY = "whoga:stats:whois:daily";
 const RECENT_LIMIT = 50;
 const DAILY_DAYS = 30;
-const HOURLY_INCREMENT_MIN = 100;
-const HOURLY_INCREMENT_MAX = 200;
+const SYNTHETIC_VERSION = 4;
+const DAILY_SYNTHETIC_MIN = 10_000;
+const DAILY_SYNTHETIC_MAX = 20_000;
 
 let redisClient: Redis | null = null;
 let redisDisabled = false;
@@ -153,7 +155,8 @@ function buildEmptyDailyPoint(date: string): PersistedDailyPoint {
     suffix: 0,
     ip: 0,
     asn: 0,
-    generatedHours: 0
+    generatedHours: 0,
+    syntheticVersion: SYNTHETIC_VERSION
   };
 }
 
@@ -165,46 +168,85 @@ function getTargetGeneratedHours(dateKey: string, now = new Date()): number {
   return dateKey === getCurrentUtcDayKey(now) ? Math.min(24, now.getUTCHours() + 1) : 24;
 }
 
-function getSyntheticSeed(dateKey: string, hourIndex: number): number {
+function getSyntheticSeed(dateKey: string, salt: number): number {
   return dateKey.split("").reduce((hash, char, position) => {
-    const mixed = (hash ^ (char.charCodeAt(0) + position * 17 + hourIndex * 13)) >>> 0;
+    const mixed = (hash ^ (char.charCodeAt(0) + position * 17 + salt * 13)) >>> 0;
     return Math.imul(mixed, 16777619) >>> 0;
-  }, 2166136261 + hourIndex * 97);
+  }, 2166136261 + salt * 97);
+}
+
+function sum(values: number[]): number {
+  return values.reduce((accumulator, value) => accumulator + value, 0);
+}
+
+function buildDailyTargetTotal(dateKey: string): number {
+  const seed = getSyntheticSeed(dateKey, 1000);
+  const baseTotal = DAILY_SYNTHETIC_MIN + (seed % (DAILY_SYNTHETIC_MAX - DAILY_SYNTHETIC_MIN + 1));
+  const weekday = new Date(`${dateKey}T00:00:00.000Z`).getUTCDay();
+
+  let multiplier = 1;
+  if (weekday === 0) {
+    multiplier = 0.86;
+  } else if (weekday === 6) {
+    multiplier = 0.9;
+  } else if (weekday === 1) {
+    multiplier = 1.08;
+  } else if (weekday >= 2 && weekday <= 4) {
+    multiplier = 1.14;
+  } else if (weekday === 5) {
+    multiplier = 1.02;
+  }
+
+  // Roughly one out of every nine days gets an extra burst.
+  if (seed % 9 === 0) {
+    multiplier += 0.16 + ((seed >>> 5) % 9) / 100;
+  }
+
+  const adjusted = Math.round(baseTotal * multiplier);
+  return Math.max(DAILY_SYNTHETIC_MIN, Math.min(Math.round(DAILY_SYNTHETIC_MAX * 1.2), adjusted));
+}
+
+function buildHourlyWeight(hourIndex: number, seed: number): number {
+  let baseWeight = 0.7;
+  if (hourIndex >= 0 && hourIndex <= 5) {
+    baseWeight = 0.55;
+  } else if (hourIndex <= 8) {
+    baseWeight = 0.8;
+  } else if (hourIndex <= 12) {
+    baseWeight = 1.15;
+  } else if (hourIndex <= 18) {
+    baseWeight = 1.45;
+  } else if (hourIndex <= 21) {
+    baseWeight = 1.2;
+  } else {
+    baseWeight = 0.9;
+  }
+
+  const variance = 0.85 + ((seed % 31) / 100);
+  return baseWeight * variance;
+}
+
+function buildDailySyntheticPlan(dateKey: string): number[] {
+  const targetTotal = buildDailyTargetTotal(dateKey);
+  const weights = Array.from({ length: 24 }, (_, hourIndex) => buildHourlyWeight(hourIndex, getSyntheticSeed(dateKey, hourIndex + 1)));
+  const weightTotal = sum(weights);
+  const rawPlan = weights.map((weight) => Math.max(1, Math.floor((targetTotal * weight) / weightTotal)));
+  let remainder = targetTotal - sum(rawPlan);
+
+  for (let hourIndex = 0; remainder > 0; hourIndex = (hourIndex + 1) % rawPlan.length) {
+    rawPlan[hourIndex] += 1;
+    remainder -= 1;
+  }
+
+  return rawPlan;
 }
 
 function buildSyntheticHourIncrement(dateKey: string, hourIndex: number) {
-  const seed = getSyntheticSeed(dateKey, hourIndex);
-  let min = HOURLY_INCREMENT_MIN;
-  let max = HOURLY_INCREMENT_MAX;
-
-  if (hourIndex >= 0 && hourIndex <= 5) {
-    min = 100;
-    max = 125;
-  } else if (hourIndex <= 8) {
-    min = 115;
-    max = 150;
-  } else if (hourIndex <= 12) {
-    min = 145;
-    max = 190;
-  } else if (hourIndex <= 18) {
-    min = 160;
-    max = 200;
-  } else if (hourIndex <= 21) {
-    min = 135;
-    max = 175;
-  } else {
-    min = 110;
-    max = 145;
-  }
-
-  const total = min + (seed % (max - min + 1));
-  const domainRatio = 0.34 + ((seed >>> 3) % 17) / 100;
-  const ipRatio = 0.18 + ((seed >>> 7) % 13) / 100;
-  const asnRatio = 0.08 + ((seed >>> 11) % 7) / 100;
-  const domain = Math.max(20, Math.round(total * domainRatio));
-  const ip = Math.max(12, Math.round(total * ipRatio));
-  const asn = Math.max(6, Math.round(total * asnRatio));
-  const suffix = Math.max(6, total - domain - ip - asn);
+  const total = buildDailySyntheticPlan(dateKey)[hourIndex] ?? 0;
+  const domain = Math.round(total * 0.95);
+  const ip = Math.round(total * 0.04);
+  const asn = Math.round(total * 0.005);
+  const suffix = Math.max(0, total - domain - ip - asn);
   return { total, domain, ip, asn, suffix };
 }
 
@@ -216,7 +258,22 @@ function applySyntheticHour(point: PersistedDailyPoint, hourIndex: number, state
   point.asn += increment.asn;
   point.suffix += increment.suffix;
   point.generatedHours += 1;
+  point.syntheticVersion = SYNTHETIC_VERSION;
   state.totalRequests += increment.total;
+}
+
+function resetSyntheticHistory(state: QueryStatsState, now = new Date()): void {
+  state.dailyHistory = buildEmptyDailySeries().map((item) => buildEmptyDailyPoint(item.date));
+  state.totalRequests = 0;
+  ensureSyntheticHistoryCurrent(state, now);
+}
+
+function needsSyntheticHistoryReset(state: QueryStatsState): boolean {
+  if (!state.dailyHistory.length) {
+    return false;
+  }
+
+  return state.dailyHistory.some((point) => (point.syntheticVersion ?? 0) !== SYNTHETIC_VERSION);
 }
 
 function incrementDay(dateKey: string): string {
@@ -231,6 +288,11 @@ function ensureSyntheticHistoryCurrent(state: QueryStatsState, now = new Date())
   if (!state.dailyHistory.length) {
     const bootstrap = buildEmptyDailySeries().map((item) => buildEmptyDailyPoint(item.date));
     state.dailyHistory = bootstrap;
+  }
+
+  if (needsSyntheticHistoryReset(state)) {
+    resetSyntheticHistory(state, now);
+    return;
   }
 
   state.dailyHistory.sort((a, b) => a.date.localeCompare(b.date));
@@ -336,7 +398,8 @@ async function ensureFileStateLoaded(): Promise<void> {
           suffix: Number(item.suffix ?? 0),
           ip: Number(item.ip ?? 0),
           asn: Number(item.asn ?? 0),
-          generatedHours: Math.max(0, Math.min(24, Number(item.generatedHours ?? 0)))
+          generatedHours: Math.max(0, Math.min(24, Number(item.generatedHours ?? 0))),
+          syntheticVersion: Math.max(0, Number(item.syntheticVersion ?? 0))
         }))
       : Array.isArray(parsed.dailySeries)
       ? parsed.dailySeries.map((item) => buildEmptyDailyPoint(String(item.date)))
