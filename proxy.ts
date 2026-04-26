@@ -12,7 +12,7 @@ function isReservedPath(pathname: string): boolean {
   return pathname.startsWith("/api/") || pathname.startsWith("/_next/") || pathname === "/favicon.ico";
 }
 
-export function middleware(request: NextRequest): NextResponse {
+export function proxy(request: NextRequest): NextResponse {
   const host = normalizeHost(request.headers.get("host"));
 
   if (host !== API_HOST) {
