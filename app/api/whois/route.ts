@@ -46,7 +46,7 @@ type WhoisApiCachePayload = {
   result: Record<string, unknown> | null;
 };
 
-const CACHE_KEY_PREFIX = "whoga:whois:v1:";
+const CACHE_KEY_PREFIX = "whoga:whois:v2:";
 const CACHE_TTL_SECONDS = Number(process.env.WHOIS_CACHE_TTL_SECONDS ?? "900");
 
 function toCacheKey(queryType: QueryType, query: string): string {
@@ -265,17 +265,53 @@ function buildSuffixFallbackChain(domain: string): string[] {
 }
 
 function stripHtml(input: string): string {
+  return cleanApiString(
+    input
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/(p|div|tr|table|h1|h2|h3|li)>/gi, "\n")
+      .replace(/<[^>]+>/g, " ")
+  );
+}
+
+function cleanApiString(input: string): string {
   return input
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/(p|div|tr|table|h1|h2|h3|li)>/gi, "\n")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&#39;/g, "'")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/\s+/g, " ")
+    .replace(/&amp;(?:nbsp|#0*160|#x0*a0);?/gi, " ")
+    .replace(/&(?:nbsp|#0*160|#x0*a0);?/gi, " ")
+    .replace(/\u00c2[\u00a0 ]/g, " ")
+    .replace(/[\u00a0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000]/g, " ")
+    .replace(/&#0*39;|&apos;/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/[ \t\f\v]+/g, " ")
+    .replace(/ *(\r?\n) */g, "$1")
     .trim();
+}
+
+function sanitizeApiValue(input: unknown): unknown {
+  if (typeof input === "string") {
+    return cleanApiString(input);
+  }
+  if (Array.isArray(input)) {
+    return input.map((item) => sanitizeApiValue(item));
+  }
+  if (!input || typeof input !== "object") {
+    return input;
+  }
+  return Object.fromEntries(
+    Object.entries(input as Record<string, unknown>).map(([key, value]) => [
+      key,
+      sanitizeApiValue(value)
+    ])
+  );
+}
+
+function sanitizeRdapBody(body: Record<string, unknown> | null): Record<string, unknown> | null {
+  const sanitized = sanitizeApiValue(body);
+  return sanitized && typeof sanitized === "object" && !Array.isArray(sanitized)
+    ? (sanitized as Record<string, unknown>)
+    : null;
 }
 
 function parseTtnicHtml(html: string, domain: string): Record<string, unknown> | null {
@@ -364,7 +400,7 @@ function parseTtnicHtml(html: string, domain: string): Record<string, unknown> |
     ];
   }
 
-  return result;
+  return sanitizeRdapBody(result);
 }
 
 async function fetchTtnicDomain(domain: string): Promise<Record<string, unknown> | null> {
@@ -427,16 +463,16 @@ async function fetchRdapJson(targetUrl: string): Promise<{
       cache: "no-store"
     });
     const body = (await response.json().catch(() => null)) as Record<string, unknown> | null;
-    return { ok: response.ok, status: response.status, body };
+    return { ok: response.ok, status: response.status, body: sanitizeRdapBody(body) };
   } catch (error) {
     const message = error instanceof Error ? error.message : "fetch failed";
     return {
       ok: false,
       status: 0,
-      body: {
+      body: sanitizeRdapBody({
         title: "RDAP network error",
         error: message
-      }
+      })
     };
   }
 }
