@@ -151,7 +151,6 @@ interface DnsLookupView {
 }
 
 type Locale = "zh" | "en";
-type ChartMetric = "total" | "domain" | "ip" | "asn" | "suffix";
 
 const I18N = {
   en: {
@@ -224,11 +223,6 @@ const I18N = {
     syncIntervalTime: "Cron + on-demand refresh",
     chartsTitle: "REQUEST CHARTS",
     chartsLabel: "Real Cloudflare request volume for flagcdn.io.",
-    chartTabAll: "All",
-    chartTabDomain: "Domain",
-    chartTabIp: "IP",
-    chartTabAsn: "ASN",
-    chartTabSuffix: "Suffix",
     chartTotalLabel: "Requests",
     chartTodayRequests: "Last 24 hours",
     chartRecent7Requests: "Last 7 days",
@@ -388,11 +382,6 @@ const I18N = {
     syncIntervalTime: "定时任务 + 按需刷新",
     chartsTitle: "请求图表",
     chartsLabel: "flagcdn.io 在 Cloudflare 上的真实请求量。",
-    chartTabAll: "全部",
-    chartTabDomain: "域名",
-    chartTabIp: "IP",
-    chartTabAsn: "ASN",
-    chartTabSuffix: "后缀",
     chartTotalLabel: "请求量",
     chartTodayRequests: "最近 24 小时请求次数",
     chartRecent7Requests: "最近 7 天请求次数",
@@ -1172,7 +1161,6 @@ export default function HomePage() {
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [statsError, setStatsError] = useState<string | null>(null);
   const [statsLoading, setStatsLoading] = useState(true);
-  const [chartMetric, setChartMetric] = useState<ChartMetric>("total");
   const [apiConsoleLoading, setApiConsoleLoading] = useState(false);
   const [apiConsoleError, setApiConsoleError] = useState<string | null>(null);
   const [apiConsoleResult, setApiConsoleResult] = useState<string | null>(null);
@@ -1310,19 +1298,13 @@ export default function HomePage() {
     }
     return map;
   }, [stats]);
-  const chartTabs = useMemo(
-    () => [
-      { key: "total" as const, label: t.chartTabAll }
-    ],
-    [t]
-  );
   const chartPoints = useMemo(() => {
     const series =
       stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
         ? stats.queryStats.dailySeries
         : buildFallbackDailySeries();
     const visibleSeries = series.slice(-21);
-    const max = Math.max(1, ...visibleSeries.map((item) => item[chartMetric] ?? 0));
+    const max = Math.max(1, ...visibleSeries.map((item) => item.total));
 
     function formatChartValue(value: number): string {
       if (value >= 10000) {
@@ -1336,12 +1318,12 @@ export default function HomePage() {
 
     return visibleSeries.map((item) => ({
       date: item.date,
-      value: item[chartMetric] ?? 0,
-      valueLabel: formatChartValue(item[chartMetric] ?? 0),
+      value: item.total,
+      valueLabel: formatChartValue(item.total),
       dateLabel: item.date.slice(5).replace("-", "/"),
-      height: `${Math.max(12, Math.round(((item[chartMetric] ?? 0) / max) * 100))}%`
+      height: `${Math.max(12, Math.round((item.total / max) * 100))}%`
     }));
-  }, [chartMetric, stats]);
+  }, [stats]);
   const chartSummary = useMemo(() => {
     const series =
       stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
@@ -2402,20 +2384,6 @@ export default function HomePage() {
                       <span>{t.chartRecent30Requests}: {chartSummary.recent30Requests.toLocaleString(numberLocale)}</span>
                       <span>{t.chartAllRequests}: {chartSummary.allRequests.toLocaleString(numberLocale)}</span>
                     </div>
-                  </div>
-                  <div className="request-chart-tabs">
-                    {chartTabs.map((tab) => (
-                      <button
-                        key={tab.key}
-                        type="button"
-                        className={`request-chart-tab ${chartMetric === tab.key ? "active" : ""}`}
-                        onClick={() => {
-                          setChartMetric(tab.key);
-                        }}
-                      >
-                        {tab.label}
-                      </button>
-                    ))}
                   </div>
                   <div
                     className="request-chart-grid"
