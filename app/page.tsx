@@ -222,7 +222,6 @@ const I18N = {
     syncIntervalLabel: "Scheduled sync and merged data rebuild interval.",
     syncIntervalTime: "Cron + on-demand refresh",
     chartsTitle: "REQUEST CHARTS",
-    chartsLabel: "Recent request volume.",
     chartTotalLabel: "Requests",
     chartTodayRequests: "24h",
     chartRecent7Requests: "7d",
@@ -381,7 +380,6 @@ const I18N = {
     syncIntervalLabel: "定时同步与合并数据重建周期。",
     syncIntervalTime: "定时任务 + 按需刷新",
     chartsTitle: "请求图表",
-    chartsLabel: "近期请求量统计。",
     chartTotalLabel: "请求量",
     chartTodayRequests: "24 小时",
     chartRecent7Requests: "7 天",
@@ -2388,7 +2386,6 @@ export default function HomePage() {
                   <div className="request-charts-head">
                     <div>
                       <p className="stat-key">{t.chartsTitle}</p>
-                      <p className="request-charts-label">{t.chartsLabel}</p>
                     </div>
                     <div className="request-charts-time">
                       <span>{t.chartTodayRequests}: {chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
