@@ -48,6 +48,14 @@ interface StatsResponse {
       api: number;
       web: number;
     };
+    periodTotals?: {
+      last24h: number;
+      last7d: number;
+      last30d: number;
+      allTime: number;
+    };
+    source?: string;
+    updatedAt?: string;
     dailySeries: Array<{
       date: string;
       total: number;
@@ -215,16 +223,17 @@ const I18N = {
     syncIntervalLabel: "Scheduled sync and merged data rebuild interval.",
     syncIntervalTime: "Cron + on-demand refresh",
     chartsTitle: "REQUEST CHARTS",
-    chartsLabel: "Daily request volume across the shared query API.",
+    chartsLabel: "Real Cloudflare request volume for flagcdn.io.",
     chartTabAll: "All",
     chartTabDomain: "Domain",
     chartTabIp: "IP",
     chartTabAsn: "ASN",
     chartTabSuffix: "Suffix",
     chartTotalLabel: "Requests",
-    chartTodayRequests: "Today",
+    chartTodayRequests: "Last 24 hours",
+    chartRecent7Requests: "Last 7 days",
     chartRecent30Requests: "Last 30 days",
-    chartAllRequests: "All time",
+    chartAllRequests: "All",
     ccTldLabel: "ccTLD",
     gTldLabel: "gTLD",
     newGtldLabel: "new gTLD",
@@ -378,16 +387,17 @@ const I18N = {
     syncIntervalLabel: "定时同步与合并数据重建周期。",
     syncIntervalTime: "定时任务 + 按需刷新",
     chartsTitle: "请求图表",
-    chartsLabel: "通过统一查询 API 统计的每日请求量。",
+    chartsLabel: "flagcdn.io 在 Cloudflare 上的真实请求量。",
     chartTabAll: "全部",
     chartTabDomain: "域名",
     chartTabIp: "IP",
     chartTabAsn: "ASN",
     chartTabSuffix: "后缀",
     chartTotalLabel: "请求量",
-    chartTodayRequests: "今日请求次数",
+    chartTodayRequests: "最近 24 小时请求次数",
+    chartRecent7Requests: "最近 7 天请求次数",
     chartRecent30Requests: "最近 30 天请求次数",
-    chartAllRequests: "所有请求次数",
+    chartAllRequests: "全部累计请求次数",
     ccTldLabel: "国家和地区顶级域",
     gTldLabel: "通用顶级域",
     newGtldLabel: "新通用顶级域",
@@ -1302,11 +1312,7 @@ export default function HomePage() {
   }, [stats]);
   const chartTabs = useMemo(
     () => [
-      { key: "total" as const, label: t.chartTabAll },
-      { key: "domain" as const, label: t.chartTabDomain },
-      { key: "ip" as const, label: t.chartTabIp },
-      { key: "asn" as const, label: t.chartTabAsn },
-      { key: "suffix" as const, label: t.chartTabSuffix }
+      { key: "total" as const, label: t.chartTabAll }
     ],
     [t]
   );
@@ -1341,10 +1347,12 @@ export default function HomePage() {
       stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
         ? stats.queryStats.dailySeries
         : buildFallbackDailySeries();
-    const todayRequests = series.at(-1)?.total ?? 0;
-    const recent30Requests = series.reduce((sum, item) => sum + item.total, 0);
-    const allRequests = stats?.queryStats.totalRequests ?? 0;
-    return { todayRequests, recent30Requests, allRequests };
+    const periodTotals = stats?.queryStats.periodTotals;
+    const todayRequests = periodTotals?.last24h ?? series.at(-1)?.total ?? 0;
+    const recent7Requests = periodTotals?.last7d ?? series.slice(-7).reduce((sum, item) => sum + item.total, 0);
+    const recent30Requests = periodTotals?.last30d ?? series.reduce((sum, item) => sum + item.total, 0);
+    const allRequests = periodTotals?.allTime ?? stats?.queryStats.totalRequests ?? 0;
+    return { todayRequests, recent7Requests, recent30Requests, allRequests };
   }, [stats]);
 
   const visibleSuffixes = useMemo(() => {
@@ -2390,6 +2398,7 @@ export default function HomePage() {
                     </div>
                     <div className="request-charts-time">
                       <span>{t.chartTodayRequests}: {chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
+                      <span>{t.chartRecent7Requests}: {chartSummary.recent7Requests.toLocaleString(numberLocale)}</span>
                       <span>{t.chartRecent30Requests}: {chartSummary.recent30Requests.toLocaleString(numberLocale)}</span>
                       <span>{t.chartAllRequests}: {chartSummary.allRequests.toLocaleString(numberLocale)}</span>
                     </div>
