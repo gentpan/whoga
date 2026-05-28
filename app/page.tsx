@@ -223,10 +223,10 @@ const I18N = {
     syncIntervalTime: "Cron + on-demand refresh",
     chartsTitle: "REQUEST CHARTS",
     chartTotalLabel: "Requests",
-    chartTodayRequests: "24h",
-    chartRecent7Requests: "7d",
-    chartRecent30Requests: "30d",
-    chartAllRequests: "All",
+    chartTodayRequests: "24H",
+    chartRecent7Requests: "7D",
+    chartRecent30Requests: "30D",
+    chartAllRequests: "ALL",
     ccTldLabel: "ccTLD",
     gTldLabel: "gTLD",
     newGtldLabel: "new gTLD",
@@ -381,10 +381,10 @@ const I18N = {
     syncIntervalTime: "定时任务 + 按需刷新",
     chartsTitle: "请求图表",
     chartTotalLabel: "请求量",
-    chartTodayRequests: "24 小时",
-    chartRecent7Requests: "7 天",
-    chartRecent30Requests: "30 天",
-    chartAllRequests: "全部",
+    chartTodayRequests: "24H",
+    chartRecent7Requests: "7D",
+    chartRecent30Requests: "30D",
+    chartAllRequests: "ALL",
     ccTldLabel: "国家和地区顶级域",
     gTldLabel: "通用顶级域",
     newGtldLabel: "新通用顶级域",
@@ -2388,10 +2388,22 @@ export default function HomePage() {
                       <p className="stat-key">{t.chartsTitle}</p>
                     </div>
                     <div className="request-charts-time">
-                      <span>{t.chartTodayRequests}: {chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
-                      <span>{t.chartRecent7Requests}: {formatCompactRequestCount(chartSummary.recent7Requests)}</span>
-                      <span>{t.chartRecent30Requests}: {formatCompactRequestCount(chartSummary.recent30Requests)}</span>
-                      <span>{t.chartAllRequests}: {formatCompactRequestCount(chartSummary.allRequests)}</span>
+                      <span className="request-stat-badge">
+                        <span className="request-stat-key">{t.chartTodayRequests}</span>
+                        <span className="request-stat-value">{chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
+                      </span>
+                      <span className="request-stat-badge">
+                        <span className="request-stat-key">{t.chartRecent7Requests}</span>
+                        <span className="request-stat-value">{formatCompactRequestCount(chartSummary.recent7Requests)}</span>
+                      </span>
+                      <span className="request-stat-badge">
+                        <span className="request-stat-key">{t.chartRecent30Requests}</span>
+                        <span className="request-stat-value">{formatCompactRequestCount(chartSummary.recent30Requests)}</span>
+                      </span>
+                      <span className="request-stat-badge">
+                        <span className="request-stat-key">{t.chartAllRequests}</span>
+                        <span className="request-stat-value">{formatCompactRequestCount(chartSummary.allRequests)}</span>
+                      </span>
                     </div>
                   </div>
                   <div
