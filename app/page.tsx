@@ -1307,11 +1307,11 @@ export default function HomePage() {
     const max = Math.max(1, ...visibleSeries.map((item) => item.total));
 
     function formatChartValue(value: number): string {
-      if (value >= 10000) {
-        return `${Math.round(value / 1000)}k`;
+      if (value >= 1_000_000) {
+        return `${(value / 1_000_000).toFixed(2).replace(/\.0+$/, "").replace(/(\.\d*[1-9])0+$/, "$1")}M`;
       }
       if (value >= 1000) {
-        return `${(value / 1000).toFixed(1).replace(/\\.0$/, "")}k`;
+        return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}K`;
       }
       return String(value);
     }
@@ -1324,6 +1324,18 @@ export default function HomePage() {
       height: `${Math.max(12, Math.round((item.total / max) * 100))}%`
     }));
   }, [stats]);
+  const formatCompactRequestCount = useCallback(
+    (value: number): string => {
+      if (value >= 1_000_000) {
+        return `${(value / 1_000_000).toFixed(2).replace(/\.0+$/, "").replace(/(\.\d*[1-9])0+$/, "$1")}M`;
+      }
+      if (value >= 1000) {
+        return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}K`;
+      }
+      return value.toLocaleString(numberLocale);
+    },
+    [numberLocale]
+  );
   const chartSummary = useMemo(() => {
     const series =
       stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
@@ -2380,9 +2392,9 @@ export default function HomePage() {
                     </div>
                     <div className="request-charts-time">
                       <span>{t.chartTodayRequests}: {chartSummary.todayRequests.toLocaleString(numberLocale)}</span>
-                      <span>{t.chartRecent7Requests}: {chartSummary.recent7Requests.toLocaleString(numberLocale)}</span>
-                      <span>{t.chartRecent30Requests}: {chartSummary.recent30Requests.toLocaleString(numberLocale)}</span>
-                      <span>{t.chartAllRequests}: {chartSummary.allRequests.toLocaleString(numberLocale)}</span>
+                      <span>{t.chartRecent7Requests}: {formatCompactRequestCount(chartSummary.recent7Requests)}</span>
+                      <span>{t.chartRecent30Requests}: {formatCompactRequestCount(chartSummary.recent30Requests)}</span>
+                      <span>{t.chartAllRequests}: {formatCompactRequestCount(chartSummary.allRequests)}</span>
                     </div>
                   </div>
                   <div
