@@ -118,7 +118,11 @@ body {
 }
 
 .lang-flag {
-  font-size: 0.9rem;
+  width: 18px;
+  height: 14px;
+  display: inline-block;
+  flex: 0 0 auto;
+  object-fit: cover;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -221,6 +225,15 @@ body {
   animation: logo-spin-horizontal 2.8s linear infinite;
 }
 
+.brand-logo-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  display: block;
+  transition: transform 180ms ease;
+  transform-origin: center center;
+}
+
 .brand-logo-front {
   margin: 0;
 }
@@ -230,7 +243,8 @@ body {
 }
 
 .brand-mark:hover .brand-wordmark-text,
-.brand-mark:hover .brand-logo-svg {
+.brand-mark:hover .brand-logo-svg,
+.brand-mark:hover .brand-logo-icon {
   transform: scale(1.06);
 }
 
@@ -2509,6 +2523,13 @@ body {
   transform: scale(1.18);
   color: var(--accent);
   opacity: 0.9;
+}
+
+.brand-social-icon {
+  width: 1.12rem;
+  height: 1.12rem;
+  display: block;
+  fill: currentColor;
 }
 
 .footer-giantaccel {

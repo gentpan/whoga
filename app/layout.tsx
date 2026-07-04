@@ -76,14 +76,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://icons.bluecdn.com/fontawesome-pro/css/all.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://static.bluecdn.com/npm/flag-icons@7.3.2/css/flag-icons.min.css"
-        />
         <Script
           defer
           src="https://tongji.giantaccel.com/script.js"

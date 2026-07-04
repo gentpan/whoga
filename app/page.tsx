@@ -3,6 +3,39 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "@/app/components/theme-toggle";
+import {
+  ArrowUp,
+  BarChart3,
+  Check,
+  Info,
+  Code2,
+  Copy,
+  Database,
+  Download,
+  GitBranch,
+  Languages,
+  Lock,
+  Play,
+  Search,
+  TriangleAlert,
+  Zap
+} from "lucide-react";
+
+function XBrandIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="brand-social-icon">
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+    </svg>
+  );
+}
+
+function GitHubBrandIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="brand-social-icon">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    </svg>
+  );
+}
 
 interface ApiResponse {
   error?: string;
@@ -80,6 +113,8 @@ interface StatsResponse {
     }>;
   };
 }
+
+const featureIcons = [Zap, BarChart3, Lock, GitBranch, Database, Code2];
 
 interface SuffixesResponse {
   count: number;
@@ -1895,16 +1930,14 @@ export default function HomePage() {
             }}
           >
             <span className="brand-wordmark" aria-hidden>
-              <svg
-                className="brand-logo-svg brand-logo-front"
-                fill="#22C55F"
-                role="img"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Anaconda</title>
-                <path d="M12.045.033a12.181 12.182 0 00-1.361.078 17.512 17.513 0 011.813 1.433l.48.438-.465.45a15.047 15.048 0 00-1.126 1.205l-.178.215a8.527 8.527 0 01.86-.05 8.154 8.155 0 11-4.286 15.149 15.764 15.765 0 01-1.841.106h-.86a21.847 21.848 0 00.264 2.866 11.966 11.966 0 106.7-21.89zM8.17.678a12.181 12.182 0 00-2.624 1.275 15.506 15.507 0 011.813.43A18.551 18.552 0 018.17.678zM9.423.75a16.237 16.238 0 00-.995 1.998 16.15 16.152 0 011.605.66 6.98 6.98 0 01.43-.509c.234-.286.472-.559.716-.817A15.047 15.048 0 009.423.75zM4.68 2.949a14.969 14.97 0 000 2.336c.587-.065 1.196-.1 1.812-.107a16.617 16.617 0 01.48-1.748 16.48 16.481 0 00-2.292-.481zM3.62 3.5A11.938 11.939 0 001.762 5.88a17.004 17.005 0 011.877-.444A17.39 17.391 0 013.62 3.5zm4.406.287c-.143.437-.265.888-.38 1.347a8.255 8.256 0 011.67-.803c-.423-.2-.845-.38-1.29-.544zM6.3 6.216a14.051 14.052 0 00-1.555.108c.064.523.157 1.038.272 1.554a8.39 8.39 0 011.283-1.662zm-2.55.137a15.313 15.314 0 00-2.602.716h-.078v.079a17.104 17.105 0 001.267 2.544l.043.071.072-.049a16.309 16.31 0 011.734-1.083l.057-.035V8.54a16.867 16.868 0 01-.408-2.094v-.092zM.644 8.095l-.063.2A11.844 11.845 0 000 11.655v.209l.143-.152a17.706 17.707 0 011.584-1.447l.057-.043-.043-.064a16.18 16.181 0 01-1.025-1.87zm3.77 1.253l-.18.1c-.465.273-.93.573-1.375.889l-.065.05.05.064c.309.437.645.867.996 1.276l.137.165v-.208a8.176 8.177 0 01.364-2.15zM2.2 10.853l-.072.05a16.574 16.575 0 00-1.813 1.734l-.058.058.066.057a15.449 15.45 0 001.991 1.483l.072.05.043-.08a16.738 16.739 0 011.053-1.64v-.05l-.043-.05a16.99 16.991 0 01-1.19-1.54zm1.855 2.071l-.121.172a15.363 15.364 0 00-.917 1.433l-.043.072.071.043a16.61 16.611 0 001.562.766l.193.086-.086-.193a8.04 8.041 0 01-.66-2.172zm-3.976.48v.2a11.758 11.759 0 00.946 3.326l.078.186.072-.194a16.215 16.216 0 01.845-2l.057-.063-.064-.043a17.197 17.198 0 01-1.776-1.284zm2.543 1.805l-.035.08a15.764 15.765 0 00-.983 2.479v.08h.086a16.15 16.152 0 002.688.5l.072.007v-.086a17.562 17.563 0 01.164-2.056v-.065H4.55a16.266 16.267 0 01-1.849-.896zm2.544 1.169v.114a17.254 17.255 0 00-.151 1.828v.078h.931c.287 0 .624.014.946 0h.209l-.166-.129a8.011 8.012 0 01-1.64-1.834zm-3.29 2.1l.115.172a11.988 11.989 0 002.502 2.737l.157.129v-.201a22.578 22.579 0 01-.2-2.336v-.071h-.072a16.23 16.231 0 01-2.3-.387z" />
-              </svg>
+              <img
+                className="brand-logo-icon brand-logo-front"
+                src="/logo.svg"
+                alt=""
+                width={32}
+                height={32}
+                decoding="async"
+              />
               <span className="brand-wordmark-text brand-wordmark-full">WHO.GA</span>
             </span>
           </button>
@@ -1914,10 +1947,14 @@ export default function HomePage() {
               aria-label="language switch"
             >
               <button type="button" className="lang-trigger" aria-label="Language">
-                <i className="fa-graphite fa-thin fa-language" aria-hidden />
-                <span
-                  className={`fi ${locale === "zh" ? "fi-cn" : "fi-us"} lang-flag`}
-                  aria-hidden
+                <Languages aria-hidden size={18} strokeWidth={1.8} />
+                <img
+                  className="lang-flag"
+                  src={locale === "zh" ? "/flags/cn.svg" : "/flags/us.svg"}
+                  alt=""
+                  width={18}
+                  height={14}
+                  decoding="async"
                 />
               </button>
               <div className="lang-menu" role="listbox" aria-label="Language options">
@@ -1930,7 +1967,15 @@ export default function HomePage() {
                     setLocale("zh");
                   }}
                 >
-                  <span className="fi fi-cn lang-flag" aria-hidden />
+                  <img
+                    className="lang-flag"
+                    src="/flags/cn.svg"
+                    alt=""
+                    width={18}
+                    height={14}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="lang-option-label">中文</span>
                 </button>
                 <button
@@ -1942,7 +1987,15 @@ export default function HomePage() {
                     setLocale("en");
                   }}
                 >
-                  <span className="fi fi-us lang-flag" aria-hidden />
+                  <img
+                    className="lang-flag"
+                    src="/flags/us.svg"
+                    alt=""
+                    width={18}
+                    height={14}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="lang-option-label">English</span>
                 </button>
               </div>
@@ -1983,7 +2036,7 @@ export default function HomePage() {
                 <span className="loader" aria-hidden />
               ) : (
                 <span className="submit-chip" aria-hidden>
-                  <i className="fa-solid fa-magnifying-glass" />
+                  <Search size={18} strokeWidth={2.2} />
                 </span>
               )}
             </button>
@@ -2038,7 +2091,7 @@ export default function HomePage() {
                           {abuseContactText ? (
                             <div className="notice-banner notice-banner-green">
                               <span className="notice-icon" aria-hidden>
-                                <i className="fa-solid fa-triangle-exclamation" />
+                                <TriangleAlert size={16} strokeWidth={2.2} />
                               </span>
                               <span>
                                 {t.abuseContactPrefix} <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
@@ -2049,7 +2102,7 @@ export default function HomePage() {
                           {ptrRecords.length ? (
                             <div className="notice-banner notice-banner-blue">
                               <span className="notice-icon" aria-hidden>
-                                <i className="fa-solid fa-magnifying-glass" />
+                                <Search size={16} strokeWidth={2.2} />
                               </span>
                               <span>
                                 {t.ptrRecordPrefix} <strong>{`'${data?.domain ?? domain}'`}</strong>{" "}
@@ -2189,7 +2242,7 @@ export default function HomePage() {
                                   {locale === "zh" ? card.zhTitle : card.enLabel}
                                 </span>
                                 <span className="status-info" aria-hidden>
-                                  <i className="fa-solid fa-circle-info" />
+                                  <Info size={14} strokeWidth={2.2} />
                                   <span className="status-tooltip">
                                     <span className="status-tooltip-zh">{card.zhDescription}</span>
                                     <span className="status-tooltip-en">{card.enDescription}</span>
@@ -2223,14 +2276,11 @@ export default function HomePage() {
                                         void handleCopyText(ns.host, ns.host);
                                       }}
                                     >
-                                      <i
-                                        className={
-                                          copiedNameServer === ns.host
-                                            ? "fa-solid fa-check"
-                                            : "fa-regular fa-copy"
-                                        }
-                                        aria-hidden
-                                      />
+                                      {copiedNameServer === ns.host ? (
+                                        <Check aria-hidden size={15} strokeWidth={2.4} />
+                                      ) : (
+                                        <Copy aria-hidden size={15} strokeWidth={2.2} />
+                                      )}
                                     </button>
                                     <button
                                       type="button"
@@ -2315,7 +2365,7 @@ export default function HomePage() {
                       <div className="result-box raw-box">
                         <div className="json-toolbar">
                           <button type="button" className="download-btn" onClick={handleDownloadJson}>
-                            <i className="fa-regular fa-download" aria-hidden />
+                            <Download aria-hidden size={16} strokeWidth={2.2} />
                             <span>{t.downloadJson}</span>
                           </button>
                           <div className="copy-btn-wrap">
@@ -2327,7 +2377,11 @@ export default function HomePage() {
                               }}
                               data-tooltip={copied ? t.copied : t.copy}
                             >
-                              <i className={copied ? "fa-solid fa-check" : "fa-regular fa-copy"} aria-hidden />
+                              {copied ? (
+                                <Check aria-hidden size={16} strokeWidth={2.4} />
+                              ) : (
+                                <Copy aria-hidden size={16} strokeWidth={2.2} />
+                              )}
                               <span>{copied ? t.copied : t.copy}</span>
                             </button>
                           </div>
@@ -2448,7 +2502,7 @@ export default function HomePage() {
                           className="api-curl-run"
                           onClick={() => void handleRunApi(query)}
                         >
-                          <i className="fa-solid fa-play" aria-hidden />
+                          <Play aria-hidden size={15} strokeWidth={2.4} />
                           <span>{t.apiConsoleRun}</span>
                         </button>
                       </div>
@@ -2482,25 +2536,21 @@ export default function HomePage() {
               <div className="feature-grid">
                 {t.whyCards.map((card, index) => (
                   <article className="feature-card" key={card.title}>
+                    {(() => {
+                      const FeatureIcon = featureIcons[index % featureIcons.length];
+                      return (
+                        <>
                     <div className="feature-number">
                       <p className="feature-number-text">{card.number}</p>
                     </div>
                     <div className="feature-icon" aria-hidden>
-                      <i
-                        className={
-                          [
-                            "fa-solid fa-bolt",
-                            "fa-solid fa-chart-column",
-                            "fa-solid fa-lock",
-                            "fa-solid fa-diagram-project",
-                            "fa-solid fa-database",
-                            "fa-solid fa-code"
-                          ][index % 6]
-                        }
-                      />
+                      <FeatureIcon size={22} strokeWidth={2.1} />
                     </div>
                     <p className="feature-heading">{card.title}</p>
                     <p className="feature-content">{card.text}</p>
+                        </>
+                      );
+                    })()}
                   </article>
                 ))}
               </div>
@@ -2661,7 +2711,7 @@ export default function HomePage() {
                 aria-label="X"
                 title="X"
               >
-                <i className="fa-brands fa-x-twitter" aria-hidden />
+                <XBrandIcon />
               </a>
               <a
                 href="https://github.com/gentpan"
@@ -2670,7 +2720,7 @@ export default function HomePage() {
                 aria-label="GitHub"
                 title="GitHub"
               >
-                <i className="fa-brands fa-github" aria-hidden />
+                <GitHubBrandIcon />
               </a>
               <a
                 href="https://giantaccel.com"
@@ -2701,7 +2751,7 @@ export default function HomePage() {
         }}
         aria-label={t.backToTop}
       >
-        <i className="fa-solid fa-up" aria-hidden />
+        <ArrowUp aria-hidden size={16} strokeWidth={2.4} />
         <span>{t.backToTop}</span>
       </button>
     </main>
