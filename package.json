@@ -2,11 +2,16 @@
   "name": "whoga-rdap-whois",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "scripts": {
-    "dev": "node scripts/dev-fixed-port.mjs",
-    "build": "next build --webpack",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "vite dev --host 0.0.0.0 --port 3410",
+    "generate-routes": "tsr generate",
+    "build": "vite build",
+    "start": "nitro preview --host 0.0.0.0 --port 3410",
+    "lint": "tsc --noEmit",
     "update:tld-categories": "node scripts/update-brand-geo.mjs",
     "check:tlds-queryability": "node scripts/check-tlds-queryability.mjs",
     "test:rdap-all": "node scripts/test-rdap-all-suffixes.mjs",
@@ -16,18 +21,29 @@
     "sync:rdap-extra": "node scripts/sync-rdap-extra.mjs"
   },
   "dependencies": {
+    "@base-ui/react": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-start": "latest",
+    "@tanstack/router-plugin": "latest",
     "ioredis": "^5.9.3",
     "lucide-react": "^1.23.0",
-    "next": "16.2.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "nitro": "npm:nitro-nightly@latest",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@types/node": "22.10.1",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@tanstack/router-cli": "latest",
+    "@types/node": "26.1.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "latest",
     "eslint": "9.16.0",
-    "eslint-config-next": "16.2.4",
-    "typescript": "5.7.2"
+    "typescript": "^6.0.3",
+    "vite": "latest"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

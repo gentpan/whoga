@@ -1,7 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
-import { createRequire } from "node:module";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const TLDS_FILE = path.join(DATA_DIR, "tlds.json");
@@ -202,9 +201,7 @@ async function waitForApp(baseUrl) {
 }
 
 async function startLocalApp() {
-  const require = createRequire(import.meta.url);
-  const nextBin = require.resolve("next/dist/bin/next");
-  const child = spawn(process.execPath, [nextBin, "start", "-p", String(APP_PORT), "-H", APP_HOST], {
+  const child = spawn("pnpm", ["nitro", "preview", "--host", APP_HOST, "--port", String(APP_PORT)], {
     cwd: process.cwd(),
     stdio: "ignore",
     env: {

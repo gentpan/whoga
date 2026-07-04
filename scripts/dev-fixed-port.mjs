@@ -1,5 +1,4 @@
 import { execSync, spawn } from "node:child_process";
-import { createRequire } from "node:module";
 
 const PORT = 3000;
 
@@ -48,10 +47,7 @@ function freePort(port) {
 
 freePort(PORT);
 
-const require = createRequire(import.meta.url);
-const nextBin = require.resolve("next/dist/bin/next");
-
-const child = spawn(process.execPath, [nextBin, "dev", "-p", String(PORT)], {
+const child = spawn("pnpm", ["vite", "dev", "--host", "0.0.0.0", "--port", String(PORT)], {
   stdio: "inherit"
 });
 
