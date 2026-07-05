@@ -1,31 +1,52 @@
 import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
 
+const SITE_TITLE = "WHO.GA - RDAP WHOIS 查询与 JSON API | Domain, IP, ASN Lookup";
+const SITE_DESCRIPTION =
+  "WHO.GA 提供基于 RDAP 的域名、IP、ASN 与后缀查询服务，支持结构化 JSON API、在线调试与开发者集成. WHO.GA provides RDAP-based lookup for domains, IPs, ASNs, and suffixes with structured JSON API access.";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#22C55F" },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
       {
-        name: "theme-color",
-        content: "#22C55F"
-      },
-      {
-        title: "WHO.GA - RDAP Whois Query Tool"
-      },
-      {
-        name: "description",
+        name: "keywords",
         content:
-          "WHO.GA is an RDAP Whois query tool for domains, suffixes, IP addresses, and ASNs."
-      }
+          "WHOIS 查询, RDAP 查询, 域名查询, IP 查询, ASN 查询, 后缀查询, WHOIS API, RDAP API, JSON API, domain lookup, IP lookup, ASN lookup, RDAP WHOIS, domain whois api"
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "application-name", content: "WHO.GA" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://who.ga" },
+      { property: "og:site_name", content: "WHO.GA" },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
+      { property: "og:locale", content: "zh_CN" },
+      { property: "og:locale:alternate", content: "en_US" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "WHO.GA - RDAP WHOIS 查询与 JSON API" },
+      {
+        name: "twitter:description",
+        content:
+          "域名、IP、ASN 与后缀查询，支持结构化 JSON API 与在线调试. RDAP lookup and JSON API for domains, IPs, ASNs, and suffixes."
+      },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-title", content: "WHO.GA" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "default" }
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico" },
+      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "mask-icon", href: "/logo.svg", color: "#22C55F" }
+      { rel: "mask-icon", href: "/logo-whoga-green.svg", color: "#22C55F" }
     ]
   }),
   component: RootComponent,
