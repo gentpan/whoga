@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./public/logo-whoga-green.svg" width="96" alt="Whoga logo" />
+<img src="./public/logo.svg" width="88" alt="Whoga" />
 
 # Whoga
 
