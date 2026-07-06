@@ -1,4 +1,5 @@
 import type { ArticleContent, ArticleLocale, ArticleRecord, ArticleSection } from "@/lib/articles/types";
+import { SiteShell } from "@/web/components/site-shell";
 
 function renderSection(section: ArticleSection, index: number) {
   switch (section.type) {
@@ -64,29 +65,10 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
   const otherContent = record[otherLocale];
   const listHref = isZh ? "/learn" : "/learn/en";
   const otherHref = isZh ? `/learn/en/${record.slug}` : `/learn/${record.slug}`;
-  const homeHref = "/";
 
   return (
-    <div className="learn-page">
-      <header className="learn-topbar">
-        <a href={homeHref} className="learn-brand" style={{ textDecoration: "none" }}>
-          <img src="/logo.svg" width={32} height={32} alt="WHO.GA" />
-          <span>WHO.GA</span>
-        </a>
-        <nav className="learn-topnav" aria-label="Learn navigation">
-          <a href={listHref} className="learn-topnav-link" style={{ textDecoration: "none" }}>
-            {isZh ? "文章列表" : "Articles"}
-          </a>
-          <a href={otherHref} className="learn-topnav-link" style={{ textDecoration: "none" }}>
-            {isZh ? "English" : "中文"}
-          </a>
-          <a href={homeHref} className="learn-topnav-link" style={{ textDecoration: "none" }}>
-            {isZh ? "查询首页" : "Lookup"}
-          </a>
-        </nav>
-      </header>
-
-      <main className="learn-main">
+    <SiteShell pageClassName="learn-page">
+      <div className="page-content learn-main">
         <nav className="article-breadcrumb" aria-label="Breadcrumb">
           <a href={listHref} style={{ textDecoration: "none" }}>
             {isZh ? "技术指南" : "Learn"}
@@ -152,7 +134,7 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
             </a>
           </div>
         </footer>
-      </main>
-    </div>
+      </div>
+    </SiteShell>
   );
 }

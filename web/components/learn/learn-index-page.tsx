@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ArticleLocale, ArticleRecord } from "@/lib/articles/types";
 import { getArticlesByCategory } from "@/lib/articles";
+import { SiteShell } from "@/web/components/site-shell";
 
 interface LearnIndexPageProps {
   locale: ArticleLocale;
@@ -9,26 +10,10 @@ interface LearnIndexPageProps {
 export function LearnIndexPage({ locale }: LearnIndexPageProps) {
   const isZh = locale === "zh";
   const groups = getArticlesByCategory(locale);
-  const otherListHref = isZh ? "/learn/en" : "/learn";
 
   return (
-    <div className="learn-page">
-      <header className="learn-topbar">
-        <Link to="/" className="learn-brand" style={{ textDecoration: "none" }}>
-          <img src="/logo.svg" width={32} height={32} alt="WHO.GA" />
-          <span>WHO.GA</span>
-        </Link>
-        <nav className="learn-topnav" aria-label="Learn navigation">
-          <Link to={otherListHref} className="learn-topnav-link" style={{ textDecoration: "none" }}>
-            {isZh ? "English" : "中文"}
-          </Link>
-          <Link to="/" className="learn-topnav-link" style={{ textDecoration: "none" }}>
-            {isZh ? "查询首页" : "Lookup"}
-          </Link>
-        </nav>
-      </header>
-
-      <main className="learn-main">
+    <SiteShell pageClassName="learn-page">
+      <div className="page-content learn-main">
         <header className="learn-hero">
           <p className="learn-eyebrow">{isZh ? "WHOIS · RDAP · 域名情报" : "WHOIS · RDAP · Domain Intelligence"}</p>
           <h1 className="learn-title">
@@ -70,7 +55,7 @@ export function LearnIndexPage({ locale }: LearnIndexPageProps) {
             </div>
           </section>
         ))}
-      </main>
-    </div>
+      </div>
+    </SiteShell>
   );
 }

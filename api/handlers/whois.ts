@@ -8,6 +8,7 @@ import {
   loadLocalDnsRegistry,
   resolveRdapBaseUrlFromExtraWithTrace
 } from "@/lib/rdap-registry";
+import type { DnsRegistryMeta } from "@/lib/types";
 import { getCacheJson, setCacheJson } from "@/lib/cache";
 import { recordWhoisQueryStat, type QueryStatsEntryPoint } from "@/lib/query-stats";
 import { resolveReadableDataPath } from "@/lib/runtime-data";
@@ -638,6 +639,17 @@ function resolveRegistrarLookupUrl(
   return null;
 }
 
+async function loadRegistryMetaSafe(): Promise<DnsRegistryMeta> {
+  try {
+    return await ensureLocalDnsRegistryFresh();
+  } catch {
+    return {
+      updatedAt: new Date().toISOString(),
+      sourceUrl: "https://data.iana.org/rdap/dns.json"
+    };
+  }
+}
+
 export async function GET(request: RouteRequest): Promise<Response> {
   const domainParam = request.nextUrl.searchParams.get("domain") ?? "";
   const rawInput = domainParam.trim();
@@ -726,7 +738,7 @@ export async function GET(request: RouteRequest): Promise<Response> {
       );
     }
 
-    const meta = await ensureLocalDnsRegistryFresh();
+    const meta = await loadRegistryMetaSafe();
     let rdapBase: string | null = null;
     let targetUrl = "";
     let queryLabel = rawInput;

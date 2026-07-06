@@ -832,7 +832,25 @@ async function hasAllRequiredFiles(): Promise<boolean> {
   return checks.every((value) => value !== null);
 }
 
+let syncInFlight: Promise<SyncResult> | null = null;
+
 export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
+  if (syncInFlight && !force) {
+    return syncInFlight;
+  }
+
+  const run = doEnsureWhoisDataFresh(force);
+  syncInFlight = run;
+  try {
+    return await run;
+  } finally {
+    if (syncInFlight === run) {
+      syncInFlight = null;
+    }
+  }
+}
+
+async function doEnsureWhoisDataFresh(force = false): Promise<SyncResult> {
   const cacheMeta = await readCacheMeta();
   const now = Date.now();
   const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;

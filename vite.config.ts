@@ -14,7 +14,10 @@ const config = defineConfig({
           headers: { "Cache-Control": "public, max-age=31536000, immutable" }
         },
         "/**": {
-          headers: { "Cache-Control": "no-cache, no-store, must-revalidate" }
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            Pragma: "no-cache"
+          }
         }
       }
     }),

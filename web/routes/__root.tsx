@@ -70,6 +70,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var k="who-ga-css-reload";function r(){if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('link[rel="stylesheet"]').forEach(function(l){l.addEventListener("error",r)})});window.addEventListener("pageshow",function(e){if(e.persisted)sessionStorage.removeItem(k)})})();`
+          }}
+        />
         <HeadContent />
         <script
           defer

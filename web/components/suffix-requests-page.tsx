@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { SiteShell } from "@/web/components/site-shell";
+import { useSiteLocale } from "@/web/lib/use-site-locale";
 
 type Locale = "zh" | "en";
 
@@ -18,8 +20,6 @@ type PublicSuffixSupportResponse = {
 
 const COPY = {
   en: {
-    brand: "WHO.GA",
-    home: "Lookup",
     title: "Suffix Support Requests",
     subtitle:
       "Public list of suffixes users have requested. Entries are removed automatically once the suffix becomes queryable.",
@@ -35,8 +35,6 @@ const COPY = {
     refresh: "Refresh"
   },
   zh: {
-    brand: "WHO.GA",
-    home: "查询首页",
     title: "后缀支持请求",
     subtitle: "用户公开提交的后缀支持需求。当该后缀可正常查询后，条目会自动移除。",
     totalRequests: "总请求数",
@@ -67,7 +65,7 @@ function formatTime(value: string, locale: Locale): string {
 }
 
 export function SuffixRequestsPage() {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale] = useSiteLocale();
   const [data, setData] = useState<PublicSuffixSupportResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -93,35 +91,12 @@ export function SuffixRequestsPage() {
   }
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("who-ga-locale");
-    if (saved === "zh" || saved === "en") {
-      setLocale(saved);
-    }
     void loadRequests();
   }, []);
 
   return (
-    <div className="requests-page">
-      <header className="requests-topbar">
-        <Link to="/" className="requests-brand" style={{ textDecoration: "none" }}>
-          <img src="/logo.svg" width={32} height={32} alt="WHO.GA" />
-          <span>WHO.GA</span>
-        </Link>
-        <nav className="requests-topnav" aria-label="Requests navigation">
-          <button
-            type="button"
-            className="requests-topnav-link"
-            onClick={() => setLocale(locale === "zh" ? "en" : "zh")}
-          >
-            {locale === "zh" ? "English" : "中文"}
-          </button>
-          <Link to="/" className="requests-topnav-link" style={{ textDecoration: "none" }}>
-            {t.home}
-          </Link>
-        </nav>
-      </header>
-
-      <main className="requests-main">
+    <SiteShell pageClassName="requests-page">
+      <div className="page-content requests-main">
         <header className="requests-hero">
           <h1>{t.title}</h1>
           <p>{t.subtitle}</p>
@@ -192,7 +167,7 @@ export function SuffixRequestsPage() {
             </table>
           </div>
         ) : null}
-      </main>
-    </div>
+      </div>
+    </SiteShell>
   );
 }

@@ -1,43 +1,25 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "@tanstack/react-router";
-import { Menu } from "@base-ui/react/menu";
 import { Tooltip } from "@base-ui/react/tooltip";
-import { ThemeToggle } from "@/web/components/theme-toggle";
+import { SiteFooter } from "@/web/components/site-footer";
+import { SiteHeader } from "@/web/components/site-header";
+import { useSiteLocale } from "@/web/lib/use-site-locale";
 import {
   ArrowUp,
   BarChart3,
   Check,
-  HandHelping,
   Info,
   Code2,
   Copy,
   Database,
   Download,
   GitBranch,
-  Languages,
   Lock,
   Play,
-  BookOpen,
   Search,
   TriangleAlert,
   Zap
 } from "lucide-react";
-
-function XBrandIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="brand-social-icon">
-      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-    </svg>
-  );
-}
-
-function GitHubBrandIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="brand-social-icon">
-      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-    </svg>
-  );
-}
 
 interface ApiResponse {
   error?: string;
@@ -309,6 +291,9 @@ const I18N = {
     requestSupportDone: "Request submitted. Thanks!",
     requestSupportAlready: "You have already submitted a support request.",
     requestSupportFailed: "Failed to submit request. Please try again.",
+    apiUnavailable: "Lookup service is temporarily unavailable. Please retry in a moment.",
+    domainNotFound: "Domain not found in the registry.",
+    requestSupportAlreadySupported: "This suffix already supports lookup.",
     viewPublicRequests: "View public requests",
     navApiCta: "Open API",
     apiUsageTitle: "API Usage",
@@ -486,6 +471,9 @@ const I18N = {
     requestSupportDone: "已提交请求，感谢反馈！",
     requestSupportAlready: "您已提交过支持请求。",
     requestSupportFailed: "提交失败，请稍后重试。",
+    apiUnavailable: "查询服务暂时不可用，请稍后重试。",
+    domainNotFound: "该域名在注册局 RDAP 中未找到。",
+    requestSupportAlreadySupported: "该后缀已支持查询，无需重复提交。",
     viewPublicRequests: "查看公开需求列表",
     navApiCta: "打开 API",
     apiUsageTitle: "API 用法",
@@ -629,23 +617,7 @@ function resolveUnsupportedSuffixFromPayload(
     };
   }
 
-  const error = typeof payload.error === "string" ? payload.error : "";
-  if (!error.toLowerCase().includes("not found")) {
-    return null;
-  }
-
-  const queryType = payload.queryType ?? detectQueryType(input);
-  if (queryType !== "domain" && queryType !== "suffix") {
-    return null;
-  }
-
-  const suffix =
-    queryType === "suffix" ? input.trim().replace(/^\.+/, "").toLowerCase() : getTldFromQuery(input);
-  if (!suffix) {
-    return null;
-  }
-
-  return { suffix, query: input.trim() };
+  return null;
 }
 
 function joinRdapDomainUrl(base: string, domain: string): string {
@@ -1324,7 +1296,7 @@ export function HomePage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const [copiedNameServer, setCopiedNameServer] = useState<string | null>(null);
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useSiteLocale();
   const [eventsUseUtc, setEventsUseUtc] = useState(true);
   const [openNameServers, setOpenNameServers] = useState<Record<string, boolean>>({});
   const [dnsLookupMap, setDnsLookupMap] = useState<
@@ -1639,17 +1611,6 @@ export function HomePage() {
   }, [data, t]);
 
   useEffect(() => {
-    const savedLocale = window.localStorage.getItem("who-ga-locale");
-    if (savedLocale === "zh" || savedLocale === "en") {
-      setLocale(savedLocale);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem("who-ga-locale", locale);
-  }, [locale]);
-
-  useEffect(() => {
     let mounted = true;
     async function loadVisitorIp() {
       try {
@@ -1800,18 +1761,25 @@ export function HomePage() {
           lastResponse = response;
           lastBody = raw;
 
+          let parsedPayload: ApiResponse | null = null;
           if (!looksLikeHtml && expectsJson) {
             try {
-              const payload = JSON.parse(raw) as ApiResponse;
-              return { response, payload };
+              parsedPayload = JSON.parse(raw) as ApiResponse;
             } catch {
-              // Continue to retry on transient parse failure.
+              parsedPayload = null;
+            }
+          }
+
+          if (parsedPayload) {
+            const retryableServerError = response.status >= 500;
+            if (!retryableServerError || attempt >= 2) {
+              return { response, payload: parsedPayload };
             }
           }
 
           if (attempt < 2) {
             await new Promise((resolve) => {
-              setTimeout(resolve, 180);
+              setTimeout(resolve, response.status >= 500 ? 320 : 180);
             });
           }
         }
@@ -1837,6 +1805,12 @@ export function HomePage() {
         }
 
         const serverError = typeof payload.error === "string" ? payload.error : null;
+        if (response.status === 404) {
+          throw new Error(t.domainNotFound);
+        }
+        if (response.status >= 500) {
+          throw new Error(serverError ?? t.apiUnavailable);
+        }
         throw new Error(serverError ?? `Request failed: ${response.status}`);
       }
 
@@ -1857,7 +1831,7 @@ export function HomePage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   const handleRequestSupport = useCallback(async (): Promise<void> => {
     if (!unsupportedSuffix) {
@@ -1878,7 +1852,15 @@ export function HomePage() {
         created?: boolean;
         reason?: string;
         error?: string;
+        errorCode?: string;
       };
+
+      if (response.status === 409 && payload.errorCode === "ALREADY_SUPPORTED") {
+        setUnsupportedSuffix(null);
+        setSupportFeedback("idle");
+        setError(t.requestSupportAlreadySupported);
+        return;
+      }
 
       if (!response.ok && response.status !== 200) {
         throw new Error(payload.error ?? `HTTP ${response.status}`);
@@ -1893,7 +1875,7 @@ export function HomePage() {
     } catch {
       setSupportFeedback("failed");
     }
-  }, [unsupportedSuffix]);
+  }, [unsupportedSuffix, t]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -2093,147 +2075,15 @@ export function HomePage() {
 
   return (
     <main className="page">
-      <nav className="site-nav-bar" aria-label="Primary">
-        <div className="nav-pill">
-          <div className="nav-row">
-            <button
-              type="button"
-              className={`nav-avatar ${activeNav === "home" ? "active" : ""}`}
-              aria-label="WHO.GA"
-              onClick={() => {
-                setActiveNav("home");
-                setDomain("example.com");
-                setError(null);
-                setData(null);
-                setSelectedTldCategory("all");
-                setShowAllTlds(false);
-                void navigate({ to: "/" });
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              <img
-                className="nav-avatar-img"
-                src="/logo.svg"
-                alt=""
-                width={28}
-                height={28}
-                decoding="async"
-              />
-            </button>
-
-            <div className="nav-main-links">
-              <button
-                type="button"
-                className={`nav-link ${activeNav === "stats" ? "active" : ""}`}
-                onClick={() => scrollToSection("section-stats", "stats")}
-              >
-                <BarChart3 className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navStats}</span>
-              </button>
-              <button
-                type="button"
-                className={`nav-link ${activeNav === "api" ? "active" : ""}`}
-                onClick={() => scrollToSection("section-api", "api")}
-              >
-                <Code2 className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navApi}</span>
-              </button>
-              <button
-                type="button"
-                className={`nav-link ${activeNav === "tlds" ? "active" : ""}`}
-                onClick={() => scrollToSection("section-tlds", "tlds")}
-              >
-                <Database className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navTlds}</span>
-              </button>
-              <button
-                type="button"
-                className={`nav-link ${activeNav === "faq" ? "active" : ""}`}
-                onClick={() => scrollToSection("section-faq", "faq")}
-              >
-                <Info className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navFaq}</span>
-              </button>
-              <a href="/learn" className="nav-link" style={{ textDecoration: "none" }}>
-                <BookOpen className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navLearn}</span>
-              </a>
-              <a href="/requests" className="nav-link" style={{ textDecoration: "none" }}>
-                <HandHelping className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
-                <span>{t.navRequests}</span>
-              </a>
-            </div>
-
-            <div className="nav-actions">
-              <a
-                className="nav-cta"
-                href="https://api.who.ga/example.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Zap aria-hidden size={15} strokeWidth={2.2} />
-                <span>{t.navApiCta}</span>
-              </a>
-              <Menu.Root>
-                <Menu.Trigger className="nav-lang-trigger" aria-label="Language">
-                  <Languages aria-hidden size={16} strokeWidth={1.8} />
-                  <img
-                    className="lang-flag"
-                    src={locale === "zh" ? "/flags/cn.svg" : "/flags/us.svg"}
-                    alt=""
-                    width={18}
-                    height={14}
-                    decoding="async"
-                  />
-                </Menu.Trigger>
-                <Menu.Portal>
-                  <Menu.Positioner className="lang-menu-positioner" sideOffset={8}>
-                    <Menu.Popup className="lang-menu" aria-label="Language options">
-                      <Menu.Item
-                        className={`lang-option ${locale === "zh" ? "active" : ""}`}
-                        onClick={() => {
-                          setLocale("zh");
-                        }}
-                      >
-                        <img
-                          className="lang-flag"
-                          src="/flags/cn.svg"
-                          alt=""
-                          width={18}
-                          height={14}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <span className="lang-option-label">中文</span>
-                      </Menu.Item>
-                      <Menu.Item
-                        className={`lang-option ${locale === "en" ? "active" : ""}`}
-                        onClick={() => {
-                          setLocale("en");
-                        }}
-                      >
-                        <img
-                          className="lang-flag"
-                          src="/flags/us.svg"
-                          alt=""
-                          width={18}
-                          height={14}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <span className="lang-option-label">English</span>
-                      </Menu.Item>
-                    </Menu.Popup>
-                  </Menu.Positioner>
-                </Menu.Portal>
-              </Menu.Root>
-              <ThemeToggle compact />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader
+        locale={locale}
+        onLocaleChange={setLocale}
+        activeNav={activeNav}
+        onSectionClick={scrollToSection}
+      />
 
       <div className="container">
+        <div className="page-main">
         <section className="hero">
           <h2 className="hero-main-title">{t.heroTitle}</h2>
           <p className="tagline">{t.heroTagline}</p>
@@ -3007,55 +2857,8 @@ export function HomePage() {
           </>
         ) : null}
 
-        <footer className="footer">
-          <div className="footer-watermark" aria-hidden="true">
-            WHO<span className="footer-watermark-dot">.</span>GA
-          </div>
-          <div className="footer-inner">
-            <div className="footer-bottom">
-              <div className="footer-copyright">
-                <p>{t.copyright}</p>
-              </div>
-              <div className="footer-social">
-              <a
-                href="https://x.com/gentpan"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X"
-                title="X"
-              >
-                <XBrandIcon />
-              </a>
-              <a
-                href="https://github.com/gentpan"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                title="GitHub"
-              >
-                <GitHubBrandIcon />
-              </a>
-              <a
-                href="https://giantaccel.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Powered by GiantAccel"
-                title="Powered by GiantAccel"
-                data-tooltip="Powered by GiantAccel"
-                className="footer-giantaccel"
-              >
-                <svg
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path d="M512 851.456c187.904 0 340.992-152.064 343.04-339.456h-145.408c-2.048 107.52-89.6 194.048-197.632 194.048S316.416 619.52 314.368 512H168.96c2.048 187.392 155.136 339.456 343.04 339.456zM550.912 216.064H855.04v145.408h-304.128z" />
-                </svg>
-              </a>
-              </div>
-            </div>
-          </div>
-        </footer>
+        </div>
+        <SiteFooter locale={locale} />
       </div>
       <button
         type="button"
