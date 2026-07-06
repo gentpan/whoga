@@ -60,7 +60,7 @@ interface StatItem {
 interface StatsResponse {
   updatedAt: string;
   queryableDomainSuffixes: number;
-  rootTldCoverage: {
+  rootTldCoverage?: {
     total: number;
     withRdap: number;
     withWhoisFallback: number;
@@ -116,6 +116,17 @@ interface StatsResponse {
       rdapServer?: string | null;
       error?: string | null;
     }>;
+  };
+}
+
+function normalizeRootTldCoverage(
+  value: StatsResponse["rootTldCoverage"] | null | undefined
+): NonNullable<StatsResponse["rootTldCoverage"]> {
+  return {
+    total: Number(value?.total ?? 0),
+    withRdap: Number(value?.withRdap ?? 0),
+    withWhoisFallback: Number(value?.withWhoisFallback ?? 0),
+    withWebRegistryOnly: Number(value?.withWebRegistryOnly ?? 0)
   };
 }
 
@@ -1312,12 +1323,10 @@ export function HomePage() {
           },
     [data, locale, eventsUseUtc]
   );
-  const rootTldCoverage = stats?.rootTldCoverage ?? {
-    total: 0,
-    withRdap: 0,
-    withWhoisFallback: 0,
-    withWebRegistryOnly: 0
-  };
+  const rootTldCoverage = useMemo(
+    () => normalizeRootTldCoverage(stats?.rootTldCoverage),
+    [stats?.rootTldCoverage]
+  );
   const coreInfoItems = useMemo(() => (data ? buildCoreInfoItems(data, locale) : []), [data, locale]);
   const entityItems = useMemo(() => (data ? buildEntities(data, locale) : []), [data, locale]);
   const abuseContactText = useMemo(() => getAbuseContactText(data), [data]);
@@ -1623,7 +1632,10 @@ export function HomePage() {
           throw new Error(payload.error ?? `Stats API error: ${response.status}`);
         }
         if (mounted) {
-          setStats(payload);
+          setStats({
+            ...payload,
+            rootTldCoverage: normalizeRootTldCoverage(payload.rootTldCoverage)
+          });
         }
       } catch (loadError) {
         if (mounted) {

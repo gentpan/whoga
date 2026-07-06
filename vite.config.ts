@@ -8,7 +8,15 @@ const config = defineConfig({
   plugins: [
     nitro({
       serverDir: "./server",
-      rollupConfig: { external: [/^@sentry\//] }
+      rollupConfig: { external: [/^@sentry\//] },
+      routeRules: {
+        "/assets/**": {
+          headers: { "Cache-Control": "public, max-age=31536000, immutable" }
+        },
+        "/**": {
+          headers: { "Cache-Control": "no-cache, no-store, must-revalidate" }
+        }
+      }
     }),
     tanstackStart(),
     viteReact()
