@@ -5,6 +5,8 @@ const SITE_TITLE = "WHO.GA - RDAP WHOIS 查询与 JSON API | Domain, IP, ASN Loo
 const SITE_DESCRIPTION =
   "WHO.GA 提供基于 RDAP 的域名、IP、ASN 与后缀查询服务，支持结构化 JSON API、在线调试与开发者集成. WHO.GA provides RDAP-based lookup for domains, IPs, ASNs, and suffixes with structured JSON API access.";
 
+const SORA_FONT_URL = "https://static.bluecdn.com/fonts/sora.css";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -42,6 +44,8 @@ export const Route = createRootRoute({
       { name: "apple-mobile-web-app-status-bar-style", content: "default" }
     ],
     links: [
+      { rel: "preconnect", href: "https://static.bluecdn.com" },
+      { rel: "stylesheet", href: SORA_FONT_URL },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico" },
       { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
