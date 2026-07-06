@@ -1,7 +1,13 @@
 {
-  "name": "whoga-rdap-whois",
+  "name": "whoga",
   "version": "0.1.0",
-  "private": true,
+  "description": "Self-hosted RDAP & WHOIS lookup platform with web UI and JSON API — powers who.ga",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gentpan/whoga.git"
+  },
+  "homepage": "https://who.ga",
   "type": "module",
   "imports": {
     "#/*": "./src/*"
@@ -20,7 +26,8 @@
     "test:data-availability": "node scripts/test-data-availability.mjs",
     "audit:data": "node scripts/audit-data.mjs --report",
     "audit:data:strict": "node scripts/audit-data.mjs --report --strict",
-    "sync:rdap-extra": "node scripts/sync-rdap-extra.mjs"
+    "sync:rdap-extra": "node scripts/sync-rdap-extra.mjs",
+    "refresh:data": "bash scripts/data-refresh-cron.sh"
   },
   "dependencies": {
     "@base-ui/react": "latest",
