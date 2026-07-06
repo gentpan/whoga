@@ -18,13 +18,13 @@
     }
   },
   "include": [
-    "server/**/*.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    "api/**/*.ts",
+    "web/**/*.ts",
+    "web/**/*.tsx",
     "lib/**/*.ts",
     "lib/**/*.json",
     "scripts/**/*.mjs",
     "vite.config.ts"
   ],
-  "exclude": ["node_modules", "app"]
+  "exclude": ["node_modules"]
 }

@@ -108,6 +108,20 @@ Or `curl -X POST http://localhost:3410/api/admin/refresh`
 
 Data paths: `data/` (seed) → `runtime/data/` (runtime, preferred)
 
+## Project layout
+
+```
+whoga/
+├── web/           # Frontend (TanStack Start pages & components)
+├── api/           # Backend (Nitro routes + HTTP handlers)
+├── public/        # Static assets (logo, favicons, robots.txt)
+├── lib/           # Shared business logic
+├── data/          # Seed data
+├── runtime/       # Runtime data (gitignore)
+├── scripts/       # Ops & data scripts
+└── deploy/        # Deployment scripts
+```
+
 ## Deploy
 
 ```bash

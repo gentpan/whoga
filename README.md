@@ -108,6 +108,20 @@ pnpm refresh:data
 
 数据目录：`data/`（种子）→ `runtime/data/`（运行时，优先读取）
 
+## 项目结构
+
+```
+whoga/
+├── web/           # 前端（TanStack Start 页面与组件）
+├── api/           # 后端（Nitro 路由 + HTTP handlers）
+├── public/        # 静态资源（logo、favicon、robots.txt）
+├── lib/           # 共享业务逻辑
+├── data/          # 种子数据
+├── runtime/       # 运行时数据（gitignore）
+├── scripts/       # 运维与数据脚本
+└── deploy/        # 部署脚本
+```
+
 ## 部署
 
 ```bash

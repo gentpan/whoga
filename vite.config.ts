@@ -7,7 +7,7 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
     nitro({
-      serverDir: "./server",
+      serverDir: "./api",
       rollupConfig: { external: [/^@sentry\//] },
       routeRules: {
         "/assets/**": {
@@ -18,7 +18,9 @@ const config = defineConfig({
         }
       }
     }),
-    tanstackStart(),
+    tanstackStart({
+      srcDirectory: "web"
+    }),
     viteReact()
   ],
   server: {
