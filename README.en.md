@@ -4,14 +4,14 @@
 
 # Whoga
 
-**自托管 RDAP / WHOIS 查询平台**
+**Self-hosted RDAP & WHOIS lookup**
 
-Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
+Web UI + JSON API · Domain · TLD · IP · ASN
 
 <p>
-  <a href="./README.en.md" style="text-decoration:none;color:#6b7280;">English</a>
+  <strong>English</strong>
   &nbsp;·&nbsp;
-  <strong>中文</strong>
+  <a href="./README.md" style="text-decoration:none;color:#6b7280;">中文</a>
 </p>
 
 <p>
@@ -48,14 +48,14 @@ Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
 
 <br />
 
-## 功能
+## Features
 
-- RDAP 查询域名、TLD、IP、ASN
-- 无 RDAP 时 WHOIS port43 自动回退
-- 本地数据索引，支持定时刷新
-- Redis 缓存（可选）
+- RDAP lookup for domains, TLDs, IPs, and ASN
+- WHOIS port43 fallback when RDAP is unavailable
+- Local data index with scheduled refresh
+- Optional Redis caching
 
-## 快速开始
+## Quick Start
 
 ```bash
 git clone https://github.com/gentpan/whoga.git
@@ -64,9 +64,9 @@ pnpm install
 pnpm dev
 ```
 
-访问 <a href="http://localhost:3410" style="text-decoration:none;color:#16a34a;font-weight:600;">localhost:3410</a>
+Open <a href="http://localhost:3410" style="text-decoration:none;color:#16a34a;font-weight:600;">localhost:3410</a>
 
-生产环境：
+Production:
 
 ```bash
 pnpm build && pnpm start
@@ -80,39 +80,39 @@ curl "http://localhost:3410/api/whois?query=8.8.8.8"
 curl "http://localhost:3410/api/whois?query=AS15169"
 ```
 
-在线示例：<a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
+Live demo: <a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
 
-## 配置
+## Configuration
 
 ```bash
 cp .env.example .env
 ```
 
-| 变量 | 说明 |
-|------|------|
-| `CRON_SECRET` | 刷新接口密钥（生产建议设置） |
-| `REDIS_URL` | Redis 缓存 |
-| `WHOIS_CACHE_TTL_SECONDS` | 缓存时间，默认 900 |
+| Variable | Description |
+|----------|-------------|
+| `CRON_SECRET` | Bearer token for refresh endpoint (recommended in production) |
+| `REDIS_URL` | Redis cache connection |
+| `WHOIS_CACHE_TTL_SECONDS` | Cache TTL in seconds, default `900` |
 
-## 数据更新
+## Data Refresh
 
-服务运行后，手动刷新本地索引：
+With the server running:
 
 ```bash
 pnpm refresh:data
 ```
 
-或 `curl -X POST http://localhost:3410/api/admin/refresh`
+Or `curl -X POST http://localhost:3410/api/admin/refresh`
 
-数据目录：`data/`（种子）→ `runtime/data/`（运行时，优先读取）
+Data paths: `data/` (seed) → `runtime/data/` (runtime, preferred)
 
-## 部署
+## Deploy
 
 ```bash
 ./deploy/deploy-caddy.sh ~/.ssh/your-key.pem
 ```
 
-更多见 <a href="./deploy/README.md" style="text-decoration:none;color:#16a34a;font-weight:600;">deploy/README.md</a>
+See <a href="./deploy/README.md" style="text-decoration:none;color:#16a34a;font-weight:600;">deploy/README.md</a> for details.
 
 ---
 
