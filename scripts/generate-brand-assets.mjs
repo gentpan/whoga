@@ -34,14 +34,17 @@ function superellipsePath(cx, cy, a, b, n, steps = 72) {
   return `${parts.join(" ")} Z`;
 }
 
+const GREEN = "#22C55E";
+const WHITE = "#FFFFFF";
+
 const squircle = superellipsePath(CX, CY, RADIUS, RADIUS, N);
 
 const logoSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SIZE} ${SIZE}" role="img" aria-label="Whoga">
   <title>Whoga</title>
-  <path fill="#1A1A1C" d="${squircle}"/>
+  <path fill="${GREEN}" d="${squircle}"/>
   <g transform="${W_TRANSFORM}">
-    <path fill="#22C55E" d="${W_PATH}"/>
+    <path fill="${WHITE}" d="${W_PATH}"/>
   </g>
 </svg>
 `;
@@ -49,9 +52,9 @@ const logoSvg = `<?xml version="1.0" encoding="UTF-8"?>
 const markSvg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SIZE} ${SIZE}" role="img" aria-label="Whoga">
   <title>Whoga</title>
-  <path fill="#22C55E" d="${squircle}"/>
+  <path fill="${WHITE}" d="${squircle}"/>
   <g transform="${W_TRANSFORM}">
-    <path fill="#1A1A1C" d="${W_PATH}"/>
+    <path fill="${GREEN}" d="${W_PATH}"/>
   </g>
 </svg>
 `;
