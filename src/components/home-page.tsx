@@ -1312,6 +1312,12 @@ export function HomePage() {
           },
     [data, locale, eventsUseUtc]
   );
+  const rootTldCoverage = stats?.rootTldCoverage ?? {
+    total: 0,
+    withRdap: 0,
+    withWhoisFallback: 0,
+    withWebRegistryOnly: 0
+  };
   const coreInfoItems = useMemo(() => (data ? buildCoreInfoItems(data, locale) : []), [data, locale]);
   const entityItems = useMemo(() => (data ? buildEntities(data, locale) : []), [data, locale]);
   const abuseContactText = useMemo(() => getAbuseContactText(data), [data]);
@@ -2502,24 +2508,24 @@ export function HomePage() {
                   <article className="stat-card">
                     <p className="stat-key">{t.rootTldCoverage}</p>
                     <p className="stat-count">
-                      {stats.rootTldCoverage.withRdap.toLocaleString(numberLocale)} /{" "}
-                      {stats.rootTldCoverage.total.toLocaleString(numberLocale)}
+                      {rootTldCoverage.withRdap.toLocaleString(numberLocale)} /{" "}
+                      {rootTldCoverage.total.toLocaleString(numberLocale)}
                     </p>
                     <p className="stat-label">{t.rootTldCoverageLabel}</p>
-                    {stats.rootTldCoverage.withWhoisFallback > 0 ? (
+                    {rootTldCoverage.withWhoisFallback > 0 ? (
                       <p className="stat-time">
-                        +{stats.rootTldCoverage.withWhoisFallback.toLocaleString(numberLocale)}{" "}
+                        +{rootTldCoverage.withWhoisFallback.toLocaleString(numberLocale)}{" "}
                         {t.rootTldWhoisFallback}
-                        {stats.rootTldCoverage.withWebRegistryOnly > 0 ? (
+                        {rootTldCoverage.withWebRegistryOnly > 0 ? (
                           <>
-                            {" · "}+{stats.rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
+                            {" · "}+{rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
                             {t.rootTldWebRegistryOnly}
                           </>
                         ) : null}
                       </p>
-                    ) : stats.rootTldCoverage.withWebRegistryOnly > 0 ? (
+                    ) : rootTldCoverage.withWebRegistryOnly > 0 ? (
                       <p className="stat-time">
-                        +{stats.rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
+                        +{rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
                         {t.rootTldWebRegistryOnly}
                       </p>
                     ) : (

@@ -13,9 +13,17 @@ export interface BootstrapStat {
   supportedLabel: string;
 }
 
+export interface RootTldCoverage {
+  total: number;
+  withRdap: number;
+  withWhoisFallback: number;
+  withWebRegistryOnly: number;
+}
+
 export interface BootstrapStatsPayload {
   updatedAt: string;
   queryableDomainSuffixes: number;
+  rootTldCoverage: RootTldCoverage;
   items: BootstrapStat[];
   queryStats: QueryStatsSnapshot & {
     periodTotals?: {
@@ -401,6 +409,37 @@ function countObjectTags(services: unknown): number {
   return count;
 }
 
+async function readRootTldCoverage(): Promise<RootTldCoverage> {
+  const empty: RootTldCoverage = {
+    total: 0,
+    withRdap: 0,
+    withWhoisFallback: 0,
+    withWebRegistryOnly: 0
+  };
+  try {
+    const tlds = await readJson<{
+      counts?: {
+        ianaRootTlds?: number;
+        ianaRootWithRdap?: number;
+        ianaRootWithWhoisFallback?: number;
+        ianaRootWithWebRegistryOnly?: number;
+      };
+    }>(await resolveReadableDataPath("tlds.json"));
+    const counts = tlds?.counts;
+    if (!counts) {
+      return empty;
+    }
+    return {
+      total: counts.ianaRootTlds ?? 0,
+      withRdap: counts.ianaRootWithRdap ?? 0,
+      withWhoisFallback: counts.ianaRootWithWhoisFallback ?? 0,
+      withWebRegistryOnly: counts.ianaRootWithWebRegistryOnly ?? 0
+    };
+  } catch {
+    return empty;
+  }
+}
+
 function toStat(meta: BootstrapFileMeta, data: Record<string, unknown>): BootstrapStat {
   const description = String(data.description ?? "");
   const publication = String(data.publication ?? "");
@@ -430,6 +469,7 @@ export async function getBootstrapStats(force = false): Promise<BootstrapStatsPa
     return {
       ...cache.payload,
       updatedAt: await getDataSnapshotUpdatedAt(),
+      rootTldCoverage: await readRootTldCoverage(),
       queryStats: await getFlagcdnTrafficStats()
     };
   }
@@ -467,6 +507,7 @@ export async function getBootstrapStats(force = false): Promise<BootstrapStatsPa
 
   const payload = {
     queryableDomainSuffixes,
+    rootTldCoverage: await readRootTldCoverage(),
     items: results
   };
 
