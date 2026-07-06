@@ -14,6 +14,8 @@
     "lint": "tsc --noEmit",
     "update:tld-categories": "node scripts/update-brand-geo.mjs",
     "check:tlds-queryability": "node scripts/check-tlds-queryability.mjs",
+    "scan:whois-hosts": "node scripts/scan-whois-hosts.mjs",
+    "scan:whois-hosts:write": "node scripts/scan-whois-hosts.mjs --write",
     "test:rdap-all": "node scripts/test-rdap-all-suffixes.mjs",
     "test:data-availability": "node scripts/test-data-availability.mjs",
     "audit:data": "node scripts/audit-data.mjs --report",

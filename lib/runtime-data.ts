@@ -3,7 +3,7 @@ import path from "node:path";
 
 const REPO_DATA_DIR = path.join(process.cwd(), "data");
 const RUNTIME_ROOT_DIR =
-  process.env.WHOGA_RUNTIME_DIR ?? path.resolve(process.cwd(), "..", "whoga-runtime");
+  process.env.WHOGA_RUNTIME_DIR ?? path.join(process.cwd(), "runtime");
 const RUNTIME_DATA_DIR = path.join(RUNTIME_ROOT_DIR, "data");
 
 async function pathExists(targetPath: string): Promise<boolean> {

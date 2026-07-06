@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-07-04T21:50:00.000Z",
+  "description": "Verified WHOIS port-43 overrides and web-only registry URLs for TLDs missing from IANA whois: fields.",
+  "port43": {
+    "mil": "whois.internic.net"
+  },
+  "webRegistry": {
+    "ao": "http://www.dns.ao/",
+    "bb": "http://www.whois.telecoms.gov.bb/",
+    "bt": "http://www.nic.bt",
+    "bv": "https://www.norid.no/en/omnorid/toppdomenet-bv/",
+    "ck": "http://www.vodafone.co.ck",
+    "cw": "http://www.uoc.cw/cw-registry",
+    "dj": "http://www.nic.dj",
+    "fk": "http://www.sure.co.fk",
+    "gu": "https://give.uog.edu/shop/",
+    "kh": "https://www.domain.gov.kh/",
+    "km": "http://www.domaine.km/",
+    "kp": "http://www.star.co.kp",
+    "mh": "http://www.nic.net.mh/",
+    "ne": "http://www.intnet.ne",
+    "ni": "http://www.nic.ni",
+    "np": "http://www.mos.com.np",
+    "ps": "https://www.pnina.ps/whois/",
+    "sj": "https://www.norid.no/en/omnorid/toppdomenet-sj/",
+    "sz": "http://www.sispa.org.sz/",
+    "xn--54b7fta0cc": "http://domainreg.btcl.com.bd/",
+    "xn--fzc2c9e2c": "http://www.domains.lk",
+    "xn--mgbayh7gpa": "https://dns.jo/",
+    "xn--mgbc0a9azcg": "http://www.registre.ma",
+    "xn--mgbpl2fh": "http://domains.sd"
+  }
+}

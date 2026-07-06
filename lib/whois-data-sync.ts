@@ -781,10 +781,18 @@ async function syncTldList(): Promise<
   }
 }
 
+function countExtraEntries(input: unknown): number {
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
+    return 0;
+  }
+  return Object.entries(input as Record<string, unknown>).filter(
+    ([key, value]) => !key.startsWith("_") && typeof value === "string" && value.trim().length > 0
+  ).length;
+}
+
 async function deleteCacheFiles(): Promise<void> {
   const files = [
     DNS_FILE,
-    EXTRA_FILE,
     PSL_FILE,
     MERGED_FILE,
     ASN_FILE,
@@ -898,7 +906,7 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
     writeDataJson(OBJECT_TAGS_FILE, objectTagsJson)
   ]);
 
-  if (extraJson) {
+  if (extraJson && countExtraEntries(extraJson) > 0) {
     await writeDataJson(EXTRA_FILE, extraJson);
   } else {
     const existingExtra = await readDataText(EXTRA_FILE);
@@ -906,6 +914,8 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
       await writeDataText(EXTRA_FILE, "{}\n");
     }
   }
+
+  const extraForMerge = await readDataJson<Record<string, unknown>>(EXTRA_FILE);
 
   const nextMeta: DnsRegistryMeta = {
     updatedAt: new Date().toISOString(),
@@ -926,7 +936,7 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
 
   const mergedSummary = await rebuildMergedFile();
 
-  const registries = groupRegistries(dnsJson?.services, mapFromObject(extraJson));
+  const registries = groupRegistries(dnsJson?.services, mapFromObject(extraForMerge));
   let rootDbEntries: { tld: string; type: string; manager: string; href: string }[] = [];
   const rootDbDetails: Record<string, unknown> = {};
   const includeRootDbDetails = force || process.env.ROOT_DB_DETAILS === "1";
@@ -1050,6 +1060,50 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
   const tldList = await readDataJson<{ tlds?: string[]; count?: number }>(TLD_LIST_FILE);
   const ianaRootTlds = normalizeList(tldList?.tlds ?? []);
 
+  const mergedPayload = await readDataJson<{ items?: { suffix: string; rdapUrl: string | null }[] }>(
+    MERGED_FILE
+  );
+  const mergedBySuffix = new Map(
+    (mergedPayload?.items ?? []).map((item) => [item.suffix.toLowerCase(), item])
+  );
+  const ianaRootWithRdap = ianaRootTlds.filter((root) =>
+    Boolean(mergedBySuffix.get(root.toLowerCase())?.rdapUrl)
+  ).length;
+
+  let ianaRootWithWhoisFallback = 0;
+  let ianaRootWithWebRegistryOnly = 0;
+  const missingLookup = await readDataJson<{
+    results?: { tld: string; whois?: string }[];
+  }>("missing-tld-lookup.json");
+  const extraHosts = await readDataJson<{
+    port43?: Record<string, string>;
+    webRegistry?: Record<string, string>;
+  }>("whois-extra-hosts.json");
+  const whoisRoots = new Set<string>();
+  for (const entry of missingLookup?.results ?? []) {
+    if (entry.whois?.trim()) {
+      whoisRoots.add(entry.tld.toLowerCase());
+    }
+  }
+  for (const [tld, host] of Object.entries(extraHosts?.port43 ?? {})) {
+    if (host?.trim()) {
+      whoisRoots.add(tld.toLowerCase());
+    }
+  }
+  const webRegistryRoots = new Set(
+    Object.keys(extraHosts?.webRegistry ?? {}).map((tld) => tld.toLowerCase())
+  );
+  ianaRootWithWhoisFallback = ianaRootTlds.filter((root) => {
+    const key = root.toLowerCase();
+    return !mergedBySuffix.get(key)?.rdapUrl && whoisRoots.has(key);
+  }).length;
+  ianaRootWithWebRegistryOnly = ianaRootTlds.filter((root) => {
+    const key = root.toLowerCase();
+    return (
+      !mergedBySuffix.get(key)?.rdapUrl && !whoisRoots.has(key) && webRegistryRoots.has(key)
+    );
+  }).length;
+
   await writeDataJson(TLDS_FILE, {
     generatedAt: new Date().toISOString(),
     source: {
@@ -1065,6 +1119,9 @@ export async function ensureWhoisDataFresh(force = false): Promise<SyncResult> {
       brandTlds: brandList.length,
       geoTlds: geoList.length,
       ianaRootTlds: ianaRootTlds.length,
+      ianaRootWithRdap,
+      ianaRootWithWhoisFallback,
+      ianaRootWithWebRegistryOnly,
       cannotQueryRootTlds: cannotQueryRootTlds.length
     },
     tlds: {

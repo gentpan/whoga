@@ -60,6 +60,12 @@ interface StatItem {
 interface StatsResponse {
   updatedAt: string;
   queryableDomainSuffixes: number;
+  rootTldCoverage: {
+    total: number;
+    withRdap: number;
+    withWhoisFallback: number;
+    withWebRegistryOnly: number;
+  };
   items: StatItem[];
   queryStats: {
     totalRequests: number;
@@ -248,6 +254,8 @@ const I18N = {
     rootTldCoverage: "ROOT TLD COVERAGE",
     rootTldCoverageLabel: "Queryable coverage across the IANA root TLD namespace.",
     rootTldCoverageTime: "Computed from current merged routing data.",
+    rootTldWhoisFallback: "WHOIS fallback for roots without RDAP",
+    rootTldWebRegistryOnly: "web registry only (partial metadata)",
     dataPublication: "DATA PUBLICATION",
     dataPublicationLabel: "Official publication time of the IANA RDAP bootstrap `dns.json` dataset.",
     dataPublicationTime: "Source: IANA RDAP Bootstrap · data.iana.org",
@@ -269,6 +277,11 @@ const I18N = {
     geoTldLabel: "geo TLD",
     companyLabel: "A GiantAccel Company",
     backToTop: "Back to Top",
+    navStats: "Stats",
+    navApi: "API",
+    navTlds: "TLDs",
+    navFaq: "FAQ",
+    navApiCta: "Open API",
     apiUsageTitle: "API Usage",
     apiUsageLead: "Use `api.who.ga/<query>` to retrieve normalized RDAP JSON.",
     apiUsageDescription:
@@ -406,6 +419,8 @@ const I18N = {
     rootTldCoverage: "根区 TLD 覆盖率",
     rootTldCoverageLabel: "当前合并路由数据在 IANA 根区 TLD 中的可查询覆盖情况。",
     rootTldCoverageTime: "基于当前合并路由数据计算",
+    rootTldWhoisFallback: "无 RDAP 根区可用 WHOIS 回退",
+    rootTldWebRegistryOnly: "仅网页注册局（返回 partial 元数据）",
     dataPublication: "数据发布时间",
     dataPublicationLabel: "IANA RDAP Bootstrap `dns.json` 数据集的官方发布时间。",
     dataPublicationTime: "来源：IANA RDAP Bootstrap · data.iana.org",
@@ -427,6 +442,11 @@ const I18N = {
     geoTldLabel: "地理顶级域",
     companyLabel: "GiantAccel 旗下产品",
     backToTop: "返回顶部",
+    navStats: "统计",
+    navApi: "API",
+    navTlds: "后缀",
+    navFaq: "FAQ",
+    navApiCta: "打开 API",
     apiUsageTitle: "API 用法",
     apiUsageLead: "使用 `api.who.ga/<查询内容>` 获取标准化 RDAP JSON 响应。",
     apiUsageDescription:
@@ -1240,6 +1260,33 @@ export function HomePage() {
   const t = I18N[locale];
   const numberLocale = locale === "zh" ? "zh-CN" : "en-US";
   const isHomePage = pathname === "/";
+  const [activeNav, setActiveNav] = useState<string>("home");
+
+  const scrollToSection = useCallback(
+    (sectionId: string, navKey: string) => {
+      setActiveNav(navKey);
+      if (!isHomePage) {
+        void navigate({ to: "/", hash: sectionId });
+        return;
+      }
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+    [isHomePage, navigate]
+  );
+
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (!hash || !isHomePage) {
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveNav(hash.replace(/^section-/, ""));
+    }, 120);
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [isHomePage, location.hash]);
 
   const formatted = useMemo(() => {
     if (!data) {
@@ -1913,92 +1960,139 @@ export function HomePage() {
 
   return (
     <main className="page">
-      <div className="container">
-        <header className="topbar">
-          <button
-            type="button"
-            className="brand-mark"
-            aria-label="WHO.GA"
-            onClick={() => {
-              setDomain("example.com");
-              setError(null);
-              setData(null);
-              setSelectedTldCategory("all");
-              setShowAllTlds(false);
-              void navigate({ to: "/" });
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            <span className="brand-wordmark" aria-hidden>
+      <nav className="site-nav-bar" aria-label="Primary">
+        <div className="nav-pill">
+          <div className="nav-row">
+            <button
+              type="button"
+              className={`nav-avatar ${activeNav === "home" ? "active" : ""}`}
+              aria-label="WHO.GA"
+              onClick={() => {
+                setActiveNav("home");
+                setDomain("example.com");
+                setError(null);
+                setData(null);
+                setSelectedTldCategory("all");
+                setShowAllTlds(false);
+                void navigate({ to: "/" });
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
               <img
-                className="brand-logo-icon brand-logo-front"
+                className="nav-avatar-img"
                 src="/logo.svg"
                 alt=""
-                width={32}
-                height={32}
+                width={28}
+                height={28}
                 decoding="async"
               />
-              <span className="brand-wordmark-text brand-wordmark-full">WHO.GA</span>
-            </span>
-          </button>
-          <div className="topbar-actions">
-            <Menu.Root>
-              <Menu.Trigger className="lang-trigger" aria-label="Language">
-                <Languages aria-hidden size={18} strokeWidth={1.8} />
-                <img
-                  className="lang-flag"
-                  src={locale === "zh" ? "/flags/cn.svg" : "/flags/us.svg"}
-                  alt=""
-                  width={18}
-                  height={14}
-                  decoding="async"
-                />
-              </Menu.Trigger>
-              <Menu.Portal>
-                <Menu.Positioner className="lang-menu-positioner" sideOffset={8}>
-                  <Menu.Popup className="lang-menu" aria-label="Language options">
-                    <Menu.Item
-                      className={`lang-option ${locale === "zh" ? "active" : ""}`}
-                      onClick={() => {
-                        setLocale("zh");
-                      }}
-                    >
-                      <img
-                        className="lang-flag"
-                        src="/flags/cn.svg"
-                        alt=""
-                        width={18}
-                        height={14}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <span className="lang-option-label">中文</span>
-                    </Menu.Item>
-                    <Menu.Item
-                      className={`lang-option ${locale === "en" ? "active" : ""}`}
-                      onClick={() => {
-                        setLocale("en");
-                      }}
-                    >
-                      <img
-                        className="lang-flag"
-                        src="/flags/us.svg"
-                        alt=""
-                        width={18}
-                        height={14}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <span className="lang-option-label">English</span>
-                    </Menu.Item>
-                  </Menu.Popup>
-                </Menu.Positioner>
-              </Menu.Portal>
-            </Menu.Root>
-            <ThemeToggle />
-          </div>
-        </header>
+            </button>
 
+            <div className="nav-main-links">
+              <button
+                type="button"
+                className={`nav-link ${activeNav === "stats" ? "active" : ""}`}
+                onClick={() => scrollToSection("section-stats", "stats")}
+              >
+                <BarChart3 className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navStats}</span>
+              </button>
+              <button
+                type="button"
+                className={`nav-link ${activeNav === "api" ? "active" : ""}`}
+                onClick={() => scrollToSection("section-api", "api")}
+              >
+                <Code2 className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navApi}</span>
+              </button>
+              <button
+                type="button"
+                className={`nav-link ${activeNav === "tlds" ? "active" : ""}`}
+                onClick={() => scrollToSection("section-tlds", "tlds")}
+              >
+                <Database className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navTlds}</span>
+              </button>
+              <button
+                type="button"
+                className={`nav-link ${activeNav === "faq" ? "active" : ""}`}
+                onClick={() => scrollToSection("section-faq", "faq")}
+              >
+                <Info className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navFaq}</span>
+              </button>
+            </div>
+
+            <div className="nav-actions">
+              <a
+                className="nav-cta"
+                href="https://api.who.ga/example.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Zap aria-hidden size={15} strokeWidth={2.2} />
+                <span>{t.navApiCta}</span>
+              </a>
+              <Menu.Root>
+                <Menu.Trigger className="nav-lang-trigger" aria-label="Language">
+                  <Languages aria-hidden size={16} strokeWidth={1.8} />
+                  <img
+                    className="lang-flag"
+                    src={locale === "zh" ? "/flags/cn.svg" : "/flags/us.svg"}
+                    alt=""
+                    width={18}
+                    height={14}
+                    decoding="async"
+                  />
+                </Menu.Trigger>
+                <Menu.Portal>
+                  <Menu.Positioner className="lang-menu-positioner" sideOffset={8}>
+                    <Menu.Popup className="lang-menu" aria-label="Language options">
+                      <Menu.Item
+                        className={`lang-option ${locale === "zh" ? "active" : ""}`}
+                        onClick={() => {
+                          setLocale("zh");
+                        }}
+                      >
+                        <img
+                          className="lang-flag"
+                          src="/flags/cn.svg"
+                          alt=""
+                          width={18}
+                          height={14}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className="lang-option-label">中文</span>
+                      </Menu.Item>
+                      <Menu.Item
+                        className={`lang-option ${locale === "en" ? "active" : ""}`}
+                        onClick={() => {
+                          setLocale("en");
+                        }}
+                      >
+                        <img
+                          className="lang-flag"
+                          src="/flags/us.svg"
+                          alt=""
+                          width={18}
+                          height={14}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className="lang-option-label">English</span>
+                      </Menu.Item>
+                    </Menu.Popup>
+                  </Menu.Positioner>
+                </Menu.Portal>
+              </Menu.Root>
+              <ThemeToggle compact />
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="container">
         <section className="hero">
           <h2 className="hero-main-title">{t.heroTitle}</h2>
           <p className="tagline">{t.heroTagline}</p>
@@ -2397,7 +2491,7 @@ export function HomePage() {
         {isHomePage ? (
           <>
             {stats && !statsError ? (
-              <section className="stats-block">
+              <section className="stats-block" id="section-stats">
                 <div className="stat-overview-grid">
                   <article className="stat-card">
                     <p className="stat-key">{t.domainQueryableSuffixes}</p>
@@ -2407,9 +2501,30 @@ export function HomePage() {
                   </article>
                   <article className="stat-card">
                     <p className="stat-key">{t.rootTldCoverage}</p>
-                    <p className="stat-count">1436 / 1436</p>
+                    <p className="stat-count">
+                      {stats.rootTldCoverage.withRdap.toLocaleString(numberLocale)} /{" "}
+                      {stats.rootTldCoverage.total.toLocaleString(numberLocale)}
+                    </p>
                     <p className="stat-label">{t.rootTldCoverageLabel}</p>
-                    <p className="stat-time">{t.rootTldCoverageTime}</p>
+                    {stats.rootTldCoverage.withWhoisFallback > 0 ? (
+                      <p className="stat-time">
+                        +{stats.rootTldCoverage.withWhoisFallback.toLocaleString(numberLocale)}{" "}
+                        {t.rootTldWhoisFallback}
+                        {stats.rootTldCoverage.withWebRegistryOnly > 0 ? (
+                          <>
+                            {" · "}+{stats.rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
+                            {t.rootTldWebRegistryOnly}
+                          </>
+                        ) : null}
+                      </p>
+                    ) : stats.rootTldCoverage.withWebRegistryOnly > 0 ? (
+                      <p className="stat-time">
+                        +{stats.rootTldCoverage.withWebRegistryOnly.toLocaleString(numberLocale)}{" "}
+                        {t.rootTldWebRegistryOnly}
+                      </p>
+                    ) : (
+                      <p className="stat-time">{t.rootTldCoverageTime}</p>
+                    )}
                   </article>
                   <article className="stat-card">
                     <p className="stat-key">{t.dataPublication}</p>
@@ -2475,7 +2590,7 @@ export function HomePage() {
               </section>
             ) : null}
 
-            <section className="api-usage-section">
+            <section className="api-usage-section" id="section-api">
               <h2>{t.apiUsageTitle}</h2>
               <div className="api-usage-grid">
                 <article className="api-usage-card">
@@ -2557,7 +2672,7 @@ export function HomePage() {
             <p className="supported-count">
               {activeSuffixCount.toLocaleString(numberLocale)} / {suffixCount.toLocaleString(numberLocale)} {t.tldsSupported}
             </p>
-            <div className="tld-breakdown">
+            <div className="tld-breakdown" id="section-tlds">
               <button
                 type="button"
                 className={`tld-breakdown-item ${selectedTldCategory === "ccTld" ? "active" : ""}`}
@@ -2668,7 +2783,7 @@ export function HomePage() {
           </div>
             </section>
 
-            <section className="faq-section">
+            <section className="faq-section" id="section-faq">
               <h2>{t.faq}</h2>
               <div className="faq-list">
                 {faqItems.map((item, index) => {
@@ -2694,11 +2809,15 @@ export function HomePage() {
         ) : null}
 
         <footer className="footer">
-          <div className="footer-bottom">
-            <div className="footer-copyright">
-              <p>{t.copyright}</p>
-            </div>
-            <div className="footer-social">
+          <div className="footer-watermark" aria-hidden="true">
+            WHO<span className="footer-watermark-dot">.</span>GA
+          </div>
+          <div className="footer-inner">
+            <div className="footer-bottom">
+              <div className="footer-copyright">
+                <p>{t.copyright}</p>
+              </div>
+              <div className="footer-social">
               <a
                 href="https://x.com/gentpan"
                 target="_blank"
@@ -2734,6 +2853,7 @@ export function HomePage() {
                   <path d="M512 851.456c187.904 0 340.992-152.064 343.04-339.456h-145.408c-2.048 107.52-89.6 194.048-197.632 194.048S316.416 619.52 314.368 512H168.96c2.048 187.392 155.136 339.456 343.04 339.456zM550.912 216.064H855.04v145.408h-304.128z" />
                 </svg>
               </a>
+              </div>
             </div>
           </div>
         </footer>

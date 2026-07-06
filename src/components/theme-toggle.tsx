@@ -15,7 +15,7 @@ function getInitialTheme(): Theme {
   return "light";
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ compact = false }: { compact?: boolean }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <label className="ui-switch" aria-label="切换主题">
+    <label className={compact ? "ui-switch ui-switch-compact" : "ui-switch"} aria-label="切换主题">
       <input
         id="theme-toggle"
         name="theme-toggle"

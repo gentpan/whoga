@@ -11,6 +11,14 @@ import {
 import { getCacheJson, setCacheJson } from "@/lib/cache";
 import { recordWhoisQueryStat, type QueryStatsEntryPoint } from "@/lib/query-stats";
 import { resolveReadableDataPath } from "@/lib/runtime-data";
+import {
+  buildRegistryFallbackResult,
+  fetchIanaRootMetadata,
+  shouldRetryWithRegistryFallback,
+  tryRegistryFallback,
+  type RegistryFallbackResult
+} from "@/lib/whois-fallback";
+import { tryIpinfoLookup } from "@/lib/whois-external-fallback";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -66,6 +74,71 @@ function toHttpStatus(status: number | undefined, fallback = 502): number {
     return status;
   }
   return fallback;
+}
+
+async function sendRegistryFallbackResponse(
+  sendJson: (
+    body: Record<string, unknown>,
+    status?: number,
+    statMeta?: Record<string, unknown>
+  ) => Response | Promise<Response>,
+  cacheKey: string,
+  queryLabel: string,
+  queryType: QueryType,
+  meta: { updatedAt: string; publication?: string | null },
+  fallback: RegistryFallbackResult,
+  match: {
+    matchedSuffix: string | null;
+    fallbackChain: string[];
+    matchedSources: string[];
+    resolver: string;
+  }
+): Promise<Response> {
+  const matchedSources = [...match.matchedSources];
+  if (fallback.provider) {
+    matchedSources.push(fallback.provider);
+  } else if (fallback.resolver === "whois-port43") {
+    matchedSources.push("missing-tld-lookup.json");
+  } else if (fallback.resolver === "whois-iana-referral") {
+    matchedSources.push("whois.iana.org");
+  } else if (fallback.resolver === "iana-root-metadata") {
+    matchedSources.push("whois.iana.org");
+  }
+
+  const payload: WhoisApiCachePayload = {
+    domain: queryLabel,
+    queryType,
+    rdapServer: null,
+    source: {
+      dnsJsonUrl: "https://data.iana.org/rdap/dns.json",
+      localUpdatedAt: meta.updatedAt,
+      publication: meta.publication,
+      fallbackUsed: true
+    },
+    match: {
+      matchedSuffix: fallback.rootTld,
+      fallbackChain: match.fallbackChain.length > 0 ? match.fallbackChain : [fallback.rootTld],
+      matchedSources,
+      resolver: fallback.resolver
+    },
+    result: buildRegistryFallbackResult(fallback)
+  };
+  const cacheBackend = await setCacheJson(cacheKey, payload, cacheTtlSeconds());
+  return sendJson(
+    {
+      ...payload,
+      cache: {
+        hit: false,
+        backend: cacheBackend
+      }
+    },
+    200,
+    {
+      normalizedQuery: queryLabel,
+      cacheHit: false,
+      rdapServer: null
+    }
+  );
 }
 
 async function readJson<T>(filePath: string): Promise<T | null> {
@@ -628,20 +701,21 @@ export async function GET(request: RouteRequest): Promise<Response> {
       }
 
       if (!rdapBase) {
-        return sendJson(
+        const registryFallback =
+          (await tryRegistryFallback(normalizedDomain, queryType)) ??
+          (await fetchIanaRootMetadata(normalizedDomain, queryType));
+        return sendRegistryFallbackResponse(
+          sendJson,
+          cacheKey,
+          queryLabel,
+          queryType,
+          meta,
+          registryFallback,
           {
-            error: `No RDAP server found for ${normalizedDomain}`,
-            match: {
-              matchedSuffix: null,
-              fallbackChain,
-              matchedSources: [],
-              resolver: "none"
-            }
-          },
-          404,
-          {
-            normalizedQuery: normalizedDomain,
-            error: `No RDAP server found for ${normalizedDomain}`
+            matchedSuffix: null,
+            fallbackChain,
+            matchedSources: [],
+            resolver: "none"
           }
         );
       }
@@ -790,6 +864,27 @@ export async function GET(request: RouteRequest): Promise<Response> {
           fallbackTry.status > 0 ? toHttpStatus(fallbackTry.status) : toHttpStatus(firstTry.status);
         const responseBody = fallbackTry.body ?? firstTry.body;
         const responseServer = fallbackTry.status > 0 ? ianaFallbackBase : rdapBase;
+
+        if (shouldRetryWithRegistryFallback(responseStatus)) {
+          const registryFallback =
+            (await tryRegistryFallback(normalizedDomain, queryType)) ??
+            (await fetchIanaRootMetadata(normalizedDomain, queryType));
+          return sendRegistryFallbackResponse(
+            sendJson,
+            cacheKey,
+            queryLabel,
+            queryType,
+            meta,
+            registryFallback,
+            {
+              matchedSuffix,
+              fallbackChain,
+              matchedSources,
+              resolver
+            }
+          );
+        }
+
         return sendJson(
           {
             error: reason,
@@ -877,13 +972,43 @@ export async function GET(request: RouteRequest): Promise<Response> {
       }
       rdapBase = resolveRdapBaseFromIp(rawInput, registry, ipv4Value ? "ipv4" : "ipv6");
       if (!rdapBase) {
+        const ipinfo = await tryIpinfoLookup(rawInput, "ip");
+        if (ipinfo) {
+          return sendJson(
+            {
+              domain: rawInput,
+              queryType,
+              rdapServer: null,
+              match: {
+                matchedSuffix: null,
+                fallbackChain: [],
+                matchedSources: ["ipinfo.io"],
+                resolver: "ipinfo-api"
+              },
+              result: { partial: false, ipinfo }
+            },
+            200,
+            { normalizedQuery: rawInput, rdapServer: null }
+          );
+        }
         return sendJson(
-          { error: `No RDAP server found for ${rawInput}` },
-          404,
           {
-            normalizedQuery: rawInput,
-            error: `No RDAP server found for ${rawInput}`
-          }
+            domain: rawInput,
+            queryType,
+            rdapServer: null,
+            match: {
+              matchedSuffix: null,
+              fallbackChain: [],
+              matchedSources: [],
+              resolver: "none"
+            },
+            result: {
+              partial: true,
+              message: `No RDAP routing entry found for ${rawInput}`
+            }
+          },
+          200,
+          { normalizedQuery: rawInput, rdapServer: null }
         );
       }
       targetUrl = buildIpLookupUrl(rdapBase, rawInput);
@@ -898,6 +1023,25 @@ export async function GET(request: RouteRequest): Promise<Response> {
       const asn = asnValue ?? 0;
       rdapBase = resolveRdapBaseFromAsn(asn, registry);
       if (!rdapBase) {
+        const ipinfo = await tryIpinfoLookup(String(asn), "asn");
+        if (ipinfo) {
+          return sendJson(
+            {
+              domain: `AS${asn}`,
+              queryType,
+              rdapServer: null,
+              match: {
+                matchedSuffix: null,
+                fallbackChain: [],
+                matchedSources: ["ipinfo.io"],
+                resolver: "ipinfo-api"
+              },
+              result: { partial: false, ipinfo }
+            },
+            200,
+            { normalizedQuery: `AS${asn}`, rdapServer: null }
+          );
+        }
         return sendJson(
           { error: `No RDAP server found for AS${asn}` },
           404,
@@ -919,14 +1063,38 @@ export async function GET(request: RouteRequest): Promise<Response> {
           : typeof firstTry.body?.title === "string"
             ? firstTry.body.title
             : "RDAP query failed";
+      const responseStatus = toHttpStatus(firstTry.status);
+
+      if (queryType === "ip" && shouldRetryWithRegistryFallback(responseStatus)) {
+        const ipinfo = await tryIpinfoLookup(rawInput, "ip");
+        if (ipinfo) {
+          return sendJson(
+            {
+              domain: rawInput,
+              queryType,
+              rdapServer: rdapBase,
+              match: {
+                matchedSuffix: null,
+                fallbackChain: [],
+                matchedSources: ["ipinfo.io"],
+                resolver: "ipinfo-api"
+              },
+              result: { partial: true, rdapError: firstTry.body, ipinfo }
+            },
+            200,
+            { normalizedQuery: rawInput, rdapServer: rdapBase }
+          );
+        }
+      }
+
       return sendJson(
         {
           error: reason,
-          status: toHttpStatus(firstTry.status),
+          status: responseStatus,
           rdapServer: rdapBase,
           result: firstTry.body
         },
-        toHttpStatus(firstTry.status),
+        responseStatus,
         {
           normalizedQuery: queryLabel,
           rdapServer: rdapBase,

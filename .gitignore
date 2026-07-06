@@ -13,6 +13,7 @@ tsconfig.tsbuildinfo
 *.tgz
 .vscode/
 memory.md
+runtime/
 data/data-availability-report.json
 data/rdap-domain-test-report.json
 data/tlds-queryability-report.json

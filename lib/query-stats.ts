@@ -88,7 +88,7 @@ let redisDisabled = false;
 let fileStateLoaded = false;
 let fileStateWriteQueue: Promise<void> = Promise.resolve();
 
-const FILE_STATE_DIR = process.env.QUERY_STATS_DIR ?? path.resolve(process.cwd(), "..", "whoga-runtime");
+const FILE_STATE_DIR = process.env.QUERY_STATS_DIR ?? path.join(process.cwd(), "runtime");
 const FILE_STATE_PATH = path.join(FILE_STATE_DIR, "query-stats.json");
 
 const memoryState: QueryStatsState = {

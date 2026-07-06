@@ -2,8 +2,8 @@
   "checkedAt": "2026-02-20T13:21:52.007Z",
   "total": 205,
   "withRdap": 0,
-  "withWhois": 137,
-  "none": 68,
+  "withWhois": 143,
+  "none": 62,
   "failed": 0,
   "results": [
     {
@@ -154,7 +154,7 @@
       "tld": "cd",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.nic.cd"
     },
     {
       "tld": "cf",
@@ -466,7 +466,7 @@
       "tld": "kw",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.nic.kw"
     },
     {
       "tld": "kz",
@@ -550,7 +550,7 @@
       "tld": "mil",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.internic.net"
     },
     {
       "tld": "mk",
@@ -688,7 +688,7 @@
       "tld": "ps",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.registry.ps"
     },
     {
       "tld": "pt",
@@ -754,7 +754,7 @@
       "tld": "sl",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.nic.sl"
     },
     {
       "tld": "sm",
@@ -1228,7 +1228,7 @@
       "tld": "za",
       "ok": true,
       "rdap": "",
-      "whois": ""
+      "whois": "whois.nic.za"
     },
     {
       "tld": "zw",
