@@ -6,6 +6,7 @@ import {
   ArrowUp,
   BarChart3,
   Check,
+  HandHelping,
   Info,
   Code2,
   Copy,
@@ -39,6 +40,9 @@ function GitHubBrandIcon() {
 
 interface ApiResponse {
   error?: string;
+  errorCode?: string;
+  suffix?: string;
+  query?: string;
   domain?: string;
   queryType?: "domain" | "suffix" | "ip" | "asn" | "unknown";
   rdapServer?: string;
@@ -294,6 +298,17 @@ const I18N = {
     navTlds: "TLDs",
     navFaq: "FAQ",
     navLearn: "Learn",
+    navRequests: "Requests",
+    unsupportedSuffixBadge: "Unsupported suffix",
+    unsupportedSuffixTitle: "This suffix is not supported yet",
+    unsupportedSuffixBody:
+      "WHO.GA cannot query RDAP/WHOIS data for this suffix right now. You can request support once per visitor.",
+    requestSupport: "Request support",
+    requestSupportSubmitting: "Submitting...",
+    requestSupportDone: "Request submitted. Thanks!",
+    requestSupportAlready: "You have already submitted a support request.",
+    requestSupportFailed: "Failed to submit request. Please try again.",
+    viewPublicRequests: "View public requests",
     navApiCta: "Open API",
     apiUsageTitle: "API Usage",
     apiUsageLead: "Use `api.who.ga/<query>` to retrieve normalized RDAP JSON.",
@@ -460,6 +475,17 @@ const I18N = {
     navTlds: "后缀",
     navFaq: "FAQ",
     navLearn: "指南",
+    navRequests: "需求",
+    unsupportedSuffixBadge: "后缀暂不支持",
+    unsupportedSuffixTitle: "该后缀暂不支持查询",
+    unsupportedSuffixBody:
+      "WHO.GA 目前无法查询此后缀的 RDAP/WHOIS 数据。每位访客仅可提交一次支持请求。",
+    requestSupport: "请求支持",
+    requestSupportSubmitting: "提交中...",
+    requestSupportDone: "已提交请求，感谢反馈！",
+    requestSupportAlready: "您已提交过支持请求。",
+    requestSupportFailed: "提交失败，请稍后重试。",
+    viewPublicRequests: "查看公开需求列表",
     navApiCta: "打开 API",
     apiUsageTitle: "API 用法",
     apiUsageLead: "使用 `api.who.ga/<查询内容>` 获取标准化 RDAP JSON 响应。",
@@ -589,6 +615,36 @@ function getTldFromQuery(input: string): string | null {
   }
   const parts = cleaned.split(".").filter(Boolean);
   return parts.length ? parts[parts.length - 1] : null;
+}
+
+function resolveUnsupportedSuffixFromPayload(
+  payload: ApiResponse,
+  input: string
+): { suffix: string; query: string } | null {
+  if (payload.errorCode === "UNSUPPORTED_SUFFIX" && typeof payload.suffix === "string") {
+    return {
+      suffix: payload.suffix,
+      query: typeof payload.query === "string" ? payload.query : input
+    };
+  }
+
+  const error = typeof payload.error === "string" ? payload.error : "";
+  if (!error.toLowerCase().includes("not found")) {
+    return null;
+  }
+
+  const queryType = payload.queryType ?? detectQueryType(input);
+  if (queryType !== "domain" && queryType !== "suffix") {
+    return null;
+  }
+
+  const suffix =
+    queryType === "suffix" ? input.trim().replace(/^\.+/, "").toLowerCase() : getTldFromQuery(input);
+  if (!suffix) {
+    return null;
+  }
+
+  return { suffix, query: input.trim() };
 }
 
 function joinRdapDomainUrl(base: string, domain: string): string {
@@ -1223,6 +1279,12 @@ export function HomePage() {
   const [visitorIp, setVisitorIp] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [unsupportedSuffix, setUnsupportedSuffix] = useState<{ suffix: string; query: string } | null>(
+    null
+  );
+  const [supportFeedback, setSupportFeedback] = useState<
+    "idle" | "submitting" | "created" | "already" | "failed"
+  >("idle");
   const [data, setData] = useState<ApiResponse | null>(null);
 
   const [stats, setStats] = useState<StatsResponse | null>(null);
@@ -1715,6 +1777,8 @@ export function HomePage() {
 
     setLoading(true);
     setError(null);
+    setUnsupportedSuffix(null);
+    setSupportFeedback("idle");
 
     try {
       const fetchWhoisPayload = async (): Promise<{ response: Response; payload: ApiResponse }> => {
@@ -1763,6 +1827,15 @@ export function HomePage() {
       const { response, payload } = await fetchWhoisPayload();
 
       if (!response.ok) {
+        const unsupported = resolveUnsupportedSuffixFromPayload(payload, input);
+        if (unsupported) {
+          setUnsupportedSuffix(unsupported);
+          setError(null);
+          setData(null);
+          setDomain(input);
+          return;
+        }
+
         const serverError = typeof payload.error === "string" ? payload.error : null;
         throw new Error(serverError ?? `Request failed: ${response.status}`);
       }
@@ -1779,11 +1852,48 @@ export function HomePage() {
     } catch (requestError) {
       const message = errorToMessage(requestError, "Unknown error");
       setError(message);
+      setUnsupportedSuffix(null);
       setData(null);
     } finally {
       setLoading(false);
     }
   }, []);
+
+  const handleRequestSupport = useCallback(async (): Promise<void> => {
+    if (!unsupportedSuffix) {
+      return;
+    }
+
+    setSupportFeedback("submitting");
+    try {
+      const response = await fetch("/api/suffix-requests", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({ query: unsupportedSuffix.query })
+      });
+      const payload = (await response.json()) as {
+        created?: boolean;
+        reason?: string;
+        error?: string;
+      };
+
+      if (!response.ok && response.status !== 200) {
+        throw new Error(payload.error ?? `HTTP ${response.status}`);
+      }
+
+      if (payload.created === false && payload.reason === "already_requested") {
+        setSupportFeedback("already");
+        return;
+      }
+
+      setSupportFeedback("created");
+    } catch {
+      setSupportFeedback("failed");
+    }
+  }, [unsupportedSuffix]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -1798,6 +1908,8 @@ export function HomePage() {
     }
     autoRouteQueryRef.current = null;
     setError(null);
+    setUnsupportedSuffix(null);
+    setSupportFeedback("idle");
     setLoading(true);
     void navigate({ to: targetPath });
   }
@@ -2046,6 +2158,10 @@ export function HomePage() {
                 <BookOpen className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
                 <span>{t.navLearn}</span>
               </a>
+              <a href="/requests" className="nav-link" style={{ textDecoration: "none" }}>
+                <HandHelping className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navRequests}</span>
+              </a>
             </div>
 
             <div className="nav-actions">
@@ -2156,7 +2272,44 @@ export function HomePage() {
             </button>
           </form>
           <p className="supported-note">{t.supportedInput}</p>
-          {error ? <p className="error hero-error">{error}</p> : null}
+          {unsupportedSuffix ? (
+            <section className="unsupported-suffix-panel" aria-live="polite">
+              <div className="unsupported-suffix-head">
+                <span className="unsupported-suffix-badge">{t.unsupportedSuffixBadge}</span>
+                <h3 className="unsupported-suffix-title">{t.unsupportedSuffixTitle}</h3>
+              </div>
+              <p className="unsupported-suffix-copy">
+                {t.unsupportedSuffixBody}
+              </p>
+              <div className="unsupported-suffix-meta">
+                <code>.{unsupportedSuffix.suffix}</code>
+                <span>{unsupportedSuffix.query}</span>
+              </div>
+              <div className="unsupported-suffix-actions">
+                <button
+                  type="button"
+                  className="unsupported-suffix-btn"
+                  onClick={() => void handleRequestSupport()}
+                  disabled={supportFeedback === "submitting" || supportFeedback === "created" || supportFeedback === "already"}
+                >
+                  {supportFeedback === "submitting" ? t.requestSupportSubmitting : t.requestSupport}
+                </button>
+                <a href="/requests" className="unsupported-suffix-link" style={{ textDecoration: "none" }}>
+                  {t.viewPublicRequests}
+                </a>
+              </div>
+              {supportFeedback === "created" ? (
+                <p className="unsupported-suffix-feedback ok">{t.requestSupportDone}</p>
+              ) : null}
+              {supportFeedback === "already" ? (
+                <p className="unsupported-suffix-feedback muted">{t.requestSupportAlready}</p>
+              ) : null}
+              {supportFeedback === "failed" ? (
+                <p className="unsupported-suffix-feedback error">{t.requestSupportFailed}</p>
+              ) : null}
+            </section>
+          ) : null}
+          {error && !unsupportedSuffix ? <p className="error hero-error">{error}</p> : null}
 
           {loading && !formatted ? (
             <section className="results-section results-inline">

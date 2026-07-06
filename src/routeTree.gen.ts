@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RequestsIndexRouteImport } from './routes/requests/index'
 import { Route as LearnIndexRouteImport } from './routes/learn/index'
 import { Route as WhoisQueryRouteImport } from './routes/whois/$query'
 import { Route as LearnSlugRouteImport } from './routes/learn/$slug'
@@ -19,6 +20,11 @@ import { Route as LearnEnSlugRouteImport } from './routes/learn/en/$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestsIndexRoute = RequestsIndexRouteImport.update({
+  id: '/requests/',
+  path: '/requests/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LearnIndexRoute = LearnIndexRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn/': typeof LearnIndexRoute
+  '/requests/': typeof RequestsIndexRoute
   '/learn/en/$slug': typeof LearnEnSlugRoute
   '/learn/en/': typeof LearnEnIndexRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn': typeof LearnIndexRoute
+  '/requests': typeof RequestsIndexRoute
   '/learn/en/$slug': typeof LearnEnSlugRoute
   '/learn/en': typeof LearnEnIndexRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn/': typeof LearnIndexRoute
+  '/requests/': typeof RequestsIndexRoute
   '/learn/en/$slug': typeof LearnEnSlugRoute
   '/learn/en/': typeof LearnEnIndexRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/learn/$slug'
     | '/whois/$query'
     | '/learn/'
+    | '/requests/'
     | '/learn/en/$slug'
     | '/learn/en/'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/learn/$slug'
     | '/whois/$query'
     | '/learn'
+    | '/requests'
     | '/learn/en/$slug'
     | '/learn/en'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/learn/$slug'
     | '/whois/$query'
     | '/learn/'
+    | '/requests/'
     | '/learn/en/$slug'
     | '/learn/en/'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   LearnSlugRoute: typeof LearnSlugRoute
   WhoisQueryRoute: typeof WhoisQueryRoute
   LearnIndexRoute: typeof LearnIndexRoute
+  RequestsIndexRoute: typeof RequestsIndexRoute
   LearnEnSlugRoute: typeof LearnEnSlugRoute
   LearnEnIndexRoute: typeof LearnEnIndexRoute
 }
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/requests/': {
+      id: '/requests/'
+      path: '/requests'
+      fullPath: '/requests/'
+      preLoaderRoute: typeof RequestsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/learn/': {
@@ -160,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearnSlugRoute: LearnSlugRoute,
   WhoisQueryRoute: WhoisQueryRoute,
   LearnIndexRoute: LearnIndexRoute,
+  RequestsIndexRoute: RequestsIndexRoute,
   LearnEnSlugRoute: LearnEnSlugRoute,
   LearnEnIndexRoute: LearnEnIndexRoute,
 }

@@ -13,12 +13,20 @@ import { recordWhoisQueryStat, type QueryStatsEntryPoint } from "@/lib/query-sta
 import { resolveReadableDataPath } from "@/lib/runtime-data";
 import {
   buildRegistryFallbackResult,
+  extractRootTld,
   fetchIanaRootMetadata,
   shouldRetryWithRegistryFallback,
   tryRegistryFallback,
   type RegistryFallbackResult
 } from "@/lib/whois-fallback";
 import { tryIpinfoLookup } from "@/lib/whois-external-fallback";
+import { removeSuffixSupportRequestsForSuffix } from "@/lib/suffix-support-requests";
+import {
+  isSuffixSupportedForQuery,
+  normalizeSuffixLabel,
+  shouldTreatAsUnsupportedSuffix,
+  UNSUPPORTED_SUFFIX_ERROR_CODE
+} from "@/lib/suffix-support";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -139,6 +147,44 @@ async function sendRegistryFallbackResponse(
       rdapServer: null
     }
   );
+}
+
+async function sendUnsupportedSuffixJson(
+  sendJson: (
+    body: Record<string, unknown>,
+    status?: number,
+    statMeta?: Record<string, unknown>
+  ) => Response | Promise<Response>,
+  suffix: string,
+  query: string
+): Promise<Response> {
+  const message = `Suffix .${suffix} is not supported yet`;
+  return sendJson(
+    {
+      error: message,
+      errorCode: UNSUPPORTED_SUFFIX_ERROR_CODE,
+      suffix,
+      query
+    },
+    422,
+    {
+      normalizedQuery: query,
+      error: message,
+      rdapServer: null
+    }
+  );
+}
+
+async function clearSuffixSupportRequestIfNeeded(query: string, queryType: QueryType): Promise<void> {
+  if (queryType !== "domain" && queryType !== "suffix") {
+    return;
+  }
+  const suffix =
+    queryType === "suffix" ? normalizeSuffixLabel(query) : normalizeSuffixLabel(extractRootTld(query));
+  if (!suffix) {
+    return;
+  }
+  await removeSuffixSupportRequestsForSuffix(suffix);
 }
 
 async function readJson<T>(filePath: string): Promise<T | null> {
@@ -640,6 +686,10 @@ export async function GET(request: RouteRequest): Promise<Response> {
       error?: string | null;
     }
   ): Promise<Response> => {
+    if (status < 400 && (queryType === "domain" || queryType === "suffix")) {
+      const resolvedQuery = options?.normalizedQuery ?? cacheQuery;
+      void clearSuffixSupportRequestIfNeeded(resolvedQuery, queryType);
+    }
     await recordWhoisQueryStat({
       rawQuery: rawInput,
       normalizedQuery: options?.normalizedQuery ?? rawInput,
@@ -704,6 +754,27 @@ export async function GET(request: RouteRequest): Promise<Response> {
         const registryFallback =
           (await tryRegistryFallback(normalizedDomain, queryType)) ??
           (await fetchIanaRootMetadata(normalizedDomain, queryType));
+        const suffixLabel =
+          queryType === "suffix"
+            ? normalizeSuffixLabel(normalizedDomain)
+            : normalizeSuffixLabel(extractRootTld(normalizedDomain));
+        const hasUsefulFallback =
+          Boolean(registryFallback.whoisRaw) ||
+          Boolean(registryFallback.externalData) ||
+          (registryFallback.parsed
+            ? Object.keys(registryFallback.parsed).some(
+                (key) => key !== "message" && registryFallback.parsed?.[key]
+              )
+            : false);
+
+        if (!hasUsefulFallback && suffixLabel && !(await isSuffixSupportedForQuery(suffixLabel))) {
+          return sendUnsupportedSuffixJson(sendJson, suffixLabel, queryLabel);
+        }
+
+        if (queryType === "suffix" && suffixLabel && !(await isSuffixSupportedForQuery(suffixLabel))) {
+          return sendUnsupportedSuffixJson(sendJson, suffixLabel, queryLabel);
+        }
+
         return sendRegistryFallbackResponse(
           sendJson,
           cacheKey,
@@ -883,6 +954,16 @@ export async function GET(request: RouteRequest): Promise<Response> {
               resolver
             }
           );
+        }
+
+        const unsupported = await shouldTreatAsUnsupportedSuffix({
+          query: normalizedDomain,
+          queryType,
+          error: reason,
+          status: responseStatus
+        });
+        if (unsupported) {
+          return sendUnsupportedSuffixJson(sendJson, unsupported.suffix, unsupported.query);
         }
 
         return sendJson(

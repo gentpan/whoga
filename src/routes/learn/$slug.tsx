@@ -11,7 +11,7 @@ import { ArticleLayout } from "@/src/components/learn/article-layout";
 export const Route = createFileRoute("/learn/$slug")({
   loader: ({ params }) => {
     if (params.slug === "en") {
-      throw redirect({ to: "/learn/en/" });
+      throw redirect({ to: "/learn/en" });
     }
     const record = getArticle(params.slug);
     const content = getArticleContent(params.slug, "zh");

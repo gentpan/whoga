@@ -110,7 +110,8 @@ export function getSitemapEntries(): Array<{ loc: string; lastmod: string }> {
   const entries: Array<{ loc: string; lastmod: string }> = [
     { loc: "https://who.ga/", lastmod: "2026-07-06" },
     { loc: "https://who.ga/learn", lastmod: "2026-07-06" },
-    { loc: "https://who.ga/learn/en", lastmod: "2026-07-06" }
+    { loc: "https://who.ga/learn/en", lastmod: "2026-07-06" },
+    { loc: "https://who.ga/requests", lastmod: "2026-07-06" }
   ];
   for (const item of articles) {
     entries.push({
