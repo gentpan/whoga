@@ -913,7 +913,7 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
-  padding: 22px;
+  padding: 18px 20px 16px;
   box-shadow: var(--card-shadow);
 }
 
@@ -931,8 +931,24 @@ body {
   font-size: 0.88rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 18px;
+  gap: 6px 8px;
   justify-content: flex-end;
+}
+
+.request-charts-time .request-stat-badge {
+  min-height: 28px;
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+.request-charts-time .request-stat-key {
+  height: 18px;
+  padding: 0 6px;
+  font-size: 0.68rem;
+}
+
+.request-charts-time .request-stat-value {
+  font-size: 0.82rem;
 }
 
 .request-charts-time span {
@@ -972,54 +988,141 @@ body {
   line-height: 1;
 }
 
+.request-chart-scroll {
+  margin-top: 14px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 197, 94, 0.35) transparent;
+}
+
+.request-chart-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.request-chart-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.35);
+}
+
 .request-chart-grid {
   display: grid;
-  gap: 8px;
-  margin-top: 18px;
+  gap: 2px;
   align-items: end;
-  overflow: hidden;
-  padding: 0 2px 4px;
+  width: 100%;
+  padding: 12px 0 2px;
 }
 
 .request-chart-col {
-  display: grid;
-  gap: 6px;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
   min-width: 0;
+  width: 100%;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.request-chart-value {
-  color: var(--text);
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 1;
+.request-chart-col:focus {
+  outline: none;
+}
+
+.request-chart-col:focus-visible .request-chart-bar {
+  outline: 2px solid rgba(34, 197, 94, 0.55);
+  outline-offset: 2px;
+}
+
+.request-chart-tooltip-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #fff;
+  font-size: 0.72rem;
+  line-height: 1.2;
   white-space: nowrap;
-  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+  transform-origin: var(--transform-origin);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.request-chart-tooltip-popup[data-starting-style],
+.request-chart-tooltip-popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.request-chart-tooltip-popup[data-instant] {
+  transition: none;
+}
+
+.request-chart-tooltip-date {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.66rem;
+}
+
+.request-chart-tooltip-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 
 .request-chart-bar-wrap {
   width: 100%;
-  height: 140px;
+  height: 112px;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   border-radius: 0;
   overflow: visible;
 }
 
 .request-chart-bar {
-  width: 100%;
-  min-height: 12px;
+  width: 8px;
+  min-width: 8px;
+  max-width: 8px;
+  flex-shrink: 0;
+  min-height: 4px;
   border-radius: 2px 2px 0 0;
-  background: #22c55f;
+  background: #22c55e;
   box-shadow: none;
+  transition: background 140ms ease, transform 140ms ease;
+  transform-origin: bottom center;
+}
+
+.request-chart-col:hover .request-chart-bar,
+.request-chart-col:focus-visible .request-chart-bar,
+.request-chart-col[data-popup-open] .request-chart-bar {
+  background: #16a34a;
+  transform: scaleY(1.03);
 }
 
 .request-chart-date {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.6rem;
   line-height: 1;
   white-space: nowrap;
-  max-width: 100%;
+  width: 100%;
+  min-height: 0.6rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.request-chart-date.is-spacer {
+  visibility: hidden;
 }
 
 .api-usage-grid {
@@ -2846,7 +2949,22 @@ body {
   }
 
   .request-chart-grid {
-    gap: 8px;
+    gap: 1px;
+    padding-top: 8px;
+  }
+
+  .request-chart-bar {
+    width: 6px;
+    min-width: 6px;
+    max-width: 6px;
+  }
+
+  .request-chart-bar-wrap {
+    height: 96px;
+  }
+
+  .request-chart-date {
+    font-size: 0.56rem;
   }
 }
 

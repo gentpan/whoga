@@ -37,6 +37,7 @@ Web UI + JSON API · Domain · TLD · IP · ASN
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
 <img src="https://img.shields.io/badge/Nitro-00DC82?style=for-the-badge" alt="Nitro" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+<img src="https://img.shields.io/badge/Base_UI-111827?style=for-the-badge" alt="Base UI" />
 
 <br />
 
@@ -84,6 +85,28 @@ curl "http://localhost:3410/api/whois?query=AS15169"
 
 Live demo: <a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
 
+## Tech stack
+
+**In short: a single-repo Node full-stack app** — web UI and JSON API run in one process, one build, one deploy.
+
+| Part | What we use |
+|------|-------------|
+| **Runtime** | Node.js 20+ · pnpm |
+| **Frontend** | React 19 · TypeScript · Vite |
+| **Routing** | TanStack Router / Start |
+| **UI** | [Base UI](https://base-ui.com) (menus, tooltips, etc.; styled with project CSS) |
+| **Styling** | Plain CSS · Sora font · Lucide icons |
+| **API** | `api/` in the same repo, served by the same process |
+| **Cache** | Redis (optional) |
+
+Under the hood: Nitro for the server layer, TanStack Start for full-stack wiring. Day to day you only need:
+
+```bash
+pnpm install    # install deps
+pnpm dev        # development
+pnpm build && pnpm start   # production
+```
+
 ## Configuration
 
 ```bash
@@ -112,13 +135,13 @@ Data paths: `data/` (seed) → `runtime/data/` (runtime, preferred)
 
 ```
 whoga/
-├── web/           # Frontend (TanStack Start pages & components)
-├── api/           # Backend (Nitro routes + HTTP handlers)
+├── web/           # Pages and UI components
+├── api/           # HTTP API (/api/whois, /api/stats, etc.)
 ├── public/        # Static assets (logo, favicons, robots.txt)
-├── lib/           # Shared business logic
+├── lib/           # Shared logic (RDAP/WHOIS, data index)
 ├── data/          # Seed data
-├── runtime/       # Runtime data (gitignore)
-├── scripts/       # Ops & data scripts
+├── runtime/       # Runtime data (gitignore, preferred at runtime)
+├── scripts/       # Data refresh and ops scripts
 └── deploy/        # Deployment scripts
 ```
 

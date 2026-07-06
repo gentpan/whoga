@@ -1,6 +1,18 @@
 # 前端 Web Frontend
 
-TanStack Start / Router 页面与 React 组件（`vite.config.ts` → `tanstackStart({ srcDirectory: "web" })`）。
+页面与 React 组件，源码在 `web/`（Vite 配置见根目录 `vite.config.ts`）。
+
+## 技术栈
+
+| 部分 | 说明 |
+|------|------|
+| **框架** | React 19 · TypeScript |
+| **路由** | TanStack Router / Start |
+| **交互** | Base UI（语言菜单、图表 Tooltip 等） |
+| **样式** | `styles.css` 全局 CSS · Sora 字体 |
+| **图标** | lucide-react |
+
+Base UI 是无样式 headless 组件，外观由项目 CSS 控制，便于配合暗色主题和品牌色。
 
 ```
 web/

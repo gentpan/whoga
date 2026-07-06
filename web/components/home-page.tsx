@@ -1,6 +1,7 @@
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "@tanstack/react-router";
 import { Menu } from "@base-ui/react/menu";
+import { Tooltip } from "@base-ui/react/tooltip";
 import { ThemeToggle } from "@/web/components/theme-toggle";
 import {
   ArrowUp,
@@ -1463,27 +1464,26 @@ export function HomePage() {
       stats?.queryStats.dailySeries && stats.queryStats.dailySeries.length
         ? stats.queryStats.dailySeries
         : buildFallbackDailySeries();
-    const visibleSeries = series.slice(-21);
+    const visibleSeries = series.slice(-30);
     const max = Math.max(1, ...visibleSeries.map((item) => item.total));
+    const dateTickEvery = 7;
 
-    function formatChartValue(value: number): string {
-      if (value >= 1_000_000) {
-        return `${(value / 1_000_000).toFixed(2).replace(/\.0+$/, "").replace(/(\.\d*[1-9])0+$/, "$1")}M`;
-      }
-      if (value >= 1000) {
-        return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}K`;
-      }
-      return String(value);
-    }
+    return visibleSeries.map((item, index) => {
+      const isFirst = index === 0;
+      const isLast = index === visibleSeries.length - 1;
+      const showDateLabel = isFirst || isLast || index % dateTickEvery === 0;
+      const [, month, day] = item.date.split("-");
 
-    return visibleSeries.map((item) => ({
-      date: item.date,
-      value: item.total,
-      valueLabel: formatChartValue(item.total),
-      dateLabel: item.date.slice(5).replace("-", "/"),
-      height: `${Math.max(12, Math.round((item.total / max) * 100))}%`
-    }));
-  }, [stats]);
+      return {
+        date: item.date,
+        value: item.total,
+        valueLabel: item.total.toLocaleString(numberLocale),
+        dateLabel: `${Number(month)}/${Number(day)}`,
+        showDateLabel,
+        height: `${Math.max(6, Math.round((item.total / max) * 100))}%`
+      };
+    });
+  }, [stats, numberLocale]);
   const formatCompactRequestCount = useCallback(
     (value: number): string => {
       if (value >= 1_000_000) {
@@ -2748,22 +2748,43 @@ export function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <div
-                    className="request-chart-grid"
-                    style={{ gridTemplateColumns: `repeat(${chartPoints.length}, minmax(0, 1fr))` }}
-                  >
-                    {chartPoints.map((point) => (
-                      <div className="request-chart-col" key={point.date}>
-                        <span className="request-chart-value">
-                          {point.valueLabel}
-                        </span>
-                        <div className="request-chart-bar-wrap">
-                          <div className="request-chart-bar" style={{ height: point.height }} />
-                        </div>
-                        <span className="request-chart-date">{point.dateLabel}</span>
+                  <Tooltip.Provider delay={120} closeDelay={80} timeout={320}>
+                    <div className="request-chart-scroll">
+                      <div
+                        className="request-chart-grid"
+                        style={{ gridTemplateColumns: `repeat(${chartPoints.length}, minmax(0, 1fr))` }}
+                      >
+                        {chartPoints.map((point) => (
+                          <Tooltip.Root key={point.date}>
+                            <Tooltip.Trigger
+                              className="request-chart-col"
+                              aria-label={`${point.dateLabel} · ${point.valueLabel}`}
+                              delay={120}
+                              closeDelay={80}
+                            >
+                              <div className="request-chart-bar-wrap">
+                                <div className="request-chart-bar" style={{ height: point.height }} />
+                              </div>
+                              <span
+                                className={`request-chart-date${point.showDateLabel ? "" : " is-spacer"}`}
+                                aria-hidden={!point.showDateLabel}
+                              >
+                                {point.showDateLabel ? point.dateLabel : "\u00a0"}
+                              </span>
+                            </Tooltip.Trigger>
+                            <Tooltip.Portal>
+                              <Tooltip.Positioner side="top" sideOffset={8} align="center">
+                                <Tooltip.Popup className="request-chart-tooltip-popup">
+                                  <span className="request-chart-tooltip-date">{point.dateLabel}</span>
+                                  <span className="request-chart-tooltip-value">{point.valueLabel}</span>
+                                </Tooltip.Popup>
+                              </Tooltip.Positioner>
+                            </Tooltip.Portal>
+                          </Tooltip.Root>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  </Tooltip.Provider>
                 </div>
               </section>
             ) : null}

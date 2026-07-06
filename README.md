@@ -37,6 +37,7 @@ Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
 <img src="https://img.shields.io/badge/Nitro-00DC82?style=for-the-badge" alt="Nitro" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+<img src="https://img.shields.io/badge/Base_UI-111827?style=for-the-badge" alt="Base UI" />
 
 <br />
 
@@ -84,6 +85,28 @@ curl "http://localhost:3410/api/whois?query=AS15169"
 
 在线示例：<a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
 
+## 技术栈
+
+**一句话：单仓 Node 全栈应用** — 网页和 JSON API 同一个进程，一次构建、一次部署。
+
+| 部分 | 说明 |
+|------|------|
+| **运行** | Node.js 20+ · pnpm |
+| **前端** | React 19 · TypeScript · Vite |
+| **路由** | TanStack Router / Start |
+| **交互** | [Base UI](https://base-ui.com)（菜单、Tooltip 等，样式由项目 CSS 定制） |
+| **样式** | 原生 CSS · Sora 字体 · Lucide 图标 |
+| **API** | 同仓库 `api/` 目录，与页面共用一套服务 |
+| **缓存** | Redis（可选） |
+
+底层用到 Nitro 做服务端、TanStack Start 做全栈整合，但日常只需要：
+
+```bash
+pnpm install    # 安装
+pnpm dev        # 开发
+pnpm build && pnpm start   # 生产
+```
+
 ## 配置
 
 ```bash
@@ -112,13 +135,13 @@ pnpm refresh:data
 
 ```
 whoga/
-├── web/           # 前端（TanStack Start 页面与组件）
-├── api/           # 后端（Nitro 路由 + HTTP handlers）
+├── web/           # 页面与 UI 组件
+├── api/           # HTTP API（/api/whois、/api/stats 等）
 ├── public/        # 静态资源（logo、favicon、robots.txt）
-├── lib/           # 共享业务逻辑
+├── lib/           # 共享业务逻辑（RDAP/WHOIS、数据索引）
 ├── data/          # 种子数据
-├── runtime/       # 运行时数据（gitignore）
-├── scripts/       # 运维与数据脚本
+├── runtime/       # 运行时数据（gitignore，优先读取）
+├── scripts/       # 数据刷新与运维脚本
 └── deploy/        # 部署脚本
 ```
 
