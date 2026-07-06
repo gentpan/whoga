@@ -27,6 +27,8 @@
     "audit:data": "node scripts/audit-data.mjs --report",
     "audit:data:strict": "node scripts/audit-data.mjs --report --strict",
     "sync:rdap-extra": "node scripts/sync-rdap-extra.mjs",
+    "generate:articles": "node scripts/generate-article-library.mjs",
+    "generate:brand": "node scripts/generate-brand-assets.mjs",
     "refresh:data": "bash scripts/data-refresh-cron.sh"
   },
   "dependencies": {

@@ -17,6 +17,8 @@ Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
 <p>
   <a href="https://who.ga" style="text-decoration:none;color:#16a34a;font-weight:600;">who.ga</a>
   &nbsp;·&nbsp;
+  <a href="https://who.ga/learn" style="text-decoration:none;color:#111827;font-weight:600;">技术指南</a>
+  &nbsp;·&nbsp;
   <a href="https://api.who.ga" style="text-decoration:none;color:#111827;font-weight:600;">api.who.ga</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/gentpan/whoga/issues" style="text-decoration:none;color:#111827;font-weight:600;">Issues</a>

@@ -15,6 +15,7 @@ import {
   Languages,
   Lock,
   Play,
+  BookOpen,
   Search,
   TriangleAlert,
   Zap
@@ -292,6 +293,7 @@ const I18N = {
     navApi: "API",
     navTlds: "TLDs",
     navFaq: "FAQ",
+    navLearn: "Learn",
     navApiCta: "Open API",
     apiUsageTitle: "API Usage",
     apiUsageLead: "Use `api.who.ga/<query>` to retrieve normalized RDAP JSON.",
@@ -457,6 +459,7 @@ const I18N = {
     navApi: "API",
     navTlds: "后缀",
     navFaq: "FAQ",
+    navLearn: "指南",
     navApiCta: "打开 API",
     apiUsageTitle: "API 用法",
     apiUsageLead: "使用 `api.who.ga/<查询内容>` 获取标准化 RDAP JSON 响应。",
@@ -2039,6 +2042,10 @@ export function HomePage() {
                 <Info className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
                 <span>{t.navFaq}</span>
               </button>
+              <a href="/learn" className="nav-link" style={{ textDecoration: "none" }}>
+                <BookOpen className="nav-link-icon" aria-hidden size={16} strokeWidth={2} />
+                <span>{t.navLearn}</span>
+              </a>
             </div>
 
             <div className="nav-actions">

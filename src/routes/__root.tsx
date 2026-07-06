@@ -26,7 +26,9 @@ export const Route = createRootRoute({
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:locale", content: "zh_CN" },
-      { property: "og:locale:alternate", content: "en_US" },
+      { property: "og:image", content: "https://who.ga/android-chrome-512x512.png" },
+      { property: "og:image:width", content: "512" },
+      { property: "og:image:height", content: "512" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "WHO.GA - RDAP WHOIS 查询与 JSON API" },
       {
@@ -46,7 +48,10 @@ export const Route = createRootRoute({
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "mask-icon", href: "/logo-whoga-green.svg", color: "#22C55F" }
+      { rel: "mask-icon", href: "/logo-mask.svg", color: "#22C55E" },
+      { rel: "canonical", href: "https://who.ga" },
+      { rel: "alternate", hreflang: "zh-CN", href: "https://who.ga" },
+      { rel: "alternate", hreflang: "en", href: "https://who.ga/learn/en" }
     ]
   }),
   component: RootComponent,

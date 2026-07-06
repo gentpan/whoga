@@ -10,11 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LearnIndexRouteImport } from './routes/learn/index'
 import { Route as WhoisQueryRouteImport } from './routes/whois/$query'
+import { Route as LearnSlugRouteImport } from './routes/learn/$slug'
+import { Route as LearnEnIndexRouteImport } from './routes/learn/en/index'
+import { Route as LearnEnSlugRouteImport } from './routes/learn/en/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/learn/',
+  path: '/learn/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhoisQueryRoute = WhoisQueryRouteImport.update({
@@ -22,31 +31,81 @@ const WhoisQueryRoute = WhoisQueryRouteImport.update({
   path: '/whois/$query',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/learn/$slug',
+  path: '/learn/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnEnIndexRoute = LearnEnIndexRouteImport.update({
+  id: '/learn/en/',
+  path: '/learn/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnEnSlugRoute = LearnEnSlugRouteImport.update({
+  id: '/learn/en/$slug',
+  path: '/learn/en/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
+  '/learn/': typeof LearnIndexRoute
+  '/learn/en/$slug': typeof LearnEnSlugRoute
+  '/learn/en/': typeof LearnEnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
+  '/learn': typeof LearnIndexRoute
+  '/learn/en/$slug': typeof LearnEnSlugRoute
+  '/learn/en': typeof LearnEnIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/whois/$query': typeof WhoisQueryRoute
+  '/learn/': typeof LearnIndexRoute
+  '/learn/en/$slug': typeof LearnEnSlugRoute
+  '/learn/en/': typeof LearnEnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/whois/$query'
+  fullPaths:
+    | '/'
+    | '/learn/$slug'
+    | '/whois/$query'
+    | '/learn/'
+    | '/learn/en/$slug'
+    | '/learn/en/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/whois/$query'
-  id: '__root__' | '/' | '/whois/$query'
+  to:
+    | '/'
+    | '/learn/$slug'
+    | '/whois/$query'
+    | '/learn'
+    | '/learn/en/$slug'
+    | '/learn/en'
+  id:
+    | '__root__'
+    | '/'
+    | '/learn/$slug'
+    | '/whois/$query'
+    | '/learn/'
+    | '/learn/en/$slug'
+    | '/learn/en/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LearnSlugRoute: typeof LearnSlugRoute
   WhoisQueryRoute: typeof WhoisQueryRoute
+  LearnIndexRoute: typeof LearnIndexRoute
+  LearnEnSlugRoute: typeof LearnEnSlugRoute
+  LearnEnIndexRoute: typeof LearnEnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +117,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn/': {
+      id: '/learn/'
+      path: '/learn'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/whois/$query': {
       id: '/whois/$query'
       path: '/whois/$query'
@@ -65,12 +131,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhoisQueryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/learn/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/en/': {
+      id: '/learn/en/'
+      path: '/learn/en'
+      fullPath: '/learn/en/'
+      preLoaderRoute: typeof LearnEnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/en/$slug': {
+      id: '/learn/en/$slug'
+      path: '/learn/en/$slug'
+      fullPath: '/learn/en/$slug'
+      preLoaderRoute: typeof LearnEnSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LearnSlugRoute: LearnSlugRoute,
   WhoisQueryRoute: WhoisQueryRoute,
+  LearnIndexRoute: LearnIndexRoute,
+  LearnEnSlugRoute: LearnEnSlugRoute,
+  LearnEnIndexRoute: LearnEnIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
