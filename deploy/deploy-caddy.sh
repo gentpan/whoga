@@ -3,10 +3,13 @@
 # who.ga 生产部署（Caddy + systemd）
 # 服务器: 8.217.86.171
 # 路径: /opt/who.ga
-# 用法: ./deploy-caddy.sh [ssh_key]
+# 用法: ./deploy/deploy-caddy.sh [ssh_key]
 # ============================================================
 
 set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
 
 HOST="root@8.217.86.171"
 KEY="${1:-$HOME/.ssh/gentpan.pem}"
