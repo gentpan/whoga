@@ -2,9 +2,9 @@
 
 # Whoga
 
-**自托管 RDAP / WHOIS 查询平台 — 带 Web 界面与 JSON API**
+**自托管 RDAP / WHOIS 查询平台**
 
-[who.ga](https://who.ga) 的开源实现。一条命令启动本地查询站，支持域名、后缀、IP、ASN 查询。
+Web 查询界面 + JSON API，支持域名、TLD 后缀、IP、ASN 查询。可部署到自有服务器，也可参考官方实例 [who.ga](https://who.ga)。
 
 <p>
   <img src="https://img.shields.io/badge/TanStack_Start-1.168-FF4154?style=flat-square" alt="TanStack Start">
@@ -14,15 +14,26 @@
   <img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="License">
 </p>
 
+<p>
+  <a href="https://who.ga">who.ga</a> ·
+  <a href="https://api.who.ga">api.who.ga</a> ·
+  <a href="https://github.com/gentpan/whoga/issues">Issues</a>
+</p>
+
 </div>
 
 ---
 
-## 为什么叫 Whoga？
+## 概述
 
-- **Whoga** = **Who** + **GA**，与线上产品 [who.ga](https://who.ga) 同名，简短好记
-- GitHub 仓库名 `whoga` 保持不变，方便 fork 与部署
-- 若你自建实例，可挂任意域名；Whoga 是软件项目名，who.ga 是官方演示站
+Whoga 从 IANA RDAP 引导数据与公开后缀列表出发，在本地构建可查询的注册局索引，对外提供：
+
+- **Web 界面** — 搜索域名、后缀、IP、ASN，查看结构化结果
+- **JSON API** — `GET /api/whois?query=<value>`，便于脚本与第三方集成
+- **WHOIS 回退** — 当目标后缀暂无 RDAP 端点时，自动尝试 port43 WHOIS
+- **本地数据索引** — 减少对上游的重复请求，支持定时刷新
+
+适合需要自建 WHOIS/RDAP 查询服务、内网域名信息工具、或学习 RDAP 数据链路的场景。
 
 ---
 
@@ -97,7 +108,7 @@ curl http://localhost:3410/api/stats
 curl http://localhost:3410/api/meta
 ```
 
-线上演示：[api.who.ga](https://api.who.ga/google.com)
+线上演示：[api.who.ga/google.com](https://api.who.ga/google.com)
 
 ---
 
@@ -188,9 +199,9 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-WorkingDirectory=/opt/who.ga
-EnvironmentFile=/opt/who.ga/.env
-ExecStart=/opt/who.ga/scripts/data-refresh-cron.sh
+WorkingDirectory=/opt/whoga
+EnvironmentFile=/opt/whoga/.env
+ExecStart=/opt/whoga/scripts/data-refresh-cron.sh
 
 # /etc/systemd/system/whoga-data-refresh.timer
 [Unit]
@@ -269,9 +280,9 @@ pnpm build        # 生产构建
 
 ## 相关链接
 
-- 线上演示：[who.ga](https://who.ga)
-- API 演示：[api.who.ga](https://api.who.ga)
-- 问题反馈：[GitHub Issues](https://github.com/gentpan/whoga/issues)
+- 官方演示站：[who.ga](https://who.ga)
+- API 示例：[api.who.ga](https://api.who.ga)
+- 提交问题：[GitHub Issues](https://github.com/gentpan/whoga/issues)
 
 ---
 
