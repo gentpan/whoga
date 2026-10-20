@@ -38,8 +38,7 @@ export function LearnIndexPage({ locale }: LearnIndexPageProps) {
                     key={item.slug}
                     to={to}
                     params={{ slug: item.slug }}
-                    className="learn-card"
-                    style={{ textDecoration: "none" }}
+                    className="learn-card plain-link squircle"
                   >
                     <div className="learn-card-meta">
                       <time dateTime={item.updatedAt}>{item.updatedAt}</time>

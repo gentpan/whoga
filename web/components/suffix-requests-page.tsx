@@ -103,7 +103,7 @@ export function SuffixRequestsPage() {
         </header>
 
         <div className="requests-toolbar">
-          <button type="button" className="requests-refresh" onClick={() => void loadRequests()} disabled={loading}>
+          <button type="button" className="requests-refresh squircle" onClick={() => void loadRequests()} disabled={loading}>
             {loading ? t.loading : t.refresh}
           </button>
         </div>
@@ -112,11 +112,11 @@ export function SuffixRequestsPage() {
 
         {data ? (
           <section className="requests-summary">
-            <div className="requests-stat">
+            <div className="requests-stat squircle">
               <span>{t.totalRequests}</span>
               <strong>{data.totalRequests}</strong>
             </div>
-            <div className="requests-stat">
+            <div className="requests-stat squircle">
               <span>{t.uniqueSuffixes}</span>
               <strong>{data.uniqueSuffixes}</strong>
             </div>
@@ -128,7 +128,7 @@ export function SuffixRequestsPage() {
         {!loading && data && data.items.length === 0 ? <p className="requests-muted">{t.empty}</p> : null}
 
         {data && data.items.length > 0 ? (
-          <div className="requests-table-wrap">
+          <div className="requests-table-wrap squircle">
             <table className="requests-table">
               <thead>
                 <tr>
@@ -153,8 +153,7 @@ export function SuffixRequestsPage() {
                             key={query}
                             to="/whois/$query"
                             params={{ query }}
-                            className="requests-sample-link"
-                            style={{ textDecoration: "none" }}
+                            className="requests-sample-link plain-link"
                           >
                             {query}
                           </Link>

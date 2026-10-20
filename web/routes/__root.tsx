@@ -1,9 +1,9 @@
 import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
 
-const SITE_TITLE = "WHO.GA - RDAP WHOIS 查询与 JSON API | Domain, IP, ASN Lookup";
+const SITE_TITLE = "WHO.GA — 域名、IP、ASN 查询 | RDAP WHOIS 与 JSON API";
 const SITE_DESCRIPTION =
-  "WHO.GA 提供基于 RDAP 的域名、IP、ASN 与后缀查询服务，支持结构化 JSON API、在线调试与开发者集成. WHO.GA provides RDAP-based lookup for domains, IPs, ASNs, and suffixes with structured JSON API access.";
+  "WHO.GA 提供域名、IP、ASN 与后缀的 RDAP 优先查询，WHOIS 自动回退，结构化 JSON 输出与开发者 API，路由数据每日同步 IANA。RDAP-first lookup for domains, IPs, ASNs, and TLD suffixes — structured JSON, WHOIS fallback, synced with IANA daily.";
 
 const SORA_FONT_URL = "https://static.bluecdn.com/fonts/sora.css";
 
@@ -32,11 +32,11 @@ export const Route = createRootRoute({
       { property: "og:image:width", content: "512" },
       { property: "og:image:height", content: "512" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "WHO.GA - RDAP WHOIS 查询与 JSON API" },
+      { name: "twitter:title", content: "WHO.GA — 域名、IP、ASN 查询" },
       {
         name: "twitter:description",
         content:
-          "域名、IP、ASN 与后缀查询，支持结构化 JSON API 与在线调试. RDAP lookup and JSON API for domains, IPs, ASNs, and suffixes."
+          "域名、IP、ASN 与后缀的 RDAP 优先查询，结构化 JSON 输出。RDAP-first lookup for domains, IPs, ASNs, and TLD suffixes."
       },
       { name: "mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
@@ -74,6 +74,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var k="who-ga-css-reload";function r(){if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,"1");location.reload()}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('link[rel="stylesheet"]').forEach(function(l){l.addEventListener("error",r)})});window.addEventListener("pageshow",function(e){if(e.persisted)sessionStorage.removeItem(k)})})();`
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=window.localStorage.getItem("theme");if(t!=="light"&&t!=="dark"&&t!=="terminal"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){}})();`
           }}
         />
         <HeadContent />

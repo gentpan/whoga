@@ -17,6 +17,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           </div>
           <div className="footer-social">
             <a
+              className="footer-social-link squircle"
               href="https://x.com/gentpan"
               target="_blank"
               rel="noreferrer"
@@ -26,6 +27,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
               <XBrandIcon />
             </a>
             <a
+              className="footer-social-link squircle"
               href="https://github.com/gentpan"
               target="_blank"
               rel="noreferrer"
@@ -41,7 +43,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
               aria-label="Powered by GiantAccel"
               title="Powered by GiantAccel"
               data-tooltip="Powered by GiantAccel"
-              className="footer-giantaccel"
+              className="footer-giantaccel footer-social-link squircle"
             >
               <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M512 851.456c187.904 0 340.992-152.064 343.04-339.456h-145.408c-2.048 107.52-89.6 194.048-197.632 194.048S316.416 619.52 314.368 512H168.96c2.048 187.392 155.136 339.456 343.04 339.456zM550.912 216.064H855.04v145.408h-304.128z" />

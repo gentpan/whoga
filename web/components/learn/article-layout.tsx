@@ -25,13 +25,13 @@ function renderSection(section: ArticleSection, index: number) {
       );
     case "code":
       return (
-        <pre key={index} className="article-code">
+        <pre key={index} className="article-code squircle">
           <code>{section.code}</code>
         </pre>
       );
     case "note":
       return (
-        <aside key={index} className="article-note">
+        <aside key={index} className="article-note squircle">
           {section.text}
         </aside>
       );
@@ -70,7 +70,7 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
     <SiteShell pageClassName="learn-page">
       <div className="page-content learn-main">
         <nav className="article-breadcrumb" aria-label="Breadcrumb">
-          <a href={listHref} style={{ textDecoration: "none" }}>
+          <a href={listHref} className="plain-link">
             {isZh ? "技术指南" : "Learn"}
           </a>
           <span aria-hidden="true">/</span>
@@ -79,7 +79,7 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
 
         <header className="article-hero">
           <div className="article-meta-row">
-            <span className="article-badge">{record.category[locale]}</span>
+            <span className="article-badge squircle">{record.category[locale]}</span>
             <time dateTime={record.updatedAt}>
               {isZh ? "更新于" : "Updated"} {record.updatedAt}
             </time>
@@ -91,7 +91,7 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
           <p className="article-description">{content.description}</p>
           <div className="article-keywords">
             {content.keywords.map((keyword) => (
-              <span key={keyword} className="article-keyword">
+              <span key={keyword} className="article-keyword squircle">
                 {keyword}
               </span>
             ))}
@@ -103,7 +103,7 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
         <footer className="article-footer">
           <div className="article-lang-switch">
             <span>{isZh ? "阅读英文版：" : "Read in Chinese:"}</span>
-            <a href={otherHref} style={{ textDecoration: "none" }}>
+            <a href={otherHref} className="plain-link">
               {otherContent.title}
             </a>
           </div>
@@ -116,8 +116,8 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
                   const href = isZh ? `/learn/${item.slug}` : `/learn/en/${item.slug}`;
                   const meta = item[locale];
                   return (
-                    <a key={item.slug} href={href} className="article-related-card" style={{ textDecoration: "none" }}>
-                      <span className="article-badge">{item.category[locale]}</span>
+                    <a key={item.slug} href={href} className="article-related-card plain-link squircle">
+                      <span className="article-badge squircle">{item.category[locale]}</span>
                       <h3>{meta.title}</h3>
                       <p>{meta.description}</p>
                     </a>
@@ -127,9 +127,9 @@ export function ArticleLayout({ locale, record, content, related }: ArticleLayou
             </section>
           ) : null}
 
-          <div className="article-cta">
+          <div className="article-cta squircle">
             <p>{isZh ? "立即体验 RDAP/WHOIS 查询：" : "Try RDAP/WHOIS lookup now:"}</p>
-            <a href="/" className="article-cta-button" style={{ textDecoration: "none" }}>
+            <a href="/" className="article-cta-button plain-link squircle">
               who.ga
             </a>
           </div>

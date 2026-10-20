@@ -1,0 +1,944 @@
+/* ============================================================
+   方案 E · 中性单色暗色（Apple Developer / raycast.com 气质）
+   /preview/e 专属样式 —— 全部选择器 scoped 在 .preview-e 下
+   灰阶：3 档表面 + 2 档边框 + 5 档文字，彩色仅用于状态语义
+   ============================================================ */
+
+.preview-e {
+  /* 表面（近黑 → 卡片 →  inset） */
+  --pe-bg: #09090b;
+  --pe-surface: #101014;
+  --pe-inset: #0c0c0f;
+  --pe-tile: #1b1b21;
+
+  /* 边框两档 */
+  --pe-border: rgba(255, 255, 255, 0.07);
+  --pe-border-strong: rgba(255, 255, 255, 0.15);
+
+  /* 文字五档 */
+  --pe-t1: #fafafa;
+  --pe-t2: #d4d4d8;
+  --pe-t3: #a1a1aa;
+  --pe-t4: #71717a;
+  --pe-t5: #52525b;
+
+  /* 仅状态语义保留的彩色 */
+  --pe-ok: #4ade80;
+  --pe-ok-bg: rgba(74, 222, 128, 0.1);
+  --pe-ok-border: rgba(74, 222, 128, 0.25);
+  --pe-warn: #fbbf24;
+
+  --pe-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+    "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --pe-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  min-height: 100vh;
+  background: var(--pe-bg);
+  color: var(--pe-t2);
+  font-family: var(--pe-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.preview-e *,
+.preview-e *::before,
+.preview-e *::after {
+  box-sizing: border-box;
+}
+
+.preview-e h1,
+.preview-e h2,
+.preview-e h3,
+.preview-e p,
+.preview-e pre {
+  margin: 0;
+}
+
+.preview-e a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.preview-e button {
+  font-family: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.preview-e ::selection {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.preview-e .pe-mono {
+  font-family: var(--pe-mono);
+}
+
+/* ---------- 超椭圆（squircle）圆角系统 ----------
+   原生 corner-shape: squircle = superellipse(2)（Chrome 139+），
+   必须与 border-radius 一起写；不支持时回退 0.54 倍半径，
+   视觉最接近同尺寸 squircle。只改圆角形状，不改尺寸。 */
+.preview-e .pe-sq {
+  border-radius: calc(var(--sq-r) * .54);
+}
+@supports (corner-shape: squircle) {
+  .preview-e .pe-sq {
+    border-radius: var(--sq-r);
+    corner-shape: squircle;
+  }
+}
+
+/* ---------- 布局骨架 ---------- */
+
+.preview-e .pe-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 148px 20px 0;
+}
+
+.preview-e .pe-section {
+  margin-top: 72px;
+  scroll-margin-top: 96px;
+}
+
+/* ---------- 悬浮 pill 导航（squircle，同心：外层 22 − 内边距 5 = 内层 17） ---------- */
+
+.preview-e .pe-nav {
+  --sq-r: 22px;
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  width: min(760px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 5px 5px 16px;
+  background: rgba(16, 16, 20, 0.72);
+  border: 1px solid var(--pe-border);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.preview-e .pe-nav-logo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-nav-logo-dot {
+  color: var(--pe-t4);
+}
+
+.preview-e .pe-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.preview-e .pe-nav-link {
+  --sq-r: 17px;
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 13px;
+  font-size: 13.5px;
+  color: var(--pe-t3);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.preview-e .pe-nav-link:hover {
+  background: var(--pe-tile);
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-nav-link:focus-visible,
+.preview-e a:focus-visible,
+.preview-e button:focus-visible,
+.preview-e input:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+/* ---------- 右上角方案标记 ---------- */
+
+.preview-e .pe-badge {
+  --sq-r: 12px;
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--pe-t3);
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border);
+}
+
+@media (max-width: 900px) {
+  .preview-e .pe-badge {
+    display: none;
+  }
+}
+
+/* ---------- Hero：标题纯色，输入框是页面中心 ---------- */
+
+.preview-e .pe-hero {
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.preview-e .pe-title {
+  font-size: clamp(30px, 5.2vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-sub {
+  margin-top: 14px;
+  font-size: 15.5px;
+  color: var(--pe-t4);
+}
+
+/* 搜索框：外容器 28 − 内边距 6 = 主按钮 22（≈ 0.46 × 48px 高），同心 squircle */
+.preview-e .pe-search {
+  --sq-r: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 34px auto 0;
+  max-width: 560px;
+  padding: 6px 6px 6px 18px;
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border-strong);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.preview-e .pe-search:focus-within {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+.preview-e .pe-search-icon {
+  flex: none;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-search-input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--pe-t1);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.preview-e .pe-search-input::placeholder {
+  color: var(--pe-t5);
+}
+
+/* 主按钮：纯白反色，页面唯一的强视觉重量 */
+.preview-e .pe-search-btn {
+  --sq-r: 22px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 48px;
+  padding: 0 22px;
+  background: var(--pe-t1);
+  color: var(--pe-bg);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.preview-e .pe-search-btn:hover {
+  background: #e4e4e7;
+}
+
+.preview-e .pe-search-btn:active {
+  transform: scale(0.98);
+}
+
+.preview-e .pe-quick {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.preview-e .pe-chip {
+  --sq-r: 16px;
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--pe-t3);
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border);
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.preview-e .pe-chip:hover {
+  color: var(--pe-t1);
+  border-color: var(--pe-border-strong);
+  background: var(--pe-tile);
+}
+
+/* ---------- 区块标题 ---------- */
+
+.preview-e .pe-sec-head {
+  margin-bottom: 20px;
+}
+
+.preview-e .pe-eyebrow {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-sec-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.preview-e .pe-sec-title {
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-sec-meta {
+  font-size: 12.5px;
+  color: var(--pe-t5);
+  font-family: var(--pe-mono);
+}
+
+/* ---------- 卡片：每条信息一张，squircle 20px ---------- */
+
+.preview-e .pe-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.preview-e .pe-card {
+  --sq-r: 20px;
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border);
+  padding: 18px 22px 20px;
+  transition: border-color 0.15s ease;
+}
+
+.preview-e .pe-card:hover {
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.preview-e .pe-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.preview-e .pe-card-icon {
+  color: var(--pe-t4);
+  flex: none;
+}
+
+.preview-e .pe-card-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-card-meta {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--pe-t5);
+  font-family: var(--pe-mono);
+}
+
+.preview-e .pe-hint {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-link {
+  color: var(--pe-t3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--pe-t5);
+}
+
+.preview-e .pe-link:hover {
+  color: var(--pe-t1);
+}
+
+/* whois 风格键值对 */
+.preview-e .pe-kv-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-e .pe-kv {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 4px 16px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.preview-e .pe-kv:first-child,
+.preview-e .pe-kv-list > .pe-date-row:first-child,
+.preview-e .pe-kv-list > .pe-ns-row:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.preview-e .pe-kv-k {
+  font-size: 13px;
+  color: var(--pe-t4);
+}
+
+.preview-e .pe-kv-v {
+  font-size: 13.5px;
+  color: var(--pe-t2);
+  word-break: break-all;
+}
+
+/* ---------- 概要卡 ---------- */
+
+.preview-e .pe-ov-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+}
+
+.preview-e .pe-ov-domain {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--pe-t1);
+}
+
+/* 已注册徽章：唯一的成功绿（h 26 → r 12 ≈ 0.46 × 26） */
+.preview-e .pe-ov-badge {
+  --sq-r: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 11px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pe-ok);
+  background: var(--pe-ok-bg);
+  border: 1px solid var(--pe-ok-border);
+}
+
+/* ---------- 状态卡 ---------- */
+
+.preview-e .pe-status-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-e .pe-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.preview-e .pe-status-row:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.preview-e .pe-status-lock {
+  flex: none;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-status-code {
+  --sq-r: 9px;
+  font-family: var(--pe-mono);
+  font-size: 12px;
+  color: var(--pe-t2);
+  background: var(--pe-inset);
+  border: 1px solid var(--pe-border);
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.preview-e .pe-status-zh {
+  margin-left: auto;
+  font-size: 12.5px;
+  color: var(--pe-t4);
+  text-align: right;
+}
+
+/* ---------- 日期卡 ---------- */
+
+.preview-e .pe-date-row {
+  display: grid;
+  grid-template-columns: 1fr auto 84px;
+  gap: 4px 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.preview-e .pe-date-label {
+  font-size: 13.5px;
+  color: var(--pe-t2);
+}
+
+.preview-e .pe-date-note {
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-date-value {
+  font-size: 13.5px;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-date-rel {
+  font-size: 12.5px;
+  color: var(--pe-t4);
+  text-align: right;
+}
+
+.preview-e .pe-warn {
+  color: var(--pe-warn);
+}
+
+/* ---------- 名称服务器卡 ---------- */
+
+.preview-e .pe-ns-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.preview-e .pe-ns-idx {
+  font-size: 12px;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-ns-name {
+  font-size: 13.5px;
+  color: var(--pe-t2);
+}
+
+.preview-e .pe-ns-tag {
+  --sq-r: 9px;
+  margin-left: auto;
+  font-family: var(--pe-mono);
+  font-size: 11px;
+  color: var(--pe-t4);
+  background: var(--pe-inset);
+  border: 1px solid var(--pe-border);
+  padding: 2px 8px;
+}
+
+/* ---------- DNSSEC 卡 ---------- */
+
+.preview-e .pe-dnssec {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.preview-e .pe-dnssec .pe-warn {
+  flex: none;
+  margin-top: 3px;
+}
+
+.preview-e .pe-dnssec-state {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pe-t1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preview-e .pe-dnssec-code {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--pe-t4);
+}
+
+.preview-e .pe-dnssec .pe-hint {
+  margin-top: 6px;
+}
+
+/* ---------- 联系人卡 ---------- */
+
+.preview-e .pe-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.preview-e .pe-contact svg {
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-contact-sep {
+  color: var(--pe-t5);
+}
+
+/* ---------- RDAP 查询链卡 ---------- */
+
+.preview-e .pe-chain {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-e .pe-chain-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 0 10px 0;
+}
+
+/* 步骤间的纵向连接线（同心于 icon tile 的中心） */
+.preview-e .pe-chain-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 42px;
+  bottom: -6px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.preview-e .pe-chain-tile {
+  --sq-r: 12px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--pe-t3);
+  background: var(--pe-inset);
+  border: 1px solid var(--pe-border);
+}
+
+.preview-e .pe-chain-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.preview-e .pe-chain-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-chain-url {
+  font-size: 12px;
+  color: var(--pe-t4);
+  word-break: break-all;
+}
+
+.preview-e .pe-chain-note {
+  margin-left: auto;
+  padding-left: 12px;
+  font-size: 12px;
+  color: var(--pe-t5);
+  text-align: right;
+  flex: none;
+}
+
+/* ---------- 原始 JSON 卡（灰度高亮，克制无彩色） ---------- */
+
+.preview-e .pe-json-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.preview-e .pe-json-head .pe-hint {
+  margin-top: 0;
+}
+
+.preview-e .pe-json-toggle {
+  --sq-r: 13px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--pe-t3);
+  background: var(--pe-tile);
+  border: 1px solid var(--pe-border);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.preview-e .pe-json-toggle:hover {
+  color: var(--pe-t1);
+  border-color: var(--pe-border-strong);
+}
+
+.preview-e .pe-json {
+  --sq-r: 14px;
+  margin-top: 14px;
+  padding: 16px 18px;
+  background: var(--pe-inset);
+  border: 1px solid var(--pe-border);
+  font-size: 12.5px;
+  line-height: 1.8;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.preview-e .pe-j-line {
+  min-height: 1.4em;
+}
+
+.preview-e .pe-j-k {
+  color: var(--pe-t2);
+}
+
+.preview-e .pe-j-s {
+  color: var(--pe-t4);
+}
+
+.preview-e .pe-j-p {
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-j-b {
+  color: var(--pe-t1);
+  font-weight: 600;
+}
+
+.preview-e .pe-j-note {
+  margin-top: 8px;
+  color: var(--pe-t5);
+}
+
+/* ---------- 统计带 ---------- */
+
+.preview-e .pe-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.preview-e .pe-stat {
+  --sq-r: 18px;
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border);
+  padding: 18px 18px 16px;
+}
+
+.preview-e .pe-stat-value {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--pe-t1);
+  font-variant-numeric: tabular-nums;
+}
+
+.preview-e .pe-stat-label {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pe-t3);
+}
+
+.preview-e .pe-stat-sub {
+  margin-top: 3px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--pe-t5);
+}
+
+/* ---------- 后缀 chips ---------- */
+
+.preview-e .pe-suffixes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-e .pe-suffix {
+  --sq-r: 15px;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 13px;
+  font-size: 12.5px;
+  color: var(--pe-t3);
+  background: var(--pe-surface);
+  border: 1px solid var(--pe-border);
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.preview-e .pe-suffix:hover {
+  color: var(--pe-t1);
+  border-color: var(--pe-border-strong);
+  background: var(--pe-tile);
+}
+
+.preview-e .pe-suffix-hint {
+  margin-top: 14px;
+}
+
+/* ---------- FAQ ---------- */
+
+.preview-e .pe-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-e .pe-faq-item {
+  padding: 18px 22px;
+}
+
+.preview-e .pe-faq-q {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--pe-t1);
+}
+
+.preview-e .pe-faq-a {
+  margin-top: 7px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--pe-t4);
+}
+
+/* ---------- 页脚 ---------- */
+
+.preview-e .pe-footer {
+  max-width: 760px;
+  margin: 84px auto 0;
+  padding: 22px 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12.5px;
+  color: var(--pe-t5);
+}
+
+.preview-e .pe-footer-right {
+  font-size: 11.5px;
+}
+
+/* ---------- 响应式 ---------- */
+
+@media (max-width: 720px) {
+  .preview-e .pe-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .preview-e .pe-main {
+    padding-top: 124px;
+  }
+
+  .preview-e .pe-nav-link {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .preview-e .pe-card {
+    padding: 16px 16px 18px;
+  }
+
+  .preview-e .pe-search {
+    padding-left: 14px;
+  }
+
+  .preview-e .pe-search-btn {
+    padding: 0 16px;
+  }
+
+  .preview-e .pe-kv {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .preview-e .pe-date-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .preview-e .pe-date-rel {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .preview-e .pe-date-note {
+    display: block;
+    margin-left: 0;
+  }
+
+  .preview-e .pe-chain-note {
+    display: none;
+  }
+
+  .preview-e .pe-status-zh {
+    font-size: 12px;
+  }
+}

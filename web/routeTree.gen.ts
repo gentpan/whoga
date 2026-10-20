@@ -13,6 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as RequestsIndexRouteImport } from './routes/requests/index'
 import { Route as LearnIndexRouteImport } from './routes/learn/index'
 import { Route as WhoisQueryRouteImport } from './routes/whois/$query'
+import { Route as PreviewFRouteImport } from './routes/preview/f'
+import { Route as PreviewERouteImport } from './routes/preview/e'
+import { Route as PreviewDRouteImport } from './routes/preview/d'
+import { Route as PreviewCRouteImport } from './routes/preview/c'
+import { Route as PreviewBRouteImport } from './routes/preview/b'
+import { Route as PreviewARouteImport } from './routes/preview/a'
 import { Route as LearnSlugRouteImport } from './routes/learn/$slug'
 import { Route as LearnEnIndexRouteImport } from './routes/learn/en/index'
 import { Route as LearnEnSlugRouteImport } from './routes/learn/en/$slug'
@@ -37,6 +43,36 @@ const WhoisQueryRoute = WhoisQueryRouteImport.update({
   path: '/whois/$query',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PreviewFRoute = PreviewFRouteImport.update({
+  id: '/preview/f',
+  path: '/preview/f',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewERoute = PreviewERouteImport.update({
+  id: '/preview/e',
+  path: '/preview/e',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewDRoute = PreviewDRouteImport.update({
+  id: '/preview/d',
+  path: '/preview/d',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewCRoute = PreviewCRouteImport.update({
+  id: '/preview/c',
+  path: '/preview/c',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewBRoute = PreviewBRouteImport.update({
+  id: '/preview/b',
+  path: '/preview/b',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewARoute = PreviewARouteImport.update({
+  id: '/preview/a',
+  path: '/preview/a',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LearnSlugRoute = LearnSlugRouteImport.update({
   id: '/learn/$slug',
   path: '/learn/$slug',
@@ -56,6 +92,12 @@ const LearnEnSlugRoute = LearnEnSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/learn/$slug': typeof LearnSlugRoute
+  '/preview/a': typeof PreviewARoute
+  '/preview/b': typeof PreviewBRoute
+  '/preview/c': typeof PreviewCRoute
+  '/preview/d': typeof PreviewDRoute
+  '/preview/e': typeof PreviewERoute
+  '/preview/f': typeof PreviewFRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn/': typeof LearnIndexRoute
   '/requests/': typeof RequestsIndexRoute
@@ -65,6 +107,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/learn/$slug': typeof LearnSlugRoute
+  '/preview/a': typeof PreviewARoute
+  '/preview/b': typeof PreviewBRoute
+  '/preview/c': typeof PreviewCRoute
+  '/preview/d': typeof PreviewDRoute
+  '/preview/e': typeof PreviewERoute
+  '/preview/f': typeof PreviewFRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn': typeof LearnIndexRoute
   '/requests': typeof RequestsIndexRoute
@@ -75,6 +123,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/learn/$slug': typeof LearnSlugRoute
+  '/preview/a': typeof PreviewARoute
+  '/preview/b': typeof PreviewBRoute
+  '/preview/c': typeof PreviewCRoute
+  '/preview/d': typeof PreviewDRoute
+  '/preview/e': typeof PreviewERoute
+  '/preview/f': typeof PreviewFRoute
   '/whois/$query': typeof WhoisQueryRoute
   '/learn/': typeof LearnIndexRoute
   '/requests/': typeof RequestsIndexRoute
@@ -86,6 +140,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/learn/$slug'
+    | '/preview/a'
+    | '/preview/b'
+    | '/preview/c'
+    | '/preview/d'
+    | '/preview/e'
+    | '/preview/f'
     | '/whois/$query'
     | '/learn/'
     | '/requests/'
@@ -95,6 +155,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/learn/$slug'
+    | '/preview/a'
+    | '/preview/b'
+    | '/preview/c'
+    | '/preview/d'
+    | '/preview/e'
+    | '/preview/f'
     | '/whois/$query'
     | '/learn'
     | '/requests'
@@ -104,6 +170,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/learn/$slug'
+    | '/preview/a'
+    | '/preview/b'
+    | '/preview/c'
+    | '/preview/d'
+    | '/preview/e'
+    | '/preview/f'
     | '/whois/$query'
     | '/learn/'
     | '/requests/'
@@ -114,6 +186,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LearnSlugRoute: typeof LearnSlugRoute
+  PreviewARoute: typeof PreviewARoute
+  PreviewBRoute: typeof PreviewBRoute
+  PreviewCRoute: typeof PreviewCRoute
+  PreviewDRoute: typeof PreviewDRoute
+  PreviewERoute: typeof PreviewERoute
+  PreviewFRoute: typeof PreviewFRoute
   WhoisQueryRoute: typeof WhoisQueryRoute
   LearnIndexRoute: typeof LearnIndexRoute
   RequestsIndexRoute: typeof RequestsIndexRoute
@@ -151,6 +229,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhoisQueryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/preview/f': {
+      id: '/preview/f'
+      path: '/preview/f'
+      fullPath: '/preview/f'
+      preLoaderRoute: typeof PreviewFRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/e': {
+      id: '/preview/e'
+      path: '/preview/e'
+      fullPath: '/preview/e'
+      preLoaderRoute: typeof PreviewERouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/d': {
+      id: '/preview/d'
+      path: '/preview/d'
+      fullPath: '/preview/d'
+      preLoaderRoute: typeof PreviewDRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/c': {
+      id: '/preview/c'
+      path: '/preview/c'
+      fullPath: '/preview/c'
+      preLoaderRoute: typeof PreviewCRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/b': {
+      id: '/preview/b'
+      path: '/preview/b'
+      fullPath: '/preview/b'
+      preLoaderRoute: typeof PreviewBRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/a': {
+      id: '/preview/a'
+      path: '/preview/a'
+      fullPath: '/preview/a'
+      preLoaderRoute: typeof PreviewARouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learn/$slug': {
       id: '/learn/$slug'
       path: '/learn/$slug'
@@ -178,6 +298,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LearnSlugRoute: LearnSlugRoute,
+  PreviewARoute: PreviewARoute,
+  PreviewBRoute: PreviewBRoute,
+  PreviewCRoute: PreviewCRoute,
+  PreviewDRoute: PreviewDRoute,
+  PreviewERoute: PreviewERoute,
+  PreviewFRoute: PreviewFRoute,
   WhoisQueryRoute: WhoisQueryRoute,
   LearnIndexRoute: LearnIndexRoute,
   RequestsIndexRoute: RequestsIndexRoute,

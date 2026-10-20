@@ -1,0 +1,936 @@
+/* ============================================================
+   方案 F · 浅色干净卡片风 — /preview/f 专属样式
+   全部选择器 scoped 在 .preview-f 下；自成体系，不依赖全局变量
+   ============================================================ */
+
+.preview-f {
+  --pf-bg: #f9fafb;
+  --pf-card: #ffffff;
+  --pf-border: #e5e7eb;
+  --pf-border-soft: #f3f4f6;
+  --pf-border-strong: #d1d5db;
+
+  --pf-text: #111827;    /* 主文字 */
+  --pf-sub: #4b5563;     /* 次级 */
+  --pf-dim: #6b7280;     /* 弱化标签 */
+  --pf-faint: #9ca3af;   /* 极弱 */
+
+  --pf-accent: #15803d;        /* 品牌深绿，全站唯一强调色 */
+  --pf-accent-hover: #166534;
+  --pf-accent-soft-bg: #f0fdf4;
+  --pf-accent-soft-border: #bbf7d0;
+  --pf-accent-ring: rgba(21, 128, 61, 0.14);
+
+  --pf-warn-bg: #fffbeb;
+  --pf-warn-border: #fde68a;
+  --pf-warn-text: #b45309;
+
+  --pf-code-bg: #0f172a;   /* JSON / API 深色区，与浅色页面对比 */
+
+  --pf-sans: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --pf-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  min-height: 100vh;
+  background: var(--pf-bg);
+  color: var(--pf-text);
+  font-family: var(--pf-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.preview-f *,
+.preview-f *::before,
+.preview-f *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.preview-f ::selection {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+.preview-f .pf-mono {
+  font-family: var(--pf-mono);
+  font-size: 0.92em;
+}
+
+.preview-f [id] {
+  scroll-margin-top: 92px;
+}
+
+/* ============================================================
+   超椭圆（squircle）圆角系统
+   默认 0.54 倍半径；支持 corner-shape 时换回原半径
+   ============================================================ */
+
+.preview-f .squircle { border-radius: calc(var(--sq-r) * .54); }
+@supports (corner-shape: squircle) {
+  .preview-f .squircle { border-radius: var(--sq-r); corner-shape: squircle; }
+}
+
+/* ---------- 悬浮 pill 导航 ---------- */
+
+.preview-f .pf-nav {
+  --sq-r: 22px; /* nav 高约 48px → 0.46 × 48 */
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 14px;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  box-shadow: 0 4px 16px rgba(16, 24, 40, 0.07);
+}
+
+.preview-f .pf-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--pf-text);
+  letter-spacing: -0.01em;
+  padding-right: 10px;
+  border-right: 1px solid var(--pf-border);
+}
+
+.preview-f .pf-nav-logo svg {
+  color: var(--pf-accent);
+}
+
+.preview-f .pf-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.preview-f .pf-nav-links a {
+  --sq-r: 14px; /* 链接高约 30px → 0.46 × 30 */
+  border-radius: calc(var(--sq-r) * .54);
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: var(--pf-sub);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+@supports (corner-shape: squircle) {
+  .preview-f .pf-nav-links a { border-radius: var(--sq-r); corner-shape: squircle; }
+}
+
+.preview-f .pf-nav-links a:hover {
+  background: var(--pf-border-soft);
+  color: var(--pf-text);
+}
+
+/* ---------- 方案标记（右上角） ---------- */
+
+.preview-f .pf-badge {
+  --sq-r: 10px;
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--pf-sub);
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--pf-border);
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+}
+
+.preview-f .pf-badge svg {
+  color: var(--pf-accent);
+}
+
+/* ---------- Hero ---------- */
+
+.preview-f .pf-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 148px 24px 56px;
+  text-align: center;
+}
+
+.preview-f .pf-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--pf-text); /* 纯色标题，无渐变 */
+}
+
+.preview-f .pf-subtitle {
+  margin-top: 10px;
+  font-size: 14.5px;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-search {
+  --sq-r: 22px; /* 外容器 60px 高 */
+  margin: 30px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 60px;
+  padding: 6px 6px 6px 18px;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.preview-f .pf-search:focus-within {
+  border-color: var(--pf-accent);
+  box-shadow: 0 0 0 3px var(--pf-accent-ring);
+}
+
+.preview-f .pf-search-icon {
+  flex: none;
+  color: var(--pf-faint);
+}
+
+.preview-f .pf-search-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15.5px;
+  color: var(--pf-text);
+}
+
+.preview-f .pf-search-input::placeholder {
+  color: var(--pf-faint);
+}
+
+.preview-f .pf-search-btn {
+  --sq-r: 16px; /* 同心：外 22 − 内边距 6 */
+  flex: none;
+  height: 48px;
+  padding: 0 26px;
+  border: 0;
+  cursor: pointer;
+  background: var(--pf-accent);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.preview-f .pf-search-btn:hover {
+  background: var(--pf-accent-hover);
+}
+
+.preview-f .pf-search-btn:focus-visible {
+  outline: 2px solid var(--pf-accent);
+  outline-offset: 2px;
+}
+
+.preview-f .pf-quick {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-f .pf-quick-label {
+  font-size: 12.5px;
+  color: var(--pf-faint);
+  margin-right: 2px;
+}
+
+.preview-f .pf-chip {
+  --sq-r: 14px; /* 高约 30px → 0.46 × 30 */
+  padding: 5px 13px;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  cursor: pointer;
+  font-family: var(--pf-mono);
+  font-size: 12.5px;
+  color: var(--pf-sub);
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.preview-f .pf-chip:hover {
+  border-color: var(--pf-accent-soft-border);
+  background: var(--pf-accent-soft-bg);
+  color: var(--pf-accent);
+}
+
+/* ---------- 主列（760px 居中） ---------- */
+
+.preview-f .pf-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.preview-f .pf-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 4px 2px;
+}
+
+.preview-f .pf-group-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-group-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--pf-faint);
+}
+
+.preview-f .pf-group-meta svg {
+  color: var(--pf-accent);
+}
+
+/* ---------- 卡片基座（白卡 + 细边框 + 极浅阴影） ---------- */
+
+.preview-f .pf-card {
+  --sq-r: 18px; /* 卡片档 15–22px */
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  padding: 18px 20px;
+}
+
+.preview-f .pf-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.preview-f .pf-card-head > svg {
+  flex: none;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pf-text);
+  letter-spacing: -0.01em;
+}
+
+.preview-f .pf-card-meta {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--pf-faint);
+  text-align: right;
+}
+
+/* ---------- 徽章 pill ---------- */
+
+.preview-f .pf-pill {
+  --sq-r: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.preview-f .pf-pill-ok {
+  background: var(--pf-accent-soft-bg);
+  border-color: var(--pf-accent-soft-border);
+  color: var(--pf-accent);
+}
+
+.preview-f .pf-pill-warn {
+  background: var(--pf-warn-bg);
+  border-color: var(--pf-warn-border);
+  color: var(--pf-warn-text);
+}
+
+.preview-f .pf-pill-plain {
+  background: var(--pf-border-soft);
+  border-color: var(--pf-border);
+  color: var(--pf-sub);
+}
+
+/* ---------- 键值对（whois 风） ---------- */
+
+.preview-f .pf-kv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+  margin-top: 4px;
+}
+
+.preview-f .pf-kv {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-top: 1px solid var(--pf-border-soft);
+  font-size: 13px;
+  min-width: 0;
+}
+
+.preview-f .pf-k {
+  color: var(--pf-dim);
+  white-space: nowrap;
+}
+
+.preview-f .pf-v {
+  color: var(--pf-text);
+  word-break: break-all;
+  min-width: 0;
+}
+
+/* ---------- 概要卡 ---------- */
+
+.preview-f .pf-domain-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+}
+
+.preview-f .pf-domain {
+  font-family: var(--pf-mono);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--pf-text);
+}
+
+/* ---------- 状态卡 ---------- */
+
+.preview-f .pf-status-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 248px) 1fr;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--pf-border-soft);
+  font-size: 13px;
+}
+
+.preview-f .pf-status-icon {
+  color: var(--pf-accent);
+  align-self: center;
+}
+
+.preview-f .pf-status-name {
+  color: var(--pf-text);
+}
+
+.preview-f .pf-status-desc {
+  color: var(--pf-dim);
+}
+
+/* ---------- 日期卡 ---------- */
+
+.preview-f .pf-date-head,
+.preview-f .pf-date-row {
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview-f .pf-date-head {
+  padding: 0 0 6px;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--pf-faint);
+}
+
+.preview-f .pf-date-rel-h {
+  text-align: right;
+}
+
+.preview-f .pf-date-row {
+  padding: 8px 0;
+  border-top: 1px solid var(--pf-border-soft);
+  font-size: 13px;
+}
+
+.preview-f .pf-date-label {
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-date-value {
+  color: var(--pf-text);
+}
+
+.preview-f .pf-life {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview-f .pf-life-bar {
+  --sq-r: 6px;
+  flex: 1;
+  height: 6px;
+  background: var(--pf-border-soft);
+  overflow: hidden;
+}
+
+.preview-f .pf-life-fill {
+  display: block;
+  height: 100%;
+  background: var(--pf-accent); /* 纯色，无渐变 */
+}
+
+.preview-f .pf-life-note {
+  flex: none;
+  font-size: 11.5px;
+  color: var(--pf-faint);
+}
+
+/* ---------- 名称服务器卡 ---------- */
+
+.preview-f .pf-ns-row {
+  display: grid;
+  grid-template-columns: 30px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--pf-border-soft);
+  font-size: 13.5px;
+}
+
+.preview-f .pf-ns-idx {
+  color: var(--pf-faint);
+  font-size: 11.5px;
+}
+
+.preview-f .pf-ns-name {
+  color: var(--pf-text);
+  word-break: break-all;
+}
+
+.preview-f .pf-ns-changed {
+  font-size: 11.5px;
+  color: var(--pf-faint);
+  white-space: nowrap;
+}
+
+/* ---------- DNSSEC 卡 ---------- */
+
+.preview-f .pf-dnssec-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.preview-f .pf-dnssec-kv {
+  font-size: 12.5px;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--pf-dim);
+}
+
+/* ---------- 实体联系人卡 ---------- */
+
+.preview-f .pf-entity-block {
+  padding: 10px 0 4px;
+  border-top: 1px solid var(--pf-border-soft);
+}
+
+.preview-f .pf-entity-block:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.preview-f .pf-entity-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pf-text);
+  margin-bottom: 2px;
+}
+
+/* ---------- 查询链卡 ---------- */
+
+.preview-f .pf-chain {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.preview-f .pf-chain-node {
+  --sq-r: 12px; /* 同心：卡 18 − 内边距近似 */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 14px;
+  background: var(--pf-bg);
+  border: 1px solid var(--pf-border);
+  min-width: 0;
+}
+
+.preview-f .pf-chain-final {
+  background: var(--pf-accent-soft-bg);
+  border-color: var(--pf-accent-soft-border);
+}
+
+.preview-f .pf-chain-role {
+  font-size: 11px;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-chain-host {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pf-text);
+  word-break: break-all;
+}
+
+.preview-f .pf-chain-arrow {
+  align-self: center;
+  flex: none;
+  color: var(--pf-border-strong);
+}
+
+/* ---------- 原始 JSON / API 深色区 ---------- */
+
+.preview-f .pf-json-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 10px;
+  padding: 3px 8px;
+  border: 1px solid var(--pf-border);
+  background: var(--pf-card);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11.5px;
+  color: var(--pf-sub);
+  border-radius: calc(9px * .54);
+}
+
+@supports (corner-shape: squircle) {
+  .preview-f .pf-json-toggle { border-radius: 9px; corner-shape: squircle; }
+}
+
+.preview-f .pf-json-toggle:hover {
+  border-color: var(--pf-border-strong);
+  color: var(--pf-text);
+}
+
+.preview-f .pf-chev {
+  transition: transform 0.18s ease;
+}
+
+.preview-f .pf-chev-open {
+  transform: rotate(180deg);
+}
+
+.preview-f .pf-json {
+  --sq-r: 12px; /* 同心：卡 18 − 卡内边距 */
+  margin-top: 6px;
+  padding: 16px 18px;
+  background: var(--pf-code-bg);
+  overflow-x: auto;
+  font-family: var(--pf-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #cbd5e1;
+}
+
+.preview-f .pf-json code {
+  font-family: inherit;
+  white-space: pre;
+}
+
+.preview-f .pf-j-k { color: #7dd3fc; }
+.preview-f .pf-j-s { color: #86efac; }
+.preview-f .pf-j-b { color: #fbbf24; }
+.preview-f .pf-j-p { color: #64748b; }
+.preview-f .pf-j-note { color: #475569; }
+
+.preview-f .pf-api-line {
+  margin-top: 12px;
+  padding: 13px 16px;
+  font-size: 13px;
+}
+
+/* ---------- 统计条 ---------- */
+
+.preview-f .pf-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.preview-f .pf-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 18px;
+  border-left: 1px solid var(--pf-border-soft);
+  min-width: 0;
+}
+
+.preview-f .pf-stat:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.preview-f .pf-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--pf-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.preview-f .pf-stat-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pf-sub);
+}
+
+.preview-f .pf-stat-note {
+  font-size: 11.5px;
+  color: var(--pf-faint);
+}
+
+.preview-f .pf-stat-bar {
+  --sq-r: 4px;
+  display: block;
+  height: 4px;
+  margin: 4px 0 2px;
+  background: var(--pf-border-soft);
+  overflow: hidden;
+}
+
+.preview-f .pf-stat-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--pf-accent);
+}
+
+/* ---------- 后缀 chips ---------- */
+
+.preview-f .pf-sfx {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-f .pf-sfx-chip {
+  --sq-r: 13px; /* 高约 28px → 0.46 × 28 */
+  padding: 4px 12px;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  cursor: pointer;
+  font-family: var(--pf-mono);
+  font-size: 12.5px;
+  color: var(--pf-sub);
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.preview-f .pf-sfx-chip:hover {
+  border-color: var(--pf-accent-soft-border);
+  background: var(--pf-accent-soft-bg);
+  color: var(--pf-accent);
+}
+
+.preview-f .pf-sfx-more {
+  font-size: 12px;
+  color: var(--pf-faint);
+  padding-left: 4px;
+}
+
+/* ---------- FAQ ---------- */
+
+.preview-f .pf-faq-item {
+  padding: 12px 0;
+  border-top: 1px solid var(--pf-border-soft);
+}
+
+.preview-f .pf-faq-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.preview-f .pf-faq-q {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--pf-text);
+}
+
+.preview-f .pf-faq-a {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--pf-sub);
+}
+
+/* ---------- 页脚 ---------- */
+
+.preview-f .pf-footer {
+  text-align: center;
+  padding: 30px 20px 48px;
+  font-size: 12.5px;
+  color: var(--pf-dim);
+}
+
+.preview-f .pf-footer-dim {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--pf-faint);
+}
+
+/* ---------- 响应式 ---------- */
+
+@media (max-width: 720px) {
+  .preview-f .pf-hero {
+    padding-top: 128px;
+  }
+
+  .preview-f .pf-title {
+    font-size: 26px;
+  }
+
+  .preview-f .pf-kv-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .preview-f .pf-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 18px;
+  }
+
+  .preview-f .pf-stat:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .preview-f .pf-status-row {
+    grid-template-columns: 20px 1fr;
+  }
+
+  .preview-f .pf-status-desc {
+    grid-column: 2;
+  }
+
+  .preview-f .pf-date-head {
+    display: none;
+  }
+
+  .preview-f .pf-date-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .preview-f .pf-date-value {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--pf-dim);
+  }
+
+  .preview-f .pf-date-row .pf-pill {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .preview-f .pf-life {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .preview-f .pf-chain-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .preview-f .pf-nav-links {
+    display: none;
+  }
+
+  .preview-f .pf-nav {
+    padding-right: 14px;
+  }
+
+  .preview-f .pf-nav-logo {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .preview-f .pf-badge {
+    top: auto;
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .preview-f .pf-search {
+    height: 54px;
+    padding-left: 14px;
+  }
+
+  .preview-f .pf-search-btn {
+    height: 42px;
+    padding: 0 18px;
+  }
+
+  .preview-f .pf-domain {
+    font-size: 19px;
+  }
+
+  .preview-f .pf-ns-row {
+    grid-template-columns: 24px 1fr auto;
+  }
+
+  .preview-f .pf-ns-changed {
+    display: none;
+  }
+}
