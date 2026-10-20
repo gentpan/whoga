@@ -348,28 +348,31 @@ body {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
   padding: 0;
   margin-right: 2px;
   border: 0;
-  border-radius: 999px;
   background: transparent;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
-.nav-avatar-img {
-  display: block;
+.nav-avatar-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   --sq-r: 9px;
-  object-fit: cover;
-  background: var(--accent);
+  background: #22c55e;
   transition: transform 0.2s ease;
 }
 
-.nav-avatar:hover .nav-avatar-img {
+.nav-avatar-logo img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-avatar:hover .nav-avatar-logo {
   transform: scale(1.05);
 }
 

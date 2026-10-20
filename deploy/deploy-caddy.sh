@@ -51,9 +51,9 @@ echo "[5/7] Refresh data index..."
 $SSH "$HOST" "sleep 2 && cd $REMOTE_DIR && \
   CRON_SECRET=\$(grep -E '^CRON_SECRET=' .env.production.local 2>/dev/null | cut -d= -f2- | tr -d '\"') && \
   if [ -n \"\$CRON_SECRET\" ]; then \
-    curl -fsS -X POST -H \"Authorization: Bearer \$CRON_SECRET\" http://127.0.0.1:3410/api/admin/refresh; \
+    curl -fsS --max-time 600 -X POST -H \"Authorization: Bearer \$CRON_SECRET\" http://127.0.0.1:3410/api/admin/refresh; \
   else \
-    curl -fsS -X POST http://127.0.0.1:3410/api/admin/refresh; \
+    curl -fsS --max-time 600 -X POST http://127.0.0.1:3410/api/admin/refresh; \
   fi"
 
 echo "[6/7] Re-sync curated seed data into runtime..."
@@ -66,9 +66,9 @@ echo "[7/7] Rebuild merged index after curated sync..."
 $SSH "$HOST" "sleep 1 && cd $REMOTE_DIR && \
   CRON_SECRET=\$(grep -E '^CRON_SECRET=' .env.production.local 2>/dev/null | cut -d= -f2- | tr -d '\"') && \
   if [ -n \"\$CRON_SECRET\" ]; then \
-    curl -fsS -X POST -H \"Authorization: Bearer \$CRON_SECRET\" http://127.0.0.1:3410/api/admin/refresh; \
+    curl -fsS --max-time 600 -X POST -H \"Authorization: Bearer \$CRON_SECRET\" http://127.0.0.1:3410/api/admin/refresh; \
   else \
-    curl -fsS -X POST http://127.0.0.1:3410/api/admin/refresh; \
+    curl -fsS --max-time 600 -X POST http://127.0.0.1:3410/api/admin/refresh; \
   fi"
 
 echo "Done. https://who.ga"

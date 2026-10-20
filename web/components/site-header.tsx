@@ -55,14 +55,9 @@ export function SiteHeader({ locale, activeNav, onSectionClick }: SiteHeaderProp
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <img
-              className="nav-avatar-img squircle"
-              src="/logo.svg"
-              alt=""
-              width={28}
-              height={28}
-              decoding="async"
-            />
+            <span className="nav-avatar-logo squircle" aria-hidden>
+              <img src="/logo-w.svg" alt="" width={20} height={20} decoding="async" />
+            </span>
           </Link>
 
           <div className="nav-main-links">
