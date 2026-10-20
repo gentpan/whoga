@@ -60,3 +60,8 @@ fi
 
   echo "===== $(date -Is) Whoga data refresh done ====="
 } >> "$LOG_FILE" 2>&1
+
+# 日志超过 5MB 时只保留尾部 1MB
+if [ -f "$LOG_FILE" ] && [ "$(stat -c%s "$LOG_FILE" 2>/dev/null || echo 0)" -gt 5242880 ]; then
+  tail -c 1048576 "$LOG_FILE" > "$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
+fi
