@@ -618,9 +618,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  width: 46px;
   height: 46px;
-  padding: 0 20px;
+  padding: 0;
   border: 0;
   background: var(--accent);
   color: var(--accent-ink);
@@ -2804,10 +2804,6 @@ body {
   .search-box {
     height: 54px;
     padding-left: 14px;
-  }
-
-  .search-submit {
-    padding: 0 16px;
   }
 
   .query-tag {

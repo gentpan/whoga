@@ -83,14 +83,13 @@ export function SearchHero({
           type="submit"
           className={`search-submit squircle${loading ? " is-loading" : ""}`}
           disabled={loading}
+          aria-label={t.search}
+          title={t.search}
         >
           {loading ? (
             <span className="loader" aria-hidden />
           ) : (
-            <>
-              <Search size={15} strokeWidth={2.4} aria-hidden />
-              <span>{t.search}</span>
-            </>
+            <Search size={17} strokeWidth={2.4} aria-hidden />
           )}
         </button>
       </form>
