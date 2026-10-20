@@ -362,11 +362,12 @@ body {
   width: 28px;
   height: 28px;
   --sq-r: 9px;
-  background: #22c55e;
+  background: var(--accent);
+  color: var(--accent-ink);
   transition: transform 0.2s ease;
 }
 
-.nav-avatar-logo img {
+.nav-avatar-logo svg {
   display: block;
   width: 20px;
   height: 20px;
