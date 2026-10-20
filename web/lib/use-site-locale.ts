@@ -4,12 +4,19 @@ import type { SiteLocale } from "@/web/lib/site-copy";
 const STORAGE_KEY = "who-ga-locale";
 export const SITE_LOCALE_EVENT = "who-ga-locale-change";
 
+function browserLocale(): SiteLocale {
+  if (typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("zh")) {
+    return "zh";
+  }
+  return "en";
+}
+
 export function readSiteLocale(): SiteLocale {
   if (typeof window === "undefined") {
     return "zh";
   }
   const saved = window.localStorage.getItem(STORAGE_KEY);
-  return saved === "en" ? "en" : "zh";
+  return saved === "en" || saved === "zh" ? saved : browserLocale();
 }
 
 export function writeSiteLocale(locale: SiteLocale): void {

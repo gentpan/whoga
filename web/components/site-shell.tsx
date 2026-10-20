@@ -17,15 +17,10 @@ export function SiteShell({ children, pageClassName, activeNav, onSectionClick, 
 
   return (
     <main className={pageClass}>
-      <SiteHeader
-        locale={locale}
-        onLocaleChange={setLocale}
-        activeNav={activeNav}
-        onSectionClick={onSectionClick}
-      />
+      <SiteHeader locale={locale} activeNav={activeNav} onSectionClick={onSectionClick} />
       <div className="container">
         <div className="page-main">{children}</div>
-        <SiteFooter locale={locale} />
+        <SiteFooter locale={locale} onLocaleChange={setLocale} />
       </div>
       {trailing}
     </main>

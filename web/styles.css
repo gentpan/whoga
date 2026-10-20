@@ -448,26 +448,6 @@ body {
   transform: translateY(-1px);
 }
 
-.nav-lang-trigger {
-  --sq-r: 16px;
-  display: inline-flex;
-  gap: 6px;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 36px;
-  padding: 0 10px;
-  border: 0;
-  background: transparent;
-  color: var(--nav-text);
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.nav-lang-trigger:hover {
-  background: var(--nav-hover);
-}
-
 /* ---------- 语言 / 主题菜单(Base UI Menu 共用) ---------- */
 
 .lang-flag {
@@ -1978,6 +1958,40 @@ body {
   gap: 8px;
 }
 
+.footer-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+.footer-control {
+  --sq-r: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease-out, background 180ms ease-out, color 180ms ease-out,
+    border-color 180ms ease-out;
+}
+
+.footer-control:hover {
+  transform: translateY(-2px);
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
+
 .footer-social-link {
   --sq-r: 10px;
   color: var(--accent);
@@ -2726,11 +2740,6 @@ body {
     padding: 8px 10px;
   }
 
-  .nav-lang-trigger {
-    min-width: 38px;
-    padding: 0 8px;
-  }
-
   .back-top {
     bottom: 84px;
   }
@@ -2792,6 +2801,10 @@ body {
     flex-direction: column;
     gap: 14px;
     text-align: center;
+  }
+
+  .footer-controls {
+    margin: 0;
   }
 
   .footer-copyright p {
