@@ -5,7 +5,8 @@ const SITE_TITLE = "WHO.GA — 域名、IP、ASN 查询 | RDAP WHOIS 与 JSON AP
 const SITE_DESCRIPTION =
   "WHO.GA 提供域名、IP、ASN 与后缀的 RDAP 优先查询，WHOIS 自动回退，结构化 JSON 输出与开发者 API，路由数据每日同步 IANA。RDAP-first lookup for domains, IPs, ASNs, and TLD suffixes — structured JSON, WHOIS fallback, synced with IANA daily.";
 
-const SORA_FONT_URL = "https://static.bluecdn.com/fonts/sora.css";
+const SORA_FONT_URL =
+  "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -44,7 +45,8 @@ export const Route = createRootRoute({
       { name: "apple-mobile-web-app-status-bar-style", content: "default" }
     ],
     links: [
-      { rel: "preconnect", href: "https://static.bluecdn.com" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: SORA_FONT_URL },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico" },

@@ -274,7 +274,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 808px;
   margin: 0 auto;
   padding: 96px 24px 10px;
   flex: 1;
@@ -294,20 +294,18 @@ body {
   min-width: 0;
 }
 
-/* 首页主内容列:hero + 查询结果收窄至 760px 居中 */
+/* 全站统一内容列:760px,与导航栏同宽 */
 .home-narrow {
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
 }
 
-/* 首页其余区块(统计 / API / TLD / FAQ)略宽,收在 860px 内 */
 .stats-block,
 .api-usage-section,
 .supported-tlds-section,
 .faq-section {
   width: 100%;
-  max-width: 860px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -319,7 +317,7 @@ body {
   top: 18px;
   left: 50%;
   z-index: 1000;
-  width: min(calc(100vw - 24px), 920px);
+  width: min(calc(100vw - 48px), 760px);
   transform: translateX(-50%);
 }
 
