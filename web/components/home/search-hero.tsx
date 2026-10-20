@@ -109,6 +109,7 @@ export function SearchHero({
           </button>
         ))}
       </div>
+      {!hasResult ? <p className="hero-supports">{t.heroSupports}</p> : null}
       {unsupportedSuffix ? (
         <section className="unsupported-suffix-panel squircle" aria-live="polite">
           <div className="unsupported-suffix-head">

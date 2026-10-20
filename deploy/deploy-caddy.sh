@@ -1,9 +1,9 @@
 #!/bin/bash
 # ============================================================
 # who.ga 生产部署（Caddy + systemd）
-# 服务器: 8.217.86.171
+# 服务器: 166.0.22.246
 # 路径: /opt/who.ga
-# 用法: ./deploy/deploy-caddy.sh [ssh_key]
+# 用法: ./deploy/deploy-caddy.sh [ssh_key] [user@host]
 # ============================================================
 
 set -euo pipefail
@@ -11,7 +11,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-HOST="root@8.217.86.171"
+HOST="${2:-root@166.0.22.246}"
 KEY="${1:-$HOME/.ssh/gentpan.pem}"
 REMOTE_DIR="/opt/who.ga"
 RUNTIME_DATA="$REMOTE_DIR/runtime/data"
@@ -42,7 +42,7 @@ echo "[2/7] Ensure runtime directory on server..."
 $SSH "$HOST" "mkdir -p $RUNTIME_DATA"
 
 echo "[3/7] Build on server..."
-$SSH "$HOST" "cd $REMOTE_DIR && pnpm install && pnpm build"
+$SSH "$HOST" "cd $REMOTE_DIR && CI=true pnpm install --config.confirmModulesPurge=false && CI=true pnpm --config.verifyDepsBeforeRun=false build"
 
 echo "[4/7] Restart service..."
 $SSH "$HOST" "systemctl restart $SERVICE && systemctl is-active $SERVICE"

@@ -110,7 +110,7 @@ export function SiteHeader({ locale, onLocaleChange, activeNav, onSectionClick }
             }}
           >
             <img
-              className="nav-avatar-img"
+              className="nav-avatar-img squircle"
               src="/logo.svg"
               alt=""
               width={28}

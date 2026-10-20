@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Tags } from "lucide-react";
 import type { HomeCopy } from "@/web/lib/i18n";
 import { errorToMessage } from "@/web/lib/rdap-format";
 
@@ -6,25 +7,13 @@ interface SuffixesResponse {
   count: number;
   suffixes: string[];
   decodedSuffixes?: Record<string, string>;
-  tldCategories?: {
-    ccTld: string[];
-    gTld: string[];
-    newGtld: string[];
-    sTld: string[];
-    brandTld: string[];
-    geoTld: string[];
-  };
-  tldTypeCounts?: {
-    ccTld: number;
-    gTld: number;
-    newGtld: number;
-    sTld: number;
-    brandTld: number;
-    geoTld: number;
-    total: number;
-  };
   error?: string;
 }
+
+const HOT_SUFFIXES = [
+  "com", "net", "org", "io", "ai", "dev", "app", "cn", "uk", "de",
+  "jp", "co", "me", "cc", "tv", "info", "xyz", "shop", "blog", "cloud"
+];
 
 interface TldBrowserProps {
   t: HomeCopy;
@@ -36,28 +25,8 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
   const [suffixes, setSuffixes] = useState<string[]>([]);
   const [suffixCount, setSuffixCount] = useState(0);
   const [decodedSuffixes, setDecodedSuffixes] = useState<Record<string, string>>({});
-  const [suffixCategories, setSuffixCategories] = useState({
-    ccTld: [] as string[],
-    gTld: [] as string[],
-    newGtld: [] as string[],
-    sTld: [] as string[],
-    brandTld: [] as string[],
-    geoTld: [] as string[]
-  });
-  const [tldTypeCounts, setTldTypeCounts] = useState({
-    ccTld: 0,
-    gTld: 0,
-    newGtld: 0,
-    sTld: 0,
-    brandTld: 0,
-    geoTld: 0,
-    total: 0
-  });
   const [suffixError, setSuffixError] = useState<string | null>(null);
   const [showAllTlds, setShowAllTlds] = useState(false);
-  const [selectedTldCategory, setSelectedTldCategory] = useState<
-    "all" | "ccTld" | "gTld" | "newGtld" | "sTld" | "brandTld" | "geoTld"
-  >("all");
 
   useEffect(() => {
     let mounted = true;
@@ -73,27 +42,6 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
           setSuffixes(payload.suffixes ?? []);
           setSuffixCount(payload.count ?? 0);
           setDecodedSuffixes(payload.decodedSuffixes ?? {});
-          setSuffixCategories(
-            payload.tldCategories ?? {
-              ccTld: [],
-              gTld: [],
-              newGtld: [],
-              sTld: [],
-              brandTld: [],
-              geoTld: []
-            }
-          );
-          setTldTypeCounts(
-            payload.tldTypeCounts ?? {
-              ccTld: 0,
-              gTld: 0,
-              newGtld: 0,
-              sTld: 0,
-              brandTld: 0,
-              geoTld: 0,
-              total: 0
-            }
-          );
         }
       } catch (loadError) {
         if (mounted) {
@@ -111,20 +59,12 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
   }, []);
 
   const visibleSuffixes = useMemo(() => {
-    const sourceSuffixes =
-      selectedTldCategory === "all" ? suffixes : (suffixCategories[selectedTldCategory] ?? []);
     if (showAllTlds) {
-      return sourceSuffixes;
+      return suffixes;
     }
-    return sourceSuffixes.slice(0, 60);
-  }, [selectedTldCategory, showAllTlds, suffixCategories, suffixes]);
-
-  const activeSuffixCount = useMemo(() => {
-    if (selectedTldCategory === "all") {
-      return suffixCount;
-    }
-    return suffixCategories[selectedTldCategory]?.length ?? 0;
-  }, [selectedTldCategory, suffixCategories, suffixCount]);
+    const hot = HOT_SUFFIXES.filter((suffix) => suffixes.includes(suffix));
+    return hot.length ? hot : suffixes.slice(0, 20);
+  }, [showAllTlds, suffixes]);
 
   const suffixDisplayList = useMemo(
     () =>
@@ -140,83 +80,19 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
   );
 
   return (
-    <section className="supported-tlds-section">
-      <h2>{t.supportedTlds}</h2>
-      <div className="supported-tlds-card squircle">
-        <p className="supported-count">
-          {activeSuffixCount.toLocaleString(numberLocale)} / {suffixCount.toLocaleString(numberLocale)} {t.tldsSupported}
-        </p>
-        <div className="tld-breakdown" id="section-tlds">
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "ccTld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("ccTld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.ccTldLabel}: <strong>{tldTypeCounts.ccTld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "gTld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("gTld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.gTldLabel}: <strong>{tldTypeCounts.gTld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "newGtld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("newGtld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.newGtldLabel}: <strong>{tldTypeCounts.newGtld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "sTld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("sTld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.sTldLabel}: <strong>{tldTypeCounts.sTld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "brandTld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("brandTld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.brandTldLabel}: <strong>{tldTypeCounts.brandTld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "geoTld" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("geoTld");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.geoTldLabel}: <strong>{tldTypeCounts.geoTld.toLocaleString(numberLocale)}</strong>
-          </button>
-          <button
-            type="button"
-            className={`tld-breakdown-item squircle ${selectedTldCategory === "all" ? "active" : ""}`}
-            onClick={() => {
-              setSelectedTldCategory("all");
-              setShowAllTlds(false);
-            }}
-          >
-            {t.all}: <strong>{suffixCount.toLocaleString(numberLocale)}</strong>
-          </button>
+    <section className="supported-tlds-section" id="section-tlds">
+      <article className="result-card squircle">
+        <div className="result-card-head">
+          <span className="result-card-icon" aria-hidden>
+            <Tags size={14} strokeWidth={2} />
+          </span>
+          <h3 className="result-card-title">
+            <span className="term-hash" aria-hidden># </span>
+            {t.supportedTlds}
+          </h3>
+          <span className="result-card-meta">
+            {t.tldsTotal.replace("{count}", suffixCount.toLocaleString(numberLocale))}
+          </span>
         </div>
         {suffixError ? <p className="error muted">{suffixError}</p> : null}
         <div className="supported-tags-wrap">
@@ -234,7 +110,7 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
             </button>
           ))}
         </div>
-        {activeSuffixCount > 60 ? (
+        {suffixCount > visibleSuffixes.length || showAllTlds ? (
           <div className="supported-action">
             <button
               type="button"
@@ -245,7 +121,7 @@ export function TldBrowser({ t, numberLocale, onSelectSuffix }: TldBrowserProps)
             </button>
           </div>
         ) : null}
-      </div>
+      </article>
     </section>
   );
 }

@@ -5,7 +5,7 @@ import { SiteShell } from "@/web/components/site-shell";
 import { SearchHero } from "@/web/components/home/search-hero";
 import { LookupResult } from "@/web/components/home/lookup-result";
 import { StatsSection } from "@/web/components/home/stats-section";
-import { ApiConsole } from "@/web/components/home/api-console";
+import { ApiCard } from "@/web/components/home/api-card";
 import { TldBrowser } from "@/web/components/home/tld-browser";
 import { FaqSection } from "@/web/components/home/faq-section";
 import { I18N } from "@/web/lib/i18n";
@@ -102,7 +102,7 @@ export function HomePage() {
       {isHomePage ? (
         <>
           <StatsSection t={t} numberLocale={numberLocale} />
-          <ApiConsole t={t} />
+          <ApiCard t={t} />
           <TldBrowser t={t} numberLocale={numberLocale} onSelectSuffix={lookup.navigateToQuery} />
           <FaqSection t={t} />
         </>
