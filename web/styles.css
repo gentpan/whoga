@@ -356,12 +356,7 @@ body {
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.nav-avatar:hover,
-.nav-avatar.active {
-  background: var(--nav-hover);
+  transition: transform 0.2s ease;
 }
 
 .nav-avatar-img {
@@ -371,13 +366,11 @@ body {
   --sq-r: 9px;
   object-fit: cover;
   background: var(--accent);
-  border: 2px solid var(--nav-border);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .nav-avatar:hover .nav-avatar-img {
   transform: scale(1.05);
-  box-shadow: 0 0 0 2px var(--accent-line);
 }
 
 .nav-main-links {
