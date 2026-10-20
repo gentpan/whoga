@@ -36,8 +36,19 @@ fi
     source "$ROOT/.env.local"
     set +a
   fi
+  if [ -f "$ROOT/.env.production.local" ]; then
+    set -a
+    # shellcheck disable=SC1091
+    source "$ROOT/.env.production.local"
+    set +a
+  fi
 
   node "$ROOT/scripts/sync-rdap-extra.mjs" || echo "sync-rdap-extra failed; continuing"
+
+  # 应用优先读 runtime/data,把重新生成的映射同步过去再刷新
+  if [ -d "$ROOT/runtime/data" ]; then
+    cp -f "$ROOT/data/rdap-servers-extra.json" "$ROOT/runtime/data/rdap-servers-extra.json" 2>/dev/null || true
+  fi
 
   if [ -n "${CRON_SECRET:-}" ]; then
     curl -fsS --max-time 900 -X POST \
