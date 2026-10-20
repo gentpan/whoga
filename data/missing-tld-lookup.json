@@ -5,6 +5,14 @@
   "withWhois": 143,
   "none": 62,
   "failed": 0,
+  "_notes": {
+    "updatedAt": "2026-10-20",
+    "deadWhoisHosts": {
+      "whois.cmc.iq": "DNS 解析失败(2026-10-20 实测,8.8.8.8 同测);影响 iq、xn--mgbtx2b;替代 whois.nic.iq 同样无法解析,未找到可用替代",
+      "whois.tld.sy": "拒绝连接(2026-10-20 实测);影响 sy、xn--ogbpf8fl,但二者现由 rdap.nic.sy 的 RDAP 覆盖(nic.sy 与 سورية.سورية 均返回 200),不再依赖该主机;whois.nic.sy:43 可连接但查询无响应,不可用",
+      "whois.mn": "连接超时(2026-10-20 实测);影响 xn--l1acc;替代 whois.nic.mn 明确返回 TLD is not supported(.мон 不在 Identity Digital 后端),无可用替代"
+    }
+  },
   "results": [
     {
       "tld": "ae",

@@ -160,7 +160,8 @@ const MANUAL_MAPPINGS = {
   "ae": "https://rdap.aeda.net.ae/",
   "kw": "https://rdap.kw/",
   "il": "https://rdap.isoc.org.il/",
-  "in": "https://rdap.inregistry.net/",
+  "in": "https://rdap.nixiregistry.in/rdap/",
+  "us": "https://rdap.nic.us/",
   "pk": "https://rdap.nic.pk/",
   "lk": "https://rdap.nic.lk/",
   "bd": "https://rdap.nic.bd/",
@@ -234,13 +235,48 @@ const MANUAL_MAPPINGS = {
   "xn--kprw13d": "https://rdap.twnic.tw/rdap/",
   "xn--kpry57d": "https://rdap.twnic.tw/rdap/",
   "xn--p1ai": "https://rdap.nic.ru/",
-  "xn--wgbl6a": "https://rdap.nic.qa/",
-  "xn--ygbi2ammx": "https://rdap.nic.om/",
   "xn--mgbaam7a8h": "https://rdap.nic.sa/",
   "xn--mgberp4a5d4ar": "https://rdap.nic.ae/",
   "xn--mxtq1m": "https://rdap.nic.xn--mxtq1m/",
   "xn--qxam": "https://rdap.nic.xn--qxam/",
+
+  // IDN ccTLD 同运营方 RDAP(2026-10-20 逐条 curl 实测验证)
+  "xn--80ao21a": "https://rdap.nic.kz/",           // қаз,google.қаз 返回 200
+  "xn--ogbpf8fl": "https://rdap.nic.sy/",          // سورية,سورية.سورية 返回 200
+  "xn--mgb9awbf": "https://rdap.registry.om/",     // عمان,权威 .om 服务器,RDAP 404 JSON
+  "xn--mgbx4cd0ab": "https://rdap.mynic.my/rdap/", // مليسيا,权威 .my 服务器,RDAP 404 JSON
+
+  // 印度 IDN(NIXI 官方 RDAP,IANA 中 .in 同源;乱码域名均返回标准 RDAP 404 JSON)
+  "xn--2scrj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--3hcrj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--45br5cyl": "https://rdap.nixiregistry.in/rdap/",
+  "xn--45brj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--fpcrj9c3d": "https://rdap.nixiregistry.in/rdap/",
+  "xn--gecrj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--h2breg3eve": "https://rdap.nixiregistry.in/rdap/",
+  "xn--h2brj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--h2brj9c8c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--mgbbh1a": "https://rdap.nixiregistry.in/rdap/",
+  "xn--mgbbh1a71e": "https://rdap.nixiregistry.in/rdap/",
+  "xn--mgbgu82a": "https://rdap.nixiregistry.in/rdap/",
+  "xn--rvc1e0am3e": "https://rdap.nixiregistry.in/rdap/",
+  "xn--s9brj9c": "https://rdap.nixiregistry.in/rdap/",
+  "xn--xkc2dl3a5ee0h": "https://rdap.nixiregistry.in/rdap/",
 };
+
+// 上游数据源中的错误/失效映射,强制排除(2026-10-20 实测)
+const EXCLUDE_TLDS = new Set([
+  // Gist 将埃及 IDN 映射到印度注册局 rdap.inregistry.net,该主机已停止解析;
+  // 埃及无公开 RDAP(rdap.nic.eg / rdap.egregistry.eg 均不存在)
+  "xn--wgbh1c",
+  // 卡塔尔:rdap.nic.qa / rdap.registry.qa / rdap.qa 均无法解析,
+  // whois.registry.qa:43 可用,移除 RDAP 映射以免浪费回退时间
+  "xn--wgbl6a",
+  // 巴勒斯坦:无公开 RDAP(rdap.pnina.ps 不存在);上游映射到阿曼注册局
+  // (rdap.registry.om / rdap.nic.om)属错误来源,活的错误服务器会返回
+  // 掩盖性 404,阻断后续 whois 回退,故移除
+  "xn--ygbi2ammx",
+]);
 
 /**
  * 解析 Gist 数据
@@ -297,16 +333,44 @@ async function fetchFromGist() {
 }
 
 /**
+ * 读取现有的 rdap-servers-extra.json(作为最低优先级数据源,
+ * 保证重新生成不会丢失历史条目,如 rdapapi.io 来源的映射)
+ */
+async function readExistingData() {
+  try {
+    const raw = await readFile(EXTRA_FILE, "utf-8");
+    const data = JSON.parse(raw);
+    const result = {};
+    for (const [tld, url] of Object.entries(data)) {
+      if (tld.startsWith("_")) continue; // 跳过 _comment/_version 等元数据
+      if (typeof url === "string") result[tld] = url;
+    }
+    console.log(`📂 现有文件读取了 ${Object.keys(result).length} 个 TLD`);
+    return result;
+  } catch (error) {
+    console.log(`⚠️  无法读取现有文件: ${error.message}`);
+    return {};
+  }
+}
+
+/**
  * 合并所有数据源
  */
-function mergeData(gistData, manualData) {
+function mergeData(existingData, gistData, manualData) {
   // 优先级：手动维护 > Gist > 现有数据
-  const merged = { ...gistData, ...manualData };
+  const merged = { ...existingData, ...gistData, ...manualData };
 
   // 去重和标准化
   const normalized = {};
   for (const [tld, url] of Object.entries(merged)) {
     const normalizedTld = tld.toLowerCase().trim();
+
+    // 排除已知的错误/失效映射
+    if (EXCLUDE_TLDS.has(normalizedTld)) {
+      console.log(`🚫 排除失效映射: ${normalizedTld} -> ${url}`);
+      continue;
+    }
+
     let normalizedUrl = url.trim();
 
     // 确保 URL 以 / 结尾
@@ -376,10 +440,11 @@ async function main() {
 
   // 获取各数据源
   const gistData = await fetchFromGist();
+  const existingData = await readExistingData();
 
   // 合并数据
   console.log("\n🔀 合并数据源...");
-  const merged = mergeData(gistData, MANUAL_MAPPINGS);
+  const merged = mergeData(existingData, gistData, MANUAL_MAPPINGS);
   console.log(`📊 合并后共 ${Object.keys(merged).length} 个 TLD`);
 
   // 统计分类
