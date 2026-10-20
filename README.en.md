@@ -4,61 +4,39 @@
 
 # Whoga
 
-**Self-hosted RDAP & WHOIS lookup**
+**Self-hosted domain / IP / ASN lookup — RDAP-first, WHOIS fallback**
 
-Web UI + JSON API · Domain · TLD · IP · ASN
+<strong>English</strong> · <a href="./README.md">中文</a>
 
-<p>
-  <strong>English</strong>
-  &nbsp;·&nbsp;
-  <a href="./README.md" style="text-decoration:none;color:#6b7280;">中文</a>
-</p>
+<a href="https://who.ga">who.ga</a> · <a href="https://api.who.ga">api.who.ga</a> · <a href="https://who.ga/learn/en">Guides</a> · <a href="https://github.com/gentpan/whoga/issues">Issues</a>
 
-<p>
-  <a href="https://who.ga" style="text-decoration:none;color:#16a34a;font-weight:600;">who.ga</a>
-  &nbsp;·&nbsp;
-  <a href="https://who.ga/learn/en" style="text-decoration:none;color:#111827;font-weight:600;">Guides</a>
-  &nbsp;·&nbsp;
-  <a href="https://api.who.ga" style="text-decoration:none;color:#111827;font-weight:600;">api.who.ga</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/gentpan/whoga/issues" style="text-decoration:none;color:#111827;font-weight:600;">Issues</a>
-</p>
-
-<br />
-
-<img src="https://img.shields.io/github/stars/gentpan/whoga?style=for-the-badge&logo=github&logoColor=white" alt="GitHub stars" />
-<img src="https://img.shields.io/badge/license-MIT-22C55E?style=for-the-badge" alt="MIT License" />
-<img src="https://img.shields.io/badge/demo-who.ga-111827?style=for-the-badge" alt="Demo" />
-
-<br /><br />
-
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-<img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React 19" />
-<img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=react&logoColor=white" alt="TanStack Start" />
-<img src="https://img.shields.io/badge/Nitro-00DC82?style=for-the-badge" alt="Nitro" />
-<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-
-<br />
-
-<img src="https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
-<img src="https://img.shields.io/badge/pnpm-9+-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm" />
-<img src="https://img.shields.io/badge/RDAP-✓-0ea5e9?style=for-the-badge" alt="RDAP" />
-<img src="https://img.shields.io/badge/WHOIS_fallback-✓-8b5cf6?style=for-the-badge" alt="WHOIS fallback" />
-<img src="https://img.shields.io/badge/Redis-optional-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+<img src="https://img.shields.io/github/stars/gentpan/whoga?style=flat-square" alt="GitHub stars" />
+<img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT" />
+<img src="https://img.shields.io/badge/node-20+-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js 20+" />
+<img src="https://img.shields.io/badge/TypeScript-full--stack-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
 
 </div>
 
 <br />
 
-## Features
+<table>
+  <tr>
+    <td><img src="./docs/screenshots/theme-light.png" alt="Light theme" /></td>
+    <td><img src="./docs/screenshots/theme-dark.png" alt="Dark theme" /></td>
+    <td><img src="./docs/screenshots/theme-terminal.png" alt="Terminal theme" /></td>
+  </tr>
+  <tr>
+    <td align="center">Light</td>
+    <td align="center">Dark</td>
+    <td align="center">Terminal</td>
+  </tr>
+</table>
 
-- **RDAP-first lookup** for domains, TLD suffixes, IPv4/IPv6, and ASNs, with structured JSON output
-- **Multi-layer fallback**: WHOIS port43 (hostname probing + IANA referral chasing) when RDAP is unavailable, then third-party HTTP WHOIS APIs
-- **1,380+ suffix coverage**: nearly the entire IANA root zone, including 40+ suffixes served via WHOIS fallback and 20+ web-only registries (registry metadata)
-- **Three UI themes**: light / dark / terminal (monospace, phosphor green, command echo) — one-click switch, persisted locally
-- Squircle corners via `corner-shape: squircle` with automatic fallback in unsupported browsers
-- Bilingual UI and docs (中文 / English)
-- Local data index synced with IANA daily; optional Redis caching
+## What is this
+
+Type a domain, IP, or ASN and get structured registry + registrar data in one response. RDAP first; when a TLD has no RDAP, it falls back to WHOIS port43 (hostname probing + IANA referral chasing), then to third-party HTTP WHOIS APIs. Covers **95%+ of the IANA root zone** (1,380+ suffixes), with data synced from IANA daily.
+
+The UI ships with three switchable themes (light / dark / terminal), squircle corners, and bilingual copy (English / 中文). A public JSON API is included, and self-hosting needs just one process.
 
 ## Quick start
 
@@ -66,10 +44,8 @@ Web UI + JSON API · Domain · TLD · IP · ASN
 git clone https://github.com/gentpan/whoga.git
 cd whoga
 pnpm install
-pnpm dev
+pnpm dev          # http://localhost:3410
 ```
-
-Open <a href="http://localhost:3410" style="text-decoration:none;color:#16a34a;font-weight:600;">localhost:3410</a>
 
 Production:
 
@@ -85,7 +61,7 @@ curl "http://localhost:3410/api/whois?domain=8.8.8.8"
 curl "http://localhost:3410/api/whois?domain=AS15169"
 ```
 
-The hosted API also accepts path-style calls: <a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
+The hosted API also accepts path-style calls: [api.who.ga/google.com](https://api.who.ga/google.com)
 
 ## Stack
 
@@ -93,22 +69,14 @@ The hosted API also accepts path-style calls: <a href="https://api.who.ga/google
 
 | Layer | Details |
 |-------|---------|
-| **Language** | TypeScript end to end |
-| **Runtime** | Node.js 20+ · pnpm |
-| **Framework** | TanStack Start (SSR) + Nitro (server) |
-| **Frontend** | React 19 · Vite · TanStack Router (file-based routes) |
-| **UI primitives** | [Base UI](https://base-ui.com) (menus, tooltips; styled by project CSS) |
-| **Styling** | Plain CSS variables + theme system · Sora · Lucide icons |
-| **API** | Nitro handlers in `api/`, same process as the pages |
-| **Cache** | Redis (optional) |
-
-Day to day:
-
-```bash
-pnpm install    # install
-pnpm dev        # develop (localhost:3410)
-pnpm build && pnpm start   # production
-```
+| Language | TypeScript end to end |
+| Runtime | Node.js 20+ · pnpm |
+| Framework | TanStack Start (SSR) + Nitro (server) |
+| Frontend | React 19 · Vite · TanStack Router (file-based routes) |
+| UI | Base UI · Lucide icons |
+| Styling | Plain CSS variables + theme system · `corner-shape: squircle` (graceful fallback) |
+| API | Nitro handlers in `api/`, same process as the pages |
+| Cache | Redis (optional) |
 
 ## Configuration
 
@@ -122,39 +90,30 @@ cp .env.example .env
 | `REDIS_URL` | Redis cache |
 | `WHOIS_CACHE_TTL_SECONDS` | Cache TTL, default 900 |
 
-## Data updates
+## Data
 
-With the server running, refresh the local index manually:
-
-```bash
-pnpm refresh:data
-```
-
-or `curl -X POST http://localhost:3410/api/admin/refresh`
-
-Data directories: `data/` (seed) → `runtime/data/` (runtime, takes precedence)
-
-Useful data scripts:
+`data/` (seed) → `runtime/data/` (runtime, takes precedence). Refresh:
 
 ```bash
-pnpm sync:rdap-extra        # regenerate supplementary RDAP mappings
-pnpm scan:whois-hosts       # probe WHOIS hosts for suffixes without RDAP
-pnpm test:rdap-all          # live-test every suffix's RDAP endpoint
-pnpm check:tlds-queryability # print the suffix coverage report
+pnpm refresh:data               # full refresh (or POST /api/admin/refresh)
+pnpm sync:rdap-extra            # regenerate supplementary RDAP mappings
+pnpm scan:whois-hosts           # probe WHOIS hosts for suffixes without RDAP
+pnpm test:rdap-all              # live-test every suffix's RDAP endpoint
+pnpm check:tlds-queryability    # suffix coverage report
 ```
 
 ## Project layout
 
 ```
 whoga/
-├── web/           # frontend: routes/, components/, styles & copy in lib/
+├── web/           # frontend: routes/ · components/ · lib/ (copy & logic)
 ├── api/           # HTTP API handlers (/api/whois, /api/stats, ...)
 ├── lib/           # shared logic (RDAP/WHOIS, data index, fallback chain)
-├── data/          # seed data (RDAP mappings, TLD lists, ...)
+├── data/          # seed data (RDAP mappings, TLD lists)
 ├── runtime/       # runtime data (gitignored, takes precedence)
-├── public/        # static assets (logo, favicon, robots.txt)
 ├── scripts/       # data refresh & ops scripts
-└── deploy/        # deployment scripts
+├── deploy/        # deployment scripts (see deploy/README.md)
+└── docs/          # screenshots and doc assets
 ```
 
 ## Deployment
@@ -163,22 +122,12 @@ whoga/
 ./deploy/deploy-caddy.sh ~/.ssh/your-key.pem
 ```
 
-See <a href="./deploy/README.md" style="text-decoration:none;color:#16a34a;font-weight:600;">deploy/README.md</a> for details.
+See [deploy/README.md](./deploy/README.md) for details.
 
 ---
 
 <div align="center">
 
-<br />
-
-<a href="https://who.ga" style="text-decoration:none;color:#16a34a;font-weight:600;">who.ga</a>
-&nbsp;·&nbsp;
-<a href="https://github.com/gentpan/whoga" style="text-decoration:none;color:#111827;font-weight:600;">GitHub</a>
-&nbsp;·&nbsp;
-<a href="./LICENSE" style="text-decoration:none;color:#111827;font-weight:600;">MIT</a>
-
-<br /><br />
-
-<sub>Whoga · Self-hosted RDAP & WHOIS</sub>
+<sub>Whoga · Self-hosted RDAP & WHOIS · MIT License</sub>
 
 </div>
