@@ -32,12 +32,11 @@ Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
 
 <br /><br />
 
-<img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=react&logoColor=white" alt="TanStack Start" />
-<img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React 19" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React 19" />
+<img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=react&logoColor=white" alt="TanStack Start" />
 <img src="https://img.shields.io/badge/Nitro-00DC82?style=for-the-badge" alt="Nitro" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-<img src="https://img.shields.io/badge/Base_UI-111827?style=for-the-badge" alt="Base UI" />
 
 <br />
 
@@ -53,10 +52,13 @@ Web 界面 + JSON API · 域名 · 后缀 · IP · ASN
 
 ## 功能
 
-- RDAP 查询域名、TLD、IP、ASN
-- 无 RDAP 时 WHOIS port43 自动回退
-- 本地数据索引，支持定时刷新
-- Redis 缓存（可选）
+- **RDAP 优先查询**域名、后缀(TLD)、IPv4 / IPv6、ASN,结构化 JSON 输出
+- **多层回退**:无 RDAP 时自动走 WHOIS port43(主机名模式探测 + IANA 转介跟随),再到第三方 HTTP WHOIS API
+- **后缀覆盖 1,380+**:IANA 根区 TLD 绝大部分可查,含 40+ 个仅靠 WHOIS 回退的后缀与 20+ 个网页注册局(返回注册局元数据)
+- **三套界面主题**:浅色 / 深色 / 终端(等宽字体 + 磷光绿 + 命令回显),一键切换、本地记忆
+- 超椭圆(squircle)圆角 UI:`corner-shape: squircle`,不支持的浏览器自动降级
+- 中英双语界面与文档
+- 本地数据索引,每日定时与 IANA 同步;Redis 缓存(可选)
 
 ## 快速开始
 
@@ -69,7 +71,7 @@ pnpm dev
 
 访问 <a href="http://localhost:3410" style="text-decoration:none;color:#16a34a;font-weight:600;">localhost:3410</a>
 
-生产环境：
+生产环境:
 
 ```bash
 pnpm build && pnpm start
@@ -78,32 +80,33 @@ pnpm build && pnpm start
 ## API
 
 ```bash
-curl "http://localhost:3410/api/whois?query=google.com"
-curl "http://localhost:3410/api/whois?query=8.8.8.8"
-curl "http://localhost:3410/api/whois?query=AS15169"
+curl "http://localhost:3410/api/whois?domain=google.com"
+curl "http://localhost:3410/api/whois?domain=8.8.8.8"
+curl "http://localhost:3410/api/whois?domain=AS15169"
 ```
 
-在线示例：<a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
+线上版支持路径式调用:<a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
 
 ## 技术栈
 
-**一句话：单仓 Node 全栈应用** — 网页和 JSON API 同一个进程，一次构建、一次部署。
+**后端不是 Go,也没有独立后端** — 这是一个单仓 TypeScript 全栈应用:网页和 JSON API 跑在同一个 Node.js 进程里,一次构建、一次部署。
 
 | 部分 | 说明 |
 |------|------|
+| **语言** | TypeScript(前后端统一) |
 | **运行** | Node.js 20+ · pnpm |
-| **前端** | React 19 · TypeScript · Vite |
-| **路由** | TanStack Router / Start |
-| **交互** | [Base UI](https://base-ui.com)（菜单、Tooltip 等，样式由项目 CSS 定制） |
-| **样式** | 原生 CSS · Sora 字体 · Lucide 图标 |
-| **API** | 同仓库 `api/` 目录，与页面共用一套服务 |
-| **缓存** | Redis（可选） |
+| **全栈框架** | TanStack Start(SSR)+ Nitro(服务端) |
+| **前端** | React 19 · Vite · TanStack Router(文件式路由) |
+| **交互** | [Base UI](https://base-ui.com)(菜单、Tooltip 等,样式由项目 CSS 定制) |
+| **样式** | 原生 CSS 变量 + 主题系统 · Sora 字体 · Lucide 图标 |
+| **API** | 同仓库 `api/` 目录的 Nitro handler,与页面共用一套服务 |
+| **缓存** | Redis(可选) |
 
-底层用到 Nitro 做服务端、TanStack Start 做全栈整合，但日常只需要：
+日常只需要:
 
 ```bash
 pnpm install    # 安装
-pnpm dev        # 开发
+pnpm dev        # 开发(localhost:3410)
 pnpm build && pnpm start   # 生产
 ```
 
@@ -115,13 +118,13 @@ cp .env.example .env
 
 | 变量 | 说明 |
 |------|------|
-| `CRON_SECRET` | 刷新接口密钥（生产建议设置） |
+| `CRON_SECRET` | 刷新接口密钥(生产建议设置) |
 | `REDIS_URL` | Redis 缓存 |
-| `WHOIS_CACHE_TTL_SECONDS` | 缓存时间，默认 900 |
+| `WHOIS_CACHE_TTL_SECONDS` | 缓存时间,默认 900 |
 
 ## 数据更新
 
-服务运行后，手动刷新本地索引：
+服务运行后,手动刷新本地索引:
 
 ```bash
 pnpm refresh:data
@@ -129,18 +132,27 @@ pnpm refresh:data
 
 或 `curl -X POST http://localhost:3410/api/admin/refresh`
 
-数据目录：`data/`（种子）→ `runtime/data/`（运行时，优先读取）
+数据目录:`data/`(种子)→ `runtime/data/`(运行时,优先读取)
+
+常用数据脚本:
+
+```bash
+pnpm sync:rdap-extra        # 重新生成补充 RDAP 映射
+pnpm scan:whois-hosts       # 探测无 RDAP 后缀的 WHOIS 主机
+pnpm test:rdap-all          # 实测所有后缀 RDAP 端点活性
+pnpm check:tlds-queryability # 输出后缀可查询率报告
+```
 
 ## 项目结构
 
 ```
 whoga/
-├── web/           # 页面与 UI 组件
-├── api/           # HTTP API（/api/whois、/api/stats 等）
-├── public/        # 静态资源（logo、favicon、robots.txt）
-├── lib/           # 共享业务逻辑（RDAP/WHOIS、数据索引）
-├── data/          # 种子数据
-├── runtime/       # 运行时数据（gitignore，优先读取）
+├── web/           # 前端:路由(routes/)、组件(components/)、样式与文案(lib/)
+├── api/           # HTTP API handler(/api/whois、/api/stats 等)
+├── lib/           # 共享业务逻辑(RDAP/WHOIS、数据索引、回退链)
+├── data/          # 种子数据(RDAP 映射、TLD 清单等)
+├── runtime/       # 运行时数据(gitignore,优先读取)
+├── public/        # 静态资源(logo、favicon、robots.txt)
 ├── scripts/       # 数据刷新与运维脚本
 └── deploy/        # 部署脚本
 ```

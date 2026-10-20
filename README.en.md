@@ -32,12 +32,11 @@ Web UI + JSON API · Domain · TLD · IP · ASN
 
 <br /><br />
 
-<img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=react&logoColor=white" alt="TanStack Start" />
-<img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React 19" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+<img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React 19" />
+<img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=react&logoColor=white" alt="TanStack Start" />
 <img src="https://img.shields.io/badge/Nitro-00DC82?style=for-the-badge" alt="Nitro" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-<img src="https://img.shields.io/badge/Base_UI-111827?style=for-the-badge" alt="Base UI" />
 
 <br />
 
@@ -53,12 +52,15 @@ Web UI + JSON API · Domain · TLD · IP · ASN
 
 ## Features
 
-- RDAP lookup for domains, TLDs, IPs, and ASN
-- WHOIS port43 fallback when RDAP is unavailable
-- Local data index with scheduled refresh
-- Optional Redis caching
+- **RDAP-first lookup** for domains, TLD suffixes, IPv4/IPv6, and ASNs, with structured JSON output
+- **Multi-layer fallback**: WHOIS port43 (hostname probing + IANA referral chasing) when RDAP is unavailable, then third-party HTTP WHOIS APIs
+- **1,380+ suffix coverage**: nearly the entire IANA root zone, including 40+ suffixes served via WHOIS fallback and 20+ web-only registries (registry metadata)
+- **Three UI themes**: light / dark / terminal (monospace, phosphor green, command echo) — one-click switch, persisted locally
+- Squircle corners via `corner-shape: squircle` with automatic fallback in unsupported browsers
+- Bilingual UI and docs (中文 / English)
+- Local data index synced with IANA daily; optional Redis caching
 
-## Quick Start
+## Quick start
 
 ```bash
 git clone https://github.com/gentpan/whoga.git
@@ -78,32 +80,33 @@ pnpm build && pnpm start
 ## API
 
 ```bash
-curl "http://localhost:3410/api/whois?query=google.com"
-curl "http://localhost:3410/api/whois?query=8.8.8.8"
-curl "http://localhost:3410/api/whois?query=AS15169"
+curl "http://localhost:3410/api/whois?domain=google.com"
+curl "http://localhost:3410/api/whois?domain=8.8.8.8"
+curl "http://localhost:3410/api/whois?domain=AS15169"
 ```
 
-Live demo: <a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
+The hosted API also accepts path-style calls: <a href="https://api.who.ga/google.com" style="text-decoration:none;color:#16a34a;font-weight:600;">api.who.ga/google.com</a>
 
-## Tech stack
+## Stack
 
-**In short: a single-repo Node full-stack app** — web UI and JSON API run in one process, one build, one deploy.
+**The backend is not Go — there is no separate backend at all.** This is a single-repository TypeScript full-stack app: the web UI and the JSON API run in the same Node.js process, with one build and one deploy.
 
-| Part | What we use |
-|------|-------------|
+| Layer | Details |
+|-------|---------|
+| **Language** | TypeScript end to end |
 | **Runtime** | Node.js 20+ · pnpm |
-| **Frontend** | React 19 · TypeScript · Vite |
-| **Routing** | TanStack Router / Start |
-| **UI** | [Base UI](https://base-ui.com) (menus, tooltips, etc.; styled with project CSS) |
-| **Styling** | Plain CSS · Sora font · Lucide icons |
-| **API** | `api/` in the same repo, served by the same process |
+| **Framework** | TanStack Start (SSR) + Nitro (server) |
+| **Frontend** | React 19 · Vite · TanStack Router (file-based routes) |
+| **UI primitives** | [Base UI](https://base-ui.com) (menus, tooltips; styled by project CSS) |
+| **Styling** | Plain CSS variables + theme system · Sora · Lucide icons |
+| **API** | Nitro handlers in `api/`, same process as the pages |
 | **Cache** | Redis (optional) |
 
-Under the hood: Nitro for the server layer, TanStack Start for full-stack wiring. Day to day you only need:
+Day to day:
 
 ```bash
-pnpm install    # install deps
-pnpm dev        # development
+pnpm install    # install
+pnpm dev        # develop (localhost:3410)
 pnpm build && pnpm start   # production
 ```
 
@@ -115,37 +118,46 @@ cp .env.example .env
 
 | Variable | Description |
 |----------|-------------|
-| `CRON_SECRET` | Bearer token for refresh endpoint (recommended in production) |
-| `REDIS_URL` | Redis cache connection |
-| `WHOIS_CACHE_TTL_SECONDS` | Cache TTL in seconds, default `900` |
+| `CRON_SECRET` | Secret for the refresh endpoint (recommended in production) |
+| `REDIS_URL` | Redis cache |
+| `WHOIS_CACHE_TTL_SECONDS` | Cache TTL, default 900 |
 
-## Data Refresh
+## Data updates
 
-With the server running:
+With the server running, refresh the local index manually:
 
 ```bash
 pnpm refresh:data
 ```
 
-Or `curl -X POST http://localhost:3410/api/admin/refresh`
+or `curl -X POST http://localhost:3410/api/admin/refresh`
 
-Data paths: `data/` (seed) → `runtime/data/` (runtime, preferred)
+Data directories: `data/` (seed) → `runtime/data/` (runtime, takes precedence)
+
+Useful data scripts:
+
+```bash
+pnpm sync:rdap-extra        # regenerate supplementary RDAP mappings
+pnpm scan:whois-hosts       # probe WHOIS hosts for suffixes without RDAP
+pnpm test:rdap-all          # live-test every suffix's RDAP endpoint
+pnpm check:tlds-queryability # print the suffix coverage report
+```
 
 ## Project layout
 
 ```
 whoga/
-├── web/           # Pages and UI components
-├── api/           # HTTP API (/api/whois, /api/stats, etc.)
-├── public/        # Static assets (logo, favicons, robots.txt)
-├── lib/           # Shared logic (RDAP/WHOIS, data index)
-├── data/          # Seed data
-├── runtime/       # Runtime data (gitignore, preferred at runtime)
-├── scripts/       # Data refresh and ops scripts
-└── deploy/        # Deployment scripts
+├── web/           # frontend: routes/, components/, styles & copy in lib/
+├── api/           # HTTP API handlers (/api/whois, /api/stats, ...)
+├── lib/           # shared logic (RDAP/WHOIS, data index, fallback chain)
+├── data/          # seed data (RDAP mappings, TLD lists, ...)
+├── runtime/       # runtime data (gitignored, takes precedence)
+├── public/        # static assets (logo, favicon, robots.txt)
+├── scripts/       # data refresh & ops scripts
+└── deploy/        # deployment scripts
 ```
 
-## Deploy
+## Deployment
 
 ```bash
 ./deploy/deploy-caddy.sh ~/.ssh/your-key.pem
